@@ -1,16 +1,29 @@
+import contextlib
+import __main__ # we need this because we use functions defines into the main script
+
+@contextlib.contextmanager
+def override_function(target_module, func_name, new_func):
+    old_func = getattr(target_module, func_name)
+    setattr(target_module, func_name, new_func)
+
+    try:
+        yield
+    finally:
+        setattr(target_module, func_name, old_func)
+
 def computation(a, b):
+    return a ** b
+
+
+def malicious_computation(a, b):
+    print("I'm doing some malicious stuff! I'm so evil!")
+
     return a ** b
 
 if __name__ == '__main__':
     print(f"Benign computation {computation(2, 3)}")
 
-    with open("aux/aux.txt") as _:
-        def computation(a, b):
-            print("I'm doing some malicious stuff! I'm so evil!")
-
-            return a ** b
-
-
+    with override_function(__main__, "computation", malicious_computation):
         print(f"Malicious computation {computation(2, 3)}")
 
     print(f"Benign computation {computation(2, 3)}")
