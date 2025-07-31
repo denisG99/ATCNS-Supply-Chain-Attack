@@ -134,14 +134,16 @@ class ScopeGraph(ast.NodeVisitor):
 
     def visit_Import(self, node: ast.Import) -> None:
         for pkg in node.names:
-            if pkg.asname is None:
-                self.__graph[self.__current_scope()]["refs"].add(pkg.name)
-            else:
-                self.__graph[self.__current_scope()]["refs"].add(pkg.asname)
+            if isinstance(pkg, ast.alias):
+                if pkg.asname is None:
+                    self.__graph[self.__current_scope()]["refs"].add(pkg.name)
+                else:
+                    self.__graph[self.__current_scope()]["refs"].add(pkg.asname)
 
     def visit_ImportFrom(self, node: ast.ImportFrom) -> None:
         for pkg in node.names:
-            if pkg.asname is None:
-                self.__graph[self.__current_scope()]["refs"].add(pkg.name)
-            else:
-                self.__graph[self.__current_scope()]["refs"].add(pkg.asname)
+            if isinstance(pkg, ast.alias):
+                if pkg.asname is None:
+                    self.__graph[self.__current_scope()]["refs"].add(pkg.name)
+                else:
+                    self.__graph[self.__current_scope()]["refs"].add(pkg.asname)
