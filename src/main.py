@@ -10,11 +10,6 @@ def f(y):
     def g():
         print(y)
  """
-    code = """
-import ast as ast, base64 as b64
-
-from functools import reduce
-"""
 
     tree = ast.parse(code)
 
