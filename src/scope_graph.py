@@ -37,7 +37,7 @@ class ScopeGraph(ast.NodeVisitor):
         """
         return self.__scope_stack[-1]
 
-    def parent_scope(self) -> str | None:
+    def __get_parent_scope(self) -> str | None:
         return self.__scope_stack[-2] if len(self.__scope_stack) > 1 else None
 
     def visit_FunctionDef(self, node:ast.FunctionDef) -> None:
@@ -50,7 +50,7 @@ class ScopeGraph(ast.NodeVisitor):
 
         self.__scope_stack.append(sid)
 
-        if (parent := self.parent_scope())is not None:
+        if (parent := self.__get_parent_scope())is not None:
             self.__graph[self.__current_scope()]["parent"] = parent
 
         for arg in node.args.args:
@@ -67,7 +67,7 @@ class ScopeGraph(ast.NodeVisitor):
 
         self.__scope_stack.append(sid)
 
-        if (parent := self.parent_scope())is not None:
+        if (parent := self.__get_parent_scope())is not None:
             self.__graph[sid]["parent"] = parent
 
         for arg in node.args.args:
@@ -84,7 +84,7 @@ class ScopeGraph(ast.NodeVisitor):
 
         self.__scope_stack.append(sid)
 
-        if (parent := self.parent_scope())is not None:
+        if (parent := self.__get_parent_scope())is not None:
             self.__graph[self.__current_scope()]["parent"] = parent
 
         self.generic_visit(node)
@@ -98,7 +98,7 @@ class ScopeGraph(ast.NodeVisitor):
 
         self.__scope_stack.append(sid)
 
-        if (parent := self.parent_scope())is not None:
+        if (parent := self.__get_parent_scope())is not None:
             self.__graph[sid]["parent"] = parent
 
         self.generic_visit(node)
@@ -112,7 +112,7 @@ class ScopeGraph(ast.NodeVisitor):
 
         self.__scope_stack.append(sid)
 
-        if (parent := self.parent_scope())is not None:
+        if (parent := self.__get_parent_scope())is not None:
             self.__graph[self.__current_scope()]["parent"] = parent
 
         if node.name is not None:
@@ -131,7 +131,7 @@ class ScopeGraph(ast.NodeVisitor):
 
         self.__scope_stack.append(sid)
 
-        if (parent := self.parent_scope())is not None:
+        if (parent := self.__get_parent_scope())is not None:
             self.__graph[self.__current_scope()]["parent"] = parent
 
         for arg in node.args.args:
