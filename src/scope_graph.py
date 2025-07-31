@@ -2,6 +2,10 @@ import ast
 
 class ScopeGraph(ast.NodeVisitor):
     """
+    The class goal is to build a scope graph from the Abstract Syntax Tree (AST). To do so we use a NodeVisitor to visit
+    the AST defining a specific visitor for each node type we want to take into account to build the correspondent
+    ScopeGraph: local scope, declaration, references(including even the import statements) [see below]
+
     The following classes generate local scope:
         * FunctionDef;
         * Lambda;
@@ -22,9 +26,15 @@ class ScopeGraph(ast.NodeVisitor):
         self.__next_id: int = 1
 
     def get_graph(self) -> dict:
+        """
+        :return: data structure containing the representation of the scope graph
+        """
         return self.__graph
 
     def __current_scope(self) -> str:
+        """
+        :return: current scope name
+        """
         return self.__scope_stack[-1]
 
     #def parent_scope(self) -> str:
@@ -58,13 +68,10 @@ class ScopeGraph(ast.NodeVisitor):
 
         self.__graph[self.__current_scope()]["children"].append(sid)
 
-        #self.__scope_stack.append(sid)
-
         for arg in node.args.args:
             self.__graph[sid]["decls"].add(arg.arg)
 
         self.generic_visit(node)
-        #self.__scope_stack.pop()
 
     def visit_ClassDef(self, node: ast.ClassDef) -> None:
         sid = f"s{self.__next_id}_class_{node.name}"
