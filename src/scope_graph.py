@@ -1,4 +1,5 @@
 import ast
+import graphviz # package that allow to draw a graph using a DOT notation
 
 class ScopeGraph(ast.NodeVisitor):
     """
@@ -165,3 +166,49 @@ class ScopeGraph(ast.NodeVisitor):
                     self.__graph[self.__current_scope()]["refs"].add(pkg.name)
                 else:
                     self.__graph[self.__current_scope()]["refs"].add(pkg.asname)
+
+    def draw(self, name: str) -> None:
+        graph = graphviz.Digraph()
+        scopes = self.__graph.keys()
+
+        # adding nodes to the braph
+        for scope in scopes:
+            graph.node(scope)
+
+        # add parent edges
+        for scope in scopes:
+            parent = self.__graph[scope]["parent"]
+
+            if parent is not None:
+                graph.edge(scope, parent)
+
+        # adding declaration edges
+        for scope in scopes:
+            decls = self.__graph[scope]["decls"]
+
+            for decl in decls:
+                graph.node(decl, shape="box")
+                graph.edge(decl, scope)
+
+        # adding reference edges
+        for scope in scopes:
+            refs = self.__graph[scope]["refs"]
+
+            for ref in refs:
+                graph.node(ref, shape="box")
+                graph.edge(scope, ref)
+
+        graph.render(f"scope-graphs/{name}.gv").replace('\\', '/')
+
+if __name__ == "__main__":
+    with open("./test/example.py", 'r') as f:
+        code = f.read()
+
+        # creating AST
+    tree = ast.parse(code)
+
+    # building scope graph
+    builder = ScopeGraph()
+    builder.visit(tree)
+
+    builder.draw("prova")
