@@ -1,21 +1,29 @@
-import ast
+import os
+import pathlib
+import shutil
 
-from src.scope_graph import ScopeGraph
+import git
+import pandas as pd
 
 if __name__ == "__main__":
-    code = """
-x = 1
-def f(y):
-    z = 2
-    def g():
-        print(y)
- """
+    pkgs_path = "../top_100_python_packages.csv"
+    temp_dir_path = "./tmp"
 
-    tree = ast.parse(code)
+    df_pkgs = pd.read_csv(pkgs_path, index_col=0)
 
-    # building scope Graph
-    builder = ScopeGraph()
-    builder.visit(tree)
-    from pprint import pprint
+    for pkg_name, link in zip(df_pkgs["Package"], df_pkgs["GitHub Link"]):
+        print(f"Downloading {pkg_name}...")
 
-    pprint(builder.get_graph())
+        git.Repo.clone_from(link, temp_dir_path)
+        print("Download complete.")
+
+        print(f"Analyzing {pkg_name}...")
+        for py_file in pathlib.Path(temp_dir_path).glob("**/*.py"): # takes only python files in all possible directories
+            #TODO: source code analysis to find shadowing occurrences
+            ...
+        print(f"Analysis complete")
+
+        # removing temp directory, even if isn't empty
+        shutil.rmtree(temp_dir_path, ignore_errors=True)
+
+        print("\n", end="")
