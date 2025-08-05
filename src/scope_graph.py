@@ -3,9 +3,9 @@ import graphviz # package that allow to draw a graph using a DOT notation
 
 class ScopeGraph(ast.NodeVisitor):
     """
-    The class goal is to build a scope graph from the Abstract Syntax Tree (AST). To do so we use a NodeVisitor to visit
+    The class goal is to build a scope graph from the Abstract Syntax Tree (AST). To do so, we use a NodeVisitor to visit
     the AST defining a specific visitor for each node type we want to take into account to build the correspondent
-    ScopeGraph: local scope, declaration, references(including even the import statements) [see below]
+    ScopeGraph: local scope, declaration, references (including even the import statements) [see below]
 
     The following classes generate local scope:
         * FunctionDef;
@@ -168,6 +168,13 @@ class ScopeGraph(ast.NodeVisitor):
                     self.__graph[self.__current_scope()]["refs"].add(pkg.asname)
 
     def draw(self, name: str) -> None:
+        """
+        Draw the scope graph using the DOT notation.
+        The function saves graph in 'gv' and 'pdf' format in a folder called 'scope-graphs'.
+
+        :param name:  name of the file to which save the graph
+        """
+
         graph = graphviz.Digraph()
         scopes = self.__graph.keys()
 
