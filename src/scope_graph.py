@@ -1,5 +1,6 @@
 import ast
-import graphviz # package that allow to draw a graph using a DOT notation
+import graphviz # package that allows to draw a graph using a DOT notation
+
 
 class ScopeGraph(ast.NodeVisitor):
     """
@@ -40,6 +41,21 @@ class ScopeGraph(ast.NodeVisitor):
 
     def __get_parent_scope(self) -> str | None:
         return self.__scope_stack[-2] if len(self.__scope_stack) > 1 else None
+
+    def get_declaration_scopes(self, decl_name: str) -> list[str]:
+        """
+        Get the list of scopes in which the declaration occurred
+
+        :param decl_name: declaration name to search
+        :return: list of scopes
+        """
+        scopes = []
+
+        for scope in self.__graph.keys():
+            if decl_name in self.__graph[scope]["decls"]:
+                scopes.append(scope)
+
+        return scopes
 
     def visit_FunctionDef(self, node:ast.FunctionDef) -> None:
         sid = f"s{self.__next_id}_func_{node.name}"
