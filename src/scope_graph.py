@@ -171,7 +171,7 @@ class ScopeGraph(ast.NodeVisitor):
         graph = graphviz.Digraph()
         scopes = self.__graph.keys()
 
-        # adding nodes to the braph
+        # adding nodes to the graph
         for scope in scopes:
             graph.node(scope)
 
@@ -185,18 +185,20 @@ class ScopeGraph(ast.NodeVisitor):
         # adding declaration edges
         for scope in scopes:
             decls = self.__graph[scope]["decls"]
+            scope_prefix = scope.split("_")[0]
 
             for decl in decls:
-                graph.node(decl, shape="box")
-                graph.edge(decl, scope)
+                graph.node(f"{scope_prefix}_decl_{decl}", shape="box")
+                graph.edge(f"{scope_prefix}_decl_{decl}", scope)
 
         # adding reference edges
         for scope in scopes:
             refs = self.__graph[scope]["refs"]
+            scope_prefix = scope.split("_")[0]
 
             for ref in refs:
-                graph.node(ref, shape="box")
-                graph.edge(scope, ref)
+                graph.node(f"{scope_prefix}_ref_{ref}", shape="box")
+                graph.edge(scope, f"{scope_prefix}_ref_{ref}")
 
         graph.render(f"scope-graphs/{name}.gv").replace('\\', '/')
 
