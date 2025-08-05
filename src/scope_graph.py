@@ -172,7 +172,14 @@ class ScopeGraph(ast.NodeVisitor):
         Draw the scope graph using the DOT notation.
         The function saves graph in 'gv' and 'pdf' format in a folder called 'scope-graphs'.
 
-        :param name:  name of the file to which save the graph
+        LEGEND
+        --------------------------
+            * ELLIPSE: local scope
+            * BOX: variable
+            * BOX -> ELLIPSE: declaration
+            * ELLIPSE -> BOX: reference
+
+        :param name: file's name to which saves the graph
         """
 
         graph = graphviz.Digraph()
@@ -208,16 +215,3 @@ class ScopeGraph(ast.NodeVisitor):
                 graph.edge(scope, f"{scope_prefix}_ref_{ref}")
 
         graph.render(f"scope-graphs/{name}.gv").replace('\\', '/')
-
-if __name__ == "__main__":
-    with open("./test/example.py", 'r') as f:
-        code = f.read()
-
-        # creating AST
-    tree = ast.parse(code)
-
-    # building scope graph
-    builder = ScopeGraph()
-    builder.visit(tree)
-
-    builder.draw("prova")
