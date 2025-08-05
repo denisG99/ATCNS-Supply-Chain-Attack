@@ -1,5 +1,5 @@
 """
-This code has only a test purpose, so it isn't write to be executed
+This code has only a test purpose, so it doesn't write to be executed
 """
 import sys, ast
 
