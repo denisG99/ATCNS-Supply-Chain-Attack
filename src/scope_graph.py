@@ -24,7 +24,7 @@ class ScopeGraph(ast.NodeVisitor):
 
     def __init__(self) -> None:
         self.__scope_stack: list[str] = ["s0__main__"] # global scope
-        self.__graph: dict = {"s0__main__": {"decls": set(), "refs": set(), "parent": None}}
+        self.__graph: dict = {"s0__main__": {"decls": set(), "refs": set(), "parent": None, "have-children": False}}
         self.__next_id: int = 1
 
     def get_graph(self) -> dict:
@@ -57,13 +57,21 @@ class ScopeGraph(ast.NodeVisitor):
 
         return scopes
 
+    def get_leaf_scopes(self) -> list:
+        """
+        Get a list of scopes that have no children
+        :return: list of scopes with no children
+        """
+        return list([scope for scope in self.__graph.keys() if not self.__graph[scope]["have-children"]])
+
     def visit_FunctionDef(self, node:ast.FunctionDef) -> None:
         sid = f"s{self.__next_id}_func_{node.name}"
 
         self.__next_id += 1
-        self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None}
+        self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None, "have-children": False}
 
         self.__graph[self.__current_scope()]["decls"].add(node.name)
+        self.__graph[self.__current_scope()]["have-children"] = True
 
         self.__scope_stack.append(sid)
 
@@ -80,7 +88,8 @@ class ScopeGraph(ast.NodeVisitor):
         sid = f"s{self.__next_id}_lambda"
 
         self.__next_id += 1
-        self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None}
+        self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None, "have-children": False}
+        self.__graph[self.__current_scope()]["have-children"] = True
 
         self.__scope_stack.append(sid)
 
@@ -97,7 +106,8 @@ class ScopeGraph(ast.NodeVisitor):
         sid = f"s{self.__next_id}_class_{node.name}"
 
         self.__next_id += 1
-        self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None}
+        self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None, "have-children": False}
+        self.__graph[self.__current_scope()]["have-children"] = True
 
         self.__scope_stack.append(sid)
 
@@ -111,7 +121,8 @@ class ScopeGraph(ast.NodeVisitor):
         sid = f"s{self.__next_id}_lstComp"
 
         self.__next_id += 1
-        self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None}
+        self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None, "have-children": False}
+        self.__graph[self.__current_scope()]["have-children"] = True
 
         self.__scope_stack.append(sid)
 
@@ -125,7 +136,8 @@ class ScopeGraph(ast.NodeVisitor):
         sid = f"s{self.__next_id}_excHandler"
 
         self.__next_id += 1
-        self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None}
+        self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None, "have-children": False}
+        self.__graph[self.__current_scope()]["have-children"] = True
 
         self.__scope_stack.append(sid)
 
@@ -142,9 +154,10 @@ class ScopeGraph(ast.NodeVisitor):
         sid = f"s{self.__next_id}_asyncFunc_{node.name}"
 
         self.__next_id += 1
-        self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None}
+        self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None, "have-children": False}
 
         self.__graph[self.__current_scope()]["decls"].add(node.name)
+        self.__graph[self.__current_scope()]["have-children"] = True
 
         self.__scope_stack.append(sid)
 
@@ -194,6 +207,7 @@ class ScopeGraph(ast.NodeVisitor):
             * BOX: variable
             * BOX -> ELLIPSE: declaration
             * ELLIPSE -> BOX: reference
+            * ELLIPSE -> ELLIPSE: parent
 
         :param name: file's name to which saves the graph
         """
