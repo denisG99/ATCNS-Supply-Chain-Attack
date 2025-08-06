@@ -97,7 +97,7 @@ class Detector:
             combinations = list(itertools.combinations(decls, 2))
 
             for comb in combinations:
-                if len(intersections := comb[0] & comb[1]) > 0:
+                if len(intersections := comb[0] & comb[1]) > 0: # & operator perform the intersection between sets
                     print(f"Shadowing detected: {list(intersections)}")
 
                     duplication.append(*intersections)
