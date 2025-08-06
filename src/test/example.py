@@ -22,4 +22,5 @@ if __name__ == '__main__':
         print("Errore:", e)
 
     async def async_function():  # AsyncFunctionDef
-        pass
+        def regular_function(a, b):
+            pass
