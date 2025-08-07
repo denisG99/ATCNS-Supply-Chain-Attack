@@ -70,7 +70,7 @@ class ScopeGraph(ast.NodeVisitor):
         self.__next_id += 1
         self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None, "have-children": False}
 
-        self.__graph[self.__current_scope()]["decls"].add(node.name)
+        self.__graph[self.__current_scope()]["decls"].add(f"func_{node.name}")
         self.__graph[self.__current_scope()]["have-children"] = True
 
         self.__scope_stack.append(sid)
@@ -79,7 +79,7 @@ class ScopeGraph(ast.NodeVisitor):
             self.__graph[self.__current_scope()]["parent"] = parent
 
         for arg in node.args.args:
-            self.__graph[sid]["decls"].add(arg.arg)
+            self.__graph[sid]["decls"].add(f"var_{arg.arg}")
 
         self.generic_visit(node)
         self.__scope_stack.pop()
@@ -97,7 +97,7 @@ class ScopeGraph(ast.NodeVisitor):
             self.__graph[sid]["parent"] = parent
 
         for arg in node.args.args:
-            self.__graph[sid]["decls"].add(arg.arg)
+            self.__graph[sid]["decls"].add(f"var_{arg.arg}")
 
         self.generic_visit(node)
         self.__scope_stack.pop()
@@ -107,7 +107,9 @@ class ScopeGraph(ast.NodeVisitor):
 
         self.__next_id += 1
         self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None, "have-children": False}
+
         self.__graph[self.__current_scope()]["have-children"] = True
+        self.__graph[self.__current_scope()]["decls"].add(f"class_{node.name}")
 
         self.__scope_stack.append(sid)
 
@@ -145,7 +147,7 @@ class ScopeGraph(ast.NodeVisitor):
             self.__graph[self.__current_scope()]["parent"] = parent
 
         if node.name is not None:
-            self.__graph[sid]["decls"].add(node.name)
+            self.__graph[sid]["decls"].add(f"exp_{node.name}")
 
         self.generic_visit(node)
         self.__scope_stack.pop()
@@ -156,7 +158,7 @@ class ScopeGraph(ast.NodeVisitor):
         self.__next_id += 1
         self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None, "have-children": False}
 
-        self.__graph[self.__current_scope()]["decls"].add(node.name)
+        self.__graph[self.__current_scope()]["decls"].add(f"afunc_{node.name}")
         self.__graph[self.__current_scope()]["have-children"] = True
 
         self.__scope_stack.append(sid)
@@ -165,7 +167,7 @@ class ScopeGraph(ast.NodeVisitor):
             self.__graph[self.__current_scope()]["parent"] = parent
 
         for arg in node.args.args:
-            self.__graph[sid]["decls"].add(arg.arg)
+            self.__graph[sid]["decls"].add(f"var_{arg.arg}")
 
         self.generic_visit(node)
         self.__scope_stack.pop()
@@ -173,28 +175,28 @@ class ScopeGraph(ast.NodeVisitor):
     def visit_Assign(self, node: ast.Assign) -> None:
         for t in node.targets:
             if isinstance(t, ast.Name):
-                self.__graph[self.__current_scope()]["decls"].add(t.id)
+                self.__graph[self.__current_scope()]["decls"].add(f"var_{t.id}")
         self.generic_visit(node)
 
     def visit_Name(self, node: ast.Name) -> None:
         if isinstance(node.ctx, ast.Load):
-            self.__graph[self.__current_scope()]["refs"].add(node.id)
+            self.__graph[self.__current_scope()]["refs"].add(f"var_{node.id}")
 
     def visit_Import(self, node: ast.Import) -> None:
         for pkg in node.names:
             if isinstance(pkg, ast.alias):
                 if pkg.asname is None:
-                    self.__graph[self.__current_scope()]["refs"].add(pkg.name)
+                    self.__graph[self.__current_scope()]["refs"].add(f"import_{pkg.name}")
                 else:
-                    self.__graph[self.__current_scope()]["refs"].add(pkg.asname)
+                    self.__graph[self.__current_scope()]["refs"].add(f"import_{pkg.asname}")
 
     def visit_ImportFrom(self, node: ast.ImportFrom) -> None:
         for pkg in node.names:
             if isinstance(pkg, ast.alias):
                 if pkg.asname is None:
-                    self.__graph[self.__current_scope()]["refs"].add(pkg.name)
+                    self.__graph[self.__current_scope()]["refs"].add(f"import_{pkg.name}")
                 else:
-                    self.__graph[self.__current_scope()]["refs"].add(pkg.asname)
+                    self.__graph[self.__current_scope()]["refs"].add(f"import_{pkg.asname}")
 
     def draw(self, name: str) -> None:
         """
