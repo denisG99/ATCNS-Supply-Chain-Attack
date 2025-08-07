@@ -1,8 +1,6 @@
 import itertools
-
 import ast
-
-from pandas.core.computation.expr import intersection
+import re
 
 from scope_graph import ScopeGraph
 
@@ -82,6 +80,8 @@ class Detector:
             * start from a scope with any child, we called 'leaf'
             * check if during the walk up in the scope graph, check if the scope has a declaration of the same name.
             Working with sets, it is enough to check if there is some intersection between the scope's declaration and the scopes' declaration.
+
+        :return: list of shadowed elements
         """
         leafs_scopes = self.__builder.get_leaf_scopes()
         duplication = []
@@ -103,6 +103,22 @@ class Detector:
                     duplication.append(*intersections)
 
         return duplication
+
+    def local_import_detection(self) -> list[str]:
+        """
+        This detector aims to detect the presence of local imports. To do so, we check if a scope has references to
+        import statements assigned a prefix "import_" to the element added to the scope graph.
+
+        :return: list of scopes with local imports
+        """
+        scope_with_local_imports = []
+        import_regex = re.compile("^import_")
+
+        for scope in self.__builder.get_graph().keys():
+            if not scope == "s0__main__" and len([import_regex.match(ref).group() for ref in self.__builder.get_graph()[scope]["refs"]]) > 0:
+                scope_with_local_imports.append(scope)
+
+        return scope_with_local_imports
 
 if __name__ == "__main__":
     detector = Detector("./test/example.py", "test")
