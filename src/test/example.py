@@ -13,6 +13,8 @@ if __name__ == '__main__':
 
     class MyClass:  # ClassDef
         def method(self):
+            import itertools
+
             data = [i for i in range(10) if i % 2 == 0]  # ListComp
             return data
 
