@@ -115,7 +115,9 @@ class Detector:
         import_regex = re.compile("^import_")
 
         for scope in self.__builder.get_graph().keys():
-            if not scope == "s0__main__" and len([import_regex.match(ref).group() for ref in self.__builder.get_graph()[scope]["refs"]]) > 0:
+            matches = [import_regex.match(ref) for ref in self.__builder.get_graph()[scope]["refs"]]
+
+            if not scope == "s0__main__" and len(matches) > 0 and not all(match is None for match in matches):
                 scope_with_local_imports.append(scope)
 
         return scope_with_local_imports
@@ -124,3 +126,4 @@ if __name__ == "__main__":
     detector = Detector("./test/example.py", "test")
 
     print(detector.shadowing_detection())
+    print(detector.local_import_detection())
