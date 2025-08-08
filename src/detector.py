@@ -133,7 +133,7 @@ class Detector:
         return scope_with_local_imports
 
     def __check_inner_functions(self, scopes_chain: list) -> list|None:
-        regex_func = re.compile("^s\\d+_(func_|afunc_)")
+        regex_func = re.compile("^s\\d+_(func|afunc)_.*")
         re_matches = [regex_func.match(scope) for scope in scopes_chain ]
 
         return re_matches if not all(re_match is None for re_match in re_matches) else None
