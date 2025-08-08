@@ -89,14 +89,24 @@ class Detector:
         for leaf in leafs_scopes:
             scope = leaf
             decls = []
+            refs = []
 
             while scope is not None:
                 decls.append(self.__builder.get_graph()[scope]["decls"])
+                refs.append(self.__builder.get_graph()[scope]["refs"])
+
                 scope = self.__builder.get_graph()[scope]["parent"]
 
-            combinations = list(itertools.combinations(decls, 2))
+            decls_combinations = list(itertools.combinations(decls, 2))
+            refs_combinations = list(itertools.combinations(refs, 2))
 
-            for comb in combinations:
+            for comb in decls_combinations:
+                if len(intersections := comb[0] & comb[1]) > 0: # & operator performs the intersection between sets
+                    print(f"Shadowing detected: {list(intersections)}")
+
+                    duplication.append(*intersections)
+
+            for comb in refs_combinations:
                 if len(intersections := comb[0] & comb[1]) > 0: # & operator performs the intersection between sets
                     print(f"Shadowing detected: {list(intersections)}")
 
