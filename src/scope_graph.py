@@ -153,7 +153,7 @@ class ScopeGraph(ast.NodeVisitor):
         self.__scope_stack.pop()
 
     def visit_AsyncFunctionDef(self, node: ast.AsyncFunctionDef) -> None:
-        sid = f"s{self.__next_id}_asyncFunc_{node.name}"
+        sid = f"s{self.__next_id}_afunc_{node.name}"
 
         self.__next_id += 1
         self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None, "have-children": False}
