@@ -1,9 +1,11 @@
-import os
 import pathlib
 import shutil
+import json
 
 import git
 import pandas as pd
+
+from detector import Detector
 
 if __name__ == "__main__":
     pkgs_path = "../top_100_python_packages.csv"
@@ -11,7 +13,15 @@ if __name__ == "__main__":
 
     df_pkgs = pd.read_csv(pkgs_path, index_col=0)
 
+    statistics = {} # dictionary to store the gathered statistics for each package under analysis in the top 100
+    local_import = []
+    inner_function = []
+
     for pkg_name, link in zip(df_pkgs["Package"], df_pkgs["GitHub Link"]):
+        local_import = []
+        inner_function = []
+        total_scopes = 0
+
         print(f"Downloading {pkg_name}...")
 
         git.Repo.clone_from(link, temp_dir_path)
@@ -19,11 +29,20 @@ if __name__ == "__main__":
 
         print(f"Analyzing {pkg_name}...")
         for py_file in pathlib.Path(temp_dir_path).glob("**/*.py"): # takes only python files in all possible directories
-            #TODO: source code analysis to find shadowing occurrences
-            ...
+            detector = Detector(f"{py_file}", "test")
+
+            if detector.get_builder() is not None:
+                local_import = detector.local_import_detection()
+                inner_function, scopes_number = detector.inner_function_detection()
+
+                total_scopes += scopes_number
+
+        statistics[pkg_name] = {"local_import": local_import, "inner_function": inner_function, "number_of_scopes": total_scopes}
         print(f"Analysis complete")
 
         # removing temp directory, even if isn't empty
         shutil.rmtree(temp_dir_path, ignore_errors=True)
 
         print("\n", end="")
+
+    json.dump(statistics, open("statistics.json", "w"), indent=4)
