@@ -1,6 +1,7 @@
 import itertools
 import ast
 import re
+import tokenize
 
 from scope_graph import ScopeGraph
 
@@ -19,18 +20,32 @@ class Detector:
         :param code_path: path to the code on which we build the scope graph
         :param scope_graph_name: name of the scope graph to save. If the string is empty, we don't save the graph and ignore the argument.
         """
-        with open(code_path, 'r') as f:
-            code = f.read()
+        # Use tokenize.open to respect PEP 263 encoding declaration and handle non-UTF-8 files robustly.
+        try:
+            with tokenize.open(code_path) as f:
+                code = f.read()
+        except (SyntaxError, UnicodeDecodeError, LookupError):
+            # Fallback: attempt to read with UTF-8 and replace undecodable bytes.
+            # This keeps the pipeline running; files with severe encoding issues may still fail to parse.
+            with open(code_path, "r", encoding="utf-8", errors="replace") as f:
+                code = f.read()
 
         # creating AST
-        tree = ast.parse(code)
+        try:
+            tree = ast.parse(code)
 
-        # building scope graph
-        self.__builder = ScopeGraph()
-        self.__builder.visit(tree)
+            # building scope graph
+            self.__builder = ScopeGraph()
+            self.__builder.visit(tree)
 
-        if not scope_graph_name == "":
-            self.__builder.draw(scope_graph_name)
+            if not scope_graph_name == "":
+                self.__builder.draw(scope_graph_name)
+        except Exception as e:
+            print(f"Error parsing the code: {e}")
+            self.__builder = None
+
+    def get_builder(self) -> ScopeGraph:
+        return self.__builder
 
     def __is_local_scope(self, scope: str) -> bool:
         """
@@ -138,7 +153,7 @@ class Detector:
 
         return re_matches if not all(re_match is None for re_match in re_matches) else None
 
-    def inner_function_detection(self) -> list:
+    def inner_function_detection(self) -> tuple[list, int]:
         """
         This detector aims to detect the presence of inner functions. To do so, we check if there are two local scopes defined by functions.
         The best way is to do so by walking up to the global scope from the leaf scopes (scopes with no children).
@@ -153,7 +168,6 @@ class Detector:
             :param lst_matches: list containing matches
             :return: filtered list of matches
             """
-
             output = []
 
             for matches in lst_matches:
@@ -168,6 +182,7 @@ class Detector:
 
         leafs_scopes = self.__builder.get_leaf_scopes()
         inner_functions = []
+        total_scopes = 0 # contains the total number of scopes take into account
 
         for leaf in leafs_scopes:
             scope = leaf
@@ -180,7 +195,9 @@ class Detector:
             if len(scopes_branch) >= 2 and (matches := self.__check_inner_functions(scopes_branch)) is not None:
                 inner_functions.append(matches)
 
-        return match_filter(inner_functions)
+                total_scopes += len(scopes_branch)
+
+        return match_filter(inner_functions), total_scopes
 
 if __name__ == "__main__":
     detector = Detector("./test/example.py", "test")
