@@ -14,7 +14,7 @@ Rank,Package,PyPI Link,GitHub Link
 13,scipy,https://pypi.org/project/scipy/,https://github.com/scipy/scipy
 14,matplotlib,https://pypi.org/project/matplotlib/,https://github.com/matplotlib/matplotlib
 15,tqdm,https://pypi.org/project/tqdm/,https://github.com/tqdm/tqdm
-16,beautifulsoup4,https://pypi.org/project/beautifulsoup4/,https://github.com/akalongman/python-beautifulsoup
+16,beautifulsoup4,https://pypi.org/project/beautifulsoup4/,https://github.com/wention/BeautifulSoup4
 17,lxml,https://pypi.org/project/lxml/,https://github.com/lxml/lxml
 18,pytest,https://pypi.org/project/pytest/,https://github.com/pytest-dev/pytest
 19,pytest-cov,https://pypi.org/project/pytest-cov/,https://github.com/pytest-dev/pytest-cov
