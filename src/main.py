@@ -1,6 +1,7 @@
 import pathlib
 import shutil
 import json
+import os
 
 import git
 import pandas as pd
@@ -21,15 +22,16 @@ if __name__ == "__main__":
         local_import = []
         inner_function = []
         total_scopes = 0
+        download_path = os.path.join(temp_dir_path, pkg_name)
 
         print(f"Downloading {pkg_name}...")
 
-        git.Repo.clone_from(link, temp_dir_path)
+        git.Repo.clone_from(link, download_path)
         print("Download complete.")
 
         print(f"Analyzing {pkg_name}...")
-        for py_file in pathlib.Path(temp_dir_path).glob("**/*.py"): # takes only python files in all possible directories
-            detector = Detector(f"{py_file}", "test")
+        for py_file in pathlib.Path(download_path).glob("**/*.py"): # takes only python files in all possible directories
+            detector = Detector(f"{py_file}")
 
             if detector.get_builder() is not None:
                 local_import = detector.local_import_detection()
@@ -41,7 +43,7 @@ if __name__ == "__main__":
         print(f"Analysis complete")
 
         # removing temp directory, even if isn't empty
-        shutil.rmtree(temp_dir_path, ignore_errors=True)
+        shutil.rmtree(download_path, ignore_errors=True)
 
         print("\n", end="")
 
