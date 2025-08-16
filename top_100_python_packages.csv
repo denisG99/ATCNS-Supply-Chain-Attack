@@ -38,7 +38,7 @@ Rank,Package,PyPI Link,GitHub Link
 37,python-dateutil,https://pypi.org/project/python-dateutil/,https://github.com/dateutil/dateutil
 38,Pygments,https://pypi.org/project/Pygments/,https://github.com/pygments/pygments
 39,Sphinx,https://pypi.org/project/Sphinx/,https://github.com/sphinx-doc/sphinx
-40,docutils,https://pypi.org/project/docutils/,https://github.com/docutils-mirror/docutils
+40,docutils,https://pypi.org/project/docutils/,https://github.com/docutils/docutils
 41,boto3,https://pypi.org/project/boto3/,https://github.com/boto/boto3
 42,botocore,https://pypi.org/project/botocore/,https://github.com/boto/botocore
 43,s3transfer,https://pypi.org/project/s3transfer/,https://github.com/boto/s3transfer
