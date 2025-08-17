@@ -2,6 +2,7 @@ import pathlib
 import shutil
 import json
 import os
+from operator import index
 
 import git
 import pandas as pd
@@ -9,24 +10,35 @@ import pandas as pd
 from detector import Detector
 
 if __name__ == "__main__":
-    pkgs_path = "../top_100_python_packages.csv"
+    pkgs_path = "../top100_pkgs.json"
     temp_dir_path = "./tmp"
+    fields = ["id", "name", "repository_url"]
 
-    df_pkgs = pd.read_csv(pkgs_path, index_col=0)
+    assert not os.path.exists(pkgs_path), "Files containing packages doesn't exists!"
+
+    df_pkgs = pd.read_json(pkgs_path)
+    # keep only the fields we need
+    df_pkgs = df_pkgs[fields]
 
     statistics = {} # dictionary to store the gathered statistics for each package under analysis in the top 100
     local_import = []
     inner_function = []
 
-    for pkg_name, link in zip(df_pkgs["Package"], df_pkgs["GitHub Link"]):
+    for pkg_name, link in zip(df_pkgs["name"], df_pkgs["repository_url"]):
         local_import = []
         inner_function = []
         total_scopes = 0
         download_path = os.path.join(temp_dir_path, pkg_name)
 
-        print(f"Downloading {pkg_name}...")
+        if link is not None or not link == "":
+            print(f"Downloading {pkg_name} from GitHub...")
 
-        git.Repo.clone_from(link, download_path)
+            git.Repo.clone_from(link, download_path)
+        else:
+            print(f"Downloading {pkg_name} from pip...")
+
+            os.system(f"pip install -t {download_path} --no-deps {pkg_name}")
+
         print("Download complete.")
 
         print(f"Analyzing {pkg_name}...")
