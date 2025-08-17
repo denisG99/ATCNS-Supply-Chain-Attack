@@ -10,11 +10,12 @@ import pandas as pd
 from detector import Detector
 
 if __name__ == "__main__":
-    pkgs_path = "../top100_pkgs.json"
+    pkgs_path = "../top_pkgs.json"
     temp_dir_path = "./tmp"
     fields = ["id", "name", "repository_url"]
 
-    assert not os.path.exists(pkgs_path), "Files containing packages doesn't exists!"
+    if not os.path.exists(pkgs_path):
+        print("Files containing packages doesn't exists!")
 
     df_pkgs = pd.read_json(pkgs_path)
     # keep only the fields we need
@@ -30,16 +31,8 @@ if __name__ == "__main__":
         total_scopes = 0
         download_path = os.path.join(temp_dir_path, pkg_name)
 
-        if link is not None or not link == "":
-            print(f"Downloading {pkg_name} from GitHub...")
-
-            git.Repo.clone_from(link, download_path)
-        else:
-            print(f"Downloading {pkg_name} from pip...")
-
-            os.system(f"pip install -t {download_path} --no-deps {pkg_name}")
-
-        print("Download complete.")
+        # downloading package
+        os.system(f"pip install -t {download_path} --no-deps {pkg_name}")
 
         print(f"Analyzing {pkg_name}...")
         for py_file in pathlib.Path(download_path).glob("**/*.py"): # takes only python files in all possible directories
