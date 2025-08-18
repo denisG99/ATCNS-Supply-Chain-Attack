@@ -2,9 +2,7 @@ import pathlib
 import shutil
 import json
 import os
-from operator import index
 
-import git
 import pandas as pd
 
 from detector import Detector
