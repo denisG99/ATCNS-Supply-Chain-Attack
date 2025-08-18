@@ -1,0 +1,1087 @@
+{
+    "acme": {
+        "local_import": [
+            "s1_func__test_it"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 1031
+    },
+    "certbot-dns-cloudflare": {
+        "local_import": [
+            "s2_func_setUp",
+            "s10_func_setUp"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 71
+    },
+    "boto3": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 615
+    },
+    "urllib3": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 993
+    },
+    "setuptools": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 7876
+    },
+    "requests": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 458
+    },
+    "certifi": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0
+    },
+    "typing-extensions": {
+        "local_import": [
+            "s203_func___call__"
+        ],
+        "inner_function": [
+            [
+                "s96_func___annotate__",
+                "s95_func___new__"
+            ],
+            [
+                "s120_func__tvar_prepare_subst",
+                "s119_func___new__"
+            ],
+            [
+                "s135_func__paramspec_prepare_subst",
+                "s134_func___new__"
+            ],
+            [
+                "s185_func__typevartuple_prepare_subst",
+                "s184_func___new__"
+            ],
+            [
+                "s198_func_decorator",
+                "s197_func_dataclass_transform"
+            ],
+            [
+                "s204_func___new__",
+                "s203_func___call__"
+            ],
+            [
+                "s205_func___init_subclass__",
+                "s203_func___call__"
+            ],
+            [
+                "s206_func___init_subclass__",
+                "s203_func___call__"
+            ],
+            [
+                "s207_func_wrapper",
+                "s203_func___call__"
+            ],
+            [
+                "s237_func___init_subclass__",
+                "s235_func___mro_entries__"
+            ]
+        ],
+        "number_of_scopes": 314
+    },
+    "grpcio-status": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 2
+    },
+    "charset-normalizer": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 242
+    },
+    "idna": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 22
+    },
+    "packaging": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 362
+    },
+    "botocore": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 4170
+    },
+    "python-dateutil": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 670
+    },
+    "aiobotocore": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 698
+    },
+    "s3transfer": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1065
+    },
+    "six": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s80_func_write",
+                "s79_func_print_"
+            ],
+            [
+                "s87_func___new__",
+                "s85_func_with_metaclass"
+            ],
+            [
+                "s88_func___prepare__",
+                "s85_func_with_metaclass"
+            ],
+            [
+                "s90_func_wrapper",
+                "s89_func_add_metaclass"
+            ]
+        ],
+        "number_of_scopes": 71
+    },
+    "numpy": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 19686
+    },
+    "pyyaml": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 668
+    },
+    "s3fs": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 318
+    },
+    "cryptography": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1767
+    },
+    "fsspec": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 2466
+    },
+    "protobuf": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1437
+    },
+    "importlib-metadata": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s2_func_relative_to",
+                "s1_func_wrap"
+            ]
+        ],
+        "number_of_scopes": 295
+    },
+    "pydantic": {
+        "local_import": [
+            "s7_func_pydantic_encoder"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 3228
+    },
+    "cffi": {
+        "local_import": [
+            "s23_func__locate_engine_class"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 1325
+    },
+    "pandas": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 45280
+    },
+    "pycparser": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1350
+    },
+    "pip": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 8553
+    },
+    "attrs": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s3_func_include_",
+                "s2_func_include"
+            ],
+            [
+                "s5_func_exclude_",
+                "s4_func_exclude"
+            ]
+        ],
+        "number_of_scopes": 278
+    },
+    "google-api-core": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 781
+    },
+    "click": {
+        "local_import": [
+            "s32_func_callback"
+        ],
+        "inner_function": [
+            [
+                "s2_func_new_func",
+                "s1_func_pass_context"
+            ],
+            [
+                "s4_func_new_func",
+                "s3_func_pass_obj"
+            ],
+            [
+                "s7_func_new_func",
+                "s6_func_decorator",
+                "s5_func_make_pass_decorator"
+            ],
+            [
+                "s10_func_new_func",
+                "s9_func_decorator",
+                "s8_func_pass_meta_key"
+            ],
+            [
+                "s16_func_decorator",
+                "s15_func_command"
+            ],
+            [
+                "s25_func_decorator",
+                "s24_func_argument"
+            ],
+            [
+                "s27_func_decorator",
+                "s26_func_option"
+            ],
+            [
+                "s29_func_callback",
+                "s28_func_confirmation_option"
+            ],
+            [
+                "s32_func_callback",
+                "s31_func_version_option"
+            ],
+            [
+                "s35_func_show_help",
+                "s34_func_help_option"
+            ]
+        ],
+        "number_of_scopes": 923
+    },
+    "platformdirs": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 256
+    },
+    "rsa": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 123
+    },
+    "jmespath": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 323
+    },
+    "markupsafe": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 101
+    },
+    "jinja2": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1429
+    },
+    "pytz": {
+        "local_import": [
+            "s1_excHandler",
+            "s2_excHandler"
+        ],
+        "inner_function": [
+            [
+                "s13_func__lazy",
+                "s12_func_lazy",
+                "s10_func___new__"
+            ],
+            [
+                "s19_func__lazy",
+                "s18_func_lazy",
+                "s16_func___new__"
+            ]
+        ],
+        "number_of_scopes": 144
+    },
+    "pyasn1": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1421
+    },
+    "zipp": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 109
+    },
+    "pluggy": {
+        "local_import": [
+            "s29_func_load_setuptools_entrypoints"
+        ],
+        "inner_function": [
+            [
+                "s34_func_traced_hookexec",
+                "s33_func_add_hookcall_monitoring"
+            ],
+            [
+                "s36_func_undo",
+                "s33_func_add_hookcall_monitoring"
+            ],
+            [
+                "s38_func_before",
+                "s37_func_enable_tracing"
+            ],
+            [
+                "s39_func_after",
+                "s37_func_enable_tracing"
+            ]
+        ],
+        "number_of_scopes": 197
+    },
+    "pygments": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1782
+    },
+    "pydantic_core": {
+        "local_import": [
+            "s182_func___getattr__"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 44
+    },
+    "google-auth": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1244
+    },
+    "wheel": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 381
+    },
+    "h11": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 157
+    },
+    "virtualenv": {
+        "local_import": [
+            "s6_func__shorten_path_if_needed"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 1141
+    },
+    "colorama": {
+        "local_import": [
+            "s1_excHandler",
+            "s2_excHandler"
+        ],
+        "inner_function": [
+            [
+                "s37_func_p",
+                "s36_func_test_native_windows_ansi"
+            ]
+        ],
+        "number_of_scopes": 262
+    },
+    "cachetools": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s5_func_decorator",
+                "s4_func__cache"
+            ]
+        ],
+        "number_of_scopes": 312
+    },
+    "sniffio": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 8
+    },
+    "filelock": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 118
+    },
+    "anyio": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 2215
+    },
+    "grpcio-tools": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 22
+    },
+    "googleapis-common-protos": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 22
+    },
+    "pytest": {
+        "local_import": [
+            "s10_func__evaluate",
+            "s38_func_owner",
+            "s39_func_group",
+            "s43_func_getuserid",
+            "s44_func_getgroupid",
+            "s63_func_load",
+            "s88_func_remove",
+            "s89_func_computehash",
+            "s108_func_dump",
+            "s136_excHandler",
+            "s138_func_sysexec",
+            "s147_func_get_temproot",
+            "s148_func_mkdtemp",
+            "s169_func_copymode",
+            "s170_func_copystat"
+        ],
+        "inner_function": [
+            [
+                "s106_func_rec",
+                "s105_func_copy"
+            ],
+            [
+                "s150_func_parse_num",
+                "s149_func_make_numbered_dir"
+            ],
+            [
+                "s152_func_create_lockfile",
+                "s149_func_make_numbered_dir"
+            ],
+            [
+                "s154_func_try_remove_lockfile",
+                "s153_func_atexit_remove_lockfile",
+                "s149_func_make_numbered_dir"
+            ],
+            [
+                "s157_func_get_mtime",
+                "s149_func_make_numbered_dir"
+            ],
+            [
+                "s159_func_is_garbage",
+                "s149_func_make_numbered_dir"
+            ]
+        ],
+        "number_of_scopes": 3441
+    },
+    "annotated-types": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s6_func___iter__",
+                "s2_func_cases"
+            ]
+        ],
+        "number_of_scopes": 38
+    },
+    "httpx": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s9_func_start_response",
+                "s8_func_handle_request"
+            ]
+        ],
+        "number_of_scopes": 879
+    },
+    "tzdata": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0
+    },
+    "pyasn1-modules": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 12
+    },
+    "jsonschema": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1145
+    },
+    "iniconfig": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 53
+    },
+    "httpcore": {
+        "local_import": [
+            "s9_func_create_connection"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 931
+    },
+    "aiohttp": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 3051
+    },
+    "pyjwt": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 253
+    },
+    "tomli": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 62
+    },
+    "wrapt": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s31_func__build",
+                "s30_func_decorator"
+            ],
+            [
+                "s33_func__capture",
+                "s32_func__wrapper",
+                "s30_func_decorator"
+            ],
+            [
+                "s35_func__synchronized",
+                "s34_func_synchronized"
+            ],
+            [
+                "s37_func___enter__",
+                "s34_func_synchronized"
+            ],
+            [
+                "s38_func___exit__",
+                "s34_func_synchronized"
+            ],
+            [
+                "s39_func__synchronized_lock",
+                "s34_func_synchronized"
+            ],
+            [
+                "s40_func__synchronized_wrapper",
+                "s34_func_synchronized"
+            ],
+            [
+                "s42_func___enter__",
+                "s34_func_synchronized"
+            ],
+            [
+                "s43_func___exit__",
+                "s34_func_synchronized"
+            ]
+        ],
+        "number_of_scopes": 362
+    },
+    "multidict": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 310
+    },
+    "pyarrow": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s5_func_kms_factory",
+                "s4_func_setup_encryption_environment"
+            ],
+            [
+                "s18_func_kms_factory",
+                "s17_func_test_encrypted_parquet_write_kms_error"
+            ],
+            [
+                "s21_func___init__",
+                "s19_func_test_encrypted_parquet_write_kms_specific_error"
+            ],
+            [
+                "s22_func_wrap_key",
+                "s19_func_test_encrypted_parquet_write_kms_specific_error"
+            ],
+            [
+                "s23_func_unwrap_key",
+                "s19_func_test_encrypted_parquet_write_kms_specific_error"
+            ],
+            [
+                "s24_func_kms_factory",
+                "s19_func_test_encrypted_parquet_write_kms_specific_error"
+            ],
+            [
+                "s26_func_kms_factory",
+                "s25_func_test_encrypted_parquet_write_kms_factory_error"
+            ],
+            [
+                "s29_func___init__",
+                "s27_func_test_encrypted_parquet_write_kms_factory_type_error"
+            ],
+            [
+                "s30_func_wrap_key",
+                "s27_func_test_encrypted_parquet_write_kms_factory_type_error"
+            ],
+            [
+                "s31_func_unwrap_key",
+                "s27_func_test_encrypted_parquet_write_kms_factory_type_error"
+            ],
+            [
+                "s32_func_kms_factory",
+                "s27_func_test_encrypted_parquet_write_kms_factory_type_error"
+            ],
+            [
+                "s34_func_validate_encryption_configuration",
+                "s33_func_test_encrypted_parquet_encryption_configuration"
+            ],
+            [
+                "s37_func_validate_kms_connection_config",
+                "s36_func_test_encrypted_parquet_kms_configuration"
+            ],
+            [
+                "s39_func_kms_factory",
+                "s38_func_test_encrypted_parquet_write_read_plain_footer_single_wrapping"
+            ],
+            [
+                "s41_func_kms_factory",
+                "s40_func_test_encrypted_parquet_write_external"
+            ]
+        ],
+        "number_of_scopes": 2904
+    },
+    "yarl": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 193
+    },
+    "requests-oauthlib": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s2_func__non_compliant_param_name",
+                "s1_func_slack_compliance_fix"
+            ]
+        ],
+        "number_of_scopes": 105
+    },
+    "awscli": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 4139
+    },
+    "distlib": {
+        "local_import": [
+            "s51_func__get_glibc_version"
+        ],
+        "inner_function": [
+            [
+                "s30_func_sorter",
+                "s28_func_build"
+            ],
+            [
+                "s47_func_get_version",
+                "s46_func_update"
+            ],
+            [
+                "s48_func_update_version",
+                "s46_func_update"
+            ],
+            [
+                "s48_func_update_version",
+                "s46_func_update"
+            ],
+            [
+                "s54_func___init__",
+                "s52_func_compatible_tags"
+            ],
+            [
+                "s55_func___str__",
+                "s52_func_compatible_tags"
+            ]
+        ],
+        "number_of_scopes": 1260
+    },
+    "psutil": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s3_func_foo",
+                "s2_func_test_retry_success"
+            ],
+            [
+                "s5_func_foo",
+                "s4_func_test_retry_failure"
+            ],
+            [
+                "s7_func_foo",
+                "s6_func_test_exception_arg"
+            ],
+            [
+                "s9_func_foo",
+                "s8_func_test_no_interval_arg"
+            ],
+            [
+                "s11_func_foo",
+                "s10_func_test_retries_arg"
+            ],
+            [
+                "s40_func_fun",
+                "s39_func_test_times"
+            ],
+            [
+                "s48_func_fun",
+                "s47_func_test_leak_mem"
+            ],
+            [
+                "s50_func_fun",
+                "s49_func_test_unclosed_files"
+            ],
+            [
+                "s52_func_fun",
+                "s51_func_test_tolerance"
+            ],
+            [
+                "s54_func_fun_1",
+                "s53_func_test_execute_w_exc"
+            ],
+            [
+                "s55_func_fun_2",
+                "s53_func_test_execute_w_exc"
+            ],
+            [
+                "s61_func_foo",
+                "s60_func_test_mark"
+            ],
+            [
+                "s63_func_bar",
+                "s60_func_test_mark"
+            ],
+            [
+                "s66_func_foo",
+                "s64_func_test_skipif"
+            ],
+            [
+                "s68_func_foo",
+                "s64_func_test_skipif"
+            ],
+            [
+                "s71_func_foo",
+                "s69_func_test_skip"
+            ]
+        ],
+        "number_of_scopes": 3063
+    },
+    "tqdm": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 533
+    },
+    "exceptiongroup": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 96
+    },
+    "aiosignal": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 8
+    },
+    "oauthlib": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 735
+    },
+    "python-dotenv": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 76
+    },
+    "frozenlist": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 28
+    },
+    "greenlet": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s13_func_worker",
+                "s12_func___recycle_threads"
+            ],
+            [
+                "s15_func_worker",
+                "s14_func_test_threaded_leak"
+            ],
+            [
+                "s18_func_additional",
+                "s17_func_worker",
+                "s16_func_test_threaded_adv_leak"
+            ],
+            [
+                "s21_func_background_greenlet",
+                "s20_func__check_issue251"
+            ],
+            [
+                "s22_func_background_thread",
+                "s20_func__check_issue251"
+            ],
+            [
+                "s30_func_f",
+                "s29_func_test_untracked_memory_doesnt_increase"
+            ],
+            [
+                "s31_func_run_it",
+                "s29_func_test_untracked_memory_doesnt_increase"
+            ],
+            [
+                "s33_func_f",
+                "s32_func__check_untracked_memory_thread"
+            ],
+            [
+                "s35_func_run_it",
+                "s32_func__check_untracked_memory_thread"
+            ],
+            [
+                "s37_func___call__",
+                "s32_func__check_untracked_memory_thread"
+            ]
+        ],
+        "number_of_scopes": 723
+    },
+    "pathspec": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 104
+    },
+    "rpds-py": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0
+    },
+    "pyparsing": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s38_func__inner",
+                "s37_func__apply_diagram_item_enhancements"
+            ]
+        ],
+        "number_of_scopes": 1118
+    },
+    "propcache": {
+        "local_import": [
+            "s1_excHandler"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 11
+    },
+    "pillow": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 2249
+    },
+    "scipy": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s18_func_linear",
+                "s17_func_test_ticket_1253"
+            ],
+            [
+                "s22_func_func",
+                "s21_func_test_ticket_11800"
+            ],
+            [
+                "s23_func_df_dbeta_odr",
+                "s21_func_test_ticket_11800"
+            ],
+            [
+                "s24_func_df_dx_odr",
+                "s21_func_test_ticket_11800"
+            ],
+            [
+                "s31_func_func",
+                "s30_func_test_work_ind"
+            ],
+            [
+                "s33_func_func",
+                "s32_func_test_output_file_overwrite"
+            ],
+            [
+                "s35_func_func",
+                "s34_func_test_odr_model_default_meta"
+            ],
+            [
+                "s37_func_func",
+                "s36_func_test_work_array_del_init"
+            ]
+        ],
+        "number_of_scopes": 37959
+    },
+    "tomlkit": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 762
+    },
+    "jsonschema-specifications": {
+        "local_import": [
+            "s3_func_test_it_copes_with_dotfiles"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 0
+    },
+    "sqlalchemy": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s27_func_helper",
+                "s26_func_asyncstartablecontext"
+            ]
+        ],
+        "number_of_scopes": 21977
+    },
+    "rich": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1797
+    },
+    "grpcio": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1792
+    },
+    "referencing": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 373
+    },
+    "requests-toolbelt": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 343
+    },
+    "beautifulsoup4": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1982
+    },
+    "soupsieve": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s80_func_get_parent_form",
+                "s79_func_match_indeterminate"
+            ]
+        ],
+        "number_of_scopes": 330
+    },
+    "typing-inspection": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 18
+    },
+    "openpyxl": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 2586
+    },
+    "aiohappyeyeballs": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s3_func__on_completion",
+                "s2_afunc__wait_one"
+            ],
+            [
+                "s5_afunc_run_one_coro",
+                "s4_afunc_staggered_race"
+            ],
+            [
+                "s5_afunc_run_one_coro",
+                "s4_afunc_staggered_race"
+            ]
+        ],
+        "number_of_scopes": 20
+    },
+    "et-xmlfile": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 44
+    },
+    "pyopenssl": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s18_func_wrapper",
+                "s17_func___init__"
+            ],
+            [
+                "s22_func_wrapper",
+                "s21_func___init__"
+            ],
+            [
+                "s26_func_wrapper",
+                "s25_func___init__"
+            ],
+            [
+                "s30_func_wrapper",
+                "s29_func___init__"
+            ],
+            [
+                "s34_func_wrapper",
+                "s33_func___init__"
+            ],
+            [
+                "s38_func_wrapper",
+                "s37_func___init__"
+            ],
+            [
+                "s44_func_explode",
+                "s43_func__requires_decorator",
+                "s42_func__make_requires"
+            ],
+            [
+                "s47_func_inner",
+                "s46_func__require_not_used"
+            ],
+            [
+                "s55_func_wrapper",
+                "s54_func__wrap_callback"
+            ],
+            [
+                "s85_func_wrapper",
+                "s84_func_set_info_callback"
+            ],
+            [
+                "s87_func_wrapper",
+                "s86_func_set_keylog_callback"
+            ],
+            [
+                "s94_func_wrapper",
+                "s93_func_set_tlsext_servername_callback"
+            ]
+        ],
+        "number_of_scopes": 498
+    }
+}
