@@ -64,113 +64,75 @@ class ScopeGraph(ast.NodeVisitor):
         """
         return list([scope for scope in self.__graph.keys() if not self.__graph[scope]["have-children"]])
 
-    def visit_FunctionDef(self, node:ast.FunctionDef) -> None:
-        sid = f"s{self.__next_id}_func_{node.name}"
+    def __init_scope(self, id: str) -> None:
+        self.__graph[id] = {"decls": set(), "refs": set(), "parent": None, "have-children": False}
+
+    def __build_local_scope(self, node: ast.FunctionDef | ast.AsyncFunctionDef | ast.Lambda | ast.ClassDef | ast.ListComp | ast.ExceptHandler) -> None:
+        def get_node_type(node: ast.FunctionDef | ast.AsyncFunctionDef | ast.Lambda | ast.ClassDef | ast.ListComp | ast.ExceptHandler) -> tuple[str, str]:
+            if isinstance(node, ast.FunctionDef):
+                visit_type = "func"
+                sid = f"s{self.__next_id}_{visit_type}_{node.name}"
+            elif isinstance(node, ast.AsyncFunctionDef):
+                visit_type = "afunc"
+                sid = f"s{self.__next_id}_{visit_type}_{node.name}"
+            elif isinstance(node, ast.Lambda):
+                visit_type = "lambda"
+                sid = f"s{self.__next_id}_{visit_type}"
+            elif isinstance(node, ast.ClassDef):
+                visit_type = "class"
+                sid = f"s{self.__next_id}_{visit_type}_{node.name}"
+            elif isinstance(node, ast.ListComp):
+                visit_type = "lstComp"
+                sid = f"s{self.__next_id}_{visit_type}"
+            elif isinstance(node, ast.ExceptHandler):
+                visit_type = "excHandler"
+                sid = f"s{self.__next_id}_{visit_type}"
+
+            return visit_type, sid
+
+        visit_type, sid = get_node_type(node)
+
+        self.__init_scope(sid)
 
         self.__next_id += 1
-        self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None, "have-children": False}
 
-        self.__graph[self.__current_scope()]["decls"].add(f"func_{node.name}")
+        if visit_type not in ["lambda", "lstComp", "excHandler"]:
+            self.__graph[self.__current_scope()]["decls"].add(f"{visit_type}_{node.name}")
+
         self.__graph[self.__current_scope()]["have-children"] = True
 
         self.__scope_stack.append(sid)
 
-        if (parent := self.__get_parent_scope())is not None:
+        if (parent := self.__get_parent_scope()) is not None:
             self.__graph[self.__current_scope()]["parent"] = parent
 
-        for arg in node.args.args:
-            self.__graph[sid]["decls"].add(f"var_{arg.arg}")
+        if visit_type not in ["class", "lstComp", "excHandler"]:
+            for arg in node.args.args:
+                self.__graph[sid]["decls"].add(f"var_{arg.arg}")
 
-        self.generic_visit(node)
-        self.__scope_stack.pop()
-
-    def visit_Lambda(self, node: ast.Lambda) -> None:
-        sid = f"s{self.__next_id}_lambda"
-
-        self.__next_id += 1
-        self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None, "have-children": False}
-        self.__graph[self.__current_scope()]["have-children"] = True
-
-        self.__scope_stack.append(sid)
-
-        if (parent := self.__get_parent_scope())is not None:
-            self.__graph[sid]["parent"] = parent
-
-        for arg in node.args.args:
-            self.__graph[sid]["decls"].add(f"var_{arg.arg}")
-
-        self.generic_visit(node)
-        self.__scope_stack.pop()
-
-    def visit_ClassDef(self, node: ast.ClassDef) -> None:
-        sid = f"s{self.__next_id}_class_{node.name}"
-
-        self.__next_id += 1
-        self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None, "have-children": False}
-
-        self.__graph[self.__current_scope()]["have-children"] = True
-        self.__graph[self.__current_scope()]["decls"].add(f"class_{node.name}")
-
-        self.__scope_stack.append(sid)
-
-        if (parent := self.__get_parent_scope())is not None:
-            self.__graph[self.__current_scope()]["parent"] = parent
-
-        self.generic_visit(node)
-        self.__scope_stack.pop()
-
-    def visit_ListComp(self, node: ast.ListComp) -> None:
-        sid = f"s{self.__next_id}_lstComp"
-
-        self.__next_id += 1
-        self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None, "have-children": False}
-        self.__graph[self.__current_scope()]["have-children"] = True
-
-        self.__scope_stack.append(sid)
-
-        if (parent := self.__get_parent_scope())is not None:
-            self.__graph[sid]["parent"] = parent
-
-        self.generic_visit(node)
-        self.__scope_stack.pop()
-
-    def visit_ExceptHandler(self, node: ast.ExceptHandler) -> None:
-        sid = f"s{self.__next_id}_excHandler"
-
-        self.__next_id += 1
-        self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None, "have-children": False}
-        self.__graph[self.__current_scope()]["have-children"] = True
-
-        self.__scope_stack.append(sid)
-
-        if (parent := self.__get_parent_scope())is not None:
-            self.__graph[self.__current_scope()]["parent"] = parent
-
-        if node.name is not None:
+        if visit_type == "excHandler" and node.name is not None:
             self.__graph[sid]["decls"].add(f"exp_{node.name}")
 
         self.generic_visit(node)
         self.__scope_stack.pop()
 
+    def visit_FunctionDef(self, node:ast.FunctionDef) -> None:
+        self.__build_local_scope(node)
+
     def visit_AsyncFunctionDef(self, node: ast.AsyncFunctionDef) -> None:
-        sid = f"s{self.__next_id}_afunc_{node.name}"
+        self.__build_local_scope(node)
 
-        self.__next_id += 1
-        self.__graph[sid] = {"decls": set(), "refs": set(), "parent": None, "have-children": False}
+    def visit_Lambda(self, node: ast.Lambda) -> None:
+        self.__build_local_scope(node)
 
-        self.__graph[self.__current_scope()]["decls"].add(f"afunc_{node.name}")
-        self.__graph[self.__current_scope()]["have-children"] = True
+    def visit_ClassDef(self, node: ast.ClassDef) -> None:
+        self.__build_local_scope(node)
 
-        self.__scope_stack.append(sid)
+    def visit_ListComp(self, node: ast.ListComp) -> None:
+        self.__build_local_scope(node)
 
-        if (parent := self.__get_parent_scope())is not None:
-            self.__graph[self.__current_scope()]["parent"] = parent
-
-        for arg in node.args.args:
-            self.__graph[sid]["decls"].add(f"var_{arg.arg}")
-
-        self.generic_visit(node)
-        self.__scope_stack.pop()
+    def visit_ExceptHandler(self, node: ast.ExceptHandler) -> None:
+        self.__build_local_scope(node)
 
     def visit_Assign(self, node: ast.Assign) -> None:
         for t in node.targets:
@@ -182,7 +144,7 @@ class ScopeGraph(ast.NodeVisitor):
         if isinstance(node.ctx, ast.Load):
             self.__graph[self.__current_scope()]["refs"].add(f"var_{node.id}")
 
-    def visit_Import(self, node: ast.Import) -> None:
+    def __import_visit(self, node: ast.Import | ast.ImportFrom) -> None:
         for pkg in node.names:
             if isinstance(pkg, ast.alias):
                 if pkg.asname is None:
@@ -190,13 +152,11 @@ class ScopeGraph(ast.NodeVisitor):
                 else:
                     self.__graph[self.__current_scope()]["refs"].add(f"import_{pkg.asname}")
 
+    def visit_Import(self, node: ast.Import) -> None:
+        self.__import_visit(node)
+
     def visit_ImportFrom(self, node: ast.ImportFrom) -> None:
-        for pkg in node.names:
-            if isinstance(pkg, ast.alias):
-                if pkg.asname is None:
-                    self.__graph[self.__current_scope()]["refs"].add(f"import_{pkg.name}")
-                else:
-                    self.__graph[self.__current_scope()]["refs"].add(f"import_{pkg.asname}")
+        self.__import_visit(node)
 
     def draw(self, name: str) -> None:
         """
