@@ -98,6 +98,17 @@ class Detector:
 
         :return: list of shadowed elements
         """
+        def detector(combinations: list) -> list:
+            output = []
+
+            for comb in combinations:
+                if len(intersections := comb[0] & comb[1]) > 0: # & operator performs the intersection between sets
+                    print(f"Shadowing detected: {list(intersections)}")
+
+                    output.append(*intersections)
+
+            return output
+
         leafs_scopes = self.__builder.get_leaf_scopes()
         duplication = []
 
@@ -115,17 +126,8 @@ class Detector:
             decls_combinations = list(itertools.combinations(decls, 2))
             refs_combinations = list(itertools.combinations(refs, 2))
 
-            for comb in decls_combinations:
-                if len(intersections := comb[0] & comb[1]) > 0: # & operator performs the intersection between sets
-                    print(f"Shadowing detected: {list(intersections)}")
-
-                    duplication.append(*intersections)
-
-            for comb in refs_combinations:
-                if len(intersections := comb[0] & comb[1]) > 0: # & operator performs the intersection between sets
-                    print(f"Shadowing detected: {list(intersections)}")
-
-                    duplication.append(*intersections)
+            duplication.extend(detector(decls_combinations))
+            duplication.extend(detector(refs_combinations))
 
         return duplication
 
@@ -200,7 +202,7 @@ class Detector:
         return match_filter(inner_functions), total_scopes
 
 if __name__ == "__main__":
-    detector = Detector("./test/example.py")
+    detector = Detector("./test/example.py", "test")
 
     print(detector.shadowing_detection())
     print(detector.local_import_detection())
