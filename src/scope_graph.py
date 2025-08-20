@@ -85,8 +85,7 @@ class ScopeGraph(ast.NodeVisitor):
                 jump += 1
                 scope = self.__graph[scope]["parent"]
 
-            length = max(length, jump) # update the length of the longest scope chain
-            jump += 1
+            length = max(length, jump + 1) # update the length of the longest scope chain
 
         return length
 
