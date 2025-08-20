@@ -73,7 +73,7 @@ class ScopeGraph(ast.NodeVisitor):
         * walk up the scope graph until the global scope is reached, incrementing the length of the scope chain;
         * return the maximum length of the scope chain.
 
-        :return: length of the longest scope chain (note that the global scope is not included in the length)
+        :return: length of the longest scope chain
         """
         length = 0
 
@@ -86,6 +86,7 @@ class ScopeGraph(ast.NodeVisitor):
                 scope = self.__graph[scope]["parent"]
 
             length = max(length, jump) # update the length of the longest scope chain
+            jump += 1
 
         return length
 
