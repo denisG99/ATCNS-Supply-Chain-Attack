@@ -39,10 +39,13 @@ if __name__ == "__main__":
             if detector.get_builder() is not None:
                 local_import = detector.local_import_detection()
                 inner_function, scopes_number = detector.inner_function_detection()
-
+                scope_chain_length = detector.get_builder().length_longest_scope_chain()
                 total_scopes += scopes_number
 
-        statistics[pkg_name] = {"local_import": local_import, "inner_function": inner_function, "number_of_scopes": total_scopes}
+        statistics[pkg_name] = {"local_import": local_import,
+                                "inner_function": inner_function,
+                                "number_of_scopes": total_scopes,
+                                "scope_chain_length": scope_chain_length}
         print(f"Analysis complete")
 
         # removing temp directory, even if isn't empty
