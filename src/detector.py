@@ -207,3 +207,4 @@ if __name__ == "__main__":
     print(detector.shadowing_detection())
     print(detector.local_import_detection())
     print(detector.inner_function_detection())
+    print(detector.get_builder().length_longest_scope_chain())

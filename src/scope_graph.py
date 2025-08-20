@@ -64,6 +64,31 @@ class ScopeGraph(ast.NodeVisitor):
         """
         return list([scope for scope in self.__graph.keys() if not self.__graph[scope]["have-children"]])
 
+    def length_longest_scope_chain(self) -> int:
+        """
+        Function to calculate the length of the longest scope chain.
+
+        ALGORITHM:
+        * start from a leaf scope;
+        * walk up the scope graph until the global scope is reached, incrementing the length of the scope chain;
+        * return the maximum length of the scope chain.
+
+        :return: length of the longest scope chain (note that the global scope is not included in the length)
+        """
+        length = 0
+
+        for leaf in self.get_leaf_scopes():
+            scope = leaf
+            jump = 0 # count the number of jumps made from leaf to global scope
+
+            while not self.__graph[scope]["parent"] is None:
+                jump += 1
+                scope = self.__graph[scope]["parent"]
+
+            length = max(length, jump) # update the length of the longest scope chain
+
+        return length
+
     def __init_scope(self, id: str) -> None:
         self.__graph[id] = {"decls": set(), "refs": set(), "parent": None, "have-children": False}
 
