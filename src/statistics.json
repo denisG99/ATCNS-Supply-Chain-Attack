@@ -5,7 +5,7 @@
         ],
         "inner_function": [],
         "number_of_scopes": 1031,
-        "scope_chain_length": 1
+        "scope_chain_length": 2
     },
     "certbot-dns-cloudflare": {
         "local_import": [
@@ -14,37 +14,37 @@
         ],
         "inner_function": [],
         "number_of_scopes": 71,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "boto3": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 615,
-        "scope_chain_length": 1
+        "scope_chain_length": 2
     },
     "urllib3": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 993,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "setuptools": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 7876,
-        "scope_chain_length": 1
+        "scope_chain_length": 2
     },
     "requests": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 458,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "certifi": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 0,
-        "scope_chain_length": 0
+        "scope_chain_length": 1
     },
     "typing-extensions": {
         "local_import": [
@@ -93,55 +93,55 @@
             ]
         ],
         "number_of_scopes": 314,
-        "scope_chain_length": 4
+        "scope_chain_length": 5
     },
     "grpcio-status": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 2,
-        "scope_chain_length": 1
+        "scope_chain_length": 2
     },
     "charset-normalizer": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 242,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "idna": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 22,
-        "scope_chain_length": 1
+        "scope_chain_length": 2
     },
     "packaging": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 362,
-        "scope_chain_length": 1
+        "scope_chain_length": 2
     },
     "botocore": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 4172,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "python-dateutil": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 670,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "aiobotocore": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 698,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "s3transfer": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 1065,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "six": {
         "local_import": [],
@@ -164,43 +164,43 @@
             ]
         ],
         "number_of_scopes": 71,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "numpy": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 19686,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "pyyaml": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 668,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "s3fs": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 318,
-        "scope_chain_length": 1
+        "scope_chain_length": 2
     },
     "cryptography": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 1767,
-        "scope_chain_length": 0
+        "scope_chain_length": 1
     },
     "fsspec": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 2466,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "protobuf": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 1437,
-        "scope_chain_length": 0
+        "scope_chain_length": 1
     },
     "importlib-metadata": {
         "local_import": [],
@@ -211,7 +211,7 @@
             ]
         ],
         "number_of_scopes": 295,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "pydantic": {
         "local_import": [
@@ -219,7 +219,7 @@
         ],
         "inner_function": [],
         "number_of_scopes": 3228,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "cffi": {
         "local_import": [
@@ -227,25 +227,25 @@
         ],
         "inner_function": [],
         "number_of_scopes": 1325,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "pandas": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 45280,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "pycparser": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 1350,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "pip": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 8553,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "attrs": {
         "local_import": [],
@@ -260,13 +260,13 @@
             ]
         ],
         "number_of_scopes": 278,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "google-api-core": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 781,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "click": {
         "local_import": [
@@ -317,37 +317,37 @@
             ]
         ],
         "number_of_scopes": 923,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "platformdirs": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 256,
-        "scope_chain_length": 1
+        "scope_chain_length": 2
     },
     "rsa": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 123,
-        "scope_chain_length": 1
+        "scope_chain_length": 2
     },
     "jmespath": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 323,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "markupsafe": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 101,
-        "scope_chain_length": 1
+        "scope_chain_length": 2
     },
     "jinja2": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 1429,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "pytz": {
         "local_import": [
@@ -367,19 +367,19 @@
             ]
         ],
         "number_of_scopes": 144,
-        "scope_chain_length": 4
+        "scope_chain_length": 5
     },
     "pyasn1": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 1421,
-        "scope_chain_length": 4
+        "scope_chain_length": 5
     },
     "zipp": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 109,
-        "scope_chain_length": 1
+        "scope_chain_length": 2
     },
     "pluggy": {
         "local_import": [
@@ -404,13 +404,13 @@
             ]
         ],
         "number_of_scopes": 197,
-        "scope_chain_length": 4
+        "scope_chain_length": 5
     },
     "pygments": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 1782,
-        "scope_chain_length": 1
+        "scope_chain_length": 2
     },
     "pydantic_core": {
         "local_import": [
@@ -418,25 +418,25 @@
         ],
         "inner_function": [],
         "number_of_scopes": 44,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "google-auth": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 1244,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "wheel": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 381,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "h11": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 157,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "virtualenv": {
         "local_import": [
@@ -444,7 +444,7 @@
         ],
         "inner_function": [],
         "number_of_scopes": 1141,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "colorama": {
         "local_import": [
@@ -458,7 +458,7 @@
             ]
         ],
         "number_of_scopes": 262,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "cachetools": {
         "local_import": [],
@@ -469,37 +469,37 @@
             ]
         ],
         "number_of_scopes": 312,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "sniffio": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 8,
-        "scope_chain_length": 0
+        "scope_chain_length": 1
     },
     "filelock": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 118,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "anyio": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 2215,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "grpcio-tools": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 22,
-        "scope_chain_length": 0
+        "scope_chain_length": 1
     },
     "googleapis-common-protos": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 22,
-        "scope_chain_length": 0
+        "scope_chain_length": 1
     },
     "pytest": {
         "local_import": [
@@ -547,7 +547,7 @@
             ]
         ],
         "number_of_scopes": 3441,
-        "scope_chain_length": 5
+        "scope_chain_length": 6
     },
     "annotated-types": {
         "local_import": [],
@@ -558,7 +558,7 @@
             ]
         ],
         "number_of_scopes": 38,
-        "scope_chain_length": 4
+        "scope_chain_length": 5
     },
     "httpx": {
         "local_import": [],
@@ -569,31 +569,31 @@
             ]
         ],
         "number_of_scopes": 879,
-        "scope_chain_length": 4
+        "scope_chain_length": 5
     },
     "tzdata": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 0,
-        "scope_chain_length": 0
+        "scope_chain_length": 1
     },
     "pyasn1-modules": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 12,
-        "scope_chain_length": 1
+        "scope_chain_length": 2
     },
     "jsonschema": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 1145,
-        "scope_chain_length": 0
+        "scope_chain_length": 1
     },
     "iniconfig": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 53,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "httpcore": {
         "local_import": [
@@ -601,25 +601,25 @@
         ],
         "inner_function": [],
         "number_of_scopes": 931,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "aiohttp": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 3051,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "pyjwt": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 253,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "tomli": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 62,
-        "scope_chain_length": 1
+        "scope_chain_length": 2
     },
     "wrapt": {
         "local_import": [],
@@ -663,13 +663,13 @@
             ]
         ],
         "number_of_scopes": 362,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "multidict": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 310,
-        "scope_chain_length": 1
+        "scope_chain_length": 2
     },
     "pyarrow": {
         "local_import": [],
@@ -736,13 +736,13 @@
             ]
         ],
         "number_of_scopes": 2904,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "yarl": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 193,
-        "scope_chain_length": 1
+        "scope_chain_length": 2
     },
     "requests-oauthlib": {
         "local_import": [],
@@ -753,13 +753,13 @@
             ]
         ],
         "number_of_scopes": 105,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "awscli": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 4139,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "distlib": {
         "local_import": [
@@ -792,7 +792,7 @@
             ]
         ],
         "number_of_scopes": 1260,
-        "scope_chain_length": 4
+        "scope_chain_length": 5
     },
     "psutil": {
         "local_import": [],
@@ -863,43 +863,43 @@
             ]
         ],
         "number_of_scopes": 3063,
-        "scope_chain_length": 4
+        "scope_chain_length": 5
     },
     "tqdm": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 533,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "exceptiongroup": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 96,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "aiosignal": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 8,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "oauthlib": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 735,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "python-dotenv": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 76,
-        "scope_chain_length": 0
+        "scope_chain_length": 1
     },
     "frozenlist": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 28,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "greenlet": {
         "local_import": [],
@@ -947,19 +947,19 @@
             ]
         ],
         "number_of_scopes": 723,
-        "scope_chain_length": 4
+        "scope_chain_length": 5
     },
     "pathspec": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 104,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "rpds-py": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 0,
-        "scope_chain_length": 0
+        "scope_chain_length": 1
     },
     "pyparsing": {
         "local_import": [],
@@ -970,7 +970,7 @@
             ]
         ],
         "number_of_scopes": 1118,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "propcache": {
         "local_import": [
@@ -978,13 +978,13 @@
         ],
         "inner_function": [],
         "number_of_scopes": 11,
-        "scope_chain_length": 1
+        "scope_chain_length": 2
     },
     "pillow": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 2249,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "scipy": {
         "local_import": [],
@@ -1023,13 +1023,13 @@
             ]
         ],
         "number_of_scopes": 37959,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "tomlkit": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 762,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "jsonschema-specifications": {
         "local_import": [
@@ -1037,7 +1037,7 @@
         ],
         "inner_function": [],
         "number_of_scopes": 0,
-        "scope_chain_length": 1
+        "scope_chain_length": 2
     },
     "sqlalchemy": {
         "local_import": [],
@@ -1048,37 +1048,37 @@
             ]
         ],
         "number_of_scopes": 21977,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "rich": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 1797,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "grpcio": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 1792,
-        "scope_chain_length": 0
+        "scope_chain_length": 1
     },
     "referencing": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 373,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "requests-toolbelt": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 343,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "beautifulsoup4": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 1982,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "soupsieve": {
         "local_import": [],
@@ -1089,19 +1089,19 @@
             ]
         ],
         "number_of_scopes": 330,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "typing-inspection": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 18,
-        "scope_chain_length": 1
+        "scope_chain_length": 2
     },
     "openpyxl": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 2586,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "aiohappyeyeballs": {
         "local_import": [],
@@ -1120,13 +1120,13 @@
             ]
         ],
         "number_of_scopes": 20,
-        "scope_chain_length": 3
+        "scope_chain_length": 4
     },
     "et-xmlfile": {
         "local_import": [],
         "inner_function": [],
         "number_of_scopes": 44,
-        "scope_chain_length": 2
+        "scope_chain_length": 3
     },
     "pyopenssl": {
         "local_import": [],
@@ -1182,6 +1182,6 @@
             ]
         ],
         "number_of_scopes": 498,
-        "scope_chain_length": 4
+        "scope_chain_length": 5
     }
 }
