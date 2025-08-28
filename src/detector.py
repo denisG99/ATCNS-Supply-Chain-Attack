@@ -200,11 +200,3 @@ class Detector:
                 total_scopes += len(scopes_branch)
 
         return match_filter(inner_functions), total_scopes
-
-if __name__ == "__main__":
-    detector = Detector("./test/example.py", "test")
-
-    print(detector.shadowing_detection())
-    print(detector.local_import_detection())
-    print(detector.inner_function_detection())
-    print(detector.get_builder().length_longest_scope_chain())
