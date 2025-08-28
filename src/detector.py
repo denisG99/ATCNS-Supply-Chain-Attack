@@ -3,7 +3,7 @@ import ast
 import re
 import tokenize
 
-from scope_graph import ScopeGraph
+from .scope_graph import ScopeGraph
 
 class Detector:
     """
