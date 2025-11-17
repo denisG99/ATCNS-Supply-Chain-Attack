@@ -1,5 +1,5 @@
 import argparse
-from pyjokes import pyjokes
+from example.pyjokes import pyjokes
 
 
 def create_argparser():
