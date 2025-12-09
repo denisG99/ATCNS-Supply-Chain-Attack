@@ -1,9 +1,20 @@
-rule patch_decorator {
+rule patch_decorator_import {
     meta:
-        description = "Monkey patching through patch decorator"
+        description = "Detection of import of patch decorator"
 
     strings:
-        $decorator = "from unittest.mock import patch"
+        $import = "from unittest.mock import patch"
+
+    condition:
+        $import
+}
+
+rule patch_decorator_usage {
+    meta:
+        description = "Detection of usage of patch decorator"
+
+    strings:
+        $decorator = "@patch"
 
     condition:
         $decorator
