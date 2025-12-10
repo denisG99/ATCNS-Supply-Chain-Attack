@@ -47,37 +47,35 @@ rule with_statement {
         description = "Detection of usage of with statement"
 
     strings:
-        $with_regex = /with\s+[A-Za-z_][A-Za-z0-9_\.]*\s*(\(|as\b)/
-
-        $open = "open"
-        $lock = "Lock"
-        $RLock = "RLock"
-        $temp_file = "TemporaryFile"
-        $named_temp_file = "NamedTemporaryFile"
-        $temp_dir = "TemporaryDirectory"
-        $closing = "closing"
-        $suppress = "suppress"
-        $redirect1 = "redirect_stdout"
-        $redirect2 = "redirect_stderr"
-        $exitstack = "ExitStack"
-        $nullcontext = "nullcontext"
-        $url_open = "urlopen"
-        $connect = "connect"
-        $cursor = "Cursor"
-        $session = "Session"
-        $scandir = "scandir"
-        $zip = "ZipFile"
-        $tar = "TarFile"
-        $requests = "requests"
-        $image = "Image"
-        $localcontext = "localcontext"
-        $condition = "Condition"
-        $no_grad = "no_grad"
-        $autocast = "autocast"
-        $errstate = "errstate"
-        $styler = "style"
-        $context = "context"
+        $open = /with\s+open\s*/
+        $lock = /with\s+Lock\s*/
+        $RLock = /with\s+RLock\s*/
+        $temp_file = /with\s+TemporaryFile\s*/
+        $named_temp_file = /with\s+NamedTemporaryFile\s*/
+        $temp_dir = /with\s+TemporaryDirectory\s*/
+        $closing = /with\s+closing\s*/
+        $suppress = /with\s+suppress\s*/
+        $redirect1 = /with\s+redirect_stdout\s*/
+        $redirect2 = /with\s+redirect_stderr\s*/
+        $exitstack = /with\s+ExitStack\s*/
+        $nullcontext = /with\s+nullcontext\s*/
+        $url_open = /with\s+urlopen\s*/
+        $connect = /with\s+connect\s*/
+        $cursor = /with\s+Cursor\s*/
+        $session = /with\s+Session\s*/
+        $scandir = /with\s+scandir\s*/
+        $zip = /with\s+ZipFile\s*/
+        $tar = /with\s+TarFile\s*/
+        $requests = /with\s+requests\s*/
+        $image = /with\s+Image\s*/
+        $localcontext = /with\s+localcontext\s*/
+        $condition = /with\s+Condition\s*/
+        $no_grad = /with\s+no_grad\s*/
+        $autocast = /with\s+autocast\s*/
+        $errstate = /with\s+errstate\s*/
+        $styler = /with\s+style\s*/
+        $context = /with\s+context\s*/
 
     condition:
-        $with_regex and not any of ($*)
+        0 of ($*)
 }
