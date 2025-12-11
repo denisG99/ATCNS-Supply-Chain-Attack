@@ -9,3 +9,4 @@ if __name__ == "__main__":
 
     print(variable_rules.match("./test.py"))
     print(monkeypatching_rules.match("./test.py"))
+    print(monkeypatching_rules.match("./sample_class.py"))
