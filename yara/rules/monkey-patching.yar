@@ -81,3 +81,21 @@ rule with_statement {
     condition:
         $with_statement and 0 of ($func_*)
 }
+
+rule variable_swap{
+    meta:
+        description = "Detection variables swap inside a class. This way allow attacker to evade detector"
+
+    strings:
+        // Save original
+        $save = /[a-zA-Z_][a-zA-Z0-9_]*\s*=\s*self\.[a-zA-Z_][a-zA-Z0-9_]*/
+        // Function definition
+        $def_func = /def\s+[a-zA-Z_][a-zA-Z0-9_]*\s*\(.*\)\s*:/
+        // Overwrite self.method = function
+        $overwrite = /self\.[a-zA-Z_][a-zA-Z0-9_]*\s*=\s*[a-zA-Z_][a-zA-Z0-9_]*/
+        // Restore self.method = original
+        $restore = /self\.[a-zA-Z_][a-zA-Z0-9_]*\s*=\s*[a-zA-Z_][a-zA-Z0-9_]*/
+
+    condition:
+        $save and $def_func and $overwrite and $restore
+}
