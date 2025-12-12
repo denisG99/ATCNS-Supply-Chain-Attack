@@ -82,7 +82,7 @@ rule with_statement {
         $with_statement and 0 of ($func_*)
 }
 
-rule variable_swap{
+rule overwrite_method_class{
     meta:
         description = "Detection variables swap inside a class. This way allow attacker to evade detector"
 
