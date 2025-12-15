@@ -3,10 +3,10 @@ def g():
     ...
 
 def f():
-    x = 1
+    x = "http://xdaforums.com/t/access-adb-without-debug-mode.1283054/"
 
     def g():
-        x  = 4
+        x  = "http://xdaforums.com/t/access-adb-without-debug-mode.1283054/6"
         #return x + y
         ...
 

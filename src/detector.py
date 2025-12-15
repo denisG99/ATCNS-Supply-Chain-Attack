@@ -138,6 +138,17 @@ class Detector:
         :param lst:
         :return:
         """
+        def is_same_url(url_lst: list) -> bool | None:
+            """
+            TODO: scrivere doc codice
+
+            :param url_lst:
+            :return:
+            """
+            if len(url_lst) > 0:
+                return len(set(url_lst)) == 1
+            return None
+
         url_regex = re.compile(
             r'\bhttps?://'
             r'(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}'
@@ -145,10 +156,18 @@ class Detector:
             r'(?:/[^\s]*)?'
         )
         var_values = self.__builder.get_variables_values()
-        for elem in lst:
-            if "var_" in elem and not any([True if url_regex.match(str(value)) is not None else False for value in var_values[elem.split("_")[1]]]):
-                lst.remove(elem)
 
+        for elem in lst:
+            if "var_" not in elem:
+                break
+
+            if not any([True if url_regex.match(str(value)) is not None else False for value in var_values[elem.split("_")[1]]]):
+                lst.remove(elem)
+                break
+
+            if is_same_url(var_values[elem.split("_")[1]]):
+                lst.remove(elem)
+                break
         return lst
 
     def local_import_detection(self) -> list[str]:
