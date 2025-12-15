@@ -168,6 +168,7 @@ class ScopeGraph(ast.NodeVisitor):
     def visit_Name(self, node: ast.Name) -> None:
         if isinstance(node.ctx, ast.Load):
             self.__graph[self.__current_scope()]["refs"].add(f"var_{node.id}")
+        self.generic_visit(node)
 
     def __import_visit(self, node: ast.Import | ast.ImportFrom) -> None:
         for pkg in node.names:
@@ -176,6 +177,7 @@ class ScopeGraph(ast.NodeVisitor):
                     self.__graph[self.__current_scope()]["refs"].add(f"import_{pkg.name}")
                 else:
                     self.__graph[self.__current_scope()]["refs"].add(f"import_{pkg.asname}")
+        self.generic_visit(node)
 
     def visit_Import(self, node: ast.Import) -> None:
         self.__import_visit(node)
