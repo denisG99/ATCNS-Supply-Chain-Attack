@@ -1,53 +1,21 @@
 digraph {
 	s0__main__
-	s1_class_PoC
-	s2_func_g
-	s3_func_f
-	s4_func_h
-	s1_class_PoC -> s0__main__
-	s2_func_g -> s1_class_PoC
-	s3_func_f -> s1_class_PoC
-	s4_func_h -> s3_func_f
-	s0_decl_class_PoC [shape=box]
-	s0_decl_class_PoC -> s0__main__
-	s1_decl_func_f [shape=box]
-	s1_decl_func_f -> s1_class_PoC
-	s1_decl_func_g [shape=box]
-	s1_decl_func_g -> s1_class_PoC
-	s2_decl_var_a [shape=box]
-	s2_decl_var_a -> s2_func_g
-	s2_decl_var_self [shape=box]
-	s2_decl_var_self -> s2_func_g
-	s2_decl_var_b [shape=box]
-	s2_decl_var_b -> s2_func_g
-	s3_decl_func_h [shape=box]
-	s3_decl_func_h -> s3_func_f
+	s1_func_g
+	s2_func_f
+	s3_func_g
+	s1_func_g -> s0__main__
+	s2_func_f -> s0__main__
+	s3_func_g -> s2_func_f
+	s0_decl_func_f [shape=box]
+	s0_decl_func_f -> s0__main__
+	s0_decl_func_g [shape=box]
+	s0_decl_func_g -> s0__main__
+	s2_decl_var_x [shape=box]
+	s2_decl_var_x -> s2_func_f
+	s2_decl_func_g [shape=box]
+	s2_decl_func_g -> s2_func_f
 	s3_decl_var_x [shape=box]
-	s3_decl_var_x -> s3_func_f
-	s3_decl_var_self [shape=box]
-	s3_decl_var_self -> s3_func_f
-	s3_decl_var_original [shape=box]
-	s3_decl_var_original -> s3_func_f
-	s4_decl_var_a [shape=box]
-	s4_decl_var_a -> s4_func_h
-	s4_decl_var_b [shape=box]
-	s4_decl_var_b -> s4_func_h
-	s2_ref_var_a [shape=box]
-	s2_func_g -> s2_ref_var_a
-	s2_ref_var_b [shape=box]
-	s2_func_g -> s2_ref_var_b
-	s3_ref_var_x [shape=box]
-	s3_func_f -> s3_ref_var_x
-	s3_ref_var_self [shape=box]
-	s3_func_f -> s3_ref_var_self
-	s3_ref_var_original [shape=box]
-	s3_func_f -> s3_ref_var_original
-	s3_ref_var_h [shape=box]
-	s3_func_f -> s3_ref_var_h
-	s4_ref_var_a [shape=box]
-	s4_func_h -> s4_ref_var_a
-	s4_ref_var_print [shape=box]
-	s4_func_h -> s4_ref_var_print
-	s4_ref_var_b [shape=box]
-	s4_func_h -> s4_ref_var_b
+	s3_decl_var_x -> s3_func_g
+	s2_ref_var_g [shape=box]
+	s2_func_f -> s2_ref_var_g
 }

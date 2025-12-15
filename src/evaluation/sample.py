@@ -6,7 +6,7 @@ def f():
     x = 1
 
     def g():
-        x  = 2
+        x  = 4
         #return x + y
         ...
 
