@@ -26,12 +26,16 @@ class ScopeGraph(ast.NodeVisitor):
         self.__scope_stack: list[str] = ["s0__main__"] # global scope
         self.__graph: dict = {"s0__main__": {"decls": set(), "refs": set(), "parent": None, "have-children": False}}
         self.__next_id: int = 1
+        self.__variables_values: dict = {} #save the values of the variables, useful to evaluate
 
     def get_graph(self) -> dict:
         """
         :return: data structure containing the representation of the scope graph
         """
         return self.__graph
+
+    def get_variables_values(self) -> dict:
+        return self.__variables_values
 
     def __current_scope(self) -> str:
         """
@@ -163,6 +167,10 @@ class ScopeGraph(ast.NodeVisitor):
         for t in node.targets:
             if isinstance(t, ast.Name):
                 self.__graph[self.__current_scope()]["decls"].add(f"var_{t.id}")
+
+                if t.id not in self.__variables_values.keys():
+                    self.__variables_values[f"{t.id}"] = list()
+                self.__variables_values[f"{t.id}"].append(node.value.value)
         self.generic_visit(node)
 
     def visit_Name(self, node: ast.Name) -> None:

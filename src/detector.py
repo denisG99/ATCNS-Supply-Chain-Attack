@@ -2,6 +2,7 @@ import itertools
 import ast
 import re
 import tokenize
+import yara
 
 from .scope_graph import ScopeGraph
 
@@ -103,8 +104,7 @@ class Detector:
 
             for comb in combinations:
                 if len(intersections := comb[0] & comb[1]) > 0: # & operator performs the intersection between sets
-                    print(f"Shadowing detected: {list(intersections)}")
-
+                    #print(f"Shadowing detected: {list(intersections)}")
                     output.append(*intersections)
 
             return output
@@ -126,10 +126,30 @@ class Detector:
             decls_combinations = list(itertools.combinations(decls, 2))
             refs_combinations = list(itertools.combinations(refs, 2))
 
-            duplication.extend(detector(decls_combinations))
+            duplication.extend(self.__filter_vars(detector(decls_combinations)))
             duplication.extend(detector(refs_combinations))
 
         return duplication
+
+    def __filter_vars(self, lst: list) -> list:
+        """
+        TODO: scrivere doc codice
+
+        :param lst:
+        :return:
+        """
+        url_regex = re.compile(
+            r'\bhttps?://'
+            r'(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}'
+            r'(?::\d+)?'
+            r'(?:/[^\s]*)?'
+        )
+        var_values = self.__builder.get_variables_values()
+        for elem in lst:
+            if "var_" in elem and not any([True if url_regex.match(str(value)) is not None else False for value in var_values[elem.split("_")[1]]]):
+                lst.remove(elem)
+
+        return lst
 
     def local_import_detection(self) -> list[str]:
         """
