@@ -1,8 +1,14 @@
+import code
 import itertools
 import ast
 import re
 import tokenize
+from typing import Any
+
+from numpy.f2py import rules
+
 import yara
+import os
 
 from .scope_graph import ScopeGraph
 
@@ -24,16 +30,16 @@ class Detector:
         # Use tokenize.open to respect PEP 263 encoding declaration and handle non-UTF-8 files robustly.
         try:
             with tokenize.open(code_path) as f:
-                code = f.read()
+                self.__code = f.read()
         except (SyntaxError, UnicodeDecodeError, LookupError):
             # Fallback: attempt to read with UTF-8 and replace undecodable bytes.
             # This keeps the pipeline running; files with severe encoding issues may still fail to parse.
             with open(code_path, "r", encoding="utf-8", errors="replace") as f:
-                code = f.read()
+                self.__code = f.read()
 
         # creating AST
         try:
-            tree = ast.parse(code)
+            tree = ast.parse(self.__code)
 
             # building scope graph
             self.__builder = ScopeGraph()
@@ -44,6 +50,12 @@ class Detector:
         except Exception as e:
             print(f"Error parsing the code: {e}")
             self.__builder = None
+
+        #YARA engine initialization
+        self.rules = []
+
+        for file in os.listdir("./heuristics"):
+            self.__rules.append(yara.compile(f"./heuristics/{file}"))
 
     def get_builder(self) -> ScopeGraph:
         return self.__builder
@@ -86,8 +98,9 @@ class Detector:
             elif self.__is_global_scope(scope):
                 print(f"Variable {decl_var} is declared in global scope ({scope})")
 
-    def shadowing_detection(self) -> list[str]:
+    def shadowing_detection(self) -> tuple[list, list]:
         """
+        TODO: aggiornare doc con YARA
         Detect the presence of shadowing in the program.
         Shadowing is where a variable or function is redeclared in a subscope, so to check it is necessary to walk up
         the scope graph up to the global scope.
@@ -111,6 +124,7 @@ class Detector:
 
         leafs_scopes = self.__builder.get_leaf_scopes()
         duplication = []
+        yara_results = []
 
         for leaf in leafs_scopes:
             scope = leaf
@@ -129,7 +143,11 @@ class Detector:
             duplication.extend(self.__filter_vars(detector(decls_combinations)))
             duplication.extend(detector(refs_combinations))
 
-        return duplication
+            # YARA rule application
+            for rule in self.__rules:
+                yara_results.append(rule.match(self.__code))
+
+        return duplication, yara_results
 
     def __filter_vars(self, lst: list) -> list:
         """
