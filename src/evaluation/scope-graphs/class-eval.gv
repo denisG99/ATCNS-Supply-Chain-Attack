@@ -6,10 +6,10 @@ digraph {
 	s1_func_g -> s0__main__
 	s2_func_f -> s0__main__
 	s3_func_g -> s2_func_f
-	s0_decl_func_f [shape=box]
-	s0_decl_func_f -> s0__main__
 	s0_decl_func_g [shape=box]
 	s0_decl_func_g -> s0__main__
+	s0_decl_func_f [shape=box]
+	s0_decl_func_f -> s0__main__
 	s2_decl_var_x [shape=box]
 	s2_decl_var_x -> s2_func_f
 	s2_decl_func_g [shape=box]
