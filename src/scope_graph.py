@@ -170,7 +170,7 @@ class ScopeGraph(ast.NodeVisitor):
 
                 if t.id not in self.__variables_values.keys():
                     self.__variables_values[f"{t.id}"] = list()
-                self.__variables_values[f"{t.id}"].append(node.value.value)
+                self.__variables_values[f"{t.id}"].append(node.value)
         self.generic_visit(node)
 
     def visit_Name(self, node: ast.Name) -> None:

@@ -1,11 +1,7 @@
-import code
 import itertools
 import ast
 import re
 import tokenize
-from typing import Any
-
-from numpy.f2py import rules
 
 import yara
 import os
@@ -20,7 +16,7 @@ class Detector:
         * function and method shadowing;
         * import shadowing.
     """
-    def __init__(self, code_path: str, scope_graph_name: str="") -> None:
+    def __init__(self, code_path: str, scope_graph_name: str="", use_yara: bool=True) -> None:
         """
         Construct the detector based on the scope graph built from a code.
 
@@ -28,18 +24,21 @@ class Detector:
         :param scope_graph_name: name of the scope graph to save. If the string is empty, we don't save the graph and ignore the argument.
         """
         # Use tokenize.open to respect PEP 263 encoding declaration and handle non-UTF-8 files robustly.
+        self.__code_path: str = code_path
+        self.__use_yara: bool = use_yara
+
         try:
             with tokenize.open(code_path) as f:
-                self.__code = f.read()
+                code = f.read()
         except (SyntaxError, UnicodeDecodeError, LookupError):
             # Fallback: attempt to read with UTF-8 and replace undecodable bytes.
             # This keeps the pipeline running; files with severe encoding issues may still fail to parse.
             with open(code_path, "r", encoding="utf-8", errors="replace") as f:
-                self.__code = f.read()
+                code = f.read()
 
         # creating AST
         try:
-            tree = ast.parse(self.__code)
+            tree = ast.parse(code)
 
             # building scope graph
             self.__builder = ScopeGraph()
@@ -52,8 +51,7 @@ class Detector:
             self.__builder = None
 
         #YARA engine initialization
-        self.rules = []
-
+        self.__rules = []
         for file in os.listdir("./heuristics"):
             self.__rules.append(yara.compile(f"./heuristics/{file}"))
 
@@ -144,8 +142,9 @@ class Detector:
             duplication.extend(detector(refs_combinations))
 
             # YARA rule application
-            for rule in self.__rules:
-                yara_results.append(rule.match(self.__code))
+            if self.__use_yara:
+                for rule in self.__rules:
+                    yara_results.append(rule.match(self.__code_path))
 
         return duplication, yara_results
 
@@ -179,7 +178,7 @@ class Detector:
             if "var_" not in elem:
                 break
 
-            if not any([True if url_regex.match(str(value)) is not None else False for value in var_values[elem.split("_")[1]]]):
+            if not any([True if url_regex.match(str(value.value)) is not None else False for value in var_values[elem.split("_")[1]]]):
                 lst.remove(elem)
                 break
 
