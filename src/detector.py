@@ -2,7 +2,6 @@ import itertools
 import ast
 import re
 import tokenize
-
 import yara
 import os
 
@@ -18,10 +17,11 @@ class Detector:
     """
     def __init__(self, code_path: str, scope_graph_name: str="", use_yara: bool=True) -> None:
         """
-        Construct the detector based on the scope graph built from a code.
+        Construct the detector based on the scope graph built from a code and YARA rules to cover some evasion techniques.
 
         :param code_path: path to the code on which we build the scope graph
         :param scope_graph_name: name of the scope graph to save. If the string is empty, we don't save the graph and ignore the argument.
+        :parem use_yara: if True, we apply YARA rules
         """
         # Use tokenize.open to respect PEP 263 encoding declaration and handle non-UTF-8 files robustly.
         self.__code_path: str = code_path
@@ -98,7 +98,6 @@ class Detector:
 
     def shadowing_detection(self) -> tuple[list, list]:
         """
-        TODO: aggiornare doc con YARA
         Detect the presence of shadowing in the program.
         Shadowing is where a variable or function is redeclared in a subscope, so to check it is necessary to walk up
         the scope graph up to the global scope.
@@ -107,10 +106,16 @@ class Detector:
             * start from a scope with any child, we called 'leaf'
             * check if during the walk up in the scope graph, check if the scope has a declaration of the same name.
             Working with sets, it is enough to check if there is some intersection between the scope's declaration and the scopes' declaration.
+        After checking the presence of shadowing, we apply YARA rules to cover some possible evasion techniques
 
-        :return: list of shadowed elements
+        :return: tuple contains two lists: shadowed elements and YARA matches
         """
         def detector(combinations: list) -> list:
+            """
+            Performs the actual shadowing detection.
+
+            :return: list of shadowed elements
+            """
             output = []
 
             for comb in combinations:
@@ -150,22 +155,24 @@ class Detector:
 
     def __filter_vars(self, lst: list) -> list:
         """
-        TODO: scrivere doc codice
+        Filters out the variable that are not always a threat except some case:
+            * one of the shadowed variables contains a URL;
+            * shadowed variable contains URL but is different
 
-        :param lst:
-        :return:
+        :param lst: list of shadowed variables
+        :return: list of variables that are may not consider as a threat
         """
         def is_same_url(url_lst: list) -> bool | None:
             """
-            TODO: scrivere doc codice
+            Check if all URLs in the list are the same
 
-            :param url_lst:
-            :return:
+            :param url_lst: list containing URLs to compare
+            :return: True if all the URLs are the same, False otherwise. None if we don't have URL (aka url_lst is empty)
             """
             if len(url_lst) > 0:
                 return len(set(url_lst)) == 1
             return None
-
+        # TODO: espandere euristiche URL (vedi DonAPI)
         url_regex = re.compile(
             r'\bhttps?://'
             r'(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}'
