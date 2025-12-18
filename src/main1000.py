@@ -8,7 +8,7 @@ import pandas as pd
 from detector import Detector
 
 if __name__ == "__main__":
-    pkgs_path = "../top_pkgs.json"
+    pkgs_path = "../data/top_pkgs.json"
     temp_dir_path = "./tmp"
     fields = ["id", "name", "repository_url"]
 
