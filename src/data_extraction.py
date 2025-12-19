@@ -45,7 +45,7 @@ if __name__ == "__main__":
                                 "inner_function": inner_function,
                                 "number_of_scopes": total_scopes,
                                 "scope_chain_length": scope_chain_length,
-                                "shadowing": "true" if len(shadowing) > 0 else "false",
+                                "shadowing": "true" if len(shadowing) > 0 or len(yara) > 0 else "false",
                                 "patch_decorator_import": "true" if "patch_decorator_import" in yara else "false",
                                 "patch_decorator_usage": "true" if "patch_decorator_usage" in yara else "false",
                                 "contextmanager_import": "true" if "contextmanager_import" in yara else "false",
