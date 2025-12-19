@@ -183,15 +183,22 @@ class Detector:
 
         for elem in lst:
             if "var_" not in elem:
-                break
+                continue
 
             if not any([True if url_regex.match(str(value.value)) is not None else False for value in var_values[elem.split("_")[1]]]):
                 lst.remove(elem)
                 break
+            try:
+                if not any([True if url_regex.match(str(value.value)) is not None else False for value in var_values[elem.split("var_")[1]]]):
+                    lst.remove(elem)
+                    continue
 
-            if is_same_url(var_values[elem.split("_")[1]]):
-                lst.remove(elem)
-                break
+                if is_same_url(var_values[elem.split("_")[1]]):
+                    lst.remove(elem)
+                    continue
+            except AttributeError:
+                pass
+
         return lst
 
     def local_import_detection(self) -> list[str]:
