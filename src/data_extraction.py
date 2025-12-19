@@ -19,8 +19,6 @@ if __name__ == "__main__":
     df_pkgs = pd.read_json(PKGS_DATA)[0]
 
     statistics = {} # dictionary to store the gathered statistics for each package under analysis in the top 100
-    #local_import = []
-    #inner_function = []
 
     for pkg_name in df_pkgs:
         local_import = []
