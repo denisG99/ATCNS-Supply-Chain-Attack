@@ -9,7 +9,8 @@ from detector import Detector
 
 # constants
 TEMP_DIR = "./tmp" # path to the temporary directory where the packages will be downloaded
-PKGS_DATA = "../data/top10000_pkgs_names.json" # path to the json file containing the top n packages names
+PKGS_DATA = "../data/test.json" # path to the json file containing the top n packages names
+RESULT_PATH = "./res_test.json"
 
 if __name__ == "__main__":
     if not os.path.exists(PKGS_DATA):
@@ -61,4 +62,4 @@ if __name__ == "__main__":
 
         print("\n", end="")
 
-    json.dump(statistics, open("statistics.json", "w"), indent=4)
+    json.dump(statistics, open(RESULT_PATH, "w"), indent=4)
