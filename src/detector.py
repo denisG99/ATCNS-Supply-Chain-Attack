@@ -5,7 +5,7 @@ import tokenize
 import yara
 import os
 
-from .scope_graph import ScopeGraph
+from scope_graph import ScopeGraph
 
 class Detector:
     """
@@ -121,7 +121,7 @@ class Detector:
             for comb in combinations:
                 if len(intersections := comb[0] & comb[1]) > 0: # & operator performs the intersection between sets
                     #print(f"Shadowing detected: {list(intersections)}")
-                    output.append(*intersections)
+                    output.extend(intersections)
 
             return output
 
@@ -172,6 +172,7 @@ class Detector:
             if len(url_lst) > 0:
                 return len(set(url_lst)) == 1
             return None
+
         # TODO: espandere euristiche URL (vedi DonAPI)
         url_regex = re.compile(
             r'\bhttps?://'
@@ -185,9 +186,6 @@ class Detector:
             if "var_" not in elem:
                 continue
 
-            if not any([True if url_regex.match(str(value.value)) is not None else False for value in var_values[elem.split("_")[1]]]):
-                lst.remove(elem)
-                break
             try:
                 if not any([True if url_regex.match(str(value.value)) is not None else False for value in var_values[elem.split("var_")[1]]]):
                     lst.remove(elem)

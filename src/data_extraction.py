@@ -29,7 +29,7 @@ if __name__ == "__main__":
         download_path = os.path.join(TEMP_DIR, pkg_name)
 
         # downloading package
-        os.system(f"pip install -t {download_path} --no-deps --no-cache-dir {pkg_name}")
+        os.system(f"pip3 install -t {download_path} -q --no-deps --no-cache-dir {pkg_name}")
 
         print(f"Analyzing {pkg_name}...")
         for py_file in pathlib.Path(download_path).glob("**/*.py"): # takes only python files in all possible directories
