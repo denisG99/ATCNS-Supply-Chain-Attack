@@ -34,6 +34,8 @@ if __name__ == "__main__":
             detector = Detector(f"{py_file}")
             shadowing, yara = detector.shadowing_detection()
 
+            yara_rule_names = [rule.rule for rule in yara] # list contains the names of the yara rules
+
             if detector.get_builder() is not None:
                 # features extraction
                 local_import = detector.local_import_detection()
@@ -46,12 +48,12 @@ if __name__ == "__main__":
                                 "number_of_scopes": total_scopes,
                                 "scope_chain_length": scope_chain_length,
                                 "shadowing": "true" if len(shadowing) > 0 or len(yara) > 0 else "false",
-                                "patch_decorator_import": "true" if "patch_decorator_import" in yara else "false",
-                                "patch_decorator_usage": "true" if "patch_decorator_usage" in yara else "false",
-                                "contextmanager_import": "true" if "contextmanager_import" in yara else "false",
-                                "contextmanager_usage": "true" if "contextmanager_usage" in yara else "false",
-                                "with_statement": "true" if "with_statement" in yara else "false",
-                                "overwrite_method_class": "true" if "overwrite_method_class" in yara else "false"}
+                                "patch_decorator_import": "true" if "patch_decorator_import" in yara_rule_names else "false",
+                                "patch_decorator_usage": "true" if "patch_decorator_usage" in yara_rule_names else "false",
+                                "contextmanager_import": "true" if "contextmanager_import" in yara_rule_names else "false",
+                                "contextmanager_usage": "true" if "contextmanager_usage" in yara_rule_names else "false",
+                                "with_statement": "true" if "with_statement" in yara_rule_names else "false",
+                                "overwrite_method_class": "true" if "overwrite_method_class" in yara_rule_names else "false"}
 
         print(f"Analysis complete")
 
