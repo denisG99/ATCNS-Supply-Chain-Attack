@@ -3,7 +3,7 @@ rule patch_decorator_import {
         description = "Detection of import of patch decorator"
 
     strings:
-        $import = "from unittest.mock import patch"
+        $import1 = "from unittest.mock import patch"
 
     condition:
         $import
@@ -25,10 +25,11 @@ rule contextmanager_import {
         description = "Detection of import of contextmanager decorator"
 
     strings:
-        $import = "from contextlib import contextmanager"
+        $import1 = "from contextlib import contextmanager"
+        $import2 = "import contextlib"
 
     condition:
-        $import
+        $import1 or $import2
 }
 
 rule contextmanager_usage {
@@ -36,10 +37,11 @@ rule contextmanager_usage {
         description = "Detection of usage of contextmanager decorator"
 
     strings:
-        $decorator = "@contextmanager"
+        $decorator1 = "@contextmanager"
+        $decorator2 = "@contextlib.contextmanager"
 
     condition:
-        $decorator
+        $decorator1 or $decorator2
 }
 
 rule with_statement {
