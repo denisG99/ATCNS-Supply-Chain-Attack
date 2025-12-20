@@ -149,7 +149,7 @@ class Detector:
             # YARA rule application
             if self.__use_yara:
                 for rule in self.__rules:
-                    yara_results.append(rule.match(self.__code_path))
+                    yara_results.extend(rule.match(self.__code_path))
 
         return duplication, yara_results
 
