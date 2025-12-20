@@ -3,7 +3,7 @@ rule patch_decorator_import {
         description = "Detection of import of patch decorator"
 
     strings:
-        $import1 = "from unittest.mock import patch"
+        $import = "from unittest.mock import patch"
 
     condition:
         $import
