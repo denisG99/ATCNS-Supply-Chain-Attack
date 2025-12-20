@@ -1,0 +1,33 @@
+{
+    "acme": {
+        "local_import": [
+            "s1_func__test_it"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 903,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "certbot-dns-cloudflare": {
+        "local_import": [
+            "s2_func_setUp",
+            "s10_func_setUp"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 71,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    }
+}
