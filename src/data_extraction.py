@@ -12,13 +12,28 @@ TEMP_DIR = "./tmp" # path to the temporary directory where the packages will be 
 PKGS_DATA = "../data/test.json" # path to the json file containing the top n packages names
 RESULT_PATH = "./res_test.json"
 
+def get_checkpoint(json: dict) -> int:
+    """
+    Restore the index of the last analyzed package in order to have a checkpoint mechanism
+
+    :json: dictionary containing the statistics gathered so far
+    :return: index of the last package that has been analyzed
+    """
+    return len(json.keys())
+
 if __name__ == "__main__":
     if not os.path.exists(PKGS_DATA):
         print("Files containing packages doesn't exists!")
 
-    df_pkgs = pd.read_json(PKGS_DATA)[0]
+    statistics = {}# dictionary to store the gathered statistics for each package under analysis
+    start_idx = 0
 
-    statistics = {} # dictionary to store the gathered statistics for each package under analysis in the top 100
+    if os.path.exists(RESULT_PATH):
+        statistics = json.load(open(RESULT_PATH))
+        start_idx = get_checkpoint(statistics)
+
+
+    df_pkgs = pd.read_json(PKGS_DATA)[0][start_idx:]
 
     for pkg_name in df_pkgs:
         local_import = []
@@ -27,7 +42,7 @@ if __name__ == "__main__":
         download_path = os.path.join(TEMP_DIR, pkg_name)
 
         # downloading package
-        os.system(f"pip3 install -t {download_path} -q --no-deps --no-cache-dir {pkg_name}")
+        os.system(f"pip3 install -t {download_path} -q --upgrade --no-deps --no-cache-dir {pkg_name}")
 
         print(f"Analyzing {pkg_name}...")
         for py_file in pathlib.Path(download_path).glob("**/*.py"): # takes only python files in all possible directories
