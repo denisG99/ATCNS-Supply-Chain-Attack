@@ -83,11 +83,7 @@ if __name__ == "__main__":
             # removing temp directory, even if isn't empty
             shutil.rmtree(download_path, ignore_errors=True)
 
-        pbar.close()
     except Exception as e:
         json.dump(statistics, open(RESULT_PATH, "w"), indent=4)
-
-        pbar.close()
     finally:
         json.dump(statistics, open(RESULT_PATH, "w"), indent=4)
-        pbar.close()
