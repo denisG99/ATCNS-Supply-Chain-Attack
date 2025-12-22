@@ -5,10 +5,11 @@ import os
 import pandas as pd
 
 from detector import Detector
+from tqdm import tqdm
 
 # constants
 TEMP_DIR = "./tmp" # path to the temporary directory where the packages will be downloaded
-PKGS_DATA = "../data/top10000_pkgs_names.json" # path to the json file containing the top n packages names
+PKGS_DATA = "../data/top50000_Dec2k25.json" # path to the json file containing the top n packages names
 RESULT_PATH = "./res_test.json"
 SAVE_FREQUENCY = 10 # how many packages will be analyzed before saving the results
 
@@ -34,11 +35,10 @@ if __name__ == "__main__":
         start_idx = get_checkpoint(statistics)
         analyzed_pkgs_count = start_idx
 
-
     df_pkgs = pd.read_json(PKGS_DATA)[0][start_idx:]
 
     try:
-        for pkg_name in df_pkgs:
+        for pkg_name in tqdm(df_pkgs, desc=f"Packages analysis"):
             local_import = []
             inner_function = []
             total_scopes = 0
@@ -47,7 +47,7 @@ if __name__ == "__main__":
             # downloading package
             os.system(f"pip3 install -t {download_path} -q --upgrade --no-deps --no-cache-dir {pkg_name}")
 
-            print(f"Analyzing {pkg_name}...")
+            #print(f"Analyzing {pkg_name}...")
             for py_file in pathlib.Path(download_path).glob("**/*.py"): # takes only python files in all possible directories
                 detector = Detector(f"{py_file}")
                 shadowing, yara = detector.shadowing_detection()
@@ -73,7 +73,7 @@ if __name__ == "__main__":
                                     "with_statement": "true" if "with_statement" in yara_rule_names else "false",
                                     "overwrite_method_class": "true" if "overwrite_method_class" in yara_rule_names else "false"}
 
-            print(f"Analysis complete")
+            #print(f"Analysis complete")
 
             analyzed_pkgs_count += 1
 
@@ -83,8 +83,11 @@ if __name__ == "__main__":
             # removing temp directory, even if isn't empty
             shutil.rmtree(download_path, ignore_errors=True)
 
-            print("\n", end="")
+        pbar.close()
     except Exception as e:
         json.dump(statistics, open(RESULT_PATH, "w"), indent=4)
+
+        pbar.close()
     finally:
         json.dump(statistics, open(RESULT_PATH, "w"), indent=4)
+        pbar.close()
