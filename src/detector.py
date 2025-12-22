@@ -195,7 +195,7 @@ class Detector:
                     lst.remove(elem)
                     continue
             except (AttributeError, KeyError):
-                pass
+                continue
 
         return lst
 
