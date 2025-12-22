@@ -194,7 +194,7 @@ class Detector:
                 if is_same_url(var_values[elem.split("_")[1]]):
                     lst.remove(elem)
                     continue
-            except AttributeError:
+            except (AttributeError, KeyError):
                 pass
 
         return lst
