@@ -3,6 +3,7 @@ import shutil
 import json
 import os
 import pandas as pd
+import sys
 
 from detector import Detector
 from tqdm import tqdm
@@ -12,6 +13,8 @@ TEMP_DIR = "./tmp" # path to the temporary directory where the packages will be 
 PKGS_DATA = "../data/top50000_Dec2k25.json" # path to the json file containing the top n packages names
 RESULT_PATH = "./res_test.json"
 SAVE_FREQUENCY = 10 # how many packages will be analyzed before saving the results
+
+sys.setrecursionlimit(3000) # increase recursion limit (NOTE: change with caution)
 
 def get_checkpoint(json: dict) -> int:
     """
@@ -38,7 +41,7 @@ if __name__ == "__main__":
     df_pkgs = pd.read_json(PKGS_DATA)[0][start_idx:]
 
     try:
-        for pkg_name in tqdm(df_pkgs, desc=f"Packages analysis"):
+        for pkg_name in  tqdm(df_pkgs, desc=f"Packages analysis"):
             local_import = []
             inner_function = []
             total_scopes = 0
@@ -47,19 +50,21 @@ if __name__ == "__main__":
             # downloading package
             os.system(f"pip3 install -t {download_path} -q --upgrade --no-deps --no-cache-dir {pkg_name}")
 
-            #print(f"Analyzing {pkg_name}...")
             for py_file in pathlib.Path(download_path).glob("**/*.py"): # takes only python files in all possible directories
-                detector = Detector(f"{py_file}")
-                shadowing, yara = detector.shadowing_detection()
+                try:
+                    detector = Detector(f"{py_file}")
+                    shadowing, yara = detector.shadowing_detection()
 
-                yara_rule_names = [rule.rule for rule in yara] # list contains the names of the yara rules
+                    yara_rule_names = [rule.rule for rule in yara] # list contains the names of the yara rules
 
-                if detector.get_builder() is not None:
-                    # features extraction
-                    local_import = detector.local_import_detection()
-                    inner_function, scopes_number = detector.inner_function_detection()
-                    scope_chain_length = detector.get_builder().length_longest_scope_chain()
-                    total_scopes += scopes_number
+                    if detector.get_builder() is not None:
+                        # features extraction
+                        local_import = detector.local_import_detection()
+                        inner_function, scopes_number = detector.inner_function_detection()
+                        scope_chain_length = detector.get_builder().length_longest_scope_chain()
+                        total_scopes += scopes_number
+                except Exception as e:
+                    continue
 
             statistics[pkg_name] = {"local_import": local_import,
                                     "inner_function": inner_function,
@@ -72,8 +77,6 @@ if __name__ == "__main__":
                                     "contextmanager_usage": "true" if "contextmanager_usage" in yara_rule_names else "false",
                                     "with_statement": "true" if "with_statement" in yara_rule_names else "false",
                                     "overwrite_method_class": "true" if "overwrite_method_class" in yara_rule_names else "false"}
-
-            #print(f"Analysis complete")
 
             analyzed_pkgs_count += 1
 
