@@ -10,7 +10,7 @@ from tqdm import tqdm
 
 # constants
 TEMP_DIR = "./tmp" # path to the temporary directory where the packages will be downloaded
-PKGS_DATA = "../data/top50000_Dec2k25.json" # path to the json file containing the top n packages names
+PKGS_DATA = "../data/top packages/top50000_2025.json" # path to the json file containing the top n packages names
 RESULT_PATH = "./res_test.json"
 SAVE_FREQUENCY = 10 # how many packages will be analyzed before saving the results
 
