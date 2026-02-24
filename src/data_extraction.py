@@ -12,7 +12,7 @@ from tqdm import tqdm
 # constants
 TEMP_DIR = "./tmp" # path to the temporary directory where the packages will be downloaded
 PKGS_DATA_DIR = "../data/top packages" # path to the directory containing the top n packages names for each year
-RESULT_PATH_DIR = "../data/shadowing"
+RESULT_PATH_DIR = "../data/results"
 SAVE_FREQUENCY = 10 # how many packages will be analyzed before saving the results
 PYPI_API: str = "https://pypi.org/pypi/<package-name>/json"
 
@@ -127,7 +127,7 @@ if __name__ == "__main__":
                                         "inner_function": inner_function,
                                         "number_of_scopes": total_scopes,
                                         "scope_chain_length": scope_chain_length,
-                                        "shadowing": "true" if len(shadowing) > 0 or len(yara) > 0 else "false",
+                                        "results": "true" if len(shadowing) > 0 or len(yara) > 0 else "false",
                                         "patch_decorator_import": "true" if "patch_decorator_import" in yara_rule_names else "false",
                                         "patch_decorator_usage": "true" if "patch_decorator_usage" in yara_rule_names else "false",
                                         "contextmanager_import": "true" if "contextmanager_import" in yara_rule_names else "false",
