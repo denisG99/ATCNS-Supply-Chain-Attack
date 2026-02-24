@@ -11,7 +11,7 @@ from tqdm import tqdm
 
 # constants
 TEMP_DIR = "./tmp" # path to the temporary directory where the packages will be downloaded
-PKGS_DATA_DIR = "../data/top packages" # path to the directory containing the top n packages names for each year
+PKGS_DATA_DIR = "../data/top packages"  # path to the directory containing the top n packages names for each year
 RESULT_PATH_DIR = "../data/results"
 SAVE_FREQUENCY = 10 # how many packages will be analyzed before saving the results
 PYPI_API: str = "https://pypi.org/pypi/<package-name>/json"
@@ -105,7 +105,7 @@ if __name__ == "__main__":
                 version = get_version(year, pkg_name)
 
                 # downloading package (we use <= just in case the version, for some reason, is not available)
-                os.system(f"pip3 install -t {download_path} -q --upgrade --no-deps --no-cache-dir {pkg_name}<={version}")
+                os.system(f"pip3 install -t {download_path} -q --upgrade --no-deps --no-cache-dir '{pkg_name}<={version}'")
 
                 for py_file in pathlib.Path(download_path).glob("**/*.py"): # takes only python files in all possible directories
                     try:
