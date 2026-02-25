@@ -80,7 +80,10 @@ def get_version(year: int, pkg: str) -> str:
         except (IndexError, KeyError):
             pass
 
-    return last_version
+    if not last_version == "0.0.0":
+        return last_version
+    else:
+        return get_version(year - 1, pkg)
 
 if __name__ == "__main__":
     for json_file in os.listdir(PKGS_DATA_DIR):
@@ -97,7 +100,7 @@ if __name__ == "__main__":
         df_pkgs = pd.read_json(f"{PKGS_DATA_DIR}/{json_file}")[0][start_idx:]
 
         try:
-            for pkg_name in tqdm(df_pkgs, desc=f"Packages analysis"):
+            for pkg_name in tqdm(df_pkgs, desc=f"Packages analysis({json_file})"):
                 local_import = []
                 inner_function = []
                 total_scopes = 0
@@ -121,13 +124,14 @@ if __name__ == "__main__":
                             scope_chain_length = detector.get_builder().length_longest_scope_chain()
                             total_scopes += scopes_number
                     except Exception as e:
+                        print(f"Error processing file {py_file}: {e}")
                         continue
 
                 statistics[pkg_name] = {"local_import": local_import,
                                         "inner_function": inner_function,
                                         "number_of_scopes": total_scopes,
                                         "scope_chain_length": scope_chain_length,
-                                        "results": "true" if len(shadowing) > 0 or len(yara) > 0 else "false",
+                                        "shadowing": "true" if len(shadowing) > 0 or len(yara) > 0 else "false",
                                         "patch_decorator_import": "true" if "patch_decorator_import" in yara_rule_names else "false",
                                         "patch_decorator_usage": "true" if "patch_decorator_usage" in yara_rule_names else "false",
                                         "contextmanager_import": "true" if "contextmanager_import" in yara_rule_names else "false",
@@ -142,8 +146,8 @@ if __name__ == "__main__":
 
                 # removing temp directory, even if isn't empty
                 shutil.rmtree(download_path, ignore_errors=True)
-
         except Exception as e:
+            print(f"Error processing {pkg_name}: {e}")
             json.dump(statistics, open(f"{RESULT_PATH_DIR}/{json_file}", "w"), indent=4)
         finally:
             json.dump(statistics, open(f"{RESULT_PATH_DIR}/{json_file}", "w"), indent=4)
