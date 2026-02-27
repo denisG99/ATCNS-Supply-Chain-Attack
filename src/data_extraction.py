@@ -5,6 +5,7 @@ import os
 import pandas as pd
 import sys
 import requests
+import re
 
 from detector import Detector
 from tqdm import tqdm
@@ -75,7 +76,7 @@ def get_version(year: int, pkg: str) -> str:
 
     for version in releases.keys():
         try:
-            if releases[version][0]["upload_time"].startswith(str(year)) and is_later_version(version, last_version) == 1:
+            if bool(re.fullmatch(r"^\d+(?:\.\d+)*$", version)) and releases[version][0]["upload_time"].startswith(str(year)) and is_later_version(version, last_version) == 1:
                 last_version = version
         except (IndexError, KeyError):
             pass
