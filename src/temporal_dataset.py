@@ -2,9 +2,13 @@
 The goal of this file is to create a dataset containing additional information about top 50k packages:
     * author -> PyPI API (https://pypi.org/pypi/<package-name>/json)
     * owner -> PyPI API (https://pypi.org/pypi/<package-name>/json)
-    * contributors -> Github API (https://api.github.com/repos/<owner>/<repo>/contributors)
+    * contributors -> Github log command
     * categories -> Github API (https://api.github.com/repos/<owner>/<repo>/topics)
 """
+from collections import Counter
+from pathlib import Path
+
+import subprocess
 import requests
 import os
 import re
@@ -18,9 +22,57 @@ GITHUB_API_CONTRIBUTORS: str = "https://api.github.com/repos/<owner>/<repo>/cont
 GITHUB_API_TOPICS: str = "https://api.github.com/repos/<owner>/<repo>/topics"
 RESULTS_DATA_DIR: str = "../data/results" # path to the json files containing the information about shadowing of top n packages
 CSV_DIR_PATH: str = "../data/pkgs info"
+TMP_DIR_PATH: str = "./temp"
+
+def get_year_contributors(repo_url: str, year: int) -> Counter:
+    """
+    Function get the contributor until a given year cloning the repository and then extract the contributor using 'git log' command,
+    giving all commit
+
+    :param repo_url: repository link to clone
+    :param year: year to analyze
+
+    :return: dictionary contains the contributors and the number of their contribution made until the given year
+    """
+
+    clone_dir = Path(TMP_DIR_PATH)
+    clone_dir.mkdir(exist_ok=True)
+
+    repo_name = repo_url.split("/")[-1].replace(".git", "")
+    repo_path = clone_dir / repo_name
+
+    # Clone if not exists
+    if not repo_path.exists():
+        subprocess.run(["git", "clone", repo_url, str(repo_path)], check=True)
+
+    # Pull latest changes
+    subprocess.run(["git", "-C", str(repo_path), "pull"], check=True)
+
+    until = f"{year}-12-31"
+
+    result = subprocess.run(
+        [
+            "git",
+            "-C",
+            str(repo_path),
+            "log",
+            "--until", until,
+            "--pretty=%an"
+        ],
+        capture_output=True,
+        text=True,
+        check=True
+    )
+
+    authors = result.stdout.strip().split("\n")
+    counter = Counter(authors)
+
+    return counter
 
 if __name__ == "__main__":
-    for file in os.listdir(RESULTS_DATA_DIR):
+   for file in os.listdir(RESULTS_DATA_DIR):
+        year = int(file.split("_")[-1].replace(".json", ""))
+
         with open(f"{RESULTS_DATA_DIR}/{file}", "r") as f:
             pkgs: dict = json.load(f)
             df_info: pd.DataFrame = pd.DataFrame(data={"pkg_name": pkgs,
@@ -52,12 +104,7 @@ if __name__ == "__main__":
                     df_info.loc[pkg, "owner"] = owner
 
                     #  infos about contributors from Github API
-                    contributors: str = ""
-
-                    if not owner ==  "Unknown":
-                        git_response: dict = requests.get(GITHUB_API_CONTRIBUTORS.replace("<owner>", owner).replace("<repo>", repo)).json()
-
-                        contributors = ",".join([str((contributor["login"], contributor["contributions"])) for contributor in git_response])
+                    contributors: str = str(list(get_year_contributors(f"https://github.com/{owner}/{pkg}.git", year)))
 
                     df_info.loc[pkg, "contributors"] = contributors
 
