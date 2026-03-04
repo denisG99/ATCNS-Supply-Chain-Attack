@@ -1,0 +1,5436 @@
+{
+    "urllib3": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 894,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "six": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s80_func_write",
+                "s79_func_print_"
+            ],
+            [
+                "s87_func___new__",
+                "s85_func_with_metaclass"
+            ],
+            [
+                "s88_func___prepare__",
+                "s85_func_with_metaclass"
+            ],
+            [
+                "s90_func_wrapper",
+                "s89_func_add_metaclass"
+            ]
+        ],
+        "number_of_scopes": 71,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "botocore": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 3270,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "python-dateutil": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 668,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "requests": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 447,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "setuptools": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 5569,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "s3transfer": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1005,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "pip": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 10082,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "idna": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 20,
+        "scope_chain_length": 2,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "certifi": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 4,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "boto3": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 593,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "pyyaml": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "jmespath": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 330,
+        "scope_chain_length": 3,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "chardet": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 250,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "pyasn1": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1403,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "rsa": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 123,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "docutils": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 4715,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "awscli": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 3958,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "wheel": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 121,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "colorama": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 80,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "true",
+        "contextmanager_usage": "true",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "numpy": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "true",
+        "contextmanager_usage": "true",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "pytz": {
+        "local_import": [
+            "s1_excHandler",
+            "s2_excHandler"
+        ],
+        "inner_function": [
+            [
+                "s13_func__lazy",
+                "s12_func_lazy",
+                "s10_func___new__"
+            ],
+            [
+                "s19_func__lazy",
+                "s18_func_lazy",
+                "s16_func___new__"
+            ]
+        ],
+        "number_of_scopes": 144,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "cffi": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "markupsafe": {
+        "local_import": [
+            "s4_func_soft_unicode"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 59,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "jinja2": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1408,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "protobuf": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1272,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "click": {
+        "local_import": [
+            "s25_func_callback",
+            "s26_excHandler"
+        ],
+        "inner_function": [
+            [
+                "s2_func_new_func",
+                "s1_func_pass_context"
+            ],
+            [
+                "s4_func_new_func",
+                "s3_func_pass_obj"
+            ],
+            [
+                "s7_func_new_func",
+                "s6_func_decorator",
+                "s5_func_make_pass_decorator"
+            ],
+            [
+                "s10_func_new_func",
+                "s9_func_decorator",
+                "s8_func_pass_meta_key"
+            ],
+            [
+                "s14_func_decorator",
+                "s13_func_command"
+            ],
+            [
+                "s18_func_decorator",
+                "s17_func_argument"
+            ],
+            [
+                "s20_func_decorator",
+                "s19_func_option"
+            ],
+            [
+                "s22_func_callback",
+                "s21_func_confirmation_option"
+            ],
+            [
+                "s25_func_callback",
+                "s24_func_version_option"
+            ],
+            [
+                "s25_func_callback",
+                "s24_func_version_option"
+            ],
+            [
+                "s29_func_callback",
+                "s28_func_help_option"
+            ]
+        ],
+        "number_of_scopes": 889,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "attrs": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s3_func_include_",
+                "s2_func_include"
+            ],
+            [
+                "s5_func_exclude_",
+                "s4_func_exclude"
+            ]
+        ],
+        "number_of_scopes": 269,
+        "scope_chain_length": 3,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "cryptography": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 2611,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "simplejson": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 529,
+        "scope_chain_length": 3,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "pycparser": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1348,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "pyparsing": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s32_func__inner",
+                "s31_func__apply_diagram_item_enhancements"
+            ]
+        ],
+        "number_of_scopes": 1004,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "pandas": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "futures": {
+        "local_import": [
+            "s14_func__check_system_limits"
+        ],
+        "inner_function": [
+            [
+                "s13_func_shutdown_one_process",
+                "s12_func__queue_management_worker"
+            ],
+            [
+                "s19_func_weakref_cb",
+                "s18_func__start_queue_management_thread"
+            ]
+        ],
+        "number_of_scopes": 41,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "packaging": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s37_func_wrapped",
+                "s36_func__require_version_compare"
+            ]
+        ],
+        "number_of_scopes": 313,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "importlib-metadata": {
+        "local_import": [
+            "s1_excHandler"
+        ],
+        "inner_function": [
+            [
+                "s4_func_matches",
+                "s3_func_disable_stdlib_finder"
+            ]
+        ],
+        "number_of_scopes": 267,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "typing-extensions": {
+        "local_import": [
+            "s70_func__typeddict_new"
+        ],
+        "inner_function": [
+            [
+                "s53_func__proto_hook",
+                "s52_func___init_subclass__"
+            ],
+            [
+                "s58_func__proto_hook",
+                "s57_func___init__"
+            ]
+        ],
+        "number_of_scopes": 258,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "zipp": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 54,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "true",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "oauthlib": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 682,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "requests-oauthlib": {
+        "local_import": [
+            "s1_excHandler"
+        ],
+        "inner_function": [
+            [
+                "s3_func__non_compliant_param_name",
+                "s2_func_slack_compliance_fix"
+            ]
+        ],
+        "number_of_scopes": 103,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "pyasn1-modules": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 14,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "google-api-core": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 628,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "google-auth": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 752,
+        "scope_chain_length": 1,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "cachetools": {
+        "local_import": [
+            "s1_excHandler"
+        ],
+        "inner_function": [
+            [
+                "s10_func_wrapper",
+                "s9_func_decorator",
+                "s8_func__cache"
+            ],
+            [
+                "s10_func_wrapper",
+                "s9_func_decorator",
+                "s8_func__cache"
+            ],
+            [
+                "s13_func_cache_info",
+                "s9_func_decorator",
+                "s8_func__cache"
+            ],
+            [
+                "s14_func_cache_clear",
+                "s9_func_decorator",
+                "s8_func__cache"
+            ],
+            [
+                "s9_func_decorator",
+                "s8_func__cache"
+            ]
+        ],
+        "number_of_scopes": 264,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "werkzeug": {
+        "local_import": [
+            "s5_func___call__"
+        ],
+        "inner_function": [
+            [
+                "s8_func_proxy",
+                "s7_func__sequence_repr_maker"
+            ]
+        ],
+        "number_of_scopes": 2292,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "decorator": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s11_afunc_fun",
+                "s10_func_decorate"
+            ],
+            [
+                "s12_func_fun",
+                "s10_func_decorate"
+            ],
+            [
+                "s13_func_fun",
+                "s10_func_decorate"
+            ],
+            [
+                "s20_func_dec",
+                "s19_func_decoratorx"
+            ],
+            [
+                "s23_func_dec",
+                "s21_func_decorator"
+            ],
+            [
+                "s28_func_caller",
+                "s27_func___call__"
+            ],
+            [
+                "s32_func_check",
+                "s31_func_dispatch_on"
+            ],
+            [
+                "s34_func_vancestors",
+                "s33_func_gen_func_dec",
+                "s31_func_dispatch_on"
+            ],
+            [
+                "s34_func_vancestors",
+                "s33_func_gen_func_dec",
+                "s31_func_dispatch_on"
+            ],
+            [
+                "s37_func_ancestors",
+                "s33_func_gen_func_dec",
+                "s31_func_dispatch_on"
+            ],
+            [
+                "s39_func_dec",
+                "s38_func_register",
+                "s33_func_gen_func_dec",
+                "s31_func_dispatch_on"
+            ],
+            [
+                "s40_func_dispatch_info",
+                "s33_func_gen_func_dec",
+                "s31_func_dispatch_on"
+            ],
+            [
+                "s41_func__dispatch",
+                "s33_func_gen_func_dec",
+                "s31_func_dispatch_on"
+            ]
+        ],
+        "number_of_scopes": 65,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "future": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 3658,
+        "scope_chain_length": 1,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "pyjwt": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 191,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "flask": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 650,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "itsdangerous": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 154,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "pytest": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 2723,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "py": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s10_func_lineof",
+                "s9_func___iter__"
+            ]
+        ],
+        "number_of_scopes": 1455,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "google-cloud-core": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 110,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "true",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "scipy": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "true",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "jsonschema": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 938,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "pillow": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "psutil": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s3_func_foo",
+                "s2_func_test_retry_success"
+            ],
+            [
+                "s5_func_foo",
+                "s4_func_test_retry_failure"
+            ],
+            [
+                "s7_func_foo",
+                "s6_func_test_exception_arg"
+            ],
+            [
+                "s9_func_foo",
+                "s8_func_test_no_interval_arg"
+            ],
+            [
+                "s11_func_foo",
+                "s10_func_test_retries_arg"
+            ],
+            [
+                "s40_func_fun",
+                "s39_func_test_times"
+            ],
+            [
+                "s48_func_fun",
+                "s47_func_test_leak_mem"
+            ],
+            [
+                "s50_func_fun",
+                "s49_func_test_unclosed_files"
+            ],
+            [
+                "s52_func_fun",
+                "s51_func_test_tolerance"
+            ],
+            [
+                "s54_func_fun",
+                "s53_func_test_execute_w_exc"
+            ],
+            [
+                "s55_func_fun",
+                "s53_func_test_execute_w_exc"
+            ]
+        ],
+        "number_of_scopes": 3074,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "true",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "multidict": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "true",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "grpcio": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "true",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "pygments": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1646,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "googleapis-common-protos": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 22,
+        "scope_chain_length": 1,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "sqlalchemy": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 17858,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "wrapt": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "lxml": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "websocket-client": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s6_func_on_open",
+                "s5_func_testKeepRunning"
+            ],
+            [
+                "s7_func_on_message",
+                "s5_func_testKeepRunning"
+            ],
+            [
+                "s8_func_on_close",
+                "s5_func_testKeepRunning"
+            ],
+            [
+                "s10_func_my_mask_key_func",
+                "s9_func_testSockMaskKey"
+            ],
+            [
+                "s12_func_on_ping",
+                "s11_func_testInvalidPingIntervalPingTimeout"
+            ],
+            [
+                "s13_func_on_pong",
+                "s11_func_testInvalidPingIntervalPingTimeout"
+            ],
+            [
+                "s15_func_on_ping",
+                "s14_func_testPingInterval"
+            ],
+            [
+                "s16_func_on_pong",
+                "s14_func_testPingInterval"
+            ],
+            [
+                "s22_func_on_close",
+                "s21_func_testCloseStatusCode"
+            ]
+        ],
+        "number_of_scopes": 433,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "pluggy": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s33_func_traced_hookexec",
+                "s32_func_add_hookcall_monitoring"
+            ],
+            [
+                "s35_func_undo",
+                "s32_func_add_hookcall_monitoring"
+            ],
+            [
+                "s37_func_before",
+                "s36_func_enable_tracing"
+            ],
+            [
+                "s38_func_after",
+                "s36_func_enable_tracing"
+            ]
+        ],
+        "number_of_scopes": 156,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "aiohttp": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "google-cloud-storage": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 712,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "isodate": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s3_func_localtime_mock",
+                "s1_func_create_testcase"
+            ],
+            [
+                "s4_func_setUp",
+                "s1_func_create_testcase"
+            ],
+            [
+                "s5_func_tearDown",
+                "s1_func_create_testcase"
+            ],
+            [
+                "s6_func_test_format",
+                "s1_func_create_testcase"
+            ]
+        ],
+        "number_of_scopes": 155,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "pyopenssl": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s17_func_wrapper",
+                "s16_func___init__"
+            ],
+            [
+                "s21_func_wrapper",
+                "s20_func___init__"
+            ],
+            [
+                "s25_func_wrapper",
+                "s24_func___init__"
+            ],
+            [
+                "s29_func_wrapper",
+                "s28_func___init__"
+            ],
+            [
+                "s35_func_explode",
+                "s34_func__requires_decorator",
+                "s33_func__make_requires"
+            ],
+            [
+                "s44_func_wrapper",
+                "s43_func__wrap_callback"
+            ],
+            [
+                "s74_func_wrapper",
+                "s73_func_set_info_callback"
+            ],
+            [
+                "s76_func_wrapper",
+                "s75_func_set_keylog_callback"
+            ],
+            [
+                "s83_func_wrapper",
+                "s82_func_set_tlsext_servername_callback"
+            ]
+        ],
+        "number_of_scopes": 532,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "pyrsistent": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 667,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "toml": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 136,
+        "scope_chain_length": 3,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "yarl": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 3,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "google-api-python-client": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 340,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "virtualenv": {
+        "local_import": [
+            "s6_func__shorten_path_if_needed"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 1281,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "pbr": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 655,
+        "scope_chain_length": 1,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "scikit-learn": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 1,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "coverage": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1067,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "msrest": {
+        "local_import": [
+            "s1_excHandler"
+        ],
+        "inner_function": [
+            [
+                "s17_func_enforce_http_spec",
+                "s16_func__patch_redirect"
+            ],
+            [
+                "s18_func_wrapped_redirect",
+                "s16_func__patch_redirect"
+            ],
+            [
+                "s27_func_user_hook_cb",
+                "s26_func_make_user_hook_cb",
+                "s25_func__configure_send"
+            ]
+        ],
+        "number_of_scopes": 871,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "true",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "enum34": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s15_func__break_on_call_reduce",
+                "s14_func__make_class_unpicklable"
+            ]
+        ],
+        "number_of_scopes": 84,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "google-resumable-media": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 284,
+        "scope_chain_length": 1,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "matplotlib": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 13785,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "joblib": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1655,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "httplib2": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 232,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "docker": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1194,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "uritemplate": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s10_func_replace_all",
+                "s9_func__expand"
+            ],
+            [
+                "s11_func_replace_partial",
+                "s9_func__expand"
+            ]
+        ],
+        "number_of_scopes": 65,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "tqdm": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 510,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "azure-storage-blob": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 2430,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "async-timeout": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 30,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "wcwidth": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 6,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "pexpect": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 424,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "pytest-runner": {
+        "local_import": [
+            "s4_func_fetch_build_egg"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 22,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "true",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "ptyprocess": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 109,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "asn1crypto": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s6_func__try_unescape",
+                "s5_func__urlquote"
+            ],
+            [
+                "s7_func__extract_escape",
+                "s5_func__urlquote"
+            ],
+            [
+                "s8_func__return_escape",
+                "s5_func__urlquote"
+            ]
+        ],
+        "number_of_scopes": 954,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "pyarrow": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "charset-normalizer": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 239,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "ipython": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 5580,
+        "scope_chain_length": 2,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "more-itertools": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s36_func_true_iterator",
+                "s35_func_before_and_after"
+            ],
+            [
+                "s37_func_remainder_iterator",
+                "s35_func_before_and_after"
+            ]
+        ],
+        "number_of_scopes": 260,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "tornado": {
+        "local_import": [
+            "s5_func_install"
+        ],
+        "inner_function": [
+            [
+                "s7_func_errback",
+                "s6_func__"
+            ]
+        ],
+        "number_of_scopes": 6152,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "prompt-toolkit": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 4167,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "beautifulsoup4": {
+        "local_import": [
+            "s1_excHandler"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 770,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "tabulate": {
+        "local_import": [
+            "s4_excHandler",
+            "s117_func__main"
+        ],
+        "inner_function": [
+            [
+                "s20_func_escape_char",
+                "s19_func__latex_row"
+            ],
+            [
+                "s23_func_escape_empty",
+                "s22_func__rst_escape_first_column"
+            ]
+        ],
+        "number_of_scopes": 123,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "appdirs": {
+        "local_import": [
+            "s21_func__get_win_folder_from_registry",
+            "s22_func__get_win_folder_with_pywin32",
+            "s25_func__get_win_folder_with_ctypes",
+            "s26_func__get_win_folder_with_jna",
+            "s27_excHandler",
+            "s28_excHandler"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 28,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "defusedxml": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 98,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "mccabe": {
+        "local_import": [
+            "s1_excHandler"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 63,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "azure-common": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 49,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "google-auth-httplib2": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 37,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "azure-core": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1574,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "redis": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 2332,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "prometheus-client": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 428,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "webencodings": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s9_func_iter_decode_to_string",
+                "s8_func_test_iter_decode"
+            ]
+        ],
+        "number_of_scopes": 24,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "paramiko": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1903,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "kiwisolver": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "gunicorn": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s8_func_changed",
+                "s7_func_init_process"
+            ]
+        ],
+        "number_of_scopes": 951,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "mock": {
+        "local_import": [
+            "s227_func_mock_open"
+        ],
+        "inner_function": [
+            [
+                "s10_func_checksig",
+                "s9_func__check_signature"
+            ],
+            [
+                "s17_func_checksig",
+                "s16_func__set_signature"
+            ],
+            [
+                "s19_func_assert_called_with",
+                "s18_func__setup_func"
+            ],
+            [
+                "s20_func_assert_called",
+                "s18_func__setup_func"
+            ],
+            [
+                "s21_func_assert_not_called",
+                "s18_func__setup_func"
+            ],
+            [
+                "s22_func_assert_called_once",
+                "s18_func__setup_func"
+            ],
+            [
+                "s23_func_assert_called_once_with",
+                "s18_func__setup_func"
+            ],
+            [
+                "s24_func_assert_has_calls",
+                "s18_func__setup_func"
+            ],
+            [
+                "s25_func_assert_any_call",
+                "s18_func__setup_func"
+            ],
+            [
+                "s26_func_reset_mock",
+                "s18_func__setup_func"
+            ],
+            [
+                "s28_func_wrapper",
+                "s27_func__setup_async_mock"
+            ],
+            [
+                "s39_func__get",
+                "s38_func__delegating_property"
+            ],
+            [
+                "s40_func__set",
+                "s38_func__delegating_property"
+            ],
+            [
+                "s83_func__error_message",
+                "s82_func_assert_called_with"
+            ],
+            [
+                "s117_func_patched",
+                "s116_func_decorate_callable"
+            ],
+            [
+                "s119_afunc_patched",
+                "s118_func_decorate_async_callable"
+            ],
+            [
+                "s140_func__inner",
+                "s139_func___call__"
+            ],
+            [
+                "s156_func_method",
+                "s155_func__get_method"
+            ],
+            [
+                "s162_func___eq__",
+                "s161_func__get_eq"
+            ],
+            [
+                "s164_func___ne__",
+                "s163_func__get_ne"
+            ],
+            [
+                "s166_func___iter__",
+                "s165_func__get_iter"
+            ],
+            [
+                "s168_func___aiter__",
+                "s167_func__get_async_iter"
+            ],
+            [
+                "s190_func__error_message",
+                "s189_func_assert_awaited_with"
+            ],
+            [
+                "s228_func__readlines_side_effect",
+                "s227_func_mock_open"
+            ],
+            [
+                "s229_func__read_side_effect",
+                "s227_func_mock_open"
+            ],
+            [
+                "s230_func__readline_side_effect",
+                "s227_func_mock_open"
+            ],
+            [
+                "s231_func__iter_side_effect",
+                "s227_func_mock_open"
+            ],
+            [
+                "s232_func__next_side_effect",
+                "s227_func_mock_open"
+            ],
+            [
+                "s233_func_reset_data",
+                "s227_func_mock_open"
+            ]
+        ],
+        "number_of_scopes": 349,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "true",
+        "contextmanager_usage": "true",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "filelock": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 57,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "setuptools-scm": {
+        "local_import": [
+            "s1_excHandler"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 141,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "absl-py": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 911,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "boto": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 10362,
+        "scope_chain_length": 2,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "traitlets": {
+        "local_import": [
+            "s1_excHandler",
+            "s63_func_test_deep_alias"
+        ],
+        "inner_function": [
+            [
+                "s55_func__capture",
+                "s54_func__config_changed"
+            ],
+            [
+                "s66_func___init__",
+                "s63_func_test_deep_alias"
+            ],
+            [
+                "s68_func_initialize",
+                "s63_func_test_deep_alias"
+            ]
+        ],
+        "number_of_scopes": 1888,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "true",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "bcrypt": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 1,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "entrypoints": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 25,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "true",
+        "contextmanager_usage": "true",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "pynacl": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 150,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "pycodestyle": {
+        "local_import": [
+            "s4_excHandler",
+            "s118_func__main"
+        ],
+        "inner_function": [
+            [
+                "s9_func__add_check",
+                "s8_func_register_check"
+            ],
+            [
+                "s32_func_is_string_literal",
+                "s31_func_module_imports_on_top_of_file"
+            ]
+        ],
+        "number_of_scopes": 103,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "ipaddress": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 303,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "regex": {
+        "local_import": [
+            "s7_func__shrink_cache"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 1147,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "bleach": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1836,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "soupsieve": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s76_func_get_parent_form",
+                "s75_func_match_indeterminate"
+            ]
+        ],
+        "number_of_scopes": 336,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "ipython-genutils": {
+        "local_import": [
+            "s8_func_skip_decorator"
+        ],
+        "inner_function": [
+            [
+                "s3_func_test",
+                "s1_func_as_unittest"
+            ],
+            [
+                "s6_func_decor",
+                "s4_func_make_label_dec"
+            ],
+            [
+                "s8_func_skip_decorator",
+                "s7_func_skipif"
+            ],
+            [
+                "s10_func_get_msg",
+                "s8_func_skip_decorator",
+                "s7_func_skipif"
+            ],
+            [
+                "s11_func_skipper_func",
+                "s8_func_skip_decorator",
+                "s7_func_skipif"
+            ],
+            [
+                "s12_func_skipper_gen",
+                "s8_func_skip_decorator",
+                "s7_func_skipif"
+            ],
+            [
+                "s18_func_condition",
+                "s17_func_module_not_available"
+            ]
+        ],
+        "number_of_scopes": 184,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "greenlet": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "cycler": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 45,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "gitpython": {
+        "local_import": [
+            "s39_func_remove"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 1438,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "pickleshare": {
+        "local_import": [
+            "s1_excHandler",
+            "s2_excHandler",
+            "s3_excHandler",
+            "s36_func_main"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 51,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "cython": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 9293,
+        "scope_chain_length": 3,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "google-cloud-bigquery": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 2005,
+        "scope_chain_length": 1,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "psycopg2-binary": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 1,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "configparser": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s73_func_value_getter_interp",
+                "s71_func_items"
+            ],
+            [
+                "s74_func_value_getter_raw",
+                "s71_func_items"
+            ]
+        ],
+        "number_of_scopes": 208,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "pyzmq": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "babel": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 732,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "fsspec": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1635,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "sqlparse": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 345,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "psycopg2": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "markdown": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 682,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "isort": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 392,
+        "scope_chain_length": 2,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "requests-toolbelt": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 337,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "jedi": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 3116,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "pyflakes": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1576,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "typed-ast": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "oauth2client": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s3_func_required_wrapper",
+                "s2_func_curry_wrapper",
+                "s1_func_oauth_required"
+            ],
+            [
+                "s6_func_enabled_wrapper",
+                "s5_func_curry_wrapper",
+                "s4_func_oauth_enabled"
+            ]
+        ],
+        "number_of_scopes": 573,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "parso": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 845,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "awscli-cwlogs": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 249,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "argparse": {
+        "local_import": [
+            "s1_excHandler",
+            "s143_func___init__",
+            "s185_func_format_version",
+            "s189_func_print_version"
+        ],
+        "inner_function": [
+            [
+                "s33_func_get_lines",
+                "s31_func__format_usage"
+            ],
+            [
+                "s42_func_format",
+                "s40_func__metavar_formatter"
+            ],
+            [
+                "s144_func_identity",
+                "s143_func___init__"
+            ],
+            [
+                "s158_func_take_action",
+                "s157_func__parse_known_args"
+            ],
+            [
+                "s159_func_consume_optional",
+                "s157_func__parse_known_args"
+            ],
+            [
+                "s160_func_consume_positionals",
+                "s157_func__parse_known_args"
+            ]
+        ],
+        "number_of_scopes": 308,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "mako": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 989,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "discord-py": {
+        "local_import": [
+            "s14_func_walk_commands"
+        ],
+        "inner_function": [
+            [
+                "s19_func_decorator",
+                "s18_func_listener"
+            ]
+        ],
+        "number_of_scopes": 4539,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "selenium": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 12406,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "nbformat": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 491,
+        "scope_chain_length": 3,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "google-auth-oauthlib": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 29,
+        "scope_chain_length": 2,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "tensorflow": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 2,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "flake8": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 519,
+        "scope_chain_length": 3,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "tzlocal": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 8,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "lazy-object-proxy": {
+        "local_import": [
+            "s11_class_Proxy"
+        ],
+        "inner_function": [
+            [
+                "s2_func_proxy_wrapper",
+                "s1_func_make_proxy_method"
+            ]
+        ],
+        "number_of_scopes": 284,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "ipykernel": {
+        "local_import": [
+            "s1_func__init_asyncio_patch"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 1126,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "pymongo": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 3034,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "networkx": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 9592,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "backcall": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 97,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "ujson": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "mypy-extensions": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 14,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "mistune": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 247,
+        "scope_chain_length": 2,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "jupyter-core": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 146,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "smmap": {
+        "local_import": [
+            "s2_func_test_example"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 175,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "nbconvert": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1118,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "jupyter-client": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s2_func_wrapped",
+                "s1_func_as_zmqstream"
+            ]
+        ],
+        "number_of_scopes": 1421,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "cloudpickle": {
+        "local_import": [
+            "s17_func__file_reduce"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 55,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "py4j": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1390,
+        "scope_chain_length": 3,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "distlib": {
+        "local_import": [
+            "s50_func__get_glibc_version"
+        ],
+        "inner_function": [
+            [
+                "s28_func_sorter",
+                "s26_func_build"
+            ],
+            [
+                "s46_func_get_version",
+                "s45_func_update"
+            ],
+            [
+                "s47_func_update_version",
+                "s45_func_update"
+            ],
+            [
+                "s47_func_update_version",
+                "s45_func_update"
+            ]
+        ],
+        "number_of_scopes": 1247,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "adal": {
+        "local_import": [
+            "s1_excHandler"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 352,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "dnspython": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 2251,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "gitdb": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 597,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "termcolor": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "testpath": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 63,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "true",
+        "contextmanager_usage": "true",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "pandocfilters": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s14_func_go",
+                "s13_func_stringify"
+            ],
+            [
+                "s18_func_fun",
+                "s17_func_elt"
+            ]
+        ],
+        "number_of_scopes": 14,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "alembic": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s8_func_go",
+                "s7_func_test_proxy_transaction_contextmanager_rollback"
+            ]
+        ],
+        "number_of_scopes": 1855,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "notebook": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 2567,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "tensorboard": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 4553,
+        "scope_chain_length": 2,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "typing": {
+        "local_import": [
+            "s1_excHandler",
+            "s212_func___new__"
+        ],
+        "inner_function": [
+            [
+                "s60_func_inner",
+                "s59_func__tp_cache"
+            ],
+            [
+                "s78_func___extrahook__",
+                "s77_func__make_subclasshook"
+            ],
+            [
+                "s79_func___extrahook__",
+                "s77_func__make_subclasshook"
+            ],
+            [
+                "s131_func_wrapped_decorator",
+                "s130_func_no_type_check_decorator"
+            ],
+            [
+                "s215_func_new_type",
+                "s214_func_NewType"
+            ]
+        ],
+        "number_of_scopes": 291,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "true",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "pymysql": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 352,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "terminado": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s20_func_get",
+                "s18_func_get_app"
+            ]
+        ],
+        "number_of_scopes": 142,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "send2trash": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 68,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "msgpack": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 112,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "ipywidgets": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 676,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "contextlib2": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s15_func_inner",
+                "s14_func___call__"
+            ],
+            [
+                "s19_afunc_inner",
+                "s18_func___call__"
+            ],
+            [
+                "s41_func_helper",
+                "s40_func_contextmanager"
+            ],
+            [
+                "s43_func_helper",
+                "s42_func_asynccontextmanager"
+            ],
+            [
+                "s65_func__exit_wrapper",
+                "s64_func__create_cb_wrapper"
+            ],
+            [
+                "s78_func__fix_exception_context",
+                "s77_func___exit__"
+            ],
+            [
+                "s85_afunc__exit_wrapper",
+                "s84_func__create_async_cb_wrapper"
+            ],
+            [
+                "s95_func__fix_exception_context",
+                "s94_afunc___aexit__"
+            ]
+        ],
+        "number_of_scopes": 168,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "true",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "zope-interface": {
+        "local_import": [
+            "s1_excHandler",
+            "s9_func_test_non_iterable_UserDict"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 5132,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "widgetsnbextension": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "docopt": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 102,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "h5py": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "smart-open": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 455,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "s3fs": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 280,
+        "scope_chain_length": 2,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "pytest-cov": {
+        "local_import": [
+            "s17_func___init__",
+            "s21_func_pytest_sessionstart",
+            "s26_func_pytest_runtestloop"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 96,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "iniconfig": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s10_func_lineof",
+                "s9_func___iter__"
+            ]
+        ],
+        "number_of_scopes": 38,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "importlib-resources": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 471,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "sortedcontainers": {
+        "local_import": [
+            "s1_excHandler"
+        ],
+        "inner_function": [
+            [
+                "s21_func_method",
+                "s20_func___make_raise_attributeerror"
+            ]
+        ],
+        "number_of_scopes": 264,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "astroid": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 2836,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "websockets": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 710,
+        "scope_chain_length": 3,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "elasticsearch": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1967,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "openpyxl": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 2461,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "google-crc32c": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 22,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "pylint": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 3038,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "pathspec": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 212,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "python-editor": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "tenacity": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 211,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "xmltodict": {
+        "local_import": [
+            "s1_excHandler",
+            "s2_excHandler",
+            "s3_excHandler"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 33,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "atomicwrites": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 15,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "true",
+        "contextmanager_usage": "true",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "dill": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 373,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "et-xmlfile": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 18,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "tensorflow-estimator": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 3115,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "django": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 17368,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "tensorflow-serving-api": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 18,
+        "scope_chain_length": 2,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "ruamel-yaml": {
+        "local_import": [
+            "s47_func_yaml_set_start_comment",
+            "s48_func_yaml_set_comment_before_after_key",
+            "s51_func_yaml_add_eol_comment"
+        ],
+        "inner_function": [
+            [
+                "s49_func_comment_token",
+                "s48_func_yaml_set_comment_before_after_key"
+            ],
+            [
+                "s122_func_get_one_level",
+                "s121_func_mlget"
+            ]
+        ],
+        "number_of_scopes": 1725,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "cached-property": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s6_func_wrapper",
+                "s5_func__wrap_in_coroutine"
+            ]
+        ],
+        "number_of_scopes": 29,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "xlrd": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 271,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "pyspark": {
+        "local_import": [
+            "s1_excHandler"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 11422,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "funcsigs": {
+        "local_import": [
+            "s1_excHandler"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 89,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "datadog": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 863,
+        "scope_chain_length": 2,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "tensorflow-metadata": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 2,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "pycryptodomex": {
+        "local_import": [
+            "s2_func_runTest"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 4318,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "retrying": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s3_func_wrapped_f",
+                "s2_func_wrap_simple",
+                "s1_func_retry"
+            ],
+            [
+                "s5_func_wrapped_f",
+                "s4_func_wrap",
+                "s1_func_retry"
+            ]
+        ],
+        "number_of_scopes": 48,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "msrestazure": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 324,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "google-cloud-logging": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1064,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "discord": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "azure-storage-common": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 229,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "gast": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s34_func_adjust_slice",
+                "s33_func_visit_Subscript"
+            ]
+        ],
+        "number_of_scopes": 438,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "pathlib2": {
+        "local_import": [
+            "s1_excHandler",
+            "s2_excHandler",
+            "s4_excHandler",
+            "s19_func__win32_get_unique_path_id",
+            "s52_func_gethomedir",
+            "s53_excHandler",
+            "s163_func_owner",
+            "s164_func_group"
+        ],
+        "inner_function": [
+            [
+                "s35_func__try_func",
+                "s34_func_resolve"
+            ],
+            [
+                "s36_func__exc_func",
+                "s34_func_resolve"
+            ],
+            [
+                "s48_func__resolve",
+                "s47_func_resolve"
+            ],
+            [
+                "s57_func_wrapped",
+                "s56_func__wrap_strfunc"
+            ],
+            [
+                "s59_func_wrapped",
+                "s58_func__wrap_binary_strfunc"
+            ],
+            [
+                "s74_func_try_iter",
+                "s73_func__select_from"
+            ],
+            [
+                "s75_func_except_iter",
+                "s73_func__select_from"
+            ],
+            [
+                "s79_func_try_iter",
+                "s78_func__select_from"
+            ],
+            [
+                "s80_func_except_iter",
+                "s78_func__select_from"
+            ],
+            [
+                "s84_func_try_iter",
+                "s83_func__iterate_directories"
+            ],
+            [
+                "s86_func_except_iter",
+                "s83_func__iterate_directories"
+            ],
+            [
+                "s88_func_try_iter",
+                "s87_func__select_from"
+            ],
+            [
+                "s89_func_except_iter",
+                "s87_func__select_from"
+            ],
+            [
+                "s160_func__try_func",
+                "s159_func_resolve"
+            ],
+            [
+                "s161_func__exc_func",
+                "s159_func_resolve"
+            ],
+            [
+                "s173_func__try_func",
+                "s172_func_mkdir"
+            ],
+            [
+                "s174_func__exc_func",
+                "s172_func_mkdir"
+            ]
+        ],
+        "number_of_scopes": 352,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "gensim": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "nltk": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 12697,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "jupyter-console": {
+        "local_import": [
+            "s8_func_test_handle_image_PIL"
+        ],
+        "inner_function": [
+            [
+                "s6_func_pil_called",
+                "s5_func_test_call_pil_by_default"
+            ],
+            [
+                "s7_func_raise_if_called",
+                "s5_func_test_call_pil_by_default"
+            ],
+            [
+                "s9_func_fake_open",
+                "s8_func_test_handle_image_PIL"
+            ],
+            [
+                "s10_func_fake_show",
+                "s8_func_test_handle_image_PIL"
+            ]
+        ],
+        "number_of_scopes": 201,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "true",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "qtconsole": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1175,
+        "scope_chain_length": 2,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "jupyter": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "nest-asyncio": {
+        "local_import": [
+            "s15_func__patch_tornado"
+        ],
+        "inner_function": [
+            [
+                "s3_func_run",
+                "s2_func__patch_asyncio"
+            ],
+            [
+                "s5_func_run_forever",
+                "s4_func__patch_loop"
+            ],
+            [
+                "s6_func_run_until_complete",
+                "s4_func__patch_loop"
+            ],
+            [
+                "s7_func__run_once",
+                "s4_func__patch_loop"
+            ],
+            [
+                "s8_func_manage_run",
+                "s4_func__patch_loop"
+            ],
+            [
+                "s9_func_manage_asyncgens",
+                "s4_func__patch_loop"
+            ],
+            [
+                "s10_func__check_running",
+                "s4_func__patch_loop"
+            ],
+            [
+                "s12_func_step",
+                "s11_func__patch_task"
+            ],
+            [
+                "s13_func_enter_task",
+                "s11_func__patch_task"
+            ],
+            [
+                "s14_func_leave_task",
+                "s11_func__patch_task"
+            ]
+        ],
+        "number_of_scopes": 20,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "true",
+        "contextmanager_usage": "true",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "argon2-cffi": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 25,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "gevent": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "nose": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1564,
+        "scope_chain_length": 3,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "nbclient": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 296,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "tensorflow-transform": {
+        "local_import": [
+            "s2_func__copy_tree",
+            "s7_func_publish_outputs"
+        ],
+        "inner_function": [
+            [
+                "s7_func_publish_outputs",
+                "s6_func_expand"
+            ]
+        ],
+        "number_of_scopes": 3017,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "pyodbc": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "jsonpickle": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 361,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "proto-plus": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 257,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "ruamel-yaml-clib": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "keras-preprocessing": {
+        "local_import": [
+            "s2_func___new__"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 185,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "databricks-cli": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "jupyterlab-pygments": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "pycryptodome": {
+        "local_import": [
+            "s2_func_runTest"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 4318,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "lockfile": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 101,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "pandas-gbq": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 116,
+        "scope_chain_length": 2,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "pydata-google-auth": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 34,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "distro": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s29_func_normalize",
+                "s28_func_id"
+            ]
+        ],
+        "number_of_scopes": 74,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "rfc3986": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 178,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "tfx-bsl": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "threadpoolctl": {
+        "local_import": [
+            "s42_func__find_libraries_with_enum_process_module_ex",
+            "s89_func__main"
+        ],
+        "inner_function": [
+            [
+                "s7_func_decorator",
+                "s6_func__format_docstring"
+            ],
+            [
+                "s40_func_match_library_callback",
+                "s39_func__find_libraries_with_dl_iterate_phdr"
+            ]
+        ],
+        "number_of_scopes": 130,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "marshmallow": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 517,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "secretstorage": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 79,
+        "scope_chain_length": 3,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "azure-nspkg": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 3,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "slackclient": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1565,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "argcomplete": {
+        "local_import": [
+            "s1_excHandler"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 164,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "portalocker": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 96,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "applicationinsights": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 815,
+        "scope_chain_length": 2,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "qtpy": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s2_func_sectionsClickable",
+                "s1_func_introduce_renamed_methods_qheaderview"
+            ],
+            [
+                "s3_func_isClickable",
+                "s1_func_introduce_renamed_methods_qheaderview"
+            ],
+            [
+                "s4_func_sectionsMovable",
+                "s1_func_introduce_renamed_methods_qheaderview"
+            ],
+            [
+                "s5_func_isMovable",
+                "s1_func_introduce_renamed_methods_qheaderview"
+            ],
+            [
+                "s6_func_sectionResizeMode",
+                "s1_func_introduce_renamed_methods_qheaderview"
+            ],
+            [
+                "s7_func_resizeMode",
+                "s1_func_introduce_renamed_methods_qheaderview"
+            ],
+            [
+                "s8_func_setSectionsClickable",
+                "s1_func_introduce_renamed_methods_qheaderview"
+            ],
+            [
+                "s9_func_setClickable",
+                "s1_func_introduce_renamed_methods_qheaderview"
+            ],
+            [
+                "s10_func_setSectionsMovable",
+                "s1_func_introduce_renamed_methods_qheaderview"
+            ],
+            [
+                "s11_func_setMovable",
+                "s1_func_introduce_renamed_methods_qheaderview"
+            ],
+            [
+                "s12_func_setSectionResizeMode",
+                "s1_func_introduce_renamed_methods_qheaderview"
+            ],
+            [
+                "s13_func_setResizeMode",
+                "s1_func_introduce_renamed_methods_qheaderview"
+            ]
+        ],
+        "number_of_scopes": 71,
+        "scope_chain_length": 3,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "toolz": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 739,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "h11": {
+        "local_import": [
+            "s3_func_test_has_100_continue"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 198,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "gcsfs": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 241,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "sentry-sdk": {
+        "local_import": [
+            "s3_func__set_app_properties",
+            "s4_func__start_sentry_listener",
+            "s5_func_patch_spark_context_init",
+            "s39_func_onStageCompleted"
+        ],
+        "inner_function": [
+            [
+                "s7_func_process_event",
+                "s6_func__sentry_patched_spark_context_init",
+                "s5_func_patch_spark_context_init"
+            ]
+        ],
+        "number_of_scopes": 1295,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "scandir": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 66,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "jeepney": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 575,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "snowflake-connector-python": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "pycrypto": {
+        "local_import": [
+            "s2_func_runTest"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 651,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "singledispatch": {
+        "local_import": [
+            "s1_excHandler",
+            "s2_excHandler",
+            "s3_excHandler",
+            "s4_excHandler",
+            "s5_excHandler",
+            "s38_func_get_type_hints"
+        ],
+        "inner_function": [
+            [
+                "s8_func_wrapper",
+                "s7_func_decorating_function",
+                "s6_func_recursive_repr"
+            ]
+        ],
+        "number_of_scopes": 91,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "html5lib": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1681,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "xlsxwriter": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 1964,
+        "scope_chain_length": 3,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "uvloop": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 3,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "backports-functools-lru-cache": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 19,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "python-dotenv": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s17_func__is_interactive",
+                "s16_func_find_dotenv"
+            ]
+        ],
+        "number_of_scopes": 69,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "true",
+        "contextmanager_usage": "true",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "msal": {
+        "local_import": [
+            "s1_excHandler",
+            "s3_func_is_wsl",
+            "s4_func__browse"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 374,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "plotly": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 62111,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "tensorflow-data-validation": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "jdcal": {
+        "local_import": [
+            "s4_func_jd2gcal",
+            "s6_func_jd2jcal"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "async-generator": {
+        "local_import": [
+            "s98_func_test_gc_hooks_interface",
+            "s102_afunc_test_gc_hooks_behavior"
+        ],
+        "inner_function": [
+            [
+                "s23_afunc_recurse",
+                "s22_afunc_test_reentrance_forbidden"
+            ],
+            [
+                "s25_afunc_f",
+                "s24_afunc_test_reentrance_forbidden_simultaneous_asends"
+            ],
+            [
+                "s27_afunc_f",
+                "s26_afunc_test_reentrance_forbidden_while_suspended_in_coroutine_runner"
+            ],
+            [
+                "s42_afunc_yield_from_native",
+                "s41_afunc_test_async_yield_from_"
+            ],
+            [
+                "s51_afunc_empty",
+                "s50_afunc_test_yield_from_empty"
+            ],
+            [
+                "s52_afunc_yield_from_empty",
+                "s50_afunc_test_yield_from_empty"
+            ],
+            [
+                "s55_func___init__",
+                "s53_afunc_test_yield_from_non_generator"
+            ],
+            [
+                "s56_afunc___aiter__",
+                "s53_afunc_test_yield_from_non_generator"
+            ],
+            [
+                "s57_func___aiter__",
+                "s53_afunc_test_yield_from_non_generator"
+            ],
+            [
+                "s58_afunc___anext__",
+                "s53_afunc_test_yield_from_non_generator"
+            ],
+            [
+                "s59_afunc_aclose",
+                "s53_afunc_test_yield_from_non_generator"
+            ],
+            [
+                "s60_afunc_yield_from_countdown",
+                "s53_afunc_test_yield_from_non_generator"
+            ],
+            [
+                "s65_func___init__",
+                "s63_afunc_test_yield_from_non_generator_with_no_aclose"
+            ],
+            [
+                "s66_afunc___aiter__",
+                "s63_afunc_test_yield_from_non_generator_with_no_aclose"
+            ],
+            [
+                "s67_func___aiter__",
+                "s63_afunc_test_yield_from_non_generator_with_no_aclose"
+            ],
+            [
+                "s68_afunc___anext__",
+                "s63_afunc_test_yield_from_non_generator_with_no_aclose"
+            ],
+            [
+                "s69_afunc_yield_from_countdown",
+                "s63_afunc_test_yield_from_non_generator_with_no_aclose"
+            ],
+            [
+                "s72_func___init__",
+                "s70_afunc_test_yield_from_with_old_style_aiter"
+            ],
+            [
+                "s73_afunc___aiter__",
+                "s70_afunc_test_yield_from_with_old_style_aiter"
+            ],
+            [
+                "s74_afunc___anext__",
+                "s70_afunc_test_yield_from_with_old_style_aiter"
+            ],
+            [
+                "s75_afunc_yield_from_countdown",
+                "s70_afunc_test_yield_from_with_old_style_aiter"
+            ],
+            [
+                "s77_afunc_catch",
+                "s76_afunc_test_yield_from_athrow_raises_StopAsyncIteration"
+            ],
+            [
+                "s79_afunc_yield_from_catch",
+                "s76_afunc_test_yield_from_athrow_raises_StopAsyncIteration"
+            ],
+            [
+                "s82_afunc_awaits_when_unwinding",
+                "s81_afunc_test___del__"
+            ],
+            [
+                "s83_afunc_yields_when_unwinding",
+                "s81_afunc_test___del__"
+            ],
+            [
+                "s87_func_async_range_wrapper",
+                "s86_func_test_isasyncgenfunction_is_not_inherited_by_wrappers"
+            ],
+            [
+                "s90_afunc_f",
+                "s89_afunc_test_ag_attributes"
+            ],
+            [
+                "s99_func_one",
+                "s98_func_test_gc_hooks_interface"
+            ],
+            [
+                "s100_func_two",
+                "s98_func_test_gc_hooks_interface"
+            ],
+            [
+                "s101_func_in_thread",
+                "s98_func_test_gc_hooks_interface"
+            ],
+            [
+                "s103_func_firstiter",
+                "s102_afunc_test_gc_hooks_behavior"
+            ],
+            [
+                "s104_func_finalizer",
+                "s102_afunc_test_gc_hooks_behavior"
+            ],
+            [
+                "s105_afunc_agen",
+                "s102_afunc_test_gc_hooks_behavior"
+            ],
+            [
+                "s106_afunc_anext_verbosely",
+                "s102_afunc_test_gc_hooks_behavior"
+            ]
+        ],
+        "number_of_scopes": 230,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "aiobotocore": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 437,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "ansible": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 144252,
+        "scope_chain_length": 3,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "azure-mgmt-resource": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 21734,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "text-unidecode": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 2,
+        "scope_chain_length": 3,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "typing-inspect": {
+        "local_import": [
+            "s2_excHandler",
+            "s4_excHandler"
+        ],
+        "inner_function": [
+            [
+                "s37_func__get_origin",
+                "s36_func__subs_tree"
+            ],
+            [
+                "s39_func__get_args",
+                "s36_func__subs_tree"
+            ]
+        ],
+        "number_of_scopes": 14,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "mlflow": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 3425,
+        "scope_chain_length": 1,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "tensorflow-model-analysis": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 4559,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "kombu": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 2804,
+        "scope_chain_length": 2,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "amqp": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s3_func_on_frame",
+                "s1_func_frame_handler"
+            ],
+            [
+                "s9_func_write_frame",
+                "s8_func_frame_writer"
+            ]
+        ],
+        "number_of_scopes": 379,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "snowballstemmer": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 2745,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "ordereddict": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 30,
+        "scope_chain_length": 4,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "true"
+    },
+    "querystring-parser": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 24,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "opencv-python": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "oscrypto": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 453,
+        "scope_chain_length": 2,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "pkginfo": {
+        "local_import": [
+            "s2_func__getTargetClass",
+            "s6_func_test_ctor_w_invalid_filename",
+            "s7_func_test_ctor_wo_PKG_INFO",
+            "s8_func_test_ctor_w_tar",
+            "s9_func_test_ctor_w_gztar",
+            "s10_func_test_ctor_w_gztar_and_metadata_version",
+            "s11_func_test_ctor_w_bztar",
+            "s12_func_test_ctor_w_bztar_and_metadata_version",
+            "s13_func_test_ctor_w_zip",
+            "s14_func_test_ctor_w_zip_and_metadata_version",
+            "s15_func_test_ctor_w_bogus",
+            "s19_func__getTargetClass",
+            "s20_func__getTopDirectory",
+            "s26_func__getLoadFilename"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 568,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "bs4": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "msal-extensions": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 117,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "imageio": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 2509,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "mypy": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s7_func_g",
+                "s6_func_make_python_function"
+            ]
+        ],
+        "number_of_scopes": 11614,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "true",
+        "contextmanager_usage": "true",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "aiofiles": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 66,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "pywavelets": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "seaborn": {
+        "local_import": [
+            "s61_func___init__"
+        ],
+        "inner_function": [
+            [
+                "s11_func_is_empty",
+                "s10_func_read_to_next_empty_line"
+            ],
+            [
+                "s13_func_is_unindented",
+                "s12_func_read_to_next_unindented_line"
+            ],
+            [
+                "s31_func_parse_item_name",
+                "s30_func__parse_see_also"
+            ],
+            [
+                "s33_func_strip_each_in",
+                "s32_func__parse_index"
+            ],
+            [
+                "s62_func_splitlines_x",
+                "s61_func___init__"
+            ]
+        ],
+        "number_of_scopes": 2884,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "scikit-image": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 5,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    },
+    "dataclasses": {
+        "local_import": [],
+        "inner_function": [
+            [
+                "s49_func_wrap",
+                "s48_func_dataclass"
+            ]
+        ],
+        "number_of_scopes": 44,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "false"
+    },
+    "jupyterlab-widgets": {
+        "local_import": [],
+        "inner_function": [],
+        "number_of_scopes": 0,
+        "scope_chain_length": 2,
+        "shadowing": "false",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "false",
+        "overwrite_method_class": "false"
+    },
+    "prometheus-flask-exporter": {
+        "local_import": [
+            "s7_func_should_start_http_server",
+            "s15_func_start_http_server_when_ready"
+        ],
+        "inner_function": [],
+        "number_of_scopes": 157,
+        "scope_chain_length": 3,
+        "shadowing": "true",
+        "patch_decorator_import": "false",
+        "patch_decorator_usage": "false",
+        "contextmanager_import": "false",
+        "contextmanager_usage": "false",
+        "with_statement": "true",
+        "overwrite_method_class": "true"
+    }
+}
