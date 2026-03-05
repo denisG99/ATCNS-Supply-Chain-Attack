@@ -193,4 +193,3 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 /src/scope-graphs/
-/src/tmp/
