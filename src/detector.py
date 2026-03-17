@@ -119,8 +119,8 @@ class Detector:
             output = []
 
             for comb in combinations:
-                if len(intersections := comb[0] & comb[1]) > 0: # & operator performs the intersection between sets
-                    #print(f"Shadowing detected: {list(intersections)}")
+                if len(intersections := comb[0] & comb[1]) > 0:  # & operator performs the intersection between sets
+                    # print(f"Shadowing detected: {list(intersections)}")
                     output.extend(intersections)
 
             return output
