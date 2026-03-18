@@ -49,6 +49,3 @@ class GitLogParser:
 
     def get_commit_diffs(self, hash: str) -> str:
         return self.log[hash]["diffs"]
-
-if __name__ == "__main__":
-    gitlog_parser = GitLogParser(open("./gitlog_test.txt", "r").read())
