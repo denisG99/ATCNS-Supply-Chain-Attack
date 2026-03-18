@@ -1,0 +1,305 @@
+commit d3cbe255dd6ec201f521032845d56ad6848af654
+Author: denisG99 <gasparollodenis@gmail.com>
+Date:   Thu Feb 19 16:25:21 2026 +0100
+
+    UPDATE requrements and gitignore
+
+diff --git a/requirements.txt b/requirements.txt
+index fd869ea..c8c44c6 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -1,37 +1,60 @@
+ appnope==0.1.4
+ asttokens==3.0.1
++attrs==25.4.0
++certifi==2026.1.4
++charset-normalizer==3.4.4
+ comm==0.2.3
++contourpy==1.3.3
++cycler==0.12.1
+ debugpy==1.8.19
+ decorator==5.2.1
+ executing==2.2.1
++fastjsonschema==2.21.2
++fonttools==4.61.1
+ graphviz==0.21
++idna==3.11
+ ipykernel==7.1.0
+ ipython==9.8.0
+ ipython_pygments_lexers==1.1.1
++iterators==0.2.0
+ jedi==0.19.2
++jsonschema==4.25.1
++jsonschema-specifications==2025.9.1
+ jupyter_client==8.7.0
+ jupyter_core==5.9.1
++kiwisolver==1.4.9
++matplotlib==3.10.8
+ matplotlib-inline==0.2.1
++narwhals==2.14.0
++nbformat==5.10.4
+ nest-asyncio==1.6.0
+ numpy==2.3.4
+ packaging==25.0
+ pandas==2.3.3
+ parso==0.8.5
+ pexpect==4.9.0
++pillow==12.1.0
+ platformdirs==4.5.1
++plotly==6.5.0
+ prompt_toolkit==3.0.52
+ psutil==7.1.3
+ ptyprocess==0.7.0
+ pure_eval==0.2.3
+ Pygments==2.19.2
++pyparsing==3.3.1
+ python-dateutil==2.9.0.post0
+ pytz==2025.2
+ pyzmq==27.1.0
++referencing==0.37.0
++requests==2.32.5
++rpds-py==0.30.0
++seaborn==0.13.2
+ six==1.17.0
+ stack-data==0.6.3
+ tornado==6.5.4
+ tqdm==4.67.1
+ traitlets==5.14.3
+ tzdata==2025.2
++urllib3==2.6.3
+ wcwidth==0.2.14
+ yara-python==4.5.4
+
+commit c367f116e4cbfdb93cda2d29d54774ac6c2b156b
+Author: denisG99 <gasparollodenis@gmail.com>
+Date:   Sun Dec 28 18:05:19 2025 +0100
+
+    UPDATE requirements.txt
+
+diff --git a/requirements.txt b/requirements.txt
+index 98b5e2a..fd869ea 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -8,7 +8,6 @@ graphviz==0.21
+ ipykernel==7.1.0
+ ipython==9.8.0
+ ipython_pygments_lexers==1.1.1
+-iterators==0.2.0
+ jedi==0.19.2
+ jupyter_client==8.7.0
+ jupyter_core==5.9.1
+
+commit cddc8fc1239c7225a6c0ce71ba2aa0dd819a52ac
+Author: denisG99 <gasparollodenis@gmail.com>
+Date:   Tue Dec 23 14:57:56 2025 +0100
+
+    UPDATE requirements.txt
+
+diff --git a/requirements.txt b/requirements.txt
+index fd869ea..98b5e2a 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -8,6 +8,7 @@ graphviz==0.21
+ ipykernel==7.1.0
+ ipython==9.8.0
+ ipython_pygments_lexers==1.1.1
++iterators==0.2.0
+ jedi==0.19.2
+ jupyter_client==8.7.0
+ jupyter_core==5.9.1
+
+commit 5736ddefd443d0068a5fe2902ff62c1b2165f070
+Author: denisG99 <gasparollodenis@gmail.com>
+Date:   Mon Dec 22 12:18:31 2025 +0100
+
+    progress bar
+
+diff --git a/requirements.txt b/requirements.txt
+index 8cbfd02..fd869ea 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -1,8 +1,37 @@
++appnope==0.1.4
++asttokens==3.0.1
++comm==0.2.3
++debugpy==1.8.19
++decorator==5.2.1
++executing==2.2.1
+ graphviz==0.21
++ipykernel==7.1.0
++ipython==9.8.0
++ipython_pygments_lexers==1.1.1
++jedi==0.19.2
++jupyter_client==8.7.0
++jupyter_core==5.9.1
++matplotlib-inline==0.2.1
++nest-asyncio==1.6.0
+ numpy==2.3.4
++packaging==25.0
+ pandas==2.3.3
++parso==0.8.5
++pexpect==4.9.0
++platformdirs==4.5.1
++prompt_toolkit==3.0.52
++psutil==7.1.3
++ptyprocess==0.7.0
++pure_eval==0.2.3
++Pygments==2.19.2
+ python-dateutil==2.9.0.post0
+ pytz==2025.2
++pyzmq==27.1.0
+ six==1.17.0
++stack-data==0.6.3
++tornado==6.5.4
++tqdm==4.67.1
++traitlets==5.14.3
+ tzdata==2025.2
++wcwidth==0.2.14
+ yara-python==4.5.4
+
+commit 64a4697f700fda8b76e9a0a82f961692e26bade4
+Author: denisG99 <gasparollodenis@gmail.com>
+Date:   Fri Dec 12 13:17:44 2025 +0100
+
+    UPDATE requirements.txt
+
+diff --git a/requirements.txt b/requirements.txt
+index c6500cd..8cbfd02 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -1,3 +1,4 @@
++graphviz==0.21
+ numpy==2.3.4
+ pandas==2.3.3
+ python-dateutil==2.9.0.post0
+
+commit 628dc466b744ac407e067022f9fc3d2c38d57d26
+Author: denisG99 <gasparollodenis@gmail.com>
+Date:   Thu Dec 4 10:57:28 2025 +0100
+
+    UPDATE requirements.txt
+
+diff --git a/requirements.txt b/requirements.txt
+index e696500..c6500cd 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -4,3 +4,4 @@ python-dateutil==2.9.0.post0
+ pytz==2025.2
+ six==1.17.0
+ tzdata==2025.2
++yara-python==4.5.4
+
+commit 5ee53a247eb903db84703e6c6f63c66e66ea5e33
+Author: denisG99 <gasparollodenis@gmail.com>
+Date:   Mon Nov 17 10:43:56 2025 +0100
+
+    update requirements.txt
+
+diff --git a/requirements.txt b/requirements.txt
+index 47bd55d..e696500 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -1,44 +1,6 @@
+-astpretty==3.0.0
+-beautifulsoup4==4.13.4
+-binary==1.0.2
+-cachetools==5.5.2
+-certifi==2025.7.14
+-charset-normalizer==3.4.2
+-click==8.2.1
+-gitdb==4.0.12
+-GitPython==3.1.45
+-google-api-core==2.25.1
+-google-auth==2.40.3
+-google-cloud-bigquery==3.35.1
+-google-cloud-core==2.4.3
+-google-crc32c==1.7.1
+-google-resumable-media==2.7.2
+-googleapis-common-protos==1.70.0
+-graphviz==0.21
+-grpcio==1.74.0
+-grpcio-status==1.74.0
+-html2text==2025.4.15
+-idna==3.10
+-numpy==2.3.2
+-packaging==25.0
+-pandas==2.3.1
+-pillow==11.3.0
+-platformdirs==4.3.8
+-proto-plus==1.26.1
+-protobuf==6.31.1
+-pyasn1==0.6.1
+-pyasn1_modules==0.4.2
+-pypi-search==2.0
+-pypinfo==22.0.0
++numpy==2.3.4
++pandas==2.3.3
+ python-dateutil==2.9.0.post0
+ pytz==2025.2
+-requests==2.32.4
+-rsa==4.9.1
+ six==1.17.0
+-smmap==5.0.2
+-soupsieve==2.7
+-tinydb==4.8.2
+-tinyrecord==0.2.0
+-typing_extensions==4.14.1
+ tzdata==2025.2
+-urllib3==2.5.0
+
+commit 4154de874f9bf7aa32c24bb0860f8d395554e728
+Author: denisG99 <gasparollodenis@gmail.com>
+Date:   Tue Aug 12 17:17:15 2025 +0200
+
+    ADD requirements.txt
+
+diff --git a/requirements.txt b/requirements.txt
+new file mode 100644
+index 0000000..47bd55d
+--- /dev/null
++++ b/requirements.txt
+@@ -0,0 +1,44 @@
++astpretty==3.0.0
++beautifulsoup4==4.13.4
++binary==1.0.2
++cachetools==5.5.2
++certifi==2025.7.14
++charset-normalizer==3.4.2
++click==8.2.1
++gitdb==4.0.12
++GitPython==3.1.45
++google-api-core==2.25.1
++google-auth==2.40.3
++google-cloud-bigquery==3.35.1
++google-cloud-core==2.4.3
++google-crc32c==1.7.1
++google-resumable-media==2.7.2
++googleapis-common-protos==1.70.0
++graphviz==0.21
++grpcio==1.74.0
++grpcio-status==1.74.0
++html2text==2025.4.15
++idna==3.10
++numpy==2.3.2
++packaging==25.0
++pandas==2.3.1
++pillow==11.3.0
++platformdirs==4.3.8
++proto-plus==1.26.1
++protobuf==6.31.1
++pyasn1==0.6.1
++pyasn1_modules==0.4.2
++pypi-search==2.0
++pypinfo==22.0.0
++python-dateutil==2.9.0.post0
++pytz==2025.2
++requests==2.32.4
++rsa==4.9.1
++six==1.17.0
++smmap==5.0.2
++soupsieve==2.7
++tinydb==4.8.2
++tinyrecord==0.2.0
++typing_extensions==4.14.1
++tzdata==2025.2
++urllib3==2.5.0
