@@ -29,5 +29,26 @@ class GitLogParser:
 
         return commits_info
 
+    def get_commits_hashes(self) -> list:
+        return list(self.log.keys())
+
+    def get_commit_by_hash(self, hash: str) -> dict:
+        return self.log[hash]
+
+    def get_commit_author(self, hash: str) -> str:
+        return self.log[hash]["author"]
+
+    def get_commit_mail(self, hash: str) -> str:
+        return self.log[hash]["mail"]
+
+    def get_commit_datetime(self, hash: str) -> str:
+        return self.log[hash]["datetime"]
+
+    def get_commit_description(self, hash: str) -> str:
+        return self.log[hash]["description"]
+
+    def get_commit_diffs(self, hash: str) -> str:
+        return self.log[hash]["diffs"]
+
 if __name__ == "__main__":
     gitlog_parser = GitLogParser(open("./gitlog_test.txt", "r").read())
