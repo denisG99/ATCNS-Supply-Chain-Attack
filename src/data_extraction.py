@@ -16,6 +16,7 @@ PKGS_DATA_DIR = "../data/top packages"  # path to the directory containing the t
 RESULT_PATH_DIR = "../data/results"
 SAVE_FREQUENCY = 10 # how many packages will be analyzed before saving the results
 PYPI_API: str = "https://pypi.org/pypi/<package-name>/json"
+HEURISTICS_DIR: str = "./classes/heuristics"
 
 sys.setrecursionlimit(3000) # increase recursion limit (NOTE: change with caution)
 
@@ -117,7 +118,7 @@ if __name__ == "__main__":
 
                     for py_file in pathlib.Path(download_path).glob("**/*.py"): # takes only python files in all possible directories
                         try:
-                            detector = Detector(f"{py_file}")
+                            detector = Detector(f"{py_file}", heuristic_path=HEURISTICS_DIR)
                             shadowing, yara = detector.shadowing_detection()
 
                             yara_rule_names = [rule.rule for rule in yara] # list contains the names of the yara rules

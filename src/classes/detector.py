@@ -5,7 +5,7 @@ import tokenize
 import yara
 import os
 
-from .scope_graph import ScopeGraph
+from classes.scope_graph import ScopeGraph
 
 class Detector:
     """
@@ -15,14 +15,18 @@ class Detector:
         * function and method shadowing;
         * import shadowing.
     """
-    def __init__(self, code_path: str, scope_graph_name: str="", use_yara: bool=True) -> None:
+    def __init__(self, code_path: str, scope_graph_name: str="", use_yara: bool=True, heuristic_path: str="./heuristics") -> None:
         """
         Construct the detector based on the scope graph built from a code and YARA rules to cover some evasion techniques.
 
         :param code_path: path to the code on which we build the scope graph
         :param scope_graph_name: name of the scope graph to save. If the string is empty, we don't save the graph and ignore the argument.
         :parem use_yara: if True, we apply YARA rules
+        :param heuristic_path: path to the directory containing YARA rules. If use_yara is False, this argument is ignored.
         """
+        if use_yara:
+            self.__heuristic_dir = heuristic_path
+
         # Use tokenize.open to respect PEP 263 encoding declaration and handle non-UTF-8 files robustly.
         self.__code_path: str = code_path
         self.__use_yara: bool = use_yara
@@ -52,8 +56,8 @@ class Detector:
 
         #YARA engine initialization
         self.__rules = []
-        for file in os.listdir("../heuristics"):
-            self.__rules.append(yara.compile(f"./heuristics/{file}"))
+        for file in os.listdir(self.__heuristic_dir):
+            self.__rules.append(yara.compile(f"{self.__heuristic_dir}/{file}"))
 
     def get_builder(self) -> ScopeGraph:
         return self.__builder

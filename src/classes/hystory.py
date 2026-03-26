@@ -1,5 +1,5 @@
-from gitlog_parser import GitLogParser
-from detector import Detector
+from classes.gitlog_parser import GitLogParser
+from classes.detector import Detector
 
 import re
 
