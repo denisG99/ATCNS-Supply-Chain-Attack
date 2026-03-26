@@ -195,3 +195,4 @@ cython_debug/
 src/scope-graphs/
 src/tmp
 src/history/tmp
+/src/classes/tmp/

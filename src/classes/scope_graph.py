@@ -1,7 +1,6 @@
 import ast
 import graphviz # package that allows to draw a graph using a DOT notation
 
-
 class ScopeGraph(ast.NodeVisitor):
     """
     The class goal is to build a scope graph from the Abstract Syntax Tree (AST). To do so, we use a NodeVisitor to visit
