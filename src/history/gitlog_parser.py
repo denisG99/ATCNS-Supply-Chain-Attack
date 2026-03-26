@@ -1,13 +1,27 @@
 import re
 
 class GitLogParser:
+    """
+    Class that parse the git log command output into dictionary
+    """
     def __init__(self, gitlog: str=""):
+        """
+        Constructor
+
+        :param gitlog: output of git log command
+        """
         if not gitlog == "":
             self.log: dict = self.__parse(gitlog)
         else:
             print("Empty gitlog provided")
 
     def __parse(self, gitlog: str) -> dict:
+        """
+        Execute the actual parsing of the git log
+
+        :param gitlog: output of git log command
+        :return: git log output parsed
+        """
         # split git log by commits
         commits = re.split(r'(?=^commit\s+[0-9a-f]{40}\n)', gitlog, flags=re.MULTILINE)[1:]
 
