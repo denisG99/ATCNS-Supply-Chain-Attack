@@ -1,305 +1,504 @@
-commit d3cbe255dd6ec201f521032845d56ad6848af654
+commit 2623c0b0ac9cf5211e68dc1f7545637a2ed412fe
 Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Thu Feb 19 16:25:21 2026 +0100
+Date:   Fri Dec 19 10:40:17 2025 +0100
 
-    UPDATE requrements and gitignore
+    MISC #10
 
-diff --git a/requirements.txt b/requirements.txt
-index fd869ea..c8c44c6 100644
---- a/requirements.txt
-+++ b/requirements.txt
-@@ -1,37 +1,60 @@
- appnope==0.1.4
- asttokens==3.0.1
-+attrs==25.4.0
-+certifi==2026.1.4
-+charset-normalizer==3.4.4
- comm==0.2.3
-+contourpy==1.3.3
-+cycler==0.12.1
- debugpy==1.8.19
- decorator==5.2.1
- executing==2.2.1
-+fastjsonschema==2.21.2
-+fonttools==4.61.1
- graphviz==0.21
-+idna==3.11
- ipykernel==7.1.0
- ipython==9.8.0
- ipython_pygments_lexers==1.1.1
-+iterators==0.2.0
- jedi==0.19.2
-+jsonschema==4.25.1
-+jsonschema-specifications==2025.9.1
- jupyter_client==8.7.0
- jupyter_core==5.9.1
-+kiwisolver==1.4.9
-+matplotlib==3.10.8
- matplotlib-inline==0.2.1
-+narwhals==2.14.0
-+nbformat==5.10.4
- nest-asyncio==1.6.0
- numpy==2.3.4
- packaging==25.0
- pandas==2.3.3
- parso==0.8.5
- pexpect==4.9.0
-+pillow==12.1.0
- platformdirs==4.5.1
-+plotly==6.5.0
- prompt_toolkit==3.0.52
- psutil==7.1.3
- ptyprocess==0.7.0
- pure_eval==0.2.3
- Pygments==2.19.2
-+pyparsing==3.3.1
- python-dateutil==2.9.0.post0
- pytz==2025.2
- pyzmq==27.1.0
-+referencing==0.37.0
-+requests==2.32.5
-+rpds-py==0.30.0
-+seaborn==0.13.2
- six==1.17.0
- stack-data==0.6.3
- tornado==6.5.4
- tqdm==4.67.1
- traitlets==5.14.3
- tzdata==2025.2
-+urllib3==2.6.3
- wcwidth==0.2.14
- yara-python==4.5.4
+diff --git a/src/main.py b/src/main.py
+index af85784..8982d01 100644
+--- a/src/main.py
++++ b/src/main.py
+@@ -4,7 +4,7 @@ import os
 
-commit c367f116e4cbfdb93cda2d29d54774ac6c2b156b
+ if __name__ =="__main__":
+     print(os.getcwd())
+-    detector = Detector("./evaluation/sample_class.py", "class-eval", True)
++    detector = Detector("./evaluation/sample.py", "class-eval", True)
+
+     shadowing, yara = detector.shadowing_detection()
+     print(f"Shadowings: {shadowing}\nYara rules: {yara}")
+\ No newline at end of file
+
+commit c0d757dca3749572cc74d127bf8f0cc5ab387d02
 Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Sun Dec 28 18:05:19 2025 +0100
+Date:   Tue Dec 16 11:40:35 2025 +0100
 
-    UPDATE requirements.txt
+    ADD testing script
 
-diff --git a/requirements.txt b/requirements.txt
-index 98b5e2a..fd869ea 100644
---- a/requirements.txt
-+++ b/requirements.txt
-@@ -8,7 +8,6 @@ graphviz==0.21
- ipykernel==7.1.0
- ipython==9.8.0
- ipython_pygments_lexers==1.1.1
--iterators==0.2.0
- jedi==0.19.2
- jupyter_client==8.7.0
- jupyter_core==5.9.1
-
-commit cddc8fc1239c7225a6c0ce71ba2aa0dd819a52ac
-Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Tue Dec 23 14:57:56 2025 +0100
-
-    UPDATE requirements.txt
-
-diff --git a/requirements.txt b/requirements.txt
-index fd869ea..98b5e2a 100644
---- a/requirements.txt
-+++ b/requirements.txt
-@@ -8,6 +8,7 @@ graphviz==0.21
- ipykernel==7.1.0
- ipython==9.8.0
- ipython_pygments_lexers==1.1.1
-+iterators==0.2.0
- jedi==0.19.2
- jupyter_client==8.7.0
- jupyter_core==5.9.1
-
-commit 5736ddefd443d0068a5fe2902ff62c1b2165f070
-Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Mon Dec 22 12:18:31 2025 +0100
-
-    progress bar
-
-diff --git a/requirements.txt b/requirements.txt
-index 8cbfd02..fd869ea 100644
---- a/requirements.txt
-+++ b/requirements.txt
-@@ -1,8 +1,37 @@
-+appnope==0.1.4
-+asttokens==3.0.1
-+comm==0.2.3
-+debugpy==1.8.19
-+decorator==5.2.1
-+executing==2.2.1
- graphviz==0.21
-+ipykernel==7.1.0
-+ipython==9.8.0
-+ipython_pygments_lexers==1.1.1
-+jedi==0.19.2
-+jupyter_client==8.7.0
-+jupyter_core==5.9.1
-+matplotlib-inline==0.2.1
-+nest-asyncio==1.6.0
- numpy==2.3.4
-+packaging==25.0
- pandas==2.3.3
-+parso==0.8.5
-+pexpect==4.9.0
-+platformdirs==4.5.1
-+prompt_toolkit==3.0.52
-+psutil==7.1.3
-+ptyprocess==0.7.0
-+pure_eval==0.2.3
-+Pygments==2.19.2
- python-dateutil==2.9.0.post0
- pytz==2025.2
-+pyzmq==27.1.0
- six==1.17.0
-+stack-data==0.6.3
-+tornado==6.5.4
-+tqdm==4.67.1
-+traitlets==5.14.3
- tzdata==2025.2
-+wcwidth==0.2.14
- yara-python==4.5.4
-
-commit 64a4697f700fda8b76e9a0a82f961692e26bade4
-Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Fri Dec 12 13:17:44 2025 +0100
-
-    UPDATE requirements.txt
-
-diff --git a/requirements.txt b/requirements.txt
-index c6500cd..8cbfd02 100644
---- a/requirements.txt
-+++ b/requirements.txt
-@@ -1,3 +1,4 @@
-+graphviz==0.21
- numpy==2.3.4
- pandas==2.3.3
- python-dateutil==2.9.0.post0
-
-commit 628dc466b744ac407e067022f9fc3d2c38d57d26
-Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Thu Dec 4 10:57:28 2025 +0100
-
-    UPDATE requirements.txt
-
-diff --git a/requirements.txt b/requirements.txt
-index e696500..c6500cd 100644
---- a/requirements.txt
-+++ b/requirements.txt
-@@ -4,3 +4,4 @@ python-dateutil==2.9.0.post0
- pytz==2025.2
- six==1.17.0
- tzdata==2025.2
-+yara-python==4.5.4
-
-commit 5ee53a247eb903db84703e6c6f63c66e66ea5e33
-Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Mon Nov 17 10:43:56 2025 +0100
-
-    update requirements.txt
-
-diff --git a/requirements.txt b/requirements.txt
-index 47bd55d..e696500 100644
---- a/requirements.txt
-+++ b/requirements.txt
-@@ -1,44 +1,6 @@
--astpretty==3.0.0
--beautifulsoup4==4.13.4
--binary==1.0.2
--cachetools==5.5.2
--certifi==2025.7.14
--charset-normalizer==3.4.2
--click==8.2.1
--gitdb==4.0.12
--GitPython==3.1.45
--google-api-core==2.25.1
--google-auth==2.40.3
--google-cloud-bigquery==3.35.1
--google-cloud-core==2.4.3
--google-crc32c==1.7.1
--google-resumable-media==2.7.2
--googleapis-common-protos==1.70.0
--graphviz==0.21
--grpcio==1.74.0
--grpcio-status==1.74.0
--html2text==2025.4.15
--idna==3.10
--numpy==2.3.2
--packaging==25.0
--pandas==2.3.1
--pillow==11.3.0
--platformdirs==4.3.8
--proto-plus==1.26.1
--protobuf==6.31.1
--pyasn1==0.6.1
--pyasn1_modules==0.4.2
--pypi-search==2.0
--pypinfo==22.0.0
-+numpy==2.3.4
-+pandas==2.3.3
- python-dateutil==2.9.0.post0
- pytz==2025.2
--requests==2.32.4
--rsa==4.9.1
- six==1.17.0
--smmap==5.0.2
--soupsieve==2.7
--tinydb==4.8.2
--tinyrecord==0.2.0
--typing_extensions==4.14.1
- tzdata==2025.2
--urllib3==2.5.0
-
-commit 4154de874f9bf7aa32c24bb0860f8d395554e728
-Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Tue Aug 12 17:17:15 2025 +0200
-
-    ADD requirements.txt
-
-diff --git a/requirements.txt b/requirements.txt
+diff --git a/src/main.py b/src/main.py
 new file mode 100644
-index 0000000..47bd55d
+index 0000000..af85784
 --- /dev/null
-+++ b/requirements.txt
-@@ -0,0 +1,44 @@
-+astpretty==3.0.0
-+beautifulsoup4==4.13.4
-+binary==1.0.2
-+cachetools==5.5.2
-+certifi==2025.7.14
-+charset-normalizer==3.4.2
-+click==8.2.1
-+gitdb==4.0.12
-+GitPython==3.1.45
-+google-api-core==2.25.1
-+google-auth==2.40.3
-+google-cloud-bigquery==3.35.1
-+google-cloud-core==2.4.3
-+google-crc32c==1.7.1
-+google-resumable-media==2.7.2
-+googleapis-common-protos==1.70.0
-+graphviz==0.21
-+grpcio==1.74.0
-+grpcio-status==1.74.0
-+html2text==2025.4.15
-+idna==3.10
-+numpy==2.3.2
-+packaging==25.0
-+pandas==2.3.1
-+pillow==11.3.0
-+platformdirs==4.3.8
-+proto-plus==1.26.1
-+protobuf==6.31.1
-+pyasn1==0.6.1
-+pyasn1_modules==0.4.2
-+pypi-search==2.0
-+pypinfo==22.0.0
-+python-dateutil==2.9.0.post0
-+pytz==2025.2
-+requests==2.32.4
-+rsa==4.9.1
-+six==1.17.0
-+smmap==5.0.2
-+soupsieve==2.7
-+tinydb==4.8.2
-+tinyrecord==0.2.0
-+typing_extensions==4.14.1
-+tzdata==2025.2
-+urllib3==2.5.0
++++ b/src/main.py
+@@ -0,0 +1,10 @@
++from src.detector import Detector
++
++import os
++
++if __name__ =="__main__":
++    print(os.getcwd())
++    detector = Detector("./evaluation/sample_class.py", "class-eval", True)
++
++    shadowing, yara = detector.shadowing_detection()
++    print(f"Shadowings: {shadowing}\nYara rules: {yara}")
+\ No newline at end of file
+
+commit 8b70145e0d48a9b75aaabec2a3757509c6427d51
+Author: denisG99 <gasparollodenis@gmail.com>
+Date:   Wed Aug 27 09:52:45 2025 +0200
+
+    removinig cache
+
+diff --git a/src/main.py b/src/main.py
+deleted file mode 100644
+index 4ed40b2..0000000
+--- a/src/main.py
++++ /dev/null
+@@ -1,56 +0,0 @@
+-import pathlib
+-import shutil
+-import json
+-import os
+-
+-import pandas as pd
+-
+-from detector import Detector
+-
+-if __name__ == "__main__":
+-    pkgs_path = "../top_pkgs.json"
+-    temp_dir_path = "./tmp"
+-    fields = ["id", "name", "repository_url"]
+-
+-    if not os.path.exists(pkgs_path):
+-        print("Files containing packages doesn't exists!")
+-
+-    df_pkgs = pd.read_json(pkgs_path)
+-    # keep only the fields we need
+-    df_pkgs = df_pkgs[fields]
+-
+-    statistics = {} # dictionary to store the gathered statistics for each package under analysis in the top 100
+-    local_import = []
+-    inner_function = []
+-
+-    for pkg_name, link in zip(df_pkgs["name"], df_pkgs["repository_url"]):
+-        local_import = []
+-        inner_function = []
+-        total_scopes = 0
+-        download_path = os.path.join(temp_dir_path, pkg_name)
+-
+-        # downloading package
+-        os.system(f"pip install -t {download_path} --no-deps {pkg_name}")
+-
+-        print(f"Analyzing {pkg_name}...")
+-        for py_file in pathlib.Path(download_path).glob("**/*.py"): # takes only python files in all possible directories
+-            detector = Detector(f"{py_file}")
+-
+-            if detector.get_builder() is not None:
+-                local_import = detector.local_import_detection()
+-                inner_function, scopes_number = detector.inner_function_detection()
+-                scope_chain_length = detector.get_builder().length_longest_scope_chain()
+-                total_scopes += scopes_number
+-
+-        statistics[pkg_name] = {"local_import": local_import,
+-                                "inner_function": inner_function,
+-                                "number_of_scopes": total_scopes,
+-                                "scope_chain_length": scope_chain_length}
+-        print(f"Analysis complete")
+-
+-        # removing temp directory, even if isn't empty
+-        shutil.rmtree(download_path, ignore_errors=True)
+-
+-        print("\n", end="")
+-
+-    json.dump(statistics, open("statistics.json", "w"), indent=4)
+\ No newline at end of file
+
+commit 743eccdfaec0afad2e388ca090942caca2c01637
+Author: denisG99 <gasparollodenis@gmail.com>
+Date:   Wed Aug 20 23:11:06 2025 +0200
+
+    add scope chian length statistics
+
+diff --git a/src/main.py b/src/main.py
+index 89ae5b0..4ed40b2 100644
+--- a/src/main.py
++++ b/src/main.py
+@@ -39,10 +39,13 @@ if __name__ == "__main__":
+             if detector.get_builder() is not None:
+                 local_import = detector.local_import_detection()
+                 inner_function, scopes_number = detector.inner_function_detection()
+-
++                scope_chain_length = detector.get_builder().length_longest_scope_chain()
+                 total_scopes += scopes_number
+
+-        statistics[pkg_name] = {"local_import": local_import, "inner_function": inner_function, "number_of_scopes": total_scopes}
++        statistics[pkg_name] = {"local_import": local_import,
++                                "inner_function": inner_function,
++                                "number_of_scopes": total_scopes,
++                                "scope_chain_length": scope_chain_length}
+         print(f"Analysis complete")
+
+         # removing temp directory, even if isn't empty
+
+commit 0039f792b43db74789e7a05b7ae6b2d8bfbcc16c
+Author: denisG99 <gasparollodenis@gmail.com>
+Date:   Mon Aug 18 23:44:26 2025 +0200
+
+    remove unused imports
+
+diff --git a/src/main.py b/src/main.py
+index 9927d91..89ae5b0 100644
+--- a/src/main.py
++++ b/src/main.py
+@@ -2,9 +2,7 @@
+ import pathlib
+ import shutil
+ import json
+ import os
+-from operator import index
+
+-import git
+ import pandas as pd
+
+ from detector import Detector
+
+commit 0a61c571d644e5f048a6e995f62883bc8fc05d85
+Author: denisG99 <gasparollodenis@gmail.com>
+Date:   Mon Aug 18 00:31:46 2025 +0200
+
+    remove github download(only pip)
+
+diff --git a/src/main.py b/src/main.py
+index 3d2cb91..9927d91 100644
+--- a/src/main.py
++++ b/src/main.py
+@@ -10,11 +10,12 @@ import pandas as pd
+ from detector import Detector
+
+ if __name__ == "__main__":
+-    pkgs_path = "../top100_pkgs.json"
++    pkgs_path = "../top_pkgs.json"
+     temp_dir_path = "./tmp"
+     fields = ["id", "name", "repository_url"]
+
+-    assert not os.path.exists(pkgs_path), "Files containing packages doesn't exists!"
++    if not os.path.exists(pkgs_path):
++        print("Files containing packages doesn't exists!")
+
+     df_pkgs = pd.read_json(pkgs_path)
+     # keep only the fields we need
+@@ -30,16 +31,8 @@ if __name__ == "__main__":
+         total_scopes = 0
+         download_path = os.path.join(temp_dir_path, pkg_name)
+
+-        if link is not None or not link == "":
+-            print(f"Downloading {pkg_name} from GitHub...")
+-
+-            git.Repo.clone_from(link, download_path)
+-        else:
+-            print(f"Downloading {pkg_name} from pip...")
+-
+-            os.system(f"pip install -t {download_path} --no-deps {pkg_name}")
+-
+-        print("Download complete.")
++        # downloading package
++        os.system(f"pip install -t {download_path} --no-deps {pkg_name}")
+
+         print(f"Analyzing {pkg_name}...")
+         for py_file in pathlib.Path(download_path).glob("**/*.py"): # takes only python files in all possible directories
+
+commit c4398d2d03cdb6426bf17dd3e47faa84fa1632b4
+Author: denisG99 <gasparollodenis@gmail.com>
+Date:   Sun Aug 17 23:54:59 2025 +0200
+
+    change download algorithm
+
+diff --git a/src/main.py b/src/main.py
+index 87959c2..3d2cb91 100644
+--- a/src/main.py
++++ b/src/main.py
+@@ -2,6 +2,7 @@ import pathlib
+ import shutil
+ import json
+ import os
++from operator import index
+
+ import git
+ import pandas as pd
+@@ -9,24 +10,35 @@ import pandas as pd
+ from detector import Detector
+
+ if __name__ == "__main__":
+-    pkgs_path = "../top_100_python_packages.csv"
++    pkgs_path = "../top100_pkgs.json"
+     temp_dir_path = "./tmp"
++    fields = ["id", "name", "repository_url"]
+
+-    df_pkgs = pd.read_csv(pkgs_path, index_col=0)
++    assert not os.path.exists(pkgs_path), "Files containing packages doesn't exists!"
++
++    df_pkgs = pd.read_json(pkgs_path)
++    # keep only the fields we need
++    df_pkgs = df_pkgs[fields]
+
+     statistics = {} # dictionary to store the gathered statistics for each package under analysis in the top 100
+     local_import = []
+     inner_function = []
+
+-    for pkg_name, link in zip(df_pkgs["Package"], df_pkgs["GitHub Link"]):
++    for pkg_name, link in zip(df_pkgs["name"], df_pkgs["repository_url"]):
+         local_import = []
+         inner_function = []
+         total_scopes = 0
+         download_path = os.path.join(temp_dir_path, pkg_name)
+
+-        print(f"Downloading {pkg_name}...")
++        if link is not None or not link == "":
++            print(f"Downloading {pkg_name} from GitHub...")
++
++            git.Repo.clone_from(link, download_path)
++        else:
++            print(f"Downloading {pkg_name} from pip...")
++
++            os.system(f"pip install -t {download_path} --no-deps {pkg_name}")
+
+-        git.Repo.clone_from(link, download_path)
+         print("Download complete.")
+
+         print(f"Analyzing {pkg_name}...")
+
+commit 0991564381c358cf00dd163c6f1017fa84711462
+Author: denisG99 <gasparollodenis@gmail.com>
+Date:   Sat Aug 16 21:35:21 2025 +0200
+
+    change download destination path
+
+diff --git a/src/main.py b/src/main.py
+index b80ef62..87959c2 100644
+--- a/src/main.py
++++ b/src/main.py
+@@ -1,6 +1,7 @@
+ import pathlib
+ import shutil
+ import json
++import os
+
+ import git
+ import pandas as pd
+@@ -21,15 +22,16 @@ if __name__ == "__main__":
+         local_import = []
+         inner_function = []
+         total_scopes = 0
++        download_path = os.path.join(temp_dir_path, pkg_name)
+
+         print(f"Downloading {pkg_name}...")
+
+-        git.Repo.clone_from(link, temp_dir_path)
++        git.Repo.clone_from(link, download_path)
+         print("Download complete.")
+
+         print(f"Analyzing {pkg_name}...")
+-        for py_file in pathlib.Path(temp_dir_path).glob("**/*.py"): # takes only python files in all possible directories
+-            detector = Detector(f"{py_file}", "test")
++        for py_file in pathlib.Path(download_path).glob("**/*.py"): # takes only python files in all possible directories
++            detector = Detector(f"{py_file}")
+
+             if detector.get_builder() is not None:
+                 local_import = detector.local_import_detection()
+@@ -41,7 +43,7 @@ if __name__ == "__main__":
+         print(f"Analysis complete")
+
+         # removing temp directory, even if isn't empty
+-        shutil.rmtree(temp_dir_path, ignore_errors=True)
++        shutil.rmtree(download_path, ignore_errors=True)
+
+         print("\n", end="")
+
+
+commit d8e22de08b58e97422d7325bb7100f4771a06e3a
+Author: denisG99 <gasparollodenis@gmail.com>
+Date:   Tue Aug 12 14:31:25 2025 +0200
+
+    statistics
+
+diff --git a/src/main.py b/src/main.py
+index 4d01452..b80ef62 100644
+--- a/src/main.py
++++ b/src/main.py
+@@ -1,17 +1,27 @@
+-import os
+ import pathlib
+ import shutil
++import json
+
+ import git
+ import pandas as pd
+
++from detector import Detector
++
+ if __name__ == "__main__":
+     pkgs_path = "../top_100_python_packages.csv"
+     temp_dir_path = "./tmp"
+
+     df_pkgs = pd.read_csv(pkgs_path, index_col=0)
+
++    statistics = {} # dictionary to store the gathered statistics for each package under analysis in the top 100
++    local_import = []
++    inner_function = []
++
+     for pkg_name, link in zip(df_pkgs["Package"], df_pkgs["GitHub Link"]):
++        local_import = []
++        inner_function = []
++        total_scopes = 0
++
+         print(f"Downloading {pkg_name}...")
+
+         git.Repo.clone_from(link, temp_dir_path)
+@@ -19,11 +29,20 @@ if __name__ == "__main__":
+
+         print(f"Analyzing {pkg_name}...")
+         for py_file in pathlib.Path(temp_dir_path).glob("**/*.py"): # takes only python files in all possible directories
+-            #TODO: source code analysis to find shadowing occurrences
+-            ...
++            detector = Detector(f"{py_file}", "test")
++
++            if detector.get_builder() is not None:
++                local_import = detector.local_import_detection()
++                inner_function, scopes_number = detector.inner_function_detection()
++
++                total_scopes += scopes_number
++
++        statistics[pkg_name] = {"local_import": local_import, "inner_function": inner_function, "number_of_scopes": total_scopes}
+         print(f"Analysis complete")
+
+         # removing temp directory, even if isn't empty
+         shutil.rmtree(temp_dir_path, ignore_errors=True)
+
+-        print("\n", end="")
+\ No newline at end of file
++        print("\n", end="")
++
++    json.dump(statistics, open("statistics.json", "w"), indent=4)
+\ No newline at end of file
+
+commit 27654d143e81aadca02bb003b28cf3f11aa416f5
+Author: denisG99 <gasparollodenis@gmail.com>
+Date:   Mon Aug 4 22:48:08 2025 +0200
+
+    ADD main application structure
+
+diff --git a/src/main.py b/src/main.py
+index 360fcb5..4d01452 100644
+--- a/src/main.py
++++ b/src/main.py
+@@ -1,21 +1,29 @@
+-import ast
++import os
++import pathlib
++import shutil
+
+-from src.scope_graph import ScopeGraph
++import git
++import pandas as pd
+
+ if __name__ == "__main__":
+-    code = """
+-x = 1
+-def f(y):
+-    z = 2
+-    def g():
+-        print(y)
+- """
+-
+-    tree = ast.parse(code)
+-
+-    # building scope Graph
+-    builder = ScopeGraph()
+-    builder.visit(tree)
+-    from pprint import pprint
+-
+-    pprint(builder.get_graph())
++    pkgs_path = "../top_100_python_packages.csv"
++    temp_dir_path = "./tmp"
++
++    df_pkgs = pd.read_csv(pkgs_path, index_col=0)
++
++    for pkg_name, link in zip(df_pkgs["Package"], df_pkgs["GitHub Link"]):
++        print(f"Downloading {pkg_name}...")
++
++        git.Repo.clone_from(link, temp_dir_path)
++        print("Download complete.")
++
++        print(f"Analyzing {pkg_name}...")
++        for py_file in pathlib.Path(temp_dir_path).glob("**/*.py"): # takes only python files in all possible directories
++            #TODO: source code analysis to find shadowing occurrences
++            ...
++        print(f"Analysis complete")
++
++        # removing temp directory, even if isn't empty
++        shutil.rmtree(temp_dir_path, ignore_errors=True)
++
++        print("\n", end="")
+\ No newline at end of file
+
+commit e6aaeb2005efccbc2149f59f925fe2beef1e29b0
+Author: denisG99 <gasparollodenis@gmail.com>
+Date:   Thu Jul 31 23:53:51 2025 +0200
+
+    MISC #1
+
+diff --git a/src/main.py b/src/main.py
+index 67e15b4..360fcb5 100644
+--- a/src/main.py
++++ b/src/main.py
+@@ -10,11 +10,6 @@ def f(y):
+     def g():
+         print(y)
+  """
+-    code = """
+-import ast as ast, base64 as b64
+-
+-from functools import reduce
+-"""
+
+     tree = ast.parse(code)
+
+
+commit f08052fc838764fdd4b034e485e70bb3b67daf86
+Author: denisG99 <gasparollodenis@gmail.com>
+Date:   Thu Jul 31 01:24:41 2025 +0200
+
+    ADD scope graph class
+
+diff --git a/src/main.py b/src/main.py
+new file mode 100644
+index 0000000..67e15b4
+--- /dev/null
++++ b/src/main.py
+@@ -0,0 +1,26 @@
++import ast
++
++from src.scope_graph import ScopeGraph
++
++if __name__ == "__main__":
++    code = """
++x = 1
++def f(y):
++    z = 2
++    def g():
++        print(y)
++ """
++    code = """
++import ast as ast, base64 as b64
++
++from functools import reduce
++"""
++
++    tree = ast.parse(code)
++
++    # building scope Graph
++    builder = ScopeGraph()
++    builder.visit(tree)
++    from pprint import pprint
++
++    pprint(builder.get_graph())
