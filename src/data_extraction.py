@@ -7,7 +7,7 @@ import sys
 import requests
 import re
 
-from detector import Detector
+from classes.detector import Detector
 from tqdm import tqdm
 
 # constants

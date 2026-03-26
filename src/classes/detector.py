@@ -5,7 +5,7 @@ import tokenize
 import yara
 import os
 
-from scope_graph import ScopeGraph
+from .scope_graph import ScopeGraph
 
 class Detector:
     """
@@ -52,7 +52,7 @@ class Detector:
 
         #YARA engine initialization
         self.__rules = []
-        for file in os.listdir("./heuristics"):
+        for file in os.listdir("../heuristics"):
             self.__rules.append(yara.compile(f"./heuristics/{file}"))
 
     def get_builder(self) -> ScopeGraph:
