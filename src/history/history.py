@@ -44,7 +44,6 @@ def file_has_shadowing(shadowing_res: dict) -> bool:
     :param shadowing_res: dictionary containing the shadowing results of a file
     :return: True if the file has shadowing, False otherwise
     """
-
     return len(shadowing_res["shadowing"]) > 0 or len(shadowing_res["yara"]) > 0
 
 if __name__ == '__main__':
@@ -58,10 +57,13 @@ if __name__ == '__main__':
         history: dict = {}
 
         # clone repository
-        try:
-            subprocess.run(["git", "clone", repo_url, download_path], check=True)
-        except subprocess.CalledProcessError as e:
-            print(f"Git clone command failed: {e.stderr}")
+        if not pathlib.Path(download_path).exists():
+            try:
+                subprocess.run(["git", "clone", repo_url, download_path], check=True)
+            except subprocess.CalledProcessError as e:
+                print(f"Git clone command failed: {e.stderr}")
+        else:
+            print(f"Repository {download_path} already exists")
 
         # shadowing results over all files as reference in the current version of the repository
         for py_file in pathlib.Path().glob(f"./tmp/{pkg}/**/*.py"):  # takes only python files in all possible directories
@@ -79,9 +81,9 @@ if __name__ == '__main__':
                 yara_rule_names = [rule.rule for rule in yara]  # list contains the names of the yara rules
                 scope_chain_length = detector.get_builder().length_longest_scope_chain()
 
-                shadowing_refs_by_file[py_file] = {"shadowing": shadowing,
-                                                   "yara": yara,
-                                                   "scope_chain_length": scope_chain_length}
+                shadowing_refs_by_file[str(py_file)] = {"shadowing": shadowing,
+                                                        "yara": yara,
+                                                        "scope_chain_length": scope_chain_length}
             except Exception as e:
                 print(f"Error processing file {py_file}: {e}")
                 continue
@@ -92,6 +94,7 @@ if __name__ == '__main__':
         # get git log result for files that has shadowing until December 31, 2025
         for filename in files:
             filename = str(filename).split('/')
+            key = "-".join(filename[2: ])
 
             try:
                 git_log = subprocess.run(
@@ -108,11 +111,11 @@ if __name__ == '__main__':
                 )
 
                 # build history of shadowing of a given file
-                history[filename[-1]] = ShadowingHistoty(git_log.stdout, "/".join(filename)).build_history()
+                history[key] = ShadowingHistoty(git_log.stdout, "/".join(filename), HEURISTICS_DIR).build_history()
 
             except subprocess.CalledProcessError as e:
                 print(f"Git command failed: {e.stderr}")
-                history[filename[-1]] = {}
+                history[key] = {}
                 continue
 
         json.dump(history, open(f"{HISTORY_OUTPUT_DIR}/{pkg}.json", "w"), indent=4)
