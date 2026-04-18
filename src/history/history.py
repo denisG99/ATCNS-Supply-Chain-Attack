@@ -94,7 +94,7 @@ if __name__ == '__main__':
         # get git log result for files that has shadowing until December 31, 2025
         for filename in files:
             filename = str(filename).split('/')
-            key = "-".join(filename[2: ])
+            key = "_".join(filename[2: ])
 
             try:
                 git_log = subprocess.run(
