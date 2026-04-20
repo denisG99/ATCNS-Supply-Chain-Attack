@@ -1,4 +1,4 @@
-from aux.benign_func import function
+from auxiliary.benign_func import function
 
 def f(x):
     return x ** 2
