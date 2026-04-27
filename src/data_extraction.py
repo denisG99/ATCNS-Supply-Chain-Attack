@@ -6,6 +6,7 @@ import pandas as pd
 import sys
 import requests
 import re
+import subprocess
 
 from classes.detector import Detector
 from tqdm import tqdm
@@ -115,7 +116,16 @@ if __name__ == "__main__":
                     version = get_version(year, pkg_name)
 
                     # downloading package (we use <= just in case the version, for some reason, is not available)
-                    os.system(f"pip3 install -t {download_path} -q --upgrade --no-deps --no-cache-dir '{pkg_name}<={version}'")
+                    #os.system(f"pip3 install -t {download_path} -q --no-deps --no-cache-dir '{pkg_name}<={version}'")
+                    subprocess.run(
+                        [sys.executable, "-m", "pip", "install",
+                         "-t", download_path,
+                         "-q",
+                         "--no-deps",
+                         "--no-cache-dir",
+                         f"{pkg_name}<={version}"],
+                        check=False  # don't raise on failure, your existing try/except handles it
+                    )
 
                     for py_file in pathlib.Path(download_path).glob("**/*.py"): # takes only python files in all possible directories
                         try:
