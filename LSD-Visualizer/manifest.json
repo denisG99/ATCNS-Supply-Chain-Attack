@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "LSD-Visualizer",
+  "version": "1.0",
+
+  "permissions": ["activeTab", "scripting", "storage"],
+
+  "action": {
+    "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://githistory.xyz/*", "https://github.githistory.xyz/*"],
+      "js": ["scripts/content.js"]
+    }
+  ],
+
+  "commands": {
+    "trigger-action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+K"
+      },
+      "description": "Trigger my action"
+    }
+  }
+}
