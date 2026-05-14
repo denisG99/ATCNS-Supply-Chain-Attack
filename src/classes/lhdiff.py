@@ -86,8 +86,3 @@ class LHDiff:
             return result.stdout if raw else self.__parse(result.stdout)
         except subprocess.CalledProcessError as e:
             print(f"Error executing lhdiff: {e.stderr}")
-
-if __name__ == "__main__":
-    lhdiff = LHDiff()
-
-    print(lhdiff.diff(str(Path("./test1")), str(Path("./test2")), False))
