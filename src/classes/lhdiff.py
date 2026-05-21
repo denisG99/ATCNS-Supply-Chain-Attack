@@ -70,7 +70,6 @@ class LHDiff:
             :param raw: bool, optional
                 A flag indicating whether to return the raw output of lhdiff. Defaults to True.
 
-
         :returns: None | list[dict[str, int | None]] | str | Any
             Returns `None` if there is an issue preventing the command from running.
             If `raw` is True, the raw output of the lhdiff tool is returned as a string.
