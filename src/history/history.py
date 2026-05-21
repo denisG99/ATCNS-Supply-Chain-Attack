@@ -5,7 +5,7 @@ import requests
 import json
 
 from classes.detector import Detector
-from classes.shadowing_history import ShadowingHistoty
+from classes.file_shadowing_history import FileShadowingHistoty
 
 UNTIL: str = "2025-12-31"
 TEMP_DIR: str = "./tmp"
@@ -111,7 +111,7 @@ if __name__ == '__main__':
                 )
 
                 # build history of shadowing of a given file
-                history[key] = ShadowingHistoty(git_log.stdout, "/".join(filename), HEURISTICS_DIR).build_history()
+                history[key] = FileShadowingHistoty(git_log.stdout, "/".join(filename), HEURISTICS_DIR).build()
 
             except subprocess.CalledProcessError as e:
                 print(f"Git command failed: {e.stderr}")
