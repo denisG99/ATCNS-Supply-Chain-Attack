@@ -1,6 +1,7 @@
 import subprocess
+import tempfile
+import os
 
-from pathlib import Path
 from typing import Any
 
 class LHDiff:
@@ -36,7 +37,6 @@ class LHDiff:
             A list of dictionaries, where each dictionary maps 'left' and 'right' to either
             an integer value or None if the corresponding input is an underscore.
         """
-
         mappings = []
 
         for line in output.strip().splitlines():
@@ -49,40 +49,70 @@ class LHDiff:
 
         return mappings
 
-    def diff(self, left: str, right: str, raw: bool=True) -> None | list[dict[str, int | None]] | str | Any:
+    def diff(self, repo_path: str, commit_left: str, commit_right: str, file_path: str, raw: bool=True) -> None | list[dict[str, int | None]] | str | Any:
         """
-        Generates a diff between two files based on the provided parameters.
+        Executes the lhdiff tool on a file across two commits and optionally parses the output.
 
-        This method utilizes an external command to compute the differences between
-        two files specified by their paths. The result can be returned in its raw form
-        or as a structured, parsed output depending on the input argument. If any
-        errors occur during execution, they are either returned as part of the output
-        or printed to the console.
+        This method compares the specified file across two git commits using the lhdiff tool.
+        Temporary files are created to store the file contents at each commit, which are then
+        passed as input to the lhdiff tool. The method returns a parsed representation of the
+        output if not in raw mode.
 
         Parameters:
-        :param left: str
-            The path to the first file to be compared.
-        :param right: str
-            The path to the second file to be compared.
-        :param raw: bool (Optional)
-            A flag to determine whether the result is returned in its raw form. If set to True,
-            returns the raw command output as a string. If set to False, the output is parsed.
-            Default value is True.
+            :param repo_path: str
+                The path to the git repository.
+            :param commit_left: str
+                The identifier of the earlier or left commit (e.g., commit hash).
+            :param commit_right: str
+                The identifier of the later or right commit (e.g., commit hash).
+            :param file_path: str
+                The relative path to the file to be compared.
+            :param raw: bool, optional
+                A flag indicating whether to return the raw output of lhdiff. Defaults to True.
+
 
         :returns: None | list[dict[str, int | None]] | str | Any
-            Returns a parsed representation of differences between files if raw is False. If raw is True,
-            returns the raw text output of the diff command. In case of errors, returns an error message
-            as a string.
+            Returns `None` if there is an issue preventing the command from running.
+            If `raw` is True, the raw output of the lhdiff tool is returned as a string.
+            Otherwise, returns the parsed output of the lhdiff command as a data structure.
 
-        Raises:
-        subprocess.CalledProcessError
-            If the external command fails to execute properly. Errors are printed to the console.
+        :raises: subprocess.CalledProcessError
+            If any subprocess command fails during execution.
         """
-        try:
-            result: subprocess.CompletedProcess = subprocess.run([self.__command_path, left, right], capture_output=True, text=True, check=True)
+        def git_show(commit: str, path: str) -> str:
+            """Extract file content at a given commit."""
+            result = subprocess.run(
+                ["git", "-C", repo_path, "show", f"{commit}:./{path}"],
+                capture_output=True,
+                text=True,
+                check=True,
+            )
 
-            if result.stderr != "":
-                return f"LHDiff command gives the following error: {result.stderr}"
-            return result.stdout if raw else self.__parse(result.stdout)
-        except subprocess.CalledProcessError as e:
-            print(f"Error executing lhdiff: {e.stderr}")
+            return result.stdout
+
+        # Get file contents at each commit
+        left_content = git_show(commit_left, file_path)
+        right_content = git_show(commit_right, file_path)
+
+        # Write to temp files and call lhdiff
+        with tempfile.NamedTemporaryFile(mode="w+", delete=False) as left_tmp, \
+                tempfile.NamedTemporaryFile(mode="w+", delete=False) as right_tmp:
+            try:
+                left_tmp.write(left_content)
+                left_tmp.flush()
+                right_tmp.write(right_content)
+                right_tmp.flush()
+
+                cmd = ["lhdiff"]
+                cmd += [left_tmp.name, right_tmp.name]
+
+                result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+                return result.stdout if raw else self.__parse(result.stdout)
+
+            except subprocess.CalledProcessError as e:
+                print(f"Error executing lhdiff: {e.stderr}")
+
+            finally:
+                # erase temp files
+                os.unlink(left_tmp.name)
+                os.unlink(right_tmp.name)
