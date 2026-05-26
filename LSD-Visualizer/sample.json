@@ -1,0 +1,645 @@
+{
+    "adbe744a6769077c47f26aaf6598b955935f73f7": {
+        "author": "Martini",
+        "datetime": "Wed Jun 18 10:00:47 2025",
+        "shadowing": "true",
+        "shadowing_res": [
+            {
+                "name": "var_language",
+                "line": [
+                    55,
+                    53
+                ]
+            },
+            {
+                "name": "var_LANGUAGES",
+                "line": [
+                    48,
+                    44
+                ]
+            },
+            {
+                "name": "var_CATEGORIES",
+                "line": [
+                    48,
+                    45
+                ]
+            },
+            {
+                "name": "var_language",
+                "line": [
+                    60,
+                    53
+                ]
+            },
+            {
+                "name": "var_category",
+                "line": [
+                    60,
+                    58
+                ]
+            },
+            {
+                "name": "var_LANGUAGES",
+                "line": [
+                    48,
+                    44
+                ]
+            },
+            {
+                "name": "var_CATEGORIES",
+                "line": [
+                    48,
+                    45
+                ]
+            },
+            {
+                "name": "var_LANGUAGES",
+                "line": [
+                    63,
+                    44
+                ]
+            },
+            {
+                "name": "var_CATEGORIES",
+                "line": [
+                    63,
+                    45
+                ]
+            },
+            {
+                "name": "var_LANGUAGES",
+                "line": [
+                    72,
+                    44
+                ]
+            },
+            {
+                "name": "var_CATEGORIES",
+                "line": [
+                    72,
+                    45
+                ]
+            }
+        ],
+        "yara": []
+    },
+    "9db9cbee466fe6f35805cb9a0ab71ba90154aad2": {
+        "author": "Ben",
+        "datetime": "Sat Aug 10 13:15:47 2024",
+        "shadowing": "true",
+        "shadowing_res": [
+            {
+                "name": "var_language",
+                "line": [
+                    51,
+                    49
+                ]
+            },
+            {
+                "name": "var_LANGUAGES",
+                "line": [
+                    44,
+                    40
+                ]
+            },
+            {
+                "name": "var_CATEGORIES",
+                "line": [
+                    44,
+                    41
+                ]
+            },
+            {
+                "name": "var_language",
+                "line": [
+                    56,
+                    49
+                ]
+            },
+            {
+                "name": "var_category",
+                "line": [
+                    56,
+                    54
+                ]
+            },
+            {
+                "name": "var_LANGUAGES",
+                "line": [
+                    44,
+                    40
+                ]
+            },
+            {
+                "name": "var_CATEGORIES",
+                "line": [
+                    44,
+                    41
+                ]
+            },
+            {
+                "name": "var_LANGUAGES",
+                "line": [
+                    59,
+                    40
+                ]
+            },
+            {
+                "name": "var_CATEGORIES",
+                "line": [
+                    59,
+                    41
+                ]
+            },
+            {
+                "name": "var_LANGUAGES",
+                "line": [
+                    67,
+                    40
+                ]
+            },
+            {
+                "name": "var_CATEGORIES",
+                "line": [
+                    67,
+                    41
+                ]
+            }
+        ],
+        "yara": []
+    },
+    "ecdfcfd8dd8b2b3961e971806c3ae89426fa5dc4": {
+        "author": "Nicholas",
+        "datetime": "Fri Aug 9 14:42:34 2024",
+        "shadowing": "true",
+        "shadowing_res": [
+            {
+                "name": "var_language",
+                "line": [
+                    51,
+                    49
+                ]
+            },
+            {
+                "name": "var_LANGUAGES",
+                "line": [
+                    44,
+                    40
+                ]
+            },
+            {
+                "name": "var_CATEGORIES",
+                "line": [
+                    44,
+                    41
+                ]
+            },
+            {
+                "name": "var_language",
+                "line": [
+                    56,
+                    49
+                ]
+            },
+            {
+                "name": "var_category",
+                "line": [
+                    56,
+                    54
+                ]
+            },
+            {
+                "name": "var_LANGUAGES",
+                "line": [
+                    44,
+                    40
+                ]
+            },
+            {
+                "name": "var_CATEGORIES",
+                "line": [
+                    44,
+                    41
+                ]
+            },
+            {
+                "name": "var_LANGUAGES",
+                "line": [
+                    59,
+                    40
+                ]
+            },
+            {
+                "name": "var_CATEGORIES",
+                "line": [
+                    59,
+                    41
+                ]
+            },
+            {
+                "name": "var_LANGUAGES",
+                "line": [
+                    67,
+                    40
+                ]
+            },
+            {
+                "name": "var_CATEGORIES",
+                "line": [
+                    67,
+                    41
+                ]
+            }
+        ],
+        "yara": []
+    },
+    "c8a81b5f60baf48173169e390b27e7f1b5ee8169": {
+        "author": "Ben",
+        "datetime": "Sat Jul 13 15:27:23 2024",
+        "shadowing": "true",
+        "shadowing_res": [
+            {
+                "name": "var_language",
+                "line": [
+                    51,
+                    49
+                ]
+            },
+            {
+                "name": "var_LANGUAGES",
+                "line": [
+                    44,
+                    40
+                ]
+            },
+            {
+                "name": "var_CATEGORIES",
+                "line": [
+                    44,
+                    41
+                ]
+            },
+            {
+                "name": "var_language",
+                "line": [
+                    56,
+                    49
+                ]
+            },
+            {
+                "name": "var_category",
+                "line": [
+                    56,
+                    54
+                ]
+            },
+            {
+                "name": "var_LANGUAGES",
+                "line": [
+                    44,
+                    40
+                ]
+            },
+            {
+                "name": "var_CATEGORIES",
+                "line": [
+                    44,
+                    41
+                ]
+            },
+            {
+                "name": "var_LANGUAGES",
+                "line": [
+                    59,
+                    40
+                ]
+            },
+            {
+                "name": "var_CATEGORIES",
+                "line": [
+                    59,
+                    41
+                ]
+            }
+        ],
+        "yara": []
+    },
+    "e7bed597745bf3fc30935d57b63f8d1306257fdf": {
+        "author": "Ben",
+        "datetime": "Sat Jul 13 15:15:01 2024",
+        "shadowing": "true",
+        "shadowing_res": [
+            {
+                "name": "var_language",
+                "line": [
+                    48,
+                    46
+                ]
+            },
+            {
+                "name": "var_language",
+                "line": [
+                    53,
+                    46
+                ]
+            },
+            {
+                "name": "var_category",
+                "line": [
+                    53,
+                    51
+                ]
+            }
+        ],
+        "yara": []
+    },
+    "c15777422f7d5304c91688878c7cdf43e98af546": {
+        "author": "Ben",
+        "datetime": "Sat Jul 13 13:17:27 2024",
+        "shadowing": "true",
+        "shadowing_res": [
+            {
+                "name": "var_language",
+                "line": [
+                    48,
+                    46
+                ]
+            },
+            {
+                "name": "var_language",
+                "line": [
+                    53,
+                    46
+                ]
+            },
+            {
+                "name": "var_category",
+                "line": [
+                    53,
+                    51
+                ]
+            }
+        ],
+        "yara": []
+    },
+    "fc9bc34c10c87d54eeade1a71def3dfc783948d0": {
+        "author": "Ben",
+        "datetime": "Sat Jul 13 12:54:56 2024",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "faffe9877f664ab1e84b791e94cd49e99e092aae": {
+        "author": "Ben",
+        "datetime": "Sat Jul 13 12:52:00 2024",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "2f6e6bbe51a4fc69da6339fd15f852e6f7e84a1b": {
+        "author": "Ben",
+        "datetime": "Thu Dec 21 23:08:16 2023",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "2ab33871d5465649fbbd480bcbbd3f65ee4543d5": {
+        "author": "Michael",
+        "datetime": "Thu Dec 21 13:28:45 2023",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "862dc761bc859cb491b09874dee88d65825e628b": {
+        "author": "Pashok11",
+        "datetime": "Thu Dec 21 15:25:50 2023",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "1521c23fa3fda87baa87e9b40292600a0870661a": {
+        "author": "Marek",
+        "datetime": "Thu Dec 21 13:24:18 2023",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "58576557e99fcedb382dd572682f844c93689a73": {
+        "author": "r0d0dendr0n",
+        "datetime": "Thu Dec 21 13:15:21 2023",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "8d5a4b3eebc92cb23c6efc57a68184ccbd0dea8f": {
+        "author": "rapolasLT",
+        "datetime": "Thu Dec 21 14:12:22 2023",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "8d04740b6de391a5caff52125323dc094009e598": {
+        "author": "Alfred",
+        "datetime": "Tue May 30 04:09:22 2023",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "9df6dd36237b07eca8c1ac4856586ca351db407e": {
+        "author": "Isma\u00efl",
+        "datetime": "Thu Oct 13 15:50:48 2022",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "6ad9b6f05affd0598df8b61ae6b92dfcec73470e": {
+        "author": "Sz\u00e9kely",
+        "datetime": "Sat Jan 1 13:43:47 2022",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "bec7fbc0cf2dfa4969b66d7799c6f726790e2e1b": {
+        "author": "Alexandre",
+        "datetime": "Tue Jul 10 08:55:20 2018",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "47b6625f8326c6830e42cf85fb05609e5ec1343a": {
+        "author": "Alexandre",
+        "datetime": "Fri Jun 29 15:41:06 2018",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "18e2d4a066d2ccc4746a148bc47492dbb2c652f7": {
+        "author": "Ale",
+        "datetime": "Mon Jan 29 19:55:08 2018",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "ffb15cc81976024a60a6ffa8a6ed660b35063966": {
+        "author": "Andreas",
+        "datetime": "Wed Sep 27 12:39:49 2017",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "5b5975aac53f4a52aa6d10a4c3d23caa810c5fc0": {
+        "author": "Mikel",
+        "datetime": "Fri Mar 18 15:36:01 2016",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "a75eb92835bbf97434ce06469e0a7c51d3fbba03": {
+        "author": "Oier",
+        "datetime": "Wed Nov 18 16:21:07 2015",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "e0bd0435c42a212c193b51f3ccfcc8a5c8c7eecb": {
+        "author": "ResonantWave",
+        "datetime": "Tue Oct 20 23:58:19 2015",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "f7099726be1e118d5195b9ca39af37846425912f": {
+        "author": "Ben",
+        "datetime": "Sun Sep 20 23:42:17 2015",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "a2001d8372e0225463dbad8e2592a82889bbc982": {
+        "author": "Ben",
+        "datetime": "Mon Sep 7 00:06:46 2015",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "e4930558a60b3470a2718846fd7aa9013a94d845": {
+        "author": "Ben",
+        "datetime": "Sun Sep 6 14:21:42 2015",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "e921e830b9ea0cf631695cb701caf979cd36da38": {
+        "author": "Alexandre",
+        "datetime": "Sat Sep 5 22:30:45 2015",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "4449b8209e913bcb64c6831e8896391f6d73e5f3": {
+        "author": "Alexandre",
+        "datetime": "Sat Sep 5 21:01:27 2015",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "00b242617470fe1325c468645b249143edff91e7": {
+        "author": "Ben",
+        "datetime": "Fri Aug 7 01:08:40 2015",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "0397a7dff4db2ee28d790d486040aa39e52051c6": {
+        "author": "Ben",
+        "datetime": "Fri Aug 7 00:49:18 2015",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "9f1f3971d6e6ea5fc6b490c3b8d9457e85587ed1": {
+        "author": "Ben",
+        "datetime": "Fri Aug 7 00:44:34 2015",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "215746e2fd7e5f78b6dae031aae6a935ab164dd1": {
+        "author": "Ben",
+        "datetime": "Fri Aug 7 00:27:06 2015",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "b6a701b4505966e0c84adf0a0da2952d4eb57533": {
+        "author": "Alexandre",
+        "datetime": "Sat Aug 1 01:12:49 2015",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "ce44a0e96f6c34a59484fe43cc9d7f23f298815e": {
+        "author": "oier",
+        "datetime": "Fri Jul 31 17:26:59 2015",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "994ab7efb89082385d11869076c3233c934ac7b2": {
+        "author": "Alexandre",
+        "datetime": "Fri Jul 31 13:34:18 2015",
+        "shadowing": "'NoneType' object has no attribute 'get_leaf_scopes'",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "b9d9efd5a7fbd952ddf487340c8ed40665e104b6": {
+        "author": "Ben",
+        "datetime": "Sun Jul 26 19:16:27 2015",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "a997301c907005e7bf9db0d76b47d6d11bda0168": {
+        "author": "Ben",
+        "datetime": "Sat Jan 3 12:29:03 2015",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "2c7b03079a082b34a96ffd6d46b9723377dd2480": {
+        "author": "Ben",
+        "datetime": "Sun Dec 28 23:28:17 2014",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "63c8133efff35b25c04fb878fe16c241dcfa5073": {
+        "author": "Alexandre",
+        "datetime": "Mon Sep 29 22:42:46 2014",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "98d4e76743a60450e23eaa17a93ba0baeb3f240b": {
+        "author": "Borja",
+        "datetime": "Sun Sep 28 22:26:25 2014",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "94663855f7e29366f74b71e0a938891fcd7f90dc": {
+        "author": "Borja",
+        "datetime": "Sun Sep 28 13:01:54 2014",
+        "shadowing": "'NoneType' object has no attribute 'get_leaf_scopes'",
+        "shadowing_res": [],
+        "yara": []
+    },
+    "37192c7c9d79c6d3454b96d821ed9031d6b0d95b": {
+        "author": "Ben",
+        "datetime": "Sun Sep 28 01:25:06 2014",
+        "shadowing": "false",
+        "shadowing_res": [],
+        "yara": []
+    }
+}
