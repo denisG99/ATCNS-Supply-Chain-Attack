@@ -78,11 +78,12 @@ if __name__ == '__main__':
 
                 shadowing, yara = detector.shadowing_detection()
 
-                yara_rule_names = [rule.rule for rule in yara]  # list contains the names of the yara rules
                 scope_chain_length = detector.get_builder().length_longest_scope_chain()
 
-                shadowing_refs_by_file[str(py_file)] = {"shadowing": shadowing,
-                                                        "yara": yara,
+                shadowing_refs_by_file[str(py_file)] = {"shadowing": [{"name": result.get_name(),
+                                                                       "line": result.get_lines()} for result in shadowing],
+                                                        "yara": [{"name": match.get_name(),
+                                                                  "line": match.get_lines()} for match in yara],
                                                         "scope_chain_length": scope_chain_length}
             except Exception as e:
                 print(f"Error processing file {py_file}: {e}")
