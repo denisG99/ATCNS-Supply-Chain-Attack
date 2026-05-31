@@ -196,3 +196,4 @@ src/scope-graphs/
 src/tmp
 src/history/tmp
 /src/classes/tmp/
+/src/classes/scope-graphs/
