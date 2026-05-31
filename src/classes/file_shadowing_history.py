@@ -1,7 +1,7 @@
 from subprocess import CompletedProcess
 
 from classes.gitlog_parser import GitLogParser
-from classes.detector import Detector
+from classes.detectorv2 import Detector
 from classes.lhdiff import LHDiff
 
 import subprocess
@@ -29,6 +29,9 @@ class FileShadowingHistoty:
         self.__file_path: str = file_path
         self.__heuristic_path: str = heuristic_path
         self.__history: dict = {}
+
+    def get_history(self) -> dict:
+        return self.__history
 
     def __get_code_by_hash(self, commit_hash: str) -> CompletedProcess[str]:
         """
@@ -110,7 +113,7 @@ class FileShadowingHistoty:
                     "author": self.__git_log.get_commit_author(commit_hash),
                     "datetime": self.__git_log.get_commit_datetime(commit_hash),
                     "shadowing": str(e),
-                    "shadowing_vars": [],
+                    "shadowing_res": [],
                     "yara": []
                 }
 
@@ -120,8 +123,10 @@ class FileShadowingHistoty:
                 "author": self.__git_log.get_commit_author(commit_hash),
                 "datetime": self.__git_log.get_commit_datetime(commit_hash),
                 "shadowing": "true" if len(shadowing) > 0 or len(yara) > 0 else "false",
-                "shadowing_vars": shadowing,
-                "yara": yara
+                "shadowing_res": [{"name": result.get_name(),
+                                   "line": result.get_lines()} for result in shadowing],
+                "yara": [{"name": match.get_name(),
+                          "line": match.get_lines()} for match in yara]
             }
 
     def dump(self, save_dir: str = "./") -> None:
@@ -137,7 +142,7 @@ class FileShadowingHistoty:
         """
         json.dump(self.__history, open(f"{save_dir}/{self.__file_path.split('/')[-1]}_shadowing_history.json", "w"), indent=4)
 
-    def get_lines_history(self, lines: list[int], start_commit: str=None):
+    def __get_lines_history(self, lines: list[int], start_commit: str=None):
         """
         Retrieves the history of specified lines in a file, tracking changes across
         commits from the current state to a starting commit if provided.
@@ -189,4 +194,22 @@ class FileShadowingHistoty:
                     print(next_step, end="->")
 
                 if i >= len(tracker_res):
-                    print("_") # indicate the end of the line's history
+                    print("...") # we reach the end of commit history and shadowing still there
+
+    def get_file_history(self):
+        print(f"Tracking history of {self.__file_path} ...")
+
+        # TODO: dataset building
+        for i, commit_hash in enumerate(reversed(self.__history.keys())):
+            print(f"\tCommit {i + 1}: {commit_hash}")
+
+            if self.__history[commit_hash]["shadowing"] == "true":
+                # tracking result of algorithm on scope graph
+                for res in self.__history[commit_hash]["shadowing_res"]:
+                    print(f"\tTracking element {res['name']}...")
+                    self.__get_lines_history(res["line"], commit_hash)
+
+if __name__ == "__main__":
+    history = FileShadowingHistoty(open("./test.txt").read(), "./pyjokes/pyjokes/pyjokes.py", "./heuristics")
+    history.build()
+    history.get_file_history()
