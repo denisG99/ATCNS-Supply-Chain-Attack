@@ -180,6 +180,8 @@ class FileShadowingHistoty:
                 except ValueError:
                     print("Commit not found, we begin from the first commit")
                     i = 0
+
+                print(f"Commit index: {i}")
                 print(tracker_res[i][line - 1]["left"], end="->")
                 next_step = line
 
@@ -200,7 +202,10 @@ class FileShadowingHistoty:
         print(f"Tracking history of {self.__file_path} ...")
 
         # TODO: dataset building
-        for i, commit_hash in enumerate(reversed(self.__history.keys())):
+        # TODO: gestire ultima commit
+        # TODO: pensare a sistema tracking res fatti
+        # TODO: tracking YARA res
+        for i, commit_hash in enumerate(list(reversed(self.__history.keys()))[: -1]):
             print(f"\tCommit {i + 1}: {commit_hash}")
 
             if self.__history[commit_hash]["shadowing"] == "true":
