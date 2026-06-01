@@ -29,6 +29,7 @@ class FileShadowingHistoty:
         self.__file_path: str = file_path
         self.__heuristic_path: str = heuristic_path
         self.__history: dict = {}
+        self.__memory: lst = [] #list that works as memory to save the already seen results and to understand when the result doesn't still anymore within the results
 
     def get_history(self) -> dict:
         return self.__history
@@ -142,7 +143,7 @@ class FileShadowingHistoty:
         """
         json.dump(self.__history, open(f"{save_dir}/{self.__file_path.split('/')[-1]}_shadowing_history.json", "w"), indent=4)
 
-    def __get_lines_history(self, lines: list[int], start_commit: str=None):
+    def __get_lines_history(self, lines: list[int], res_name: str, start_commit: str=None):
         """
         Retrieves the history of specified lines in a file, tracking changes across
         commits from the current state to a starting commit if provided.
@@ -187,8 +188,14 @@ class FileShadowingHistoty:
 
                 while i < len(tracker_res):
                     if tracker_res[i][next_step - 1]["right"] is None:
-                        print("_")
-                        break
+                        # remove no more interesting element from memory (aka shadowing is not longer there)
+                        try:
+                            self.__memory.remove(res_name)
+                        except ValueError:
+                            pass
+                        finally:
+                            print("_")
+                            break
 
                     next_step = tracker_res[i][next_step - 1]["right"]
                     i += 1
@@ -198,21 +205,29 @@ class FileShadowingHistoty:
                 if i >= len(tracker_res):
                     print("...") # we reach the end of commit history and shadowing still there
 
+    def __tracking(self, commit: str, target: str):
+        for match in self.__history[commit][target]:
+            if match["name"] not in self.__memory:
+                # add unseen element to memory
+                self.__memory.append(match["name"])
+
+                print(f"\tTracking {match['name']}...")
+                self.__get_lines_history(match["line"], match["name"],commit)
+
     def get_file_history(self):
         print(f"Tracking history of {self.__file_path} ...")
 
-        # TODO: dataset building
+        # TODO: dataset building (vedi apputi ipad per la struttura)
         # TODO: gestire ultima commit
-        # TODO: pensare a sistema tracking res fatti
-        # TODO: tracking YARA res
+        # TODO: line tracking as string
         for i, commit_hash in enumerate(list(reversed(self.__history.keys()))[: -1]):
-            print(f"\tCommit {i + 1}: {commit_hash}")
-
             if self.__history[commit_hash]["shadowing"] == "true":
+                print(f"\tCommit {i + 1}: {commit_hash}")
+
                 # tracking result of algorithm on scope graph
-                for res in self.__history[commit_hash]["shadowing_res"]:
-                    print(f"\tTracking element {res['name']}...")
-                    self.__get_lines_history(res["line"], commit_hash)
+                self.__tracking(commit_hash, "shadowing_res")
+                # tracking YARA results
+                self.__tracking(commit_hash, "yara")
 
 if __name__ == "__main__":
     history = FileShadowingHistoty(open("./test.txt").read(), "./pyjokes/pyjokes/pyjokes.py", "./heuristics")
