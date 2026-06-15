@@ -29,7 +29,7 @@ class FileShadowingHistoty:
         self.__file_path: str = file_path
         self.__heuristic_path: str = heuristic_path
         self.__history: dict = {}
-        self.__memory: lst = [] #list that works as memory to save the already seen results and to understand when the result doesn't still anymore within the results
+        self.__memory: list = [] #list that works as memory to save the already seen results and to understand when the result doesn't still anymore within the results
 
     def get_history(self) -> dict:
         return self.__history
@@ -182,7 +182,6 @@ class FileShadowingHistoty:
                     print("Commit not found, we begin from the first commit")
                     i = 0
 
-                print(f"Commit index: {i}")
                 print(tracker_res[i][line - 1]["left"], end="->")
                 next_step = line
 
@@ -204,14 +203,40 @@ class FileShadowingHistoty:
 
                 if i >= len(tracker_res):
                     print("...") # we reach the end of commit history and shadowing still there
+                    print(f"Shadowing on {res_name} still there\n\n")
+
+    def __memory_remove_elems(self, current_res: list[dict]) -> list[str]:
+        """
+        Works as a pop, so it removes elements from memory that are no longer needed based on the current result
+        and get them as output.
+        """
+        if not bool(intesection := set(self.__memory) & set([result["name"] for result in current_res])): # check if the set is empty
+            return []
+
+        to_remove = list(set(self.__memory) - intesection)
+
+        # remove elem from memory
+        for elem in to_remove:
+            self.__memory.remove(elem)
+
+        print(f"memory after remove: {self.__memory}")
+        return to_remove
 
     def __tracking(self, commit: str, target: str):
+        # update memory removing the results that are not longer there
+        excluded: list = self.__memory_remove_elems(self.__history[commit][target])
+
+        if len(excluded) != 0:
+            for elem in excluded:
+                print(f"Shadowing on {elem} was removed on {commit} by {self.__history[commit]['author']} at {self.__history[commit]['datetime']}\n\n")
+
         for match in self.__history[commit][target]:
             if match["name"] not in self.__memory:
+                print(f"Shadowing on {match['name']} was introduced on {commit} by {self.__history[commit]['author']} at {self.__history[commit]['datetime']}")
                 # add unseen element to memory
                 self.__memory.append(match["name"])
 
-                print(f"\tTracking {match['name']}...")
+                print(f"\tTracking {match['name']}: ", end="")
                 self.__get_lines_history(match["line"], match["name"],commit)
 
     def get_file_history(self):
@@ -220,6 +245,7 @@ class FileShadowingHistoty:
         # TODO: dataset building (vedi apputi ipad per la struttura)
         # TODO: gestire ultima commit
         # TODO: line tracking as string
+
         for i, commit_hash in enumerate(list(reversed(self.__history.keys()))[: -1]):
             if self.__history[commit_hash]["shadowing"] == "true":
                 print(f"\tCommit {i + 1}: {commit_hash}")
@@ -228,6 +254,7 @@ class FileShadowingHistoty:
                 self.__tracking(commit_hash, "shadowing_res")
                 # tracking YARA results
                 self.__tracking(commit_hash, "yara")
+
 
 if __name__ == "__main__":
     history = FileShadowingHistoty(open("./test.txt").read(), "./pyjokes/pyjokes/pyjokes.py", "./heuristics")
