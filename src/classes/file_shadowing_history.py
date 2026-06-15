@@ -207,8 +207,16 @@ class FileShadowingHistoty:
 
     def __memory_remove_elems(self, current_res: list[dict]) -> list[str]:
         """
-        Works as a pop, so it removes elements from memory that are no longer needed based on the current result
-        and get them as output.
+        Works as a pop, so it removes elements from memory that are no longer needed based on the current result, remove
+        them form memory and get them as output.
+
+        Parameters:
+            :param current_res: list[dict]
+                list containing the result of the detector
+
+        :return: list[str] list of elements that are no longer needed (already removed from the memory). Such results can be
+        interpreted as removed shadowing
+
         """
         if not bool(intesection := set(self.__memory) & set([result["name"] for result in current_res])): # check if the set is empty
             return []
@@ -223,7 +231,7 @@ class FileShadowingHistoty:
         return to_remove
 
     def __tracking(self, commit: str, target: str):
-        # update memory removing the results that are not longer there
+        # update memory removing the results that are no longer needed
         excluded: list = self.__memory_remove_elems(self.__history[commit][target])
 
         if len(excluded) != 0:
@@ -254,7 +262,6 @@ class FileShadowingHistoty:
                 self.__tracking(commit_hash, "shadowing_res")
                 # tracking YARA results
                 self.__tracking(commit_hash, "yara")
-
 
 if __name__ == "__main__":
     history = FileShadowingHistoty(open("./test.txt").read(), "./pyjokes/pyjokes/pyjokes.py", "./heuristics")
