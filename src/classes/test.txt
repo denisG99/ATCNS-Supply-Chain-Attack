@@ -1,504 +1,1769 @@
-commit 2623c0b0ac9cf5211e68dc1f7545637a2ed412fe
-Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Fri Dec 19 10:40:17 2025 +0100
+commit adbe744a6769077c47f26aaf6598b955935f73f7
+Author: Martini <82611850+alpardayalman@users.noreply.github.com>
+Date:   Wed Jun 18 10:00:47 2025 +0300
 
-    MISC #10
+    Turkish Jokes added (#137)
+    
+    Co-authored-by: Zero <zero@Zero.local>
 
-diff --git a/src/main.py b/src/main.py
-index af85784..8982d01 100644
---- a/src/main.py
-+++ b/src/main.py
-@@ -4,7 +4,7 @@ import os
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 8953d92..07a4320 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -14,6 +14,7 @@ from .jokes_lt import jokes_lt
+ from .jokes_pl import jokes_pl
+ from .jokes_ru import jokes_ru
+ from .jokes_sv import jokes_sv
++from .jokes_tr import jokes_tr
+ from .exc import LanguageNotFoundError, CategoryNotFoundError
+ 
+ 
+@@ -31,10 +32,13 @@ all_jokes = {
+     "pl": jokes_pl,
+     "ru": jokes_ru,
+     "sv": jokes_sv,
++    "tr": jokes_tr,
+ }
+ 
+ 
+-LANGUAGES = Literal["cs", "de", "en", "es", "eu", "fr", "gl", "hu", "it", "lt", "pl", "ru", "sv"]
++LANGUAGES = Literal[
++    "cs", "de", "en", "es", "eu", "fr", "gl", "hu", "it", "lt", "pl", "ru", "sv", "tr"
++]
+ CATEGORIES = Literal["neutral", "chuck", "all"]
+ 
+ LANGUAGE_VALUES = set(get_args(LANGUAGES))
+@@ -64,7 +68,9 @@ def get_joke(language: LANGUAGES = "en", category: CATEGORIES = "neutral") -> st
+     return random.choice(jokes)
+ 
+ 
+-def forever(language: LANGUAGES = "en", category: CATEGORIES = "neutral") -> Generator[str, Any, Any]:
++def forever(
++    language: LANGUAGES = "en", category: CATEGORIES = "neutral"
++) -> Generator[str, Any, Any]:
+     """
+     Generate jokes forever
+     """
 
- if __name__ =="__main__":
-     print(os.getcwd())
--    detector = Detector("./evaluation/sample_class.py", "class-eval", True)
-+    detector = Detector("./evaluation/sample.py", "class-eval", True)
+commit 9db9cbee466fe6f35805cb9a0ab71ba90154aad2
+Author: Ben Nuttall <ben@bennuttall.com>
+Date:   Sat Aug 10 13:15:47 2024 +0100
 
-     shadowing, yara = detector.shadowing_detection()
-     print(f"Shadowings: {shadowing}\nYara rules: {yara}")
-\ No newline at end of file
+    Update docs and release v0.8
 
-commit c0d757dca3749572cc74d127bf8f0cc5ab387d02
-Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Tue Dec 16 11:40:35 2025 +0100
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index f0a5df1..8953d92 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -1,5 +1,5 @@
+ import random
+-from typing import Literal, get_args
++from typing import Any, Generator, Literal, get_args
+ 
+ from .jokes_cs import jokes_cs
+ from .jokes_de import jokes_de
+@@ -64,9 +64,9 @@ def get_joke(language: LANGUAGES = "en", category: CATEGORIES = "neutral") -> st
+     return random.choice(jokes)
+ 
+ 
+-def forever(language: LANGUAGES = "en", category: CATEGORIES = "neutral"):
++def forever(language: LANGUAGES = "en", category: CATEGORIES = "neutral") -> Generator[str, Any, Any]:
+     """
+-    Generate jokes forever.
++    Generate jokes forever
+     """
+     while True:
+         yield get_joke(language, category)
 
-    ADD testing script
+commit ecdfcfd8dd8b2b3961e971806c3ae89426fa5dc4
+Author: Nicholas H.Tollervey <ntoll@ntoll.org>
+Date:   Fri Aug 9 14:42:34 2024 +0100
 
-diff --git a/src/main.py b/src/main.py
-new file mode 100644
-index 0000000..af85784
---- /dev/null
-+++ b/src/main.py
-@@ -0,0 +1,10 @@
-+from src.detector import Detector
+    PyJokes forever()
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 75686b1..f0a5df1 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -62,3 +62,11 @@ def get_joke(language: LANGUAGES = "en", category: CATEGORIES = "neutral") -> st
+     """
+     jokes = get_jokes(language, category)
+     return random.choice(jokes)
 +
-+import os
 +
-+if __name__ =="__main__":
-+    print(os.getcwd())
-+    detector = Detector("./evaluation/sample_class.py", "class-eval", True)
++def forever(language: LANGUAGES = "en", category: CATEGORIES = "neutral"):
++    """
++    Generate jokes forever.
++    """
++    while True:
++        yield get_joke(language, category)
+
+commit c8a81b5f60baf48173169e390b27e7f1b5ee8169
+Author: Ben Nuttall <ben@bennuttall.com>
+Date:   Sat Jul 13 15:27:23 2024 +0200
+
+    Unpack language and category literals
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 082cd2e..75686b1 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -1,5 +1,5 @@
+ import random
+-from typing import Literal
++from typing import Literal, get_args
+ 
+ from .jokes_cs import jokes_cs
+ from .jokes_de import jokes_de
+@@ -37,6 +37,9 @@ all_jokes = {
+ LANGUAGES = Literal["cs", "de", "en", "es", "eu", "fr", "gl", "hu", "it", "lt", "pl", "ru", "sv"]
+ CATEGORIES = Literal["neutral", "chuck", "all"]
+ 
++LANGUAGE_VALUES = set(get_args(LANGUAGES))
++CATEGORY_VALUES = set(get_args(CATEGORIES))
 +
-+    shadowing, yara = detector.shadowing_detection()
-+    print(f"Shadowings: {shadowing}\nYara rules: {yara}")
-\ No newline at end of file
+ 
+ def get_jokes(language: LANGUAGES = "en", category: CATEGORIES = "neutral") -> list[str]:
+     """
 
-commit 8b70145e0d48a9b75aaabec2a3757509c6427d51
-Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Wed Aug 27 09:52:45 2025 +0200
+commit e7bed597745bf3fc30935d57b63f8d1306257fdf
+Author: Ben Nuttall <ben@bennuttall.com>
+Date:   Sat Jul 13 15:15:01 2024 +0200
 
-    removinig cache
+    Use correct ISO 639 two-letter language code for Sweden
 
-diff --git a/src/main.py b/src/main.py
-deleted file mode 100644
-index 4ed40b2..0000000
---- a/src/main.py
-+++ /dev/null
-@@ -1,56 +0,0 @@
--import pathlib
--import shutil
--import json
--import os
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index f2a18ed..082cd2e 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -13,7 +13,7 @@ from .jokes_it import jokes_it
+ from .jokes_lt import jokes_lt
+ from .jokes_pl import jokes_pl
+ from .jokes_ru import jokes_ru
+-from .jokes_se import jokes_se
++from .jokes_sv import jokes_sv
+ from .exc import LanguageNotFoundError, CategoryNotFoundError
+ 
+ 
+@@ -30,11 +30,11 @@ all_jokes = {
+     "lt": jokes_lt,
+     "pl": jokes_pl,
+     "ru": jokes_ru,
+-    "se": jokes_se,
++    "sv": jokes_sv,
+ }
+ 
+ 
+-LANGUAGES = Literal["cs", "de", "en", "es", "eu", "fr", "gl", "hu", "it", "lt", "pl", "ru", "se"]
++LANGUAGES = Literal["cs", "de", "en", "es", "eu", "fr", "gl", "hu", "it", "lt", "pl", "ru", "sv"]
+ CATEGORIES = Literal["neutral", "chuck", "all"]
+ 
+ 
+
+commit c15777422f7d5304c91688878c7cdf43e98af546
+Author: Ben Nuttall <ben@bennuttall.com>
+Date:   Sat Jul 13 13:17:27 2024 +0200
+
+    Add type annotations
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index cb932e0..f2a18ed 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -1,78 +1,61 @@
+ import random
++from typing import Literal
+ 
+-from .jokes_en import jokes_en
++from .jokes_cs import jokes_cs
+ from .jokes_de import jokes_de
++from .jokes_en import jokes_en
+ from .jokes_es import jokes_es
++from .jokes_eu import jokes_eu
+ from .jokes_fr import jokes_fr
+ from .jokes_gl import jokes_gl
+-from .jokes_eu import jokes_eu
++from .jokes_hu import jokes_hu
+ from .jokes_it import jokes_it
+-from .jokes_cs import jokes_cs
+-from .jokes_pl import jokes_pl
+ from .jokes_lt import jokes_lt
+-from .jokes_hu import jokes_hu
+-from .jokes_fr import jokes_fr
+-from .jokes_se import jokes_se
++from .jokes_pl import jokes_pl
+ from .jokes_ru import jokes_ru
++from .jokes_se import jokes_se
+ from .exc import LanguageNotFoundError, CategoryNotFoundError
+ 
+ 
+ all_jokes = {
+-    "en": jokes_en,
++    "cs": jokes_cs,
+     "de": jokes_de,
++    "en": jokes_en,
+     "es": jokes_es,
++    "eu": jokes_eu,
+     "fr": jokes_fr,
+     "gl": jokes_gl,
+-    "eu": jokes_eu,
+-    "it": jokes_it,
+     "hu": jokes_hu,
+-    "fr": jokes_fr,
+-    "se": jokes_se,
+-    "ru": jokes_ru,
+-    "cs": jokes_cs,
+-    "pl": jokes_pl,
++    "it": jokes_it,
+     "lt": jokes_lt,
++    "pl": jokes_pl,
++    "ru": jokes_ru,
++    "se": jokes_se,
+ }
+ 
+ 
+-def get_jokes(language="en", category="neutral"):
+-    """
+-    Parameters
+-    ----------
+-    category: str
+-        Choices: 'neutral', 'chuck', 'all', 'twister'
+-    lang: str
+-        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu', 'lt', 'pl', 'cs', 'ru', 'se', 'fr'
 -
--import pandas as pd
+-    Returns
+-    -------
+-    jokes: list
+-    """
++LANGUAGES = Literal["cs", "de", "en", "es", "eu", "fr", "gl", "hu", "it", "lt", "pl", "ru", "se"]
++CATEGORIES = Literal["neutral", "chuck", "all"]
+ 
+-    if language not in all_jokes:
+-        raise LanguageNotFoundError("No such language %s" % language)
+ 
+-    jokes = all_jokes[language]
 -
--from detector import Detector
+-    if category not in jokes:
++def get_jokes(language: LANGUAGES = "en", category: CATEGORIES = "neutral") -> list[str]:
++    """
++    Get a list of jokes from the given language and category
++    """
++    try:
++        jokes = all_jokes[language]
++    except KeyError:
++        raise LanguageNotFoundError(f"No such language: {language}")
++
++    try:
++        return jokes[category]
++    except KeyError:
+         raise CategoryNotFoundError("No such category %s in language %s" % (category, language))
+ 
+-    return jokes[category]
 -
--if __name__ == "__main__":
--    pkgs_path = "../top_pkgs.json"
--    temp_dir_path = "./tmp"
--    fields = ["id", "name", "repository_url"]
+ 
+-def get_joke(language="en", category="neutral"):
++def get_joke(language: LANGUAGES = "en", category: CATEGORIES = "neutral") -> str:
+     """
+-    Parameters
+-    ----------
+-    category: str
+-        Choices: 'neutral', 'chuck', 'all', 'twister'
+-    lang: str
+-        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu', 'lt', 'pl', 'cs', 'ru', 'fr'
 -
--    if not os.path.exists(pkgs_path):
--        print("Files containing packages doesn't exists!")
+-    Returns
+-    -------
+-    joke: str
++    Get a single joke from the given language and category
+     """
 -
--    df_pkgs = pd.read_json(pkgs_path)
--    # keep only the fields we need
--    df_pkgs = df_pkgs[fields]
+     jokes = get_jokes(language, category)
+     return random.choice(jokes)
+
+commit fc9bc34c10c87d54eeade1a71def3dfc783948d0
+Author: Ben Nuttall <ben@bennuttall.com>
+Date:   Sat Jul 13 12:54:56 2024 +0200
+
+    Create exc file for pyjokes exceptions
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index b616577..cb932e0 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -14,6 +14,7 @@ from .jokes_hu import jokes_hu
+ from .jokes_fr import jokes_fr
+ from .jokes_se import jokes_se
+ from .jokes_ru import jokes_ru
++from .exc import LanguageNotFoundError, CategoryNotFoundError
+ 
+ 
+ all_jokes = {
+@@ -34,14 +35,6 @@ all_jokes = {
+ }
+ 
+ 
+-class LanguageNotFoundError(Exception):
+-    pass
 -
--    statistics = {} # dictionary to store the gathered statistics for each package under analysis in the top 100
--    local_import = []
--    inner_function = []
 -
--    for pkg_name, link in zip(df_pkgs["name"], df_pkgs["repository_url"]):
--        local_import = []
--        inner_function = []
--        total_scopes = 0
--        download_path = os.path.join(temp_dir_path, pkg_name)
+-class CategoryNotFoundError(Exception):
+-    pass
 -
--        # downloading package
--        os.system(f"pip install -t {download_path} --no-deps {pkg_name}")
 -
--        print(f"Analyzing {pkg_name}...")
--        for py_file in pathlib.Path(download_path).glob("**/*.py"): # takes only python files in all possible directories
--            detector = Detector(f"{py_file}")
+ def get_jokes(language="en", category="neutral"):
+     """
+     Parameters
+
+commit faffe9877f664ab1e84b791e94cd49e99e092aae
+Author: Ben Nuttall <ben@bennuttall.com>
+Date:   Sat Jul 13 12:52:00 2024 +0200
+
+    Format code with black, tidy up jokes which were too long and remove duplictes etc
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 2959ce5..b616577 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -1,4 +1,3 @@
+-from __future__ import absolute_import
+ import random
+ 
+ from .jokes_en import jokes_en
+@@ -16,21 +15,22 @@ from .jokes_fr import jokes_fr
+ from .jokes_se import jokes_se
+ from .jokes_ru import jokes_ru
+ 
++
+ all_jokes = {
+-    'en': jokes_en,
+-    'de': jokes_de,
+-    'es': jokes_es,
+-    'fr': jokes_fr,
+-    'gl': jokes_gl,
+-    'eu': jokes_eu,
+-    'it': jokes_it,
+-    'hu': jokes_hu,
+-    'fr': jokes_fr,
+-    'se': jokes_se,
+-    'ru': jokes_ru,
+-    'cs': jokes_cs,
+-    'pl': jokes_pl,
+-    'lt': jokes_lt,
++    "en": jokes_en,
++    "de": jokes_de,
++    "es": jokes_es,
++    "fr": jokes_fr,
++    "gl": jokes_gl,
++    "eu": jokes_eu,
++    "it": jokes_it,
++    "hu": jokes_hu,
++    "fr": jokes_fr,
++    "se": jokes_se,
++    "ru": jokes_ru,
++    "cs": jokes_cs,
++    "pl": jokes_pl,
++    "lt": jokes_lt,
+ }
+ 
+ 
+@@ -42,7 +42,7 @@ class CategoryNotFoundError(Exception):
+     pass
+ 
+ 
+-def get_jokes(language='en', category='neutral'):
++def get_jokes(language="en", category="neutral"):
+     """
+     Parameters
+     ----------
+@@ -57,17 +57,17 @@ def get_jokes(language='en', category='neutral'):
+     """
+ 
+     if language not in all_jokes:
+-        raise LanguageNotFoundError('No such language %s' % language)
++        raise LanguageNotFoundError("No such language %s" % language)
+ 
+     jokes = all_jokes[language]
+ 
+     if category not in jokes:
+-        raise CategoryNotFoundError('No such category %s in language %s' % (category, language))
++        raise CategoryNotFoundError("No such category %s in language %s" % (category, language))
+ 
+     return jokes[category]
+ 
+ 
+-def get_joke(language='en', category='neutral'):
++def get_joke(language="en", category="neutral"):
+     """
+     Parameters
+     ----------
+
+commit 2f6e6bbe51a4fc69da6339fd15f852e6f7e84a1b
+Merge: b82df04 715846b
+Author: Ben Nuttall <ben@bennuttall.com>
+Date:   Thu Dec 21 23:08:16 2023 +0000
+
+    Merge branch 'master' into master
+
+commit 2ab33871d5465649fbbd480bcbbd3f65ee4543d5
+Author: Michael J. Nicholson <mjnicholson@outlook.com>
+Date:   Thu Dec 21 13:28:45 2023 +0100
+
+    Added Swedish jokes (#77)
+    
+    * Added Swedish jokes
+    
+    * Added Swedish jokes - fix merge conflicts
+    
+    ---------
+    
+    Co-authored-by: Michael Nicholson <Michael J. Nicholson>
+    Co-authored-by: alexsavio <alexsavio@users.noreply.github.com>
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index af3bd33..bd41e56 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -12,6 +12,7 @@ from .jokes_cs import jokes_cs
+ from .jokes_pl import jokes_pl
+ from .jokes_lt import jokes_lt
+ from .jokes_hu import jokes_hu
++from .jokes_se import jokes_se
+ from .jokes_ru import jokes_ru
+ 
+ all_jokes = {
+@@ -23,6 +24,7 @@ all_jokes = {
+     'eu': jokes_eu,
+     'it': jokes_it,
+     'hu': jokes_hu,
++    'se': jokes_se,
+     'ru': jokes_ru,
+     'cs': jokes_cs,
+     'pl': jokes_pl,
+@@ -45,7 +47,7 @@ def get_jokes(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'chuck', 'all', 'twister'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu', 'lt', 'pl', 'cs', 'ru'
++        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu', 'lt', 'pl', 'cs', 'ru', 'se'
+ 
+     Returns
+     -------
+
+commit 862dc761bc859cb491b09874dee88d65825e628b
+Author: Pashok11 <pasha.m220@gmail.com>
+Date:   Thu Dec 21 15:25:50 2023 +0300
+
+    Added russian jokes. (#109)
+    
+    * Added russian jokes.
+    
+    * Update pyjoke.py
+    
+    * Update pyjokes.py
+    
+    ---------
+    
+    Co-authored-by: alexsavio <alexsavio@users.noreply.github.com>
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 96d3a6a..af3bd33 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -12,6 +12,7 @@ from .jokes_cs import jokes_cs
+ from .jokes_pl import jokes_pl
+ from .jokes_lt import jokes_lt
+ from .jokes_hu import jokes_hu
++from .jokes_ru import jokes_ru
+ 
+ all_jokes = {
+     'en': jokes_en,
+@@ -21,10 +22,11 @@ all_jokes = {
+     'gl': jokes_gl,
+     'eu': jokes_eu,
+     'it': jokes_it,
++    'hu': jokes_hu,
++    'ru': jokes_ru,
+     'cs': jokes_cs,
+     'pl': jokes_pl,
+     'lt': jokes_lt,
+-    'hu': jokes_hu
+ }
+ 
+ 
+@@ -43,7 +45,7 @@ def get_jokes(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'chuck', 'all', 'twister'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu', 'lt', 'pl', 'cs'
++        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu', 'lt', 'pl', 'cs', 'ru'
+ 
+     Returns
+     -------
+@@ -68,7 +70,7 @@ def get_joke(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'chuck', 'all', 'twister'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu', 'lt', 'pl', 'cs'
++        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu', 'lt', 'pl', 'cs', 'ru'
+ 
+     Returns
+     -------
+
+commit 1521c23fa3fda87baa87e9b40292600a0870661a
+Author: Marek Bukal <30973232+Manasovo@users.noreply.github.com>
+Date:   Thu Dec 21 13:24:18 2023 +0100
+
+    initial support cs-cz language (#81)
+    
+    * initial support cs-cz language
+    
+    * only programmer and IT cs-cz jokes
+    
+    ---------
+    
+    Co-authored-by: Marek Bukal <mara@loom.dvl>
+    Co-authored-by: alexsavio <alexsavio@users.noreply.github.com>
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 6426f5d..96d3a6a 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -8,6 +8,7 @@ from .jokes_fr import jokes_fr
+ from .jokes_gl import jokes_gl
+ from .jokes_eu import jokes_eu
+ from .jokes_it import jokes_it
++from .jokes_cs import jokes_cs
+ from .jokes_pl import jokes_pl
+ from .jokes_lt import jokes_lt
+ from .jokes_hu import jokes_hu
+@@ -20,6 +21,7 @@ all_jokes = {
+     'gl': jokes_gl,
+     'eu': jokes_eu,
+     'it': jokes_it,
++    'cs': jokes_cs,
+     'pl': jokes_pl,
+     'lt': jokes_lt,
+     'hu': jokes_hu
+@@ -41,7 +43,7 @@ def get_jokes(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'chuck', 'all', 'twister'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu', 'lt', 'pl'
++        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu', 'lt', 'pl', 'cs'
+ 
+     Returns
+     -------
+@@ -66,7 +68,7 @@ def get_joke(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'chuck', 'all', 'twister'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu', 'lt', 'pl'
++        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu', 'lt', 'pl', 'cs'
+ 
+     Returns
+     -------
+
+commit 58576557e99fcedb382dd572682f844c93689a73
+Author: r0d0dendr0n <41265927+r0d0dendr0n@users.noreply.github.com>
+Date:   Thu Dec 21 13:15:21 2023 +0100
+
+    Support for Polish jokes (#82)
+    
+    * * Added translations for most neutral jokes.
+    * Added translations for some Chuck Norris jokes.
+    
+    * * Finished Polish translation.
+    
+    * * Removed the translation source material from the jokes_pl.py file.
+    
+    * * Added gender neutrality.
+    * Fixed the jokes length.
+    
+    * * Fixed missing repo address.
+    
+    * * Fixed some typeos.
+    
+    ---------
+    
+    Co-authored-by: Tomasz Rozynek <tomasz.rozynek@gmail.com>
+    Co-authored-by: alexsavio <alexsavio@users.noreply.github.com>
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index b658647..6426f5d 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -8,6 +8,7 @@ from .jokes_fr import jokes_fr
+ from .jokes_gl import jokes_gl
+ from .jokes_eu import jokes_eu
+ from .jokes_it import jokes_it
++from .jokes_pl import jokes_pl
+ from .jokes_lt import jokes_lt
+ from .jokes_hu import jokes_hu
+ 
+@@ -19,6 +20,7 @@ all_jokes = {
+     'gl': jokes_gl,
+     'eu': jokes_eu,
+     'it': jokes_it,
++    'pl': jokes_pl,
+     'lt': jokes_lt,
+     'hu': jokes_hu
+ }
+@@ -39,7 +41,7 @@ def get_jokes(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'chuck', 'all', 'twister'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu', 'lt'
++        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu', 'lt', 'pl'
+ 
+     Returns
+     -------
+@@ -64,7 +66,7 @@ def get_joke(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'chuck', 'all', 'twister'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu', 'lt'
++        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu', 'lt', 'pl'
+ 
+     Returns
+     -------
+
+commit 8d5a4b3eebc92cb23c6efc57a68184ccbd0dea8f
+Author: rapolasLT <36411768+rapolasLT@users.noreply.github.com>
+Date:   Thu Dec 21 14:12:22 2023 +0200
+
+    Added new language (#94)
+    
+    * Added new language
+    
+    Added Lithuanian language to the main file
+    
+    * Update pyjokes.py
+    
+    ---------
+    
+    Co-authored-by: alexsavio <alexsavio@users.noreply.github.com>
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 2d2f630..b658647 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -8,6 +8,7 @@ from .jokes_fr import jokes_fr
+ from .jokes_gl import jokes_gl
+ from .jokes_eu import jokes_eu
+ from .jokes_it import jokes_it
++from .jokes_lt import jokes_lt
+ from .jokes_hu import jokes_hu
+ 
+ all_jokes = {
+@@ -18,6 +19,7 @@ all_jokes = {
+     'gl': jokes_gl,
+     'eu': jokes_eu,
+     'it': jokes_it,
++    'lt': jokes_lt,
+     'hu': jokes_hu
+ }
+ 
+@@ -37,7 +39,7 @@ def get_jokes(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'chuck', 'all', 'twister'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu'
++        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu', 'lt'
+ 
+     Returns
+     -------
+@@ -62,7 +64,7 @@ def get_joke(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'chuck', 'all', 'twister'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu'
++        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu', 'lt'
+ 
+     Returns
+     -------
+
+commit 8d04740b6de391a5caff52125323dc094009e598
+Author: Alfred Dagenais <info@kilukrumedia.com>
+Date:   Tue May 30 04:09:22 2023 -0400
+
+    Add some French jokes (#91)
+    
+    * Add boilerplate for French jokes
+    
+    * ADD: my contribution notes
+    
+    * ADD: some french jokes
+    
+    ---------
+    
+    Co-authored-by: Ben Nuttall <ben@bennuttall.com>
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 432fc28..2d2f630 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -4,6 +4,7 @@ import random
+ from .jokes_en import jokes_en
+ from .jokes_de import jokes_de
+ from .jokes_es import jokes_es
++from .jokes_fr import jokes_fr
+ from .jokes_gl import jokes_gl
+ from .jokes_eu import jokes_eu
+ from .jokes_it import jokes_it
+@@ -13,6 +14,7 @@ all_jokes = {
+     'en': jokes_en,
+     'de': jokes_de,
+     'es': jokes_es,
++    'fr': jokes_fr,
+     'gl': jokes_gl,
+     'eu': jokes_eu,
+     'it': jokes_it,
+@@ -35,7 +37,7 @@ def get_jokes(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'chuck', 'all', 'twister'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'gl', 'eu', 'it', 'hu'
++        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu'
+ 
+     Returns
+     -------
+@@ -60,7 +62,7 @@ def get_joke(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'chuck', 'all', 'twister'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'gl', 'eu', 'it', 'hu'
++        Choices: 'en', 'de', 'es', 'fr', 'gl', 'eu', 'it', 'hu'
+ 
+     Returns
+     -------
+
+commit 9df6dd36237b07eca8c1ac4856586ca351db407e
+Author: Ismaïl Lachheb <ismael.lachheb@protonmail.com>
+Date:   Thu Oct 13 15:50:48 2022 +0200
+
+    feat: add jokes in french
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 432fc28..c81d3eb 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -8,6 +8,7 @@ from .jokes_gl import jokes_gl
+ from .jokes_eu import jokes_eu
+ from .jokes_it import jokes_it
+ from .jokes_hu import jokes_hu
++from .jokes_fr import jokes_fr
+ 
+ all_jokes = {
+     'en': jokes_en,
+@@ -16,7 +17,8 @@ all_jokes = {
+     'gl': jokes_gl,
+     'eu': jokes_eu,
+     'it': jokes_it,
+-    'hu': jokes_hu
++    'hu': jokes_hu,
++    'fr': jokes_fr
+ }
+ 
+ 
+@@ -35,7 +37,7 @@ def get_jokes(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'chuck', 'all', 'twister'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'gl', 'eu', 'it', 'hu'
++        Choices: 'en', 'de', 'es', 'gl', 'eu', 'it', 'hu', 'fr'
+ 
+     Returns
+     -------
+@@ -60,7 +62,7 @@ def get_joke(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'chuck', 'all', 'twister'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'gl', 'eu', 'it', 'hu'
++        Choices: 'en', 'de', 'es', 'gl', 'eu', 'it', 'hu', 'fr'
+ 
+     Returns
+     -------
+
+commit 6ad9b6f05affd0598df8b61ae6b92dfcec73470e
+Author: Székely Márton <53979153+PiciAkk@users.noreply.github.com>
+Date:   Sat Jan 1 13:43:47 2022 +0100
+
+    Hungarian language added (#105)
+    
+    * Hungarian language added
+    
+    I added a basic boilerplate for the Hungarian language, and uploaded some jokes. I also extended the documentation with information about using pyjokes with the Hungarian language
+    
+    * Update jokes_hu.py
+    
+    * Update jokes_hu.py
+    
+    * Update jokes_hu.py
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index b782a2e..432fc28 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -7,6 +7,7 @@ from .jokes_es import jokes_es
+ from .jokes_gl import jokes_gl
+ from .jokes_eu import jokes_eu
+ from .jokes_it import jokes_it
++from .jokes_hu import jokes_hu
+ 
+ all_jokes = {
+     'en': jokes_en,
+@@ -15,6 +16,7 @@ all_jokes = {
+     'gl': jokes_gl,
+     'eu': jokes_eu,
+     'it': jokes_it,
++    'hu': jokes_hu
+ }
+ 
+ 
+@@ -33,7 +35,7 @@ def get_jokes(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'chuck', 'all', 'twister'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'gl', 'eu', 'it'
++        Choices: 'en', 'de', 'es', 'gl', 'eu', 'it', 'hu'
+ 
+     Returns
+     -------
+@@ -58,7 +60,7 @@ def get_joke(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'chuck', 'all', 'twister'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'gl', 'eu', 'it'
++        Choices: 'en', 'de', 'es', 'gl', 'eu', 'it', 'hu'
+ 
+     Returns
+     -------
+
+commit bec7fbc0cf2dfa4969b66d7799c6f726790e2e1b
+Author: Alexandre M. Savio <alexsavio@gmail.com>
+Date:   Tue Jul 10 08:55:20 2018 +0200
+
+    censor(pyjokes/*.py): remove all adult, most sexist and racist jokes
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 773a992..b782a2e 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -31,7 +31,7 @@ def get_jokes(language='en', category='neutral'):
+     Parameters
+     ----------
+     category: str
+-        Choices: 'neutral', 'adult', 'chuck', 'all', 'twister'
++        Choices: 'neutral', 'chuck', 'all', 'twister'
+     lang: str
+         Choices: 'en', 'de', 'es', 'gl', 'eu', 'it'
+ 
+@@ -56,7 +56,7 @@ def get_joke(language='en', category='neutral'):
+     Parameters
+     ----------
+     category: str
+-        Choices: 'neutral', 'adult', 'chuck', 'all', 'twister'
++        Choices: 'neutral', 'chuck', 'all', 'twister'
+     lang: str
+         Choices: 'en', 'de', 'es', 'gl', 'eu', 'it'
+ 
+
+commit 47b6625f8326c6830e42cf85fb05609e5ec1343a
+Merge: 42280a2 b45fee0
+Author: Alexandre M. S <alexsavio@users.noreply.github.com>
+Date:   Fri Jun 29 15:41:06 2018 +0200
+
+    Merge pull request #61 from aleale99/master
+    
+    Italian translation
+
+commit 18e2d4a066d2ccc4746a148bc47492dbb2c652f7
+Author: Ale <aleale99@yahoo.com>
+Date:   Mon Jan 29 19:55:08 2018 +0100
+
+    insert italian
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 7b5a3e4..ce5a2f1 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -6,6 +6,7 @@ from .jokes_de import jokes_de
+ from .jokes_es import jokes_es
+ from .jokes_gl import jokes_gl
+ from .jokes_eu import jokes_eu
++from .jokes_it import jokes_it
+ 
+ all_jokes = {
+     'en': jokes_en,
+@@ -13,6 +14,7 @@ all_jokes = {
+     'es': jokes_es,
+     'gl': jokes_gl,
+     'eu': jokes_eu,
++    'it': jokes_it,
+ }
+ 
+ 
+@@ -31,7 +33,7 @@ def get_jokes(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'adult', 'chuck', 'all'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'gl', 'eu'
++        Choices: 'en', 'de', 'es', 'gl', 'eu', 'it'
+ 
+     Returns
+     -------
+@@ -56,7 +58,7 @@ def get_joke(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'adult', 'chuck', 'all'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'gl', 'eu'
++        Choices: 'en', 'de', 'es', 'gl', 'eu', 'it'
+ 
+     Returns
+     -------
+
+commit ffb15cc81976024a60a6ffa8a6ed660b35063966
+Author: Andreas Reinle <gras64@web.de>
+Date:   Wed Sep 27 12:39:49 2017 +0200
+
+    support Tongue-twister
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 7b5a3e4..1910dbd 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -29,7 +29,7 @@ def get_jokes(language='en', category='neutral'):
+     Parameters
+     ----------
+     category: str
+-        Choices: 'neutral', 'adult', 'chuck', 'all'
++        Choices: 'neutral', 'adult', 'chuck', 'all', 'twister'
+     lang: str
+         Choices: 'en', 'de', 'es', 'gl', 'eu'
+ 
+@@ -54,7 +54,7 @@ def get_joke(language='en', category='neutral'):
+     Parameters
+     ----------
+     category: str
+-        Choices: 'neutral', 'adult', 'chuck', 'all'
++        Choices: 'neutral', 'adult', 'chuck', 'all', 'twister'
+     lang: str
+         Choices: 'en', 'de', 'es', 'gl', 'eu'
+ 
+
+commit 5b5975aac53f4a52aa6d10a4c3d23caa810c5fc0
+Author: Mikel Larreategi <mlarreategi@codesyntax.com>
+Date:   Fri Mar 18 15:36:01 2016 +0100
+
+    rename basque language 'eus' to 'eu'
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 64d0962..7b5a3e4 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -5,14 +5,14 @@ from .jokes_en import jokes_en
+ from .jokes_de import jokes_de
+ from .jokes_es import jokes_es
+ from .jokes_gl import jokes_gl
+-from .jokes_eus import jokes_eus
++from .jokes_eu import jokes_eu
+ 
+ all_jokes = {
+     'en': jokes_en,
+     'de': jokes_de,
+     'es': jokes_es,
+     'gl': jokes_gl,
+-    'eus' : jokes_eus,
++    'eu': jokes_eu,
+ }
+ 
+ 
+@@ -31,7 +31,7 @@ def get_jokes(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'adult', 'chuck', 'all'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'gl', 'eus'
++        Choices: 'en', 'de', 'es', 'gl', 'eu'
+ 
+     Returns
+     -------
+@@ -56,7 +56,7 @@ def get_joke(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'adult', 'chuck', 'all'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'gl', 'eus'
++        Choices: 'en', 'de', 'es', 'gl', 'eu'
+ 
+     Returns
+     -------
+
+commit a75eb92835bbf97434ce06469e0a7c51d3fbba03
+Author: Oier <badtrex@gmail.com>
+Date:   Wed Nov 18 16:21:07 2015 +0100
+
+    basque language support
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 5cc0564..64d0962 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -5,13 +5,14 @@ from .jokes_en import jokes_en
+ from .jokes_de import jokes_de
+ from .jokes_es import jokes_es
+ from .jokes_gl import jokes_gl
 -
--            if detector.get_builder() is not None:
--                local_import = detector.local_import_detection()
--                inner_function, scopes_number = detector.inner_function_detection()
--                scope_chain_length = detector.get_builder().length_longest_scope_chain()
--                total_scopes += scopes_number
++from .jokes_eus import jokes_eus
+ 
+ all_jokes = {
+     'en': jokes_en,
+     'de': jokes_de,
+     'es': jokes_es,
+     'gl': jokes_gl,
++    'eus' : jokes_eus,
+ }
+ 
+ 
+@@ -30,7 +31,7 @@ def get_jokes(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'adult', 'chuck', 'all'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'gl'
++        Choices: 'en', 'de', 'es', 'gl', 'eus'
+ 
+     Returns
+     -------
+@@ -55,7 +56,7 @@ def get_joke(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'adult', 'chuck', 'all'
+     lang: str
+-        Choices: 'en', 'de', 'es', 'gl'
++        Choices: 'en', 'de', 'es', 'gl', 'eus'
+ 
+     Returns
+     -------
+
+commit e0bd0435c42a212c193b51f3ccfcc8a5c8c7eecb
+Author: ResonantWave <nixijav@nixijav.com>
+Date:   Tue Oct 20 23:58:19 2015 +0200
+
+    Added galician support and galician jokes.
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 9d441bf..5cc0564 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -4,12 +4,14 @@ import random
+ from .jokes_en import jokes_en
+ from .jokes_de import jokes_de
+ from .jokes_es import jokes_es
++from .jokes_gl import jokes_gl
+ 
+ 
+ all_jokes = {
+     'en': jokes_en,
+     'de': jokes_de,
+     'es': jokes_es,
++    'gl': jokes_gl,
+ }
+ 
+ 
+@@ -28,7 +30,7 @@ def get_jokes(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'adult', 'chuck', 'all'
+     lang: str
+-        Choices: 'en', 'de', 'es'
++        Choices: 'en', 'de', 'es', 'gl'
+ 
+     Returns
+     -------
+@@ -53,7 +55,7 @@ def get_joke(language='en', category='neutral'):
+     category: str
+         Choices: 'neutral', 'adult', 'chuck', 'all'
+     lang: str
+-        Choices: 'en', 'de', 'es'
++        Choices: 'en', 'de', 'es', 'gl'
+ 
+     Returns
+     -------
+
+commit f7099726be1e118d5195b9ca39af37846425912f
+Author: Ben Nuttall <ben@bennuttall.com>
+Date:   Sun Sep 20 23:42:17 2015 +0100
+
+    Also show language when CategoryNotFoundError is raised, re: #19
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index e79ef1e..9d441bf 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -41,7 +41,7 @@ def get_jokes(language='en', category='neutral'):
+     jokes = all_jokes[language]
+ 
+     if category not in jokes:
+-        raise CategoryNotFoundError('No such category %s' % category)
++        raise CategoryNotFoundError('No such category %s in language %s' % (category, language))
+ 
+     return jokes[category]
+ 
+
+commit a2001d8372e0225463dbad8e2592a82889bbc982
+Merge: 4bd28cb 38fc483
+Author: Ben Nuttall <ben@bennuttall.com>
+Date:   Mon Sep 7 00:06:46 2015 +0300
+
+    Resolve merge conflict
+
+commit e4930558a60b3470a2718846fd7aa9013a94d845
+Author: Ben Nuttall <ben@bennuttall.com>
+Date:   Sun Sep 6 14:21:42 2015 +0100
+
+    Replace _get_jokes with get_jokes
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 895ef64..8acd8fa 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -21,24 +21,7 @@ class CategoryNotFoundError(Exception):
+     pass
+ 
+ 
+-def _get_jokes(language='en', category='neutral', singular=True):
+-    if language not in all_jokes:
+-        raise LanguageNotFoundError('No such language %s' % language)
 -
--        statistics[pkg_name] = {"local_import": local_import,
--                                "inner_function": inner_function,
--                                "number_of_scopes": total_scopes,
--                                "scope_chain_length": scope_chain_length}
--        print(f"Analysis complete")
+-    jokes = all_jokes[language]
 -
--        # removing temp directory, even if isn't empty
--        shutil.rmtree(download_path, ignore_errors=True)
+-    if category not in jokes:
+-        raise CategoryNotFoundError('No such category %s' % category)
 -
--        print("\n", end="")
+-    jokes = jokes[category]
 -
--    json.dump(statistics, open("statistics.json", "w"), indent=4)
-\ No newline at end of file
-
-commit 743eccdfaec0afad2e388ca090942caca2c01637
-Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Wed Aug 20 23:11:06 2025 +0200
-
-    add scope chian length statistics
-
-diff --git a/src/main.py b/src/main.py
-index 89ae5b0..4ed40b2 100644
---- a/src/main.py
-+++ b/src/main.py
-@@ -39,10 +39,13 @@ if __name__ == "__main__":
-             if detector.get_builder() is not None:
-                 local_import = detector.local_import_detection()
-                 inner_function, scopes_number = detector.inner_function_detection()
+-    if singular:
+-        return random.choice(jokes)
+-    else:
+-        return jokes
 -
-+                scope_chain_length = detector.get_builder().length_longest_scope_chain()
-                 total_scopes += scopes_number
-
--        statistics[pkg_name] = {"local_import": local_import, "inner_function": inner_function, "number_of_scopes": total_scopes}
-+        statistics[pkg_name] = {"local_import": local_import,
-+                                "inner_function": inner_function,
-+                                "number_of_scopes": total_scopes,
-+                                "scope_chain_length": scope_chain_length}
-         print(f"Analysis complete")
-
-         # removing temp directory, even if isn't empty
-
-commit 0039f792b43db74789e7a05b7ae6b2d8bfbcc16c
-Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Mon Aug 18 23:44:26 2025 +0200
-
-    remove unused imports
-
-diff --git a/src/main.py b/src/main.py
-index 9927d91..89ae5b0 100644
---- a/src/main.py
-+++ b/src/main.py
-@@ -2,9 +2,7 @@
- import pathlib
- import shutil
- import json
- import os
--from operator import index
-
--import git
- import pandas as pd
-
- from detector import Detector
-
-commit 0a61c571d644e5f048a6e995f62883bc8fc05d85
-Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Mon Aug 18 00:31:46 2025 +0200
-
-    remove github download(only pip)
-
-diff --git a/src/main.py b/src/main.py
-index 3d2cb91..9927d91 100644
---- a/src/main.py
-+++ b/src/main.py
-@@ -10,11 +10,12 @@ import pandas as pd
- from detector import Detector
-
- if __name__ == "__main__":
--    pkgs_path = "../top100_pkgs.json"
-+    pkgs_path = "../top_pkgs.json"
-     temp_dir_path = "./tmp"
-     fields = ["id", "name", "repository_url"]
-
--    assert not os.path.exists(pkgs_path), "Files containing packages doesn't exists!"
-+    if not os.path.exists(pkgs_path):
-+        print("Files containing packages doesn't exists!")
-
-     df_pkgs = pd.read_json(pkgs_path)
-     # keep only the fields we need
-@@ -30,16 +31,8 @@ if __name__ == "__main__":
-         total_scopes = 0
-         download_path = os.path.join(temp_dir_path, pkg_name)
-
--        if link is not None or not link == "":
--            print(f"Downloading {pkg_name} from GitHub...")
 -
--            git.Repo.clone_from(link, download_path)
+-def get_joke(language='en', category='neutral'):
++def get_jokes(language='en', category='neutral'):
+     """
+     Parameters
+     ----------
+@@ -49,13 +32,21 @@ def get_joke(language='en', category='neutral'):
+ 
+     Returns
+     -------
+-    joke: str
++    jokes: list
+     """
+ 
+-    return _get_jokes(language, category, singular=True)
++    if language not in all_jokes:
++        raise LanguageNotFoundError('No such language %s' % language)
+ 
++    jokes = all_jokes[language]
+ 
+-def get_jokes(language='en', category='neutral'):
++    if category not in jokes:
++        raise CategoryNotFoundError('No such category %s' % category)
++
++    return jokes[category]
++
++
++def get_joke(language='en', category='neutral'):
+     """
+     Parameters
+     ----------
+@@ -66,7 +57,8 @@ def get_jokes(language='en', category='neutral'):
+ 
+     Returns
+     -------
+-    jokes: list
++    joke: str
+     """
+ 
+-    return _get_jokes(language, category, singular=False)
++    jokes = get_jokes(language, category)
++    return random.choice(jokes)
+
+commit e921e830b9ea0cf631695cb701caf979cd36da38
+Author: Alexandre M. S <alexsavio@gmail.com>
+Date:   Sat Sep 5 22:30:45 2015 +0200
+
+    Fix exception type
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 2d8dc1e..895ef64 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -28,7 +28,7 @@ def _get_jokes(language='en', category='neutral', singular=True):
+     jokes = all_jokes[language]
+ 
+     if category not in jokes:
+-        raise CategoryNotFound('No such category %s' % category)
++        raise CategoryNotFoundError('No such category %s' % category)
+ 
+     jokes = jokes[category]
+ 
+
+commit 4449b8209e913bcb64c6831e8896391f6d73e5f3
+Author: Alexandre M. S <alexsavio@gmail.com>
+Date:   Sat Sep 5 21:01:27 2015 +0200
+
+    Change 'explicit' to 'adult'
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 2d8dc1e..15e3ed1 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -28,7 +28,7 @@ def _get_jokes(language='en', category='neutral', singular=True):
+     jokes = all_jokes[language]
+ 
+     if category not in jokes:
+-        raise CategoryNotFound('No such category %s' % category)
++        raise CategoryNotFoundError('No such category %s' % category)
+ 
+     jokes = jokes[category]
+ 
+@@ -43,7 +43,7 @@ def get_joke(language='en', category='neutral'):
+     Parameters
+     ----------
+     category: str
+-        Choices: 'neutral', 'explicit', 'chuck', 'all'
++        Choices: 'neutral', 'adult', 'chuck', 'all'
+     lang: str
+         Choices: 'en', 'de', 'es'
+ 
+@@ -60,7 +60,7 @@ def get_jokes(language='en', category='neutral'):
+     Parameters
+     ----------
+     category: str
+-        Choices: 'neutral', 'explicit', 'chuck', 'all'
++        Choices: 'neutral', 'adult', 'chuck', 'all'
+     lang: str
+         Choices: 'en', 'de', 'es'
+ 
+
+commit 00b242617470fe1325c468645b249143edff91e7
+Author: Ben Nuttall <ben@bennuttall.com>
+Date:   Fri Aug 7 01:08:40 2015 +0100
+
+    Cleanup language joke import names
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index d396ef7..2d8dc1e 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -1,9 +1,9 @@
+ from __future__ import absolute_import
+ import random
+ 
+-from .jokes_en import jokes as jokes_en
+-from .jokes_de import jokes as jokes_de
+-from .jokes_es import jokes as jokes_es
++from .jokes_en import jokes_en
++from .jokes_de import jokes_de
++from .jokes_es import jokes_es
+ 
+ 
+ all_jokes = {
+
+commit 0397a7dff4db2ee28d790d486040aa39e52051c6
+Author: Ben Nuttall <ben@bennuttall.com>
+Date:   Fri Aug 7 00:49:18 2015 +0100
+
+    Reverse logic of checking for errors, remove elses
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index c31a95e..d396ef7 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -22,20 +22,20 @@ class CategoryNotFoundError(Exception):
+ 
+ 
+ def _get_jokes(language='en', category='neutral', singular=True):
+-    if language in all_jokes:
+-        jokes = all_jokes[language]
+-    else:
++    if language not in all_jokes:
+         raise LanguageNotFoundError('No such language %s' % language)
+ 
+-    if category in jokes:
+-        jokes = jokes[category]
+-        if singular:
+-            return random.choice(jokes)
 -        else:
--            print(f"Downloading {pkg_name} from pip...")
--
--            os.system(f"pip install -t {download_path} --no-deps {pkg_name}")
--
--        print("Download complete.")
-+        # downloading package
-+        os.system(f"pip install -t {download_path} --no-deps {pkg_name}")
-
-         print(f"Analyzing {pkg_name}...")
-         for py_file in pathlib.Path(download_path).glob("**/*.py"): # takes only python files in all possible directories
-
-commit c4398d2d03cdb6426bf17dd3e47faa84fa1632b4
-Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Sun Aug 17 23:54:59 2025 +0200
-
-    change download algorithm
-
-diff --git a/src/main.py b/src/main.py
-index 87959c2..3d2cb91 100644
---- a/src/main.py
-+++ b/src/main.py
-@@ -2,6 +2,7 @@ import pathlib
- import shutil
- import json
- import os
-+from operator import index
-
- import git
- import pandas as pd
-@@ -9,24 +10,35 @@ import pandas as pd
- from detector import Detector
-
- if __name__ == "__main__":
--    pkgs_path = "../top_100_python_packages.csv"
-+    pkgs_path = "../top100_pkgs.json"
-     temp_dir_path = "./tmp"
-+    fields = ["id", "name", "repository_url"]
-
--    df_pkgs = pd.read_csv(pkgs_path, index_col=0)
-+    assert not os.path.exists(pkgs_path), "Files containing packages doesn't exists!"
+-            return jokes
+-    else:
++    jokes = all_jokes[language]
 +
-+    df_pkgs = pd.read_json(pkgs_path)
-+    # keep only the fields we need
-+    df_pkgs = df_pkgs[fields]
-
-     statistics = {} # dictionary to store the gathered statistics for each package under analysis in the top 100
-     local_import = []
-     inner_function = []
-
--    for pkg_name, link in zip(df_pkgs["Package"], df_pkgs["GitHub Link"]):
-+    for pkg_name, link in zip(df_pkgs["name"], df_pkgs["repository_url"]):
-         local_import = []
-         inner_function = []
-         total_scopes = 0
-         download_path = os.path.join(temp_dir_path, pkg_name)
-
--        print(f"Downloading {pkg_name}...")
-+        if link is not None or not link == "":
-+            print(f"Downloading {pkg_name} from GitHub...")
++    if category not in jokes:
+         raise CategoryNotFound('No such category %s' % category)
+ 
++    jokes = jokes[category]
 +
-+            git.Repo.clone_from(link, download_path)
++    if singular:
++        return random.choice(jokes)
++    else:
++        return jokes
+ 
+ 
+ def get_joke(language='en', category='neutral'):
+@@ -54,6 +54,7 @@ def get_joke(language='en', category='neutral'):
+ 
+     return _get_jokes(language, category, singular=True)
+ 
++
+ def get_jokes(language='en', category='neutral'):
+     """
+     Parameters
+
+commit 9f1f3971d6e6ea5fc6b490c3b8d9457e85587ed1
+Author: Ben Nuttall <ben@bennuttall.com>
+Date:   Fri Aug 7 00:44:34 2015 +0100
+
+    Add get_jokes function to return list, swap order of args
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 5394a79..c31a95e 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -21,7 +21,24 @@ class CategoryNotFoundError(Exception):
+     pass
+ 
+ 
+-def get_joke(category='neutral', language='en'):
++def _get_jokes(language='en', category='neutral', singular=True):
++    if language in all_jokes:
++        jokes = all_jokes[language]
++    else:
++        raise LanguageNotFoundError('No such language %s' % language)
++
++    if category in jokes:
++        jokes = jokes[category]
++        if singular:
++            return random.choice(jokes)
 +        else:
-+            print(f"Downloading {pkg_name} from pip...")
++            return jokes
++    else:
++        raise CategoryNotFound('No such category %s' % category)
 +
-+            os.system(f"pip install -t {download_path} --no-deps {pkg_name}")
++
++
++def get_joke(language='en', category='neutral'):
+     """
+     Parameters
+     ----------
+@@ -35,13 +52,20 @@ def get_joke(category='neutral', language='en'):
+     joke: str
+     """
+ 
+-    if language in all_jokes:
+-        jokes = all_jokes[language]
+-    else:
+-        raise LanguageNotFoundError('No such language %s' % language)
++    return _get_jokes(language, category, singular=True)
+ 
+-    if category in jokes:
+-        jokes = jokes[category]
+-        return random.choice(jokes)
+-    else:
+-        raise CategoryNotFound('No such category %s' % category)
++def get_jokes(language='en', category='neutral'):
++    """
++    Parameters
++    ----------
++    category: str
++        Choices: 'neutral', 'explicit', 'chuck', 'all'
++    lang: str
++        Choices: 'en', 'de', 'es'
++
++    Returns
++    -------
++    jokes: list
++    """
++
++    return _get_jokes(language, category, singular=False)
 
--        git.Repo.clone_from(link, download_path)
-         print("Download complete.")
+commit 215746e2fd7e5f78b6dae031aae6a935ab164dd1
+Author: Ben Nuttall <ben@bennuttall.com>
+Date:   Fri Aug 7 00:27:06 2015 +0100
 
-         print(f"Analyzing {pkg_name}...")
+    Use dict not if/else, add exceptions
 
-commit 0991564381c358cf00dd163c6f1017fa84711462
-Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Sat Aug 16 21:35:21 2025 +0200
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 675ce0e..5394a79 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -1,6 +1,25 @@
+ from __future__ import absolute_import
+ import random
+-import importlib
++
++from .jokes_en import jokes as jokes_en
++from .jokes_de import jokes as jokes_de
++from .jokes_es import jokes as jokes_es
++
++
++all_jokes = {
++    'en': jokes_en,
++    'de': jokes_de,
++    'es': jokes_es,
++}
++
++
++class LanguageNotFoundError(Exception):
++    pass
++
++
++class CategoryNotFoundError(Exception):
++    pass
++
+ 
+ def get_joke(category='neutral', language='en'):
+     """
+@@ -16,16 +35,13 @@ def get_joke(category='neutral', language='en'):
+     joke: str
+     """
+ 
+-    if language == 'en':
+-        from .jokes_en import jokes
+-    elif language == 'de':
+-        from .jokes_de import jokes
+-    elif language == 'es':
+-        from .jokes_es import jokes
++    if language in all_jokes:
++        jokes = all_jokes[language]
++    else:
++        raise LanguageNotFoundError('No such language %s' % language)
+ 
+-    try:
++    if category in jokes:
+         jokes = jokes[category]
+-    except:
+-        return 'Could not get the joke. Choose another category.'
+-    else:
+         return random.choice(jokes)
++    else:
++        raise CategoryNotFound('No such category %s' % category)
 
-    change download destination path
+commit b6a701b4505966e0c84adf0a0da2952d4eb57533
+Author: Alexandre M. S <alexsavio@gmail.com>
+Date:   Sat Aug 1 01:12:49 2015 +0200
 
-diff --git a/src/main.py b/src/main.py
-index b80ef62..87959c2 100644
---- a/src/main.py
-+++ b/src/main.py
-@@ -1,6 +1,7 @@
- import pathlib
- import shutil
- import json
-+import os
+    Change language codes
 
- import git
- import pandas as pd
-@@ -21,15 +22,16 @@ if __name__ == "__main__":
-         local_import = []
-         inner_function = []
-         total_scopes = 0
-+        download_path = os.path.join(temp_dir_path, pkg_name)
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 8063b90..675ce0e 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -2,26 +2,26 @@ from __future__ import absolute_import
+ import random
+ import importlib
+ 
+-def get_joke(category='neutral', language='eng'):
++def get_joke(category='neutral', language='en'):
+     """
+     Parameters
+     ----------
+     category: str
+         Choices: 'neutral', 'explicit', 'chuck', 'all'
+     lang: str
+-        Choices: 'eng', 'de', 'spa'
++        Choices: 'en', 'de', 'es'
+ 
+     Returns
+     -------
+     joke: str
+     """
+ 
+-    if language == 'eng':
+-        from .jokes_eng import jokes
++    if language == 'en':
++        from .jokes_en import jokes
+     elif language == 'de':
+         from .jokes_de import jokes
+-    elif language == 'spa':
+-        from .jokes_spa import jokes
++    elif language == 'es':
++        from .jokes_es import jokes
+ 
+     try:
+         jokes = jokes[category]
 
-         print(f"Downloading {pkg_name}...")
+commit ce44a0e96f6c34a59484fe43cc9d7f23f298815e
+Author: oier <oier.etxaniz@gmail.com>
+Date:   Fri Jul 31 17:26:59 2015 +0200
 
--        git.Repo.clone_from(link, temp_dir_path)
-+        git.Repo.clone_from(link, download_path)
-         print("Download complete.")
+    language support fix
 
-         print(f"Analyzing {pkg_name}...")
--        for py_file in pathlib.Path(temp_dir_path).glob("**/*.py"): # takes only python files in all possible directories
--            detector = Detector(f"{py_file}", "test")
-+        for py_file in pathlib.Path(download_path).glob("**/*.py"): # takes only python files in all possible directories
-+            detector = Detector(f"{py_file}")
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index c70cb66..8063b90 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -1,8 +1,8 @@
+ from __future__ import absolute_import
+ import random
++import importlib
+ 
+-
+-def get_joke(category='neutral', lang='eng'):
++def get_joke(category='neutral', language='eng'):
+     """
+     Parameters
+     ----------
+@@ -20,7 +20,7 @@ def get_joke(category='neutral', lang='eng'):
+         from .jokes_eng import jokes
+     elif language == 'de':
+         from .jokes_de import jokes
+-    elif language == 'spa'
++    elif language == 'spa':
+         from .jokes_spa import jokes
+ 
+     try:
 
-             if detector.get_builder() is not None:
-                 local_import = detector.local_import_detection()
-@@ -41,7 +43,7 @@ if __name__ == "__main__":
-         print(f"Analysis complete")
+commit 994ab7efb89082385d11869076c3233c934ac7b2
+Author: Alexandre M. S <alexsavio@gmail.com>
+Date:   Fri Jul 31 13:34:18 2015 +0200
 
-         # removing temp directory, even if isn't empty
--        shutil.rmtree(temp_dir_path, ignore_errors=True)
-+        shutil.rmtree(download_path, ignore_errors=True)
+    Add support for languages. Add Spanish and German.
 
-         print("\n", end="")
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 35d085f..c70cb66 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -1,12 +1,31 @@
+ from __future__ import absolute_import
+ import random
+-from .jokes import neutral, explicit, chuck
+-
+-def get_joke(category='neutral'):
+-    jokes = {
+-        'neutral': neutral,
+-        'explicit': explicit,
+-        'chuck': chuck,
+-        'all': neutral + explicit + chuck,
+-    }[category]
+-    return random.choice(jokes)
++
++
++def get_joke(category='neutral', lang='eng'):
++    """
++    Parameters
++    ----------
++    category: str
++        Choices: 'neutral', 'explicit', 'chuck', 'all'
++    lang: str
++        Choices: 'eng', 'de', 'spa'
++
++    Returns
++    -------
++    joke: str
++    """
++
++    if language == 'eng':
++        from .jokes_eng import jokes
++    elif language == 'de':
++        from .jokes_de import jokes
++    elif language == 'spa'
++        from .jokes_spa import jokes
++
++    try:
++        jokes = jokes[category]
++    except:
++        return 'Could not get the joke. Choose another category.'
++    else:
++        return random.choice(jokes)
 
+commit b9d9efd5a7fbd952ddf487340c8ed40665e104b6
+Author: Ben Nuttall <ben@bennuttall.com>
+Date:   Sun Jul 26 19:16:27 2015 +0200
 
-commit d8e22de08b58e97422d7325bb7100f4771a06e3a
-Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Tue Aug 12 14:31:25 2025 +0200
+    Tidy up object names
 
-    statistics
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 69d35f6..35d085f 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -1,16 +1,12 @@
+ from __future__ import absolute_import
+ import random
+-from .jokes import geek_neutral, geek_explicit, chuck_nerdy
++from .jokes import neutral, explicit, chuck
+ 
+ def get_joke(category='neutral'):
+     jokes = {
+-        'neutral': geek_neutral,
+-        'explicit': geek_explicit,
+-        'chuck': chuck_nerdy,
+-        'all': geek_neutral + geek_explicit + chuck_nerdy,
++        'neutral': neutral,
++        'explicit': explicit,
++        'chuck': chuck,
++        'all': neutral + explicit + chuck,
+     }[category]
+     return random.choice(jokes)
+-
+-
+-if __name__ == '__main__':
+-    print(get_joke('all'))
 
-diff --git a/src/main.py b/src/main.py
-index 4d01452..b80ef62 100644
---- a/src/main.py
-+++ b/src/main.py
-@@ -1,17 +1,27 @@
--import os
- import pathlib
- import shutil
+commit a997301c907005e7bf9db0d76b47d6d11bda0168
+Author: Ben Nuttall <ben@bennuttall.com>
+Date:   Sat Jan 3 12:29:03 2015 +0000
+
+    Import new jokes lists, allow selection
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 4b87fb5..69d35f6 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -1,11 +1,16 @@
+ from __future__ import absolute_import
+ import random
+-from .jokes import jokes
++from .jokes import geek_neutral, geek_explicit, chuck_nerdy
+ 
+-
+-def get_local_joke():
++def get_joke(category='neutral'):
++    jokes = {
++        'neutral': geek_neutral,
++        'explicit': geek_explicit,
++        'chuck': chuck_nerdy,
++        'all': geek_neutral + geek_explicit + chuck_nerdy,
++    }[category]
+     return random.choice(jokes)
+ 
+ 
+ if __name__ == '__main__':
+-    print(get_local_joke())
++    print(get_joke('all'))
+
+commit 2c7b03079a082b34a96ffd6d46b9723377dd2480
+Author: Ben Nuttall <ben@bennuttall.com>
+Date:   Sun Dec 28 23:28:17 2014 +0000
+
+    Tidy up
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index d580dd6..4b87fb5 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -1,9 +1,11 @@
+-from random import choice
++from __future__ import absolute_import
++import random
+ from .jokes import jokes
+ 
+ 
+ def get_local_joke():
+-    return choice(jokes)
++    return random.choice(jokes)
++
+ 
+ if __name__ == '__main__':
+     print(get_local_joke())
+
+commit 63c8133efff35b25c04fb878fe16c241dcfa5073
+Author: Alexandre M. S <alexsavio@gmail.com>
+Date:   Mon Sep 29 22:42:46 2014 +0200
+
+    Recover local jokes selection function
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 468d078..d580dd6 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -1,16 +1,9 @@
+-import json
+-import urllib2
+ from random import choice
++from .jokes import jokes
+ 
+-def get_chuck_nerd_jokes():
+-	url = 'http://api.icndb.com/jokes/random?limitTo=[nerdy]'
+-	response = urllib2.urlopen(url)
+-	data = json.load(response)  
+-	d = data['value'] 
+-	return d['joke']
+ 
+-def main():
+-	print(get_chuck_nerd_jokes())
++def get_local_joke():
++    return choice(jokes)
+ 
+ if __name__ == '__main__':
+-    main()
++    print(get_local_joke())
+
+commit 98d4e76743a60450e23eaa17a93ba0baeb3f240b
+Author: Borja Ayerdi <ayerdi.borja@gmail.com>
+Date:   Sun Sep 28 22:26:25 2014 +0200
+
+    Python3 print
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 479464f..468d078 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -10,7 +10,7 @@ def get_chuck_nerd_jokes():
+ 	return d['joke']
+ 
+ def main():
+-	print get_chuck_nerd_jokes()
++	print(get_chuck_nerd_jokes())
+ 
+ if __name__ == '__main__':
+     main()
+
+commit 94663855f7e29366f74b71e0a938891fcd7f90dc
+Author: Borja Ayerdi <ayerdi.borja@gmail.com>
+Date:   Sun Sep 28 13:01:54 2014 +0200
+
+    Chuck nerd jokes added.
+
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
+index 90dfa90..479464f 100644
+--- a/pyjokes/pyjokes.py
++++ b/pyjokes/pyjokes.py
+@@ -1,8 +1,16 @@
+-from jokes import jokes
 +import json
-
- import git
- import pandas as pd
-
-+from detector import Detector
++import urllib2
+ from random import choice
+ 
++def get_chuck_nerd_jokes():
++	url = 'http://api.icndb.com/jokes/random?limitTo=[nerdy]'
++	response = urllib2.urlopen(url)
++	data = json.load(response)  
++	d = data['value'] 
++	return d['joke']
 +
- if __name__ == "__main__":
-     pkgs_path = "../top_100_python_packages.csv"
-     temp_dir_path = "./tmp"
+ def main():
+-   print(choice(jokes))
++	print get_chuck_nerd_jokes()
+ 
+ if __name__ == '__main__':
+     main()
 
-     df_pkgs = pd.read_csv(pkgs_path, index_col=0)
+commit 37192c7c9d79c6d3454b96d821ed9031d6b0d95b
+Author: Ben Nuttall <ben@bennuttall.com>
+Date:   Sun Sep 28 01:25:06 2014 +0200
 
-+    statistics = {} # dictionary to store the gathered statistics for each package under analysis in the top 100
-+    local_import = []
-+    inner_function = []
-+
-     for pkg_name, link in zip(df_pkgs["Package"], df_pkgs["GitHub Link"]):
-+        local_import = []
-+        inner_function = []
-+        total_scopes = 0
-+
-         print(f"Downloading {pkg_name}...")
+    Implement basic functionality
 
-         git.Repo.clone_from(link, temp_dir_path)
-@@ -19,11 +29,20 @@ if __name__ == "__main__":
-
-         print(f"Analyzing {pkg_name}...")
-         for py_file in pathlib.Path(temp_dir_path).glob("**/*.py"): # takes only python files in all possible directories
--            #TODO: source code analysis to find shadowing occurrences
--            ...
-+            detector = Detector(f"{py_file}", "test")
-+
-+            if detector.get_builder() is not None:
-+                local_import = detector.local_import_detection()
-+                inner_function, scopes_number = detector.inner_function_detection()
-+
-+                total_scopes += scopes_number
-+
-+        statistics[pkg_name] = {"local_import": local_import, "inner_function": inner_function, "number_of_scopes": total_scopes}
-         print(f"Analysis complete")
-
-         # removing temp directory, even if isn't empty
-         shutil.rmtree(temp_dir_path, ignore_errors=True)
-
--        print("\n", end="")
-\ No newline at end of file
-+        print("\n", end="")
-+
-+    json.dump(statistics, open("statistics.json", "w"), indent=4)
-\ No newline at end of file
-
-commit 27654d143e81aadca02bb003b28cf3f11aa416f5
-Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Mon Aug 4 22:48:08 2025 +0200
-
-    ADD main application structure
-
-diff --git a/src/main.py b/src/main.py
-index 360fcb5..4d01452 100644
---- a/src/main.py
-+++ b/src/main.py
-@@ -1,21 +1,29 @@
--import ast
-+import os
-+import pathlib
-+import shutil
-
--from src.scope_graph import ScopeGraph
-+import git
-+import pandas as pd
-
- if __name__ == "__main__":
--    code = """
--x = 1
--def f(y):
--    z = 2
--    def g():
--        print(y)
-- """
--
--    tree = ast.parse(code)
--
--    # building scope Graph
--    builder = ScopeGraph()
--    builder.visit(tree)
--    from pprint import pprint
--
--    pprint(builder.get_graph())
-+    pkgs_path = "../top_100_python_packages.csv"
-+    temp_dir_path = "./tmp"
-+
-+    df_pkgs = pd.read_csv(pkgs_path, index_col=0)
-+
-+    for pkg_name, link in zip(df_pkgs["Package"], df_pkgs["GitHub Link"]):
-+        print(f"Downloading {pkg_name}...")
-+
-+        git.Repo.clone_from(link, temp_dir_path)
-+        print("Download complete.")
-+
-+        print(f"Analyzing {pkg_name}...")
-+        for py_file in pathlib.Path(temp_dir_path).glob("**/*.py"): # takes only python files in all possible directories
-+            #TODO: source code analysis to find shadowing occurrences
-+            ...
-+        print(f"Analysis complete")
-+
-+        # removing temp directory, even if isn't empty
-+        shutil.rmtree(temp_dir_path, ignore_errors=True)
-+
-+        print("\n", end="")
-\ No newline at end of file
-
-commit e6aaeb2005efccbc2149f59f925fe2beef1e29b0
-Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Thu Jul 31 23:53:51 2025 +0200
-
-    MISC #1
-
-diff --git a/src/main.py b/src/main.py
-index 67e15b4..360fcb5 100644
---- a/src/main.py
-+++ b/src/main.py
-@@ -10,11 +10,6 @@ def f(y):
-     def g():
-         print(y)
-  """
--    code = """
--import ast as ast, base64 as b64
--
--from functools import reduce
--"""
-
-     tree = ast.parse(code)
-
-
-commit f08052fc838764fdd4b034e485e70bb3b67daf86
-Author: denisG99 <gasparollodenis@gmail.com>
-Date:   Thu Jul 31 01:24:41 2025 +0200
-
-    ADD scope graph class
-
-diff --git a/src/main.py b/src/main.py
+diff --git a/pyjokes/pyjokes.py b/pyjokes/pyjokes.py
 new file mode 100644
-index 0000000..67e15b4
+index 0000000..90dfa90
 --- /dev/null
-+++ b/src/main.py
-@@ -0,0 +1,26 @@
-+import ast
++++ b/pyjokes/pyjokes.py
+@@ -0,0 +1,8 @@
++from jokes import jokes
++from random import choice
 +
-+from src.scope_graph import ScopeGraph
++def main():
++   print(choice(jokes))
 +
-+if __name__ == "__main__":
-+    code = """
-+x = 1
-+def f(y):
-+    z = 2
-+    def g():
-+        print(y)
-+ """
-+    code = """
-+import ast as ast, base64 as b64
-+
-+from functools import reduce
-+"""
-+
-+    tree = ast.parse(code)
-+
-+    # building scope Graph
-+    builder = ScopeGraph()
-+    builder.visit(tree)
-+    from pprint import pprint
-+
-+    pprint(builder.get_graph())
++if __name__ == '__main__':
++    main()
