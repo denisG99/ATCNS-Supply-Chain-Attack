@@ -191,16 +191,21 @@ class FileShadowingHistoty:
                 next_step = line
 
                 while i < len(tracker_res):
-                    if tracker_res[i][next_step - 1]["right"] is None:
-                        # remove no more interesting element from memory (aka shadowing is not longer there)
-                        try:
-                            self.__memory.remove(res_name)
-                        except ValueError:
-                            pass
-                        finally:
-                            print("_")
-                            tracking_str += f"_"
-                            break
+                    try:
+                        if tracker_res[i][next_step - 1]["right"] is None:
+                            # remove no more interesting element from memory (aka shadowing is not longer there)
+                            try:
+                                self.__memory.remove(res_name)
+                            except ValueError:
+                                pass
+                            finally:
+                                print("_")
+                                tracking_str += "_"
+                                break
+                    except TypeError: # handling the case in which lhdiff gaves some error
+                        print("?")
+                        tracking_str += "?"
+                        break
 
                     next_step = tracker_res[i][next_step - 1]["right"]
                     tracking_str += f"{next_step}->"
@@ -263,10 +268,9 @@ class FileShadowingHistoty:
         return data
 
     def get_file_history(self) -> dict:
-        data_aux = {}
-        data_aux['package'] = self.__file_path.split("/")[-2]
-        data_aux['file'] = self.__file_path
-        data_aux['commits'] = {}
+        data_aux = {
+            'commits' : {}
+        }
 
         print(f"Tracking history of {self.__file_path} ...")
 
