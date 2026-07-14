@@ -105,6 +105,7 @@ class FileShadowingHistoty:
                 print(f"Git command failed: {e.stderr}")
 
                 self.__history[commit_hash] = "error"
+                continue
 
             # shadowing detection
             try:
@@ -143,7 +144,7 @@ class FileShadowingHistoty:
         """
         json.dump(self.__history, open(f"{save_dir}/{self.__file_path.split('/')[-1]}_shadowing_history.json", "w"), indent=4)
 
-    def __get_lines_history(self, lines: list[int], res_name: str, data: dict, start_commit: str=None) -> dict:
+    def __get_lines_history(self, lines: list[int], res_name: str, data: dict, start_commit: str = None) -> dict:
         """
         Retrieves the history of specified lines in a file, tracking changes across
         commits from the current state to a starting commit if provided.
@@ -163,30 +164,32 @@ class FileShadowingHistoty:
             and prints the history of each line. The history of each line ends when
             the line is deleted, or no further changes are found in subsequent commits.
         """
-        commits = list(self.__history.keys())
+        commits = list(self.__history.keys())[::-1]
         tracker = LHDiff()
-        tracker_res =[]
-        i = len(commits) - 1
-        #tracking_strings = []
+        tracker_res = []
+        i = 0
         data[res_name] = []
 
-        while i > 0:
-            diff = tracker.diff("/".join(self.__file_path.split("/")[:-1]), commits[i], commits[i - 1], self.__file_path.split('/')[-1], raw=False)
+        for i in range(len(commits) - 1):
+            diff = tracker.diff("/".join(self.__file_path.split("/")[:-1]), commits[i], commits[i + 1], self.__file_path.split('/')[-1], raw=False)
 
             tracker_res.append(diff)
-            i -= 1
 
         if len(tracker_res) > 0:
             for line in lines:
                 tracking_str = ""
 
                 try:
-                    i = 0 if start_commit is None else (len(commits) - 1) - commits.index(start_commit)
+                    i = 0 if start_commit is None else commits.index(start_commit)
+
+                    if i >= len(tracker_res):
+                        continue
                 except ValueError:
                     print("Commit not found, we begin from the first commit")
                     i = 0
 
-                print(tracker_res[i][line - 1]["left"], end="->")
+                # TODO: check if it is None or not
+                #print(tracker_res[i][line - 1]["left"], end="->")
                 tracking_str += f"{tracker_res[i][line - 1]['left']}->"
                 next_step = line
 
@@ -199,11 +202,11 @@ class FileShadowingHistoty:
                             except ValueError:
                                 pass
                             finally:
-                                print("_")
+                                #print("_")
                                 tracking_str += "_"
                                 break
-                    except TypeError: # handling the case in which lhdiff gaves some error
-                        print("?")
+                    except TypeError:  # handling the case in which lhdiff gives some error
+                        #print("?")
                         tracking_str += "?"
                         break
 
@@ -211,16 +214,16 @@ class FileShadowingHistoty:
                     tracking_str += f"{next_step}->"
                     i += 1
 
-                    print(next_step, end="->")
+                    #print(next_step, end="->")
 
                 if i >= len(tracker_res):
                     tracking_str += f"..."
-                    print("...") # we reach the end of commit history and shadowing still there
-                    print(f"Shadowing on {res_name} still there\n\n")
+                    #print("...")  # we reach the end of commit history and shadowing still there
+                    #print(f"Shadowing on {res_name} still there\n\n")
 
                 data[res_name].append(tracking_str)
 
-        return data
+            return data
 
     def __memory_remove_elems(self, current_res: list[dict]) -> list[str]:
         """
@@ -252,17 +255,17 @@ class FileShadowingHistoty:
 
         if len(excluded) != 0:
             for elem in excluded:
-                print(f"Shadowing on {elem} was removed on {commit} by {self.__history[commit]['author']} at {self.__history[commit]['datetime']}\n\n")
+                #print(f"Shadowing on {elem} was removed on {commit} by {self.__history[commit]['author']} at {self.__history[commit]['datetime']}\n\n")
                 data["what_remove"].append(elem)
 
         for match in self.__history[commit][target]:
             if match["name"] not in self.__memory:
-                print(f"Shadowing on {match['name']} was introduced on {commit} by {self.__history[commit]['author']} at {self.__history[commit]['datetime']}")
+                #print(f"Shadowing on {match['name']} was introduced on {commit} by {self.__history[commit]['author']} at {self.__history[commit]['datetime']}")
                 data["what_introduce"].append(match["name"])
                 # add unseen element to memory
                 self.__memory.append(match["name"])
 
-                print(f"\tTracking {match['name']}: ", end="")
+                #print(f"\tTracking {match['name']}: ", end="")
                 data["tracking_strings"] = self.__get_lines_history(match["line"], match["name"], data["tracking_strings"], commit)
 
         return data
@@ -272,14 +275,13 @@ class FileShadowingHistoty:
             'commits' : {}
         }
 
-        print(f"Tracking history of {self.__file_path} ...")
+        #print(f"Tracking history of {self.__file_path} ...")
 
-        # TODO: estendere su intero package
         # TODO: comprimere resultati detector nel caso in cui siano sullo stesso nome
 
         for i, commit_hash in enumerate(list(reversed(self.__history.keys()))[: -1]):
             if self.__history[commit_hash]["shadowing"] == "true":
-                print(f"\tCommit {i + 1}: {commit_hash}")
+                #print(f"\tCommit {i + 1}: {commit_hash}")
 
                 data_aux['commits'][commit_hash] = {
                     "who" : self.__history[commit_hash]["author"],
@@ -295,20 +297,24 @@ class FileShadowingHistoty:
                 data_aux[commit_hash] = self.__tracking(commit_hash, "yara", data_aux['commits'][commit_hash])
 
         # handle last hash
-        last_hash = list(reversed(self.__history.keys()))[-1]
+        try:
+            last_hash = list(reversed(self.__history.keys()))[-1]
 
-        data_aux['commits'][last_hash] = {
-            "who": self.__history[last_hash]["author"],
-            "when": self.__history[last_hash]["datetime"],
-            "what_introduce": [],
-            "what_remove": [],
-            "tracking_strings": {}
-        }
+            data_aux['commits'][last_hash] = {
+                "who": self.__history[last_hash]["author"],
+                "when": self.__history[last_hash]["datetime"],
+                "what_introduce": [],
+                "what_remove": [],
+                "tracking_strings": {}
+            }
 
-        # tracking result of algorithm on scope graph
-        data_aux[last_hash] = self.__tracking(last_hash, "shadowing_res", data_aux['commits'][last_hash])
-        # tracking YARA results
-        data_aux[last_hash] = self.__tracking(last_hash, "yara", data_aux['commits'][last_hash])
+            # tracking result of algorithm on scope graph
+            data_aux[last_hash] = self.__tracking(last_hash, "shadowing_res", data_aux['commits'][last_hash])
+            # tracking YARA results
+            data_aux[last_hash] = self.__tracking(last_hash, "yara", data_aux['commits'][last_hash])
+        except IndexError:
+            # fall in this case if the file history is empty(no commit for the file)
+            pass
 
         return data_aux
 
