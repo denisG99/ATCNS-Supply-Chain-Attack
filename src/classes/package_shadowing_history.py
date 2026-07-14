@@ -15,37 +15,33 @@ class PackageShadowingHistory:
         self.__heuristic_path: str = heuristic_path
 
         download_path = f"{TEMP_PATH}/{self.__pck_name}"
+
+        #print(f"Downloading {pck_name}")
+
         try:
             subprocess.run(["git", "clone", self.__get_repo_url(), download_path], check=True)
-        except AttributeError:
+        except (AttributeError, subprocess.CalledProcessError):
+            raise ValueError(f"Repository for {pck_name} not found")
             # handle the case in which PyPI API doesn't the owner or the package isn't published on PyPI
-            repo_url = input("Enter the repository url: ")
+            #repo_url = input(f"Enter the repository url for {pck_name}: ")
 
-            subprocess.run(["git", "clone", repo_url, download_path], check=True)
+            #subprocess.run(["git", "clone", repo_url, download_path], check=True)
 
-    def __get_owner(self) -> str | None:
-        """
-        Return the owner of the package
-
-        :param pkg_name: name of the package that we want to get the owner
-        :return: owner of the package
-        """
-        pypi_info = requests.get(PYPI_API.replace("<package-name>", self.__pck_name)).json()
-
-        for source in ["source", "homepage"]:
-            if source in pypi_info["info"]["project_urls"].keys() and re.match(r"^https://github.com/", pypi_info["info"]["project_urls"][source]):
-                return pypi_info["info"]["project_urls"][source].split("/")[-2]
-
-    def __get_repo_url(self) -> str:
+    def __get_repo_url(self) -> str | None:
         """
         Get the repository url associated to a package
 
         :param pkg_name: name of the package that we want to get the repository url
         :return: repository url associated to the package
         """
-        owner = self.__get_owner()
+        pypi_info = requests.get(PYPI_API.replace("<package-name>", self.__pck_name)).json()
 
-        return f"https://github.com/{owner}/{self.__pck_name}.git"
+        for source in ["source", "homepage", "Homepage", "repository", "Repository", "Source"]:
+            if source in pypi_info["info"]["project_urls"].keys() and re.match(r"^http[s]?://github\.com/", pypi_info["info"]["project_urls"][source]):
+                repo_url = f"https://{'/'.join(pypi_info['info']['project_urls'][source].split('/')[2:5])}.git"
+
+                return repo_url
+        return None
 
     def __get_gitlog(self, filename: str, until: str) -> str:
         filename: list[str] = filename.split("/")
@@ -66,8 +62,6 @@ class PackageShadowingHistory:
         return git_log.stdout
 
     def __file_history(self, filename: str, until: str) -> dict:
-        self.__get_gitlog(filename, until)
-
         file_history = FileShadowingHistoty(self.__get_gitlog(filename, until), filename, self.__heuristic_path)
         file_history.build()
 
@@ -75,7 +69,6 @@ class PackageShadowingHistory:
 
     def get_package_history(self) -> dict:
         history = {
-            "package": self.__pck_name,
             "files" : {}
         }
 
