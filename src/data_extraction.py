@@ -100,10 +100,6 @@ if __name__ == "__main__":
             start_idx = get_checkpoint(statistics)
             analyzed_pkgs_count = start_idx
 
-        # TODO: remove these lines
-        if start_idx >= 20000:
-            continue
-
         df_pkgs = pd.read_json(f"{PKGS_DATA_DIR}/{json_file}")[0][start_idx:]
 
         try:
