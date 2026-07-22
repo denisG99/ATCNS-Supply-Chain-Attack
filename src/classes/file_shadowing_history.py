@@ -317,8 +317,3 @@ class FileShadowingHistoty:
             pass
 
         return data_aux
-
-if __name__ == "__main__":
-    history = FileShadowingHistoty(open("./test.txt").read(), "./pyjokes/pyjokes/pyjokes.py", "./heuristics")
-    history.build()
-    print(history.get_file_history())
