@@ -67,7 +67,7 @@ class PackageShadowingHistory:
 
         return file_history.get_file_history()
 
-    def get_package_history(self) -> dict:
+    def get_package_history(self, until: str) -> dict:
         history = {
             "files" : {}
         }
@@ -75,7 +75,7 @@ class PackageShadowingHistory:
         for py_file in pathlib.Path().glob(f"./tmp/{self.__pck_name}/**/*.py"): # considers only python files in all possible directories
             key = f"./{'/'.join(str(py_file).split('/')[2:])}" # relative path of the file (wrt repository root)
 
-            history["files"][key] = self.__file_history(str(py_file), "2025-12-31")
+            history["files"][key] = self.__file_history(str(py_file), until)
 
         shutil.rmtree(TEMP_PATH, ignore_errors=True)
 

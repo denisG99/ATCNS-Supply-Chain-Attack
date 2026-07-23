@@ -7,10 +7,11 @@ import os
 from tqdm import tqdm
 
 HISTORY_OUTPUT_DIR = "../../data/history"
-NUM_PACKAGES = 400 # for having 95% of confidence level with 5% of error
+NUM_PACKAGES = 1 # for having 95% of confidence level with 5% of error (400 pkgs)
 PACKAGE_LIST_PATH = "../../data/top packages/top50000_2025.json"
 FILE_NAME = "samples.json"
 SAVE_FREQUENCY = 10 # how many packages will be analyzed before saving the results
+UNTIL = "2025-12-31"
 
 def get_checkpoint(json: dict) -> int:
     """
@@ -42,7 +43,7 @@ if __name__ == "__main__":
         package_history[pkg_name] = {}
 
         try:
-            package_history[pkg_name] = PackageShadowingHistory(pkg_name, "../classes/heuristics").get_package_history()
+            package_history[pkg_name] = PackageShadowingHistory(pkg_name, "../classes/heuristics").get_package_history(UNTIL)
 
             if pkg_count % SAVE_FREQUENCY == 0:
                 json.dump(package_history, open(f"{HISTORY_OUTPUT_DIR}/{FILE_NAME}", "w"), indent=4)
