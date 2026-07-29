@@ -26,7 +26,7 @@ TOP_PKGS_PATH: str = "../../data/results"
 NUM_PKGS: int = 400 # for having 95% of confidence level with 5% of error
 
 def get_dependencies_infos(pkg_name: str) -> tuple[int, int]:
-    # dependencies tree summary
+    # dependency tree summary
     try:
         deptree_summary = json.loads(subprocess.run(
             [
