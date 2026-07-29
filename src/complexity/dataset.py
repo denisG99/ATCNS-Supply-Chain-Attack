@@ -7,6 +7,7 @@ import sys
 import json
 import ast
 import pandas as pd
+import tokenize # use it to respect PEP 263 encoding declaration and handle non-UTF-8 files robustly
 
 from tqdm import tqdm
 
@@ -143,15 +144,15 @@ if __name__ == "__main__":
         for pkg in tqdm(pkgs_list, desc=f"Packages analysis({file})"):
             deps_num, deptree_depth = get_dependencies_infos(pkg, get_version(year, pkg))
 
-            for py_file in pathlib.Path(f"{PACKAGES_PATH}/{pkg}").glob("**/*.py"):  # takes only python files in all possible directories
-                data["package"].append(pkg)
-                data["file"].append(f"./{'/'.join(str(py_file).split('/')[4:])}")
-                data["year"].append(year)
-                data["loc"].append(get_loc(open(py_file).read()))
-                data["cyclomatic_complexity"].append(get_cyclomatic_complexity(open(py_file).read()))
-                data["max_scope_nesting_level"].append(get_max_scope_nesting(open(py_file).read()))
-                data["total_dependencies"].append(deps_num)
-                data["max_dependencies_depth"].append(deptree_depth)
+                for py_file in pathlib.Path(f"{PACKAGES_PATH}/{pkg}").glob("**/*.py"):  # takes only python files in all possible directories
+                    data["package"].append(pkg)
+                    data["file"].append(f"./{'/'.join(str(py_file).split('/')[4:])}")
+                    data["year"].append(year)
+                    data["loc"].append(get_loc(tokenize.open(py_file).read()))
+                    data["cyclomatic_complexity"].append(get_cyclomatic_complexity(tokenize.open(py_file).read()))
+                    data["max_scope_nesting_level"].append(get_max_scope_nesting(tokenize.open(py_file).read()))
+                    data["total_dependencies"].append(deps_num)
+                    data["max_dependencies_depth"].append(deptree_depth)
 
     # save dataset
     pd.DataFrame(data).to_csv(f"{OUTPUT_DIR}/complexity.csv", index=False)
