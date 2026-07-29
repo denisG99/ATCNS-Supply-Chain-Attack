@@ -58,12 +58,17 @@ def get_dependencies_infos(pkg_name: str) -> tuple[int, int]:
 
         return deptree_summary["total_packages"], deptree_summary["max_depth"]
     except (subprocess.CalledProcessError, json.decoder.JSONDecodeError) as e:
-        print(e)
+        print(f"pipdeptree error: {e}")
 
         return -1, -1
 
 def get_loc(code: str) -> int:
-    return analyze(code).loc # TODO: valutare lloc (da effettive linee di codice contenti istruzioni) vs loc (number of line of code (istruzioni + commenti))
+    try:
+        return analyze(code).loc # TODO: valutare lloc (da effettive linee di codice contenti istruzioni) vs loc (number of line of code (istruzioni + commenti))
+    except Exception as e:
+        print(f"LOC error: {e}")
+
+        return -1
 
 def get_cyclomatic_complexity(code: str) -> int:
     try:
@@ -82,7 +87,7 @@ def get_cyclomatic_complexity(code: str) -> int:
 
         return code_cc_complexity
     except SyntaxError as e:
-        print(e)
+        print(f"Cyclomatic complexity error: {e}")
 
         return -1
 
@@ -97,6 +102,7 @@ def get_max_scope_nesting(code: str) -> int:
         return scope_graph.length_longest_scope_chain()
     except Exception as e:
         print(f"Error parsing the code: {e}")
+
         return -1
 
 def default_entry(data: dict, pkg: str, year: int) -> dict:
