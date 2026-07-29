@@ -131,15 +131,15 @@ if __name__ == "__main__":
         'max_dependencies_depth': []
     }
 
-    # create temporary environment if needed
-    if not os.path.exists(TMP_ENV):
-        try:
-            subprocess.run(["python3", "-m", "venv", TMP_ENV], check=False)
-        except subprocess.CalledProcessError as e:
-            print(e)
-            sys.exit()
-
     for file in os.listdir(TOP_PKGS_PATH):
+        # create temporary environment if needed
+        if not os.path.exists(TMP_ENV):
+            try:
+                subprocess.run(["python3", "-m", "venv", TMP_ENV], check=False)
+            except subprocess.CalledProcessError as e:
+                print(e)
+                sys.exit()# create temporary environment if needed
+
         res = json.load(open(f"{TOP_PKGS_PATH}/{file}"))
 
         pkgs_list = random.sample([key for key in res.keys() if not res[key] == "unavailable"], NUM_PKGS)
@@ -148,7 +148,31 @@ if __name__ == "__main__":
         del res
 
         for pkg in tqdm(pkgs_list, desc=f"Packages analysis({file})"):
-            deps_num, deptree_depth = get_dependencies_infos(pkg, get_version(year, pkg))
+            # download package
+            try:
+                subprocess.run(
+                    [sys.executable, "-m", "pip", "install",
+                     "-t", PACKAGES_PATH,
+                     "-q",
+                     "--no-cache-dir",
+                     "--upgrade",
+                     "--disable-pip-version-check",
+                     f"{pkg}<={get_version(year, pkg)}"],
+                    check=False  # don't rise on failure, your existing try/except handles it
+                )
+            except (subprocess.CalledProcessError, KeyError, Exception) as e:
+                print(f"PIP error: {e}")
+
+                data = default_entry(data, pkg, year)
+
+                continue
+            else:
+                deps_num, deptree_depth = get_dependencies_infos(pkg)
+
+                if deps_num == -1 and deptree_depth == -1:
+                    data = default_entry(data, pkg, year)
+
+                    continue
 
                 for py_file in pathlib.Path(f"{PACKAGES_PATH}/{pkg}").glob("**/*.py"):  # takes only python files in all possible directories
                     data["package"].append(pkg)
@@ -160,8 +184,9 @@ if __name__ == "__main__":
                     data["total_dependencies"].append(deps_num)
                     data["max_dependencies_depth"].append(deptree_depth)
 
-    # save dataset
-    pd.DataFrame(data).to_csv(f"{OUTPUT_DIR}/complexity.csv", index=False)
+        # save dataset
+        pd.DataFrame(data).to_csv(f"{OUTPUT_DIR}/complexity.csv", index=False)
 
-    # deletion of temporary environment
-    shutil.rmtree(TMP_ENV, ignore_errors=True)
+        # deletion of temporary environment
+        shutil.rmtree(TMP_ENV, ignore_errors=True)
+
