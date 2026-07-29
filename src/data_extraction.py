@@ -8,10 +8,12 @@ import requests
 import re
 import subprocess
 
-from classes.detector import Detector
 from tqdm import tqdm
 
-# constants
+from classes.detector import Detector
+
+#from utils.utils import get_version
+
 TEMP_DIR = "./tmp" # path to the temporary directory where the packages will be downloaded
 PKGS_DATA_DIR = "../data/top packages"  # path to the directory containing the top n packages names for each year
 RESULT_PATH_DIR = "../data/results"

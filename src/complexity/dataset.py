@@ -23,23 +23,7 @@ OUTPUT_DIR: str = "../../data/complexity"
 TMP_ENV: str = "./tmp/" # CHANGE if you want to have different name for environment
 PACKAGES_PATH: str = f"{TMP_ENV}/lib/python3.13/site-packages"
 TOP_PKGS_PATH: str = "../../data/results"
-#NUM_PKGS: int = 400 # for having 95% of confidence level with 5% of error
-NUM_PKGS: int = 1 # for having 95% of confidence level with 5% of error
-PYPI_API: str = "https://pypi.org/pypi/<package-name>/json"
-
-def get_dependencies_infos(pkg_name: str, pkg_version: str) -> tuple[int, int]:
-    # downloading wanted package
-    try:
-        subprocess.run(
-            [sys.executable, "-m", "pip", "install",
-             "-t", PACKAGES_PATH,
-             "-q",
-             "--no-cache-dir",
-             f"{pkg_name}<={pkg_version}"],
-            check=False  # don't raise on failure, your existing try/except handles it
-        )
-    except subprocess.CalledProcessError as e:
-        print(e)
+NUM_PKGS: int = 400 # for having 95% of confidence level with 5% of error
 
 def get_dependencies_infos(pkg_name: str) -> tuple[int, int]:
     # dependencies tree summary

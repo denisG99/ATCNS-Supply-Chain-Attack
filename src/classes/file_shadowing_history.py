@@ -277,8 +277,6 @@ class FileShadowingHistoty:
 
         #print(f"Tracking history of {self.__file_path} ...")
 
-        # TODO: comprimere resultati detector nel caso in cui siano sullo stesso nome
-
         for i, commit_hash in enumerate(list(reversed(self.__history.keys()))[: -1]):
             if self.__history[commit_hash]["shadowing"] == "true":
                 #print(f"\tCommit {i + 1}: {commit_hash}")
