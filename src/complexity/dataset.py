@@ -1,13 +1,11 @@
 import os
 import pathlib
 import random
-import re
 import shutil
 import subprocess
 import sys
 import json
 import ast
-import requests
 import pandas as pd
 
 from tqdm import tqdm
@@ -17,6 +15,8 @@ from radon.complexity import cc_visit
 from radon.visitors import Function, Class
 
 from classes.scope_graphv2 import ScopeGraph
+
+from utils.utils import get_version
 
 OUTPUT_DIR: str = "../../data/complexity"
 TMP_ENV: str = "./tmp/" # CHANGE if you want to have different name for environment
@@ -40,8 +40,7 @@ def get_dependencies_infos(pkg_name: str, pkg_version: str) -> tuple[int, int]:
     except subprocess.CalledProcessError as e:
         print(e)
 
-        return -1, -1
-
+def get_dependencies_infos(pkg_name: str) -> tuple[int, int]:
     # dependencies tree summary
     try:
         deptree_summary = json.loads(subprocess.run(
@@ -99,63 +98,18 @@ def get_max_scope_nesting(code: str) -> int:
         print(f"Error parsing the code: {e}")
         return -1
 
-def is_later_version(v1: str, v2: str) -> int:
-    """
-    :v1: first version to compare
-    :v2: second version to compare
-    :return: 1 if v1 is later than v2, -1 if v2 is later than v1, 0 if they are equal
-    """
-    # This will split both the versions by '.'
-    arr1 = v1.split(".")
-    arr2 = v2.split(".")
-    n = len(arr1)
-    m = len(arr2)
+def default_entry(data: dict, pkg: str, year: int) -> dict:
+    data["package"].append(pkg)
+    data["file"].append(None)
+    data["year"].append(year)
+    data["loc"].append(-1)
+    data["cyclomatic_complexity"].append(-1)
+    data["max_scope_nesting_level"].append(-1)
+    data["total_dependencies"].append(-1)
+    data["max_dependencies_depth"].append(-1)
 
-    # converts to integer from string
-    arr1 = [int(i) for i in arr1]
-    arr2 = [int(i) for i in arr2]
+    return data
 
-    # compares which list is bigger and fills
-    # smaller list with zero (for unequal delimiters)
-    if n > m:
-        for i in range(m, n):
-            arr2.append(0)
-    elif m > n:
-        for i in range(n, m):
-            arr1.append(0)
-
-    # returns 1 if version 1 is bigger and -1 if
-    # version 2 is bigger and 0 if equal
-    for i in range(len(arr1)):
-        if arr1[i] > arr2[i]:
-            return 1
-        elif arr2[i] > arr1[i]:
-            return -1
-    return 0
-
-def get_version(year: int, pkg: str) -> str:
-    """
-    Get the last version of a given year for a package
-
-    :year: year of interest
-    :pkg: package name
-    :return: version of the package for the given year
-    """
-    # retrive info about all package's releases for a specific package
-    releases: dict = requests.get(PYPI_API.replace("<package-name>", pkg)).json()["releases"]
-    last_version: str = "0.0.0"
-
-    for version in releases.keys():
-        try:
-            if bool(re.fullmatch(r"^\d+(?:\.\d+)*$", version)) and releases[version][0]["upload_time"].startswith(str(year)) and is_later_version(version, last_version) == 1:
-                last_version = version
-        except (IndexError, KeyError):
-            pass
-
-    if not last_version == "0.0.0":
-        return last_version
-    else:
-        return get_version(year - 1, pkg)
 
 if __name__ == "__main__":
     # dataset structure
