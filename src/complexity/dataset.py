@@ -25,7 +25,25 @@ PACKAGES_PATH: str = f"{TMP_ENV}/lib/python3.13/site-packages"
 TOP_PKGS_PATH: str = "../../data/results"
 NUM_PKGS: int = 400 # for having 95% of confidence level with 5% of error
 
-def get_dependencies_infos(pkg_name: str) -> tuple[int, int]:
+# NOTE: we need to download the package twice: when we want to analyze its dependencies and from the other case because there is some case where the package has different name inside the environment and the script doesn't find it
+
+def get_dependencies_infos(pkg_name: str, version: int) -> tuple[int, int]:
+    try:
+        subprocess.run(
+            [sys.executable, "-m", "pip", "install",
+             "-t", f"{PACKAGES_PATH}",
+             "-q",
+             "--no-cache-dir",
+             "--upgrade"
+             "--disable-pip-version-check",
+             f"{pkg}<={version}"],
+            check=False  # don't rise on failure, your existing try/except handles it
+        )
+    except (subprocess.CalledProcessError, KeyError, Exception) as e:
+        print(f"PIP error: {e}")
+
+        return -1, -1
+
     # dependency tree summary
     try:
         deptree_summary = json.loads(subprocess.run(
@@ -132,16 +150,21 @@ if __name__ == "__main__":
         del res
 
         for pkg in tqdm(pkgs_list, desc=f"Packages analysis({file})"):
+            #print(f"Package: {pkg}")
+            version = get_version(year, pkg)
+
             # download package
             try:
+                # second download of the package in a directory with the same name of the package to cope with the case in which the package has different name inside the environment
                 subprocess.run(
                     [sys.executable, "-m", "pip", "install",
-                     "-t", PACKAGES_PATH,
+                     "-t", f"{PACKAGES_PATH}/{pkg}",
                      "-q",
                      "--no-cache-dir",
+                     "--no-deps",
                      "--upgrade",
                      "--disable-pip-version-check",
-                     f"{pkg}<={get_version(year, pkg)}"],
+                     f"{pkg}<={year}"],
                     check=False  # don't rise on failure, your existing try/except handles it
                 )
             except (subprocess.CalledProcessError, KeyError, Exception) as e:
@@ -151,8 +174,9 @@ if __name__ == "__main__":
 
                 continue
             else:
-                deps_num, deptree_depth = get_dependencies_infos(pkg)
+                deps_num, deptree_depth = get_dependencies_infos(pkg, year)
 
+                # handles cases in which the package is not available, so pipdeptree fails to build the dependency tree
                 if deps_num == -1 and deptree_depth == -1:
                     data = default_entry(data, pkg, year)
 
@@ -160,7 +184,7 @@ if __name__ == "__main__":
 
                 for py_file in pathlib.Path(f"{PACKAGES_PATH}/{pkg}").glob("**/*.py"):  # takes only python files in all possible directories
                     data["package"].append(pkg)
-                    data["file"].append(f"./{'/'.join(str(py_file).split('/')[4:])}")
+                    data["file"].append(f"./{'/'.join(str(py_file).split('/')[5:])}")
                     data["year"].append(year)
                     data["loc"].append(get_loc(tokenize.open(py_file).read()))
                     data["cyclomatic_complexity"].append(get_cyclomatic_complexity(tokenize.open(py_file).read()))
@@ -168,9 +192,10 @@ if __name__ == "__main__":
                     data["total_dependencies"].append(deps_num)
                     data["max_dependencies_depth"].append(deptree_depth)
 
+                shutil.rmtree(f"{PACKAGES_PATH}/{pkg}", ignore_errors=True)
+
         # save dataset
         pd.DataFrame(data).to_csv(f"{OUTPUT_DIR}/complexity.csv", index=False)
 
         # deletion of temporary environment
         shutil.rmtree(TMP_ENV, ignore_errors=True)
-
