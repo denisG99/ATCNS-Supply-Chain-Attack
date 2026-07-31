@@ -64,13 +64,13 @@ def get_dependencies_infos(pkg_name: str, version: int) -> tuple[int, int]:
 
         return -1, -1
 
-def get_loc(code: str) -> int:
+def get_lloc(code: str) -> int:
     try:
-        return analyze(code).loc # TODO: valutare lloc (da effettive linee di codice contenti istruzioni) vs loc (number of line of code (istruzioni + commenti))
+        return analyze(code).lloc
     except Exception as e:
         print(f"LOC error: {e}")
 
-        return -1
+        return 0
 
 def get_cyclomatic_complexity(code: str) -> int:
     try:
@@ -78,7 +78,7 @@ def get_cyclomatic_complexity(code: str) -> int:
         code_cc_complexity = 0 # accumulator for cyclomatic complexity
 
         if len(cc_results) == 0:
-            return -1
+            return 0
 
         for res in cc_results:
             if isinstance(res, Function):
@@ -91,7 +91,7 @@ def get_cyclomatic_complexity(code: str) -> int:
     except SyntaxError as e:
         print(f"Cyclomatic complexity error: {e}")
 
-        return -1
+        return 0
 
 def get_max_scope_nesting(code: str) -> int:
     try:
@@ -105,15 +105,15 @@ def get_max_scope_nesting(code: str) -> int:
     except Exception as e:
         print(f"Error parsing the code: {e}")
 
-        return -1
+        return 0
 
 def default_entry(data: dict, pkg: str, year: int) -> dict:
     data["package"].append(pkg)
     data["file"].append(None)
     data["year"].append(year)
-    data["loc"].append(-1)
-    data["cyclomatic_complexity"].append(-1)
-    data["max_scope_nesting_level"].append(-1)
+    data["lloc"].append(0)
+    data["cyclomatic_complexity"].append(0)
+    data["max_scope_nesting_level"].append(0)
     data["total_dependencies"].append(-1)
     data["max_dependencies_depth"].append(-1)
 
@@ -126,7 +126,7 @@ if __name__ == "__main__":
         'package': [],
         'file': [],
         'year': [],
-        'loc': [],
+        'lloc': [],
         'cyclomatic_complexity': [],
         'max_scope_nesting_level': [],
         'total_dependencies': [],
@@ -186,7 +186,7 @@ if __name__ == "__main__":
                     data["package"].append(pkg)
                     data["file"].append(f"./{'/'.join(str(py_file).split('/')[5:])}")
                     data["year"].append(year)
-                    data["loc"].append(get_loc(tokenize.open(py_file).read()))
+                    data["lloc"].append(get_lloc(tokenize.open(py_file).read()))
                     data["cyclomatic_complexity"].append(get_cyclomatic_complexity(tokenize.open(py_file).read()))
                     data["max_scope_nesting_level"].append(get_max_scope_nesting(tokenize.open(py_file).read()))
                     data["total_dependencies"].append(deps_num)
