@@ -34,7 +34,7 @@ def get_dependencies_infos(pkg_name: str, version: int) -> tuple[int, int]:
              "-t", f"{PACKAGES_PATH}",
              "-q",
              "--no-cache-dir",
-             "--upgrade"
+             "--upgrade",
              "--disable-pip-version-check",
              f"{pkg}<={version}"],
             check=False  # don't rise on failure, your existing try/except handles it
