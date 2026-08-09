@@ -46,8 +46,3 @@ class Heuristics(ast.NodeVisitor):
             self.__results["exec_call"].append(node.lineno)
 
         self.generic_visit(node)
-
-if __name__ == "__main__":
-    heuristics_engine = Heuristics("../../yara/test/code.py")
-
-    print(heuristics_engine.get_results())
