@@ -23,7 +23,7 @@ OUTPUT_DIR: str = "../../data/complexity"
 TMP_ENV: str = "./tmp/" # CHANGE if you want to have different name for environment
 PACKAGES_PATH: str = f"{TMP_ENV}/lib/python3.13/site-packages"
 TOP_PKGS_PATH: str = "../../data/results"
-NUM_PKGS: int = 450 # for having 95% of confidence level with 5% of error
+NUM_PKGS: int = 500 # for having 95% of confidence level with 5% of error (should be at least 365 package to reach such leve of confidence)
 
 # NOTE: we need to download the package twice: when we want to analyze its dependencies and from the other case because there is some case where the package has different name inside the environment and the script doesn't find it
 
