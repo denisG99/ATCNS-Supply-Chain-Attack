@@ -88,16 +88,25 @@ rule overwrite_method_class{
     meta:
         description = "Detection variables swap inside a class. This way allow attacker to evade detector"
 
-    strings:
-        // Save original
-        $save = /[a-zA-Z_][a-zA-Z0-9_]*\s*=\s*self\.[a-zA-Z_][a-zA-Z0-9_]*/
-        // Function definition
-        $def_func = /def\s+[a-zA-Z_][a-zA-Z0-9_]*\s*\(.*\)\s*:/
-        // Overwrite self.method = function
-        $overwrite = /self\.[a-zA-Z_][a-zA-Z0-9_]*\s*=\s*[a-zA-Z_][a-zA-Z0-9_]*/
-        // Restore self.method = original
-        $restore = /self\.[a-zA-Z_][a-zA-Z0-9_]*\s*=\s*[a-zA-Z_][a-zA-Z0-9_]*/
+     strings:
+        $save    = /\b[_a-zA-Z][_a-zA-Z0-9]*\s*=\s*self\.[_a-zA-Z][_a-zA-Z0-9]*/
+        $nested  = /\bdef\s+[_a-zA-Z][_a-zA-Z0-9]*\s*\([^)]*\)\s*:/
+        $patch   = /\bself\.[_a-zA-Z][_a-zA-Z0-9]*\s*=\s*[_a-zA-Z][_a-zA-Z0-9]*/
+        $call    = /\bself\.[_a-zA-Z][_a-zA-Z0-9]*\s*\(/
+        $restore = /\bself\.[_a-zA-Z][_a-zA-Z0-9]*\s*=\s*original[_a-zA-Z0-9]*/
 
     condition:
-        $save and $def_func and $overwrite and $restore
+        $save and $nested and $patch and $call and $restore
+        and for any j in (1..#nested) : (
+            for any k in (1..#patch) : (
+                for any l in (1..#call) : (
+                    for any m in (1..#restore) : (
+                        @save[1] < @nested[j] and
+                        @nested[j] < @patch[k] and
+                        @patch[k] < @call[l] and
+                        @call[l] < @restore[m]
+                    )
+                )
+            )
+        )
 }
