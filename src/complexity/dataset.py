@@ -23,7 +23,7 @@ OUTPUT_DIR: str = "../../data/complexity"
 TMP_ENV: str = "./tmp/" # CHANGE if you want to have different name for environment
 PACKAGES_PATH: str = f"{TMP_ENV}/lib/python3.13/site-packages"
 TOP_PKGS_PATH: str = "../../data/results"
-NUM_PKGS: int = 400 # for having 95% of confidence level with 5% of error
+NUM_PKGS: int = 450 # for having 95% of confidence level with 5% of error
 
 # NOTE: we need to download the package twice: when we want to analyze its dependencies and from the other case because there is some case where the package has different name inside the environment and the script doesn't find it
 
@@ -119,6 +119,46 @@ def default_entry(data: dict, pkg: str, year: int) -> dict:
 
     return data
 
+def remove_package(pkg_name: str) -> None:
+    # retrive all dependencies of a given package
+    #try:
+        dependencies_tree = json.loads(subprocess.run(
+            [
+                "pipdeptree",
+                "--python", f"{TMP_ENV}bin/python3",
+                "--packages", pkg_name,
+                "-o", "json"],
+            check=False,
+            capture_output=True,
+            text=True
+        ).stdout)
+
+        print(dependencies_tree)
+
+        to_remove = [pkg_name]
+
+        for deps in dependencies_tree:
+            if len(deps["dependencies"]) == 0:
+                continue
+
+            for dep in deps["dependencies"]:
+                to_remove.append(dep["package_name"])
+
+        subprocess.run(
+            [
+                f"pip",
+                "--python", f"{TMP_ENV}bin/python3",
+                "uninstall",
+                "-y",
+                "--no-cache-dir",
+                *to_remove
+            ],
+            check=False
+            #capture_output=True
+        )
+    #except Exception as e:
+     #   print(f"Error removing package {pkg_name}: {e}")
+
 
 if __name__ == "__main__":
     # dataset structure
@@ -150,7 +190,7 @@ if __name__ == "__main__":
         del res
 
         for pkg in tqdm(pkgs_list, desc=f"Packages analysis({file})"):
-            #print(f"Package: {pkg}")
+            print(f"Package: {pkg}")
             version = get_version(year, pkg)
 
             # download package
@@ -193,6 +233,8 @@ if __name__ == "__main__":
                     data["max_dependencies_depth"].append(deptree_depth)
 
                 shutil.rmtree(f"{PACKAGES_PATH}/{pkg}", ignore_errors=True)
+            finally:
+                remove_package(pkg)
 
         # save dataset
         pd.DataFrame(data).to_csv(f"{OUTPUT_DIR}/complexity.csv", index=False)
