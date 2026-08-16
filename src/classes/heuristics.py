@@ -3,7 +3,7 @@ import ast
 from classes.result import Result
 from classes.scope_graphv2 import ScopeGraph
 
-class Heuristics(ast.NodeVisitor):
+class ASTHeuristics(ast.NodeVisitor):
     def __init__(self, code_path: str, scope_graph: ScopeGraph) -> None:
         self.__FILTERED_FUNCTIONS: list[str] = ["open", "Lock", "RLock", "TemporaryFile", "NamedTemporaryFile",
                                                 "TemporaryDirectory", "closing", "suppress", "redirect_stdout", "redirect_stderr",
