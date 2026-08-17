@@ -318,7 +318,3 @@ class Detector:
                 total_scopes += len(scopes_branch)
 
         return match_filter(inner_functions), total_scopes
-
-if __name__ == "__main__":
-    detector = Detector("../../PoC/PoC_class.py")
-    print(detector.shadowing_detection())
