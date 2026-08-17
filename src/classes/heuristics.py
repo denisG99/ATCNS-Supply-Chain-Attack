@@ -23,7 +23,7 @@ class ASTHeuristics(ast.NodeVisitor):
         self.visit(tree)
 
     def get_results(self) -> list[Result]:
-        return [Result(name, lines) for name, lines in self.__results.items()]
+        return [Result(name, lines) for name, lines in self.__results.items() if len(lines) > 0]
 
     def __track_scope(self, node: ast.FunctionDef|ast.AsyncFunctionDef|ast.Lambda|ast.ClassDef|ast.ListComp|ast.ExceptHandler) -> None:
         def get_scope_id(node: ast.FunctionDef | ast.AsyncFunctionDef | ast.Lambda | ast.ClassDef | ast.ListComp | ast.ExceptHandler) -> str:
