@@ -101,14 +101,14 @@ class ASTHeuristics(ast.NodeVisitor):
 
     # make detection of assignments that make a call of eval
     def visit_Assign(self, node: ast.Assign) -> None:
-        if isinstance(node.value, ast.Call) and node.value.func.id == "eval":
+        if isinstance(node.value, ast.Call) and isinstance(node.value.func, ast.Name) and node.value.func.id == "eval":
             self.__results["eval_call"].append(node.lineno)
 
         self.generic_visit(node)
 
     # detect exec function calls
     def visit_Expr(self, node: ast.Expr) -> None:
-        if isinstance(node.value, ast.Call) and node.value.func.id == "exec":
+        if isinstance(node.value, ast.Call) and isinstance(node.value.func, ast.Name) and node.value.func.id == "exec":
             self.__results["exec_call"].append(node.lineno)
 
         self.generic_visit(node)
