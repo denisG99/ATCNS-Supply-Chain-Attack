@@ -1,4 +1,5 @@
 import ast
+import tokenize
 
 from classes.result import Result
 from classes.scope_graphv2 import ScopeGraph
@@ -18,7 +19,17 @@ class ASTHeuristics(ast.NodeVisitor):
         self.__scope_graph: dict = scope_graph.get_graph()
         self.__scope_stack: list[str] = ["s0__main__"]
         self.__next_id: int = 1
-        tree = ast.parse(open(code_path, 'r').read())
+
+        try:
+            with tokenize.open(code_path) as f:
+                code = f.read()
+        except (SyntaxError, UnicodeDecodeError, LookupError):
+            # Fallback: attempt to read with UTF-8 and replace undecodable bytes.
+            # This keeps the pipeline running; files with severe encoding issues may still fail to parse.
+            with open(code_path, "r", encoding="utf-8", errors="replace") as f:
+                code = f.read()
+
+        tree = ast.parse(code)
 
         self.visit(tree)
 
