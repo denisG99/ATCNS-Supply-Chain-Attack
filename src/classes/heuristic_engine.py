@@ -59,15 +59,3 @@ class HeuristicEngine:
                 results.append(Result(name=match.rule, lines=self.__get_yara_matching_line(match)))
 
         return results
-
-if __name__ == "__main__":
-    import ast
-
-    tree = ast.parse(open("../../yara/samples/sample_class.py").read())
-
-    scope_graph = ScopeGraph()
-    scope_graph.visit(tree)
-
-    heuristic_engine = HeuristicEngine("../../yara/samples/sample_class.py",scope_graph)
-
-    print(heuristic_engine.rule_apply())
