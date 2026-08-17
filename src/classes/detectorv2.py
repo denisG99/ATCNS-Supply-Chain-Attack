@@ -3,8 +3,6 @@ import ast
 import re
 import tokenize
 
-import yara
-import os
 import numpy as np
 
 from classes.scope_graphv2 import ScopeGraph
