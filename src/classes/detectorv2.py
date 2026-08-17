@@ -9,6 +9,7 @@ import numpy as np
 
 from classes.scope_graphv2 import ScopeGraph
 from classes.result import Result
+from classes.heuristic_engine import HeuristicEngine
 
 class Detector:
     """
@@ -48,7 +49,7 @@ class Detector:
             tree = ast.parse(code)
 
             # building scope graph
-            self.__builder = ScopeGraph()
+            self.__builder: ScopeGraph|None = ScopeGraph()
             self.__builder.visit(tree)
 
             if not scope_graph_name == "":
@@ -57,6 +58,7 @@ class Detector:
             print(f"Error parsing the code: {e}")
             self.__builder = None
 
+        self.__heuristic_engine = HeuristicEngine(code_path, self.__builder, heuristic_path)
         #YARA engine initialization
         self.__rules = []
         for file in os.listdir(self.__heuristic_dir):
@@ -192,6 +194,7 @@ class Detector:
             duplication.extend(self.__filter_vars(detector(decls_combinations)))
             duplication.extend(detector(refs_combinations))
 
+            yara_results = self.__heuristic_engine.rule_apply()
             # YARA rule application
             if self.__use_yara:
                 for rule in self.__rules:
