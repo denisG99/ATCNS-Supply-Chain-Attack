@@ -58,13 +58,11 @@ class Detector:
             print(f"Error parsing the code: {e}")
             self.__builder = None
 
-        self.__heuristic_engine = HeuristicEngine(code_path, self.__builder, heuristic_path)
-        #YARA engine initialization
-        self.__rules = []
-        for file in os.listdir(self.__heuristic_dir):
-            self.__rules.append(yara.compile(f"{self.__heuristic_dir}/{file}"))
+        # YARA engine initialization
+        if self.__use_yara and self.__builder is not None:
+            self.__heuristic_engine = HeuristicEngine(code_path, self.__builder, heuristic_path)
 
-    def get_builder(self) -> ScopeGraph:
+    def get_builder(self) -> ScopeGraph|None:
         return self.__builder
 
     def __is_local_scope(self, scope: str) -> bool:
@@ -194,13 +192,8 @@ class Detector:
             duplication.extend(self.__filter_vars(detector(decls_combinations)))
             duplication.extend(detector(refs_combinations))
 
-            yara_results = self.__heuristic_engine.rule_apply()
             # YARA rule application
-            if self.__use_yara:
-                for rule in self.__rules:
-                    for match in rule.match(self.__code_path):
-                        yara_results.append(Result(name=match.rule, lines=self.__get_yara_matching_line(match)))
-
+            yara_results = self.__heuristic_engine.rule_apply()
         return duplication, yara_results
 
     def __filter_vars(self, lst: list) -> list:
