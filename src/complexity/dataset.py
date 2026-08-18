@@ -190,7 +190,6 @@ if __name__ == "__main__":
         del res
 
         for pkg in tqdm(pkgs_list, desc=f"Packages analysis({file})"):
-            print(f"Package: {pkg}")
             version = get_version(year, pkg)
 
             # download package
