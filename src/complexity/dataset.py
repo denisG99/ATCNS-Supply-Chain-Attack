@@ -133,8 +133,6 @@ def remove_package(pkg_name: str) -> None:
             text=True
         ).stdout)
 
-        print(dependencies_tree)
-
         to_remove = [pkg_name]
 
         for deps in dependencies_tree:
