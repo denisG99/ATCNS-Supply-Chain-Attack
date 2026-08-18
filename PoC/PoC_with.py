@@ -14,13 +14,12 @@ def override_function(target_module, func_name, new_func):
 def computation(a, b):
     return a ** b
 
+def main():
+    def malicious_computation(a, b):
+        print("I'm doing some malicious stuff! I'm so evil!")
 
-def malicious_computation(a, b):
-    print("I'm doing some malicious stuff! I'm so evil!")
+        return a ** b
 
-    return a ** b
-
-if __name__ == '__main__':
     # this tecnique is often use to mocking, testing and libraries override
     print(f"Benign computation {computation(2, 3)}")
 
@@ -28,3 +27,6 @@ if __name__ == '__main__':
         print(f"Malicious computation {computation(2, 3)}")
 
     print(f"Benign computation {computation(2, 3)}")
+
+if __name__ == '__main__':
+    main()
