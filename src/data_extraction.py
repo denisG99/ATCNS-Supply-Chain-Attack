@@ -12,7 +12,7 @@ from tqdm import tqdm
 
 from classes.detector import Detector
 
-#from utils.utils import get_version
+from utils.utils import get_version
 
 TEMP_DIR = "./tmp" # path to the temporary directory where the packages will be downloaded
 PKGS_DATA_DIR = "../data/top packages"  # path to the directory containing the top n packages names for each year
@@ -31,64 +31,6 @@ def get_checkpoint(json: dict) -> int:
     :return: index of the last package that has been analyzed
     """
     return len(json.keys())
-
-def is_later_version(v1: str, v2: str) -> int:
-    """
-    :v1: first version to compare
-    :v2: second version to compare
-    :return: 1 if v1 is later than v2, -1 if v2 is later than v1, 0 if they are equal
-    """
-    # This will split both the versions by '.'
-    arr1 = v1.split(".")
-    arr2 = v2.split(".")
-    n = len(arr1)
-    m = len(arr2)
-
-    # converts to integer from string
-    arr1 = [int(i) for i in arr1]
-    arr2 = [int(i) for i in arr2]
-
-    # compares which list is bigger and fills
-    # smaller list with zero (for unequal delimiters)
-    if n > m:
-        for i in range(m, n):
-            arr2.append(0)
-    elif m > n:
-        for i in range(n, m):
-            arr1.append(0)
-
-    # returns 1 if version 1 is bigger and -1 if
-    # version 2 is bigger and 0 if equal
-    for i in range(len(arr1)):
-        if arr1[i] > arr2[i]:
-            return 1
-        elif arr2[i] > arr1[i]:
-            return -1
-    return 0
-
-def get_version(year: int, pkg: str) -> str:
-    """
-    Get the last version of a given year for a package
-
-    :year: year of interest
-    :pkg: package name
-    :return: version of the package for the given year
-    """
-    # retrive info about all package's releases for a specific package
-    releases: dict = requests.get(PYPI_API.replace("<package-name>", pkg)).json()["releases"]
-    last_version: str = "0.0.0"
-
-    for version in releases.keys():
-        try:
-            if bool(re.fullmatch(r"^\d+(?:\.\d+)*$", version)) and releases[version][0]["upload_time"].startswith(str(year)) and is_later_version(version, last_version) == 1:
-                last_version = version
-        except (IndexError, KeyError):
-            pass
-
-    if not last_version == "0.0.0":
-        return last_version
-    else:
-        return get_version(year - 1, pkg)
 
 if __name__ == "__main__":
     for json_file in os.listdir(PKGS_DATA_DIR):
