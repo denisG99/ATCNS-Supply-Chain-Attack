@@ -1,3 +1,7 @@
+"""
+This PoC is based on the order of appearance. However, if statement doesn't constitute a new scope
+"""
+
 def computation():
     return 1 + sub_computation(2, 2)
 

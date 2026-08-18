@@ -1,3 +1,7 @@
+"""
+This PoC is based on the order of appearance. However, for statement doesn't constitute a new scope
+"""
+
 def computation(a, b):
     return a ** b
 
