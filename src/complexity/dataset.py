@@ -121,7 +121,7 @@ def default_entry(data: dict, pkg: str, year: int) -> dict:
 
 def remove_package(pkg_name: str) -> None:
     # retrive all dependencies of a given package
-    #try:
+    try:
         dependencies_tree = json.loads(subprocess.run(
             [
                 "pipdeptree",
@@ -153,11 +153,11 @@ def remove_package(pkg_name: str) -> None:
                 "--no-cache-dir",
                 *to_remove
             ],
-            check=False
-            #capture_output=True
+            check=False,
+            capture_output=True
         )
-    #except Exception as e:
-     #   print(f"Error removing package {pkg_name}: {e}")
+    except Exception as e:
+        print(f"Error removing package {pkg_name}: {e}")
 
 
 if __name__ == "__main__":

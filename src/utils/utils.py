@@ -7,7 +7,6 @@ from packaging.version import InvalidVersion, Version
 PYPI_API: str = "https://pypi.org/pypi/<package-name>/json"
 REQUEST_TIMEOUT_SECONDS: int = 20
 
-@lru_cache(maxsize=None)
 def get_pypi_releases(pkg: str) -> dict:
     """
     Retrieve all PyPI releases for a package.
@@ -17,7 +16,7 @@ def get_pypi_releases(pkg: str) -> dict:
     url = PYPI_API.replace("<package-name>", pkg)
 
     try:
-        response = requests.get(url, timeout=REQUEST_TIMEOUT_SECONDS)
+        response = requests.get(url)
         response.raise_for_status()
         payload = response.json()
     except requests.RequestException as e:
