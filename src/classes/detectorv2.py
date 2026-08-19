@@ -101,34 +101,6 @@ class Detector:
             elif self.__is_global_scope(scope):
                 print(f"Variable {decl_var} is declared in global scope ({scope})")
 
-    def __get_yara_matching_line(self, match) -> list[int]:
-        """
-        Extracts and returns the line numbers in the file where the provided YARA match patterns occur.
-
-        This method processes the code present in the file at the specified path and calculates
-        the line numbers corresponding to the offsets of matched patterns provided by the YARA
-        library. It reads the file content, determines the offset of each matching instance,
-        and translates the offset into line numbers by counting newline characters.
-
-        Parameters:
-            :param match (Match object):
-                A YARA Match object that contains information about matched patterns, including their string instance offsets.
-
-        :returns: list[int]:
-            A list of integers representing the line numbers in the file where the matched patterns occur.
-        """
-        with open(self.__code_path) as f:
-            code = f.read()
-
-        lines = []
-
-        for string in match.strings:
-            for instance in string.instances:
-                offset = instance.offset
-
-                lines.append(code[:offset].count('\n') + 1)
-        return lines
-
     def shadowing_detection(self) -> tuple[list, list]:
         """
         Detect the presence of shadowing in the program.

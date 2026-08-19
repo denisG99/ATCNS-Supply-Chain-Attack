@@ -133,15 +133,6 @@ class FileShadowingHistoty:
                 }
                 continue
 
-            """self.__history[commit_hash] = {
-                "author": self.__git_log.get_commit_author(commit_hash),
-                "datetime": self.__git_log.get_commit_datetime(commit_hash),
-                "shadowing": "true" if len(shadowing) > 0 or len(yara) > 0 else "false",
-                "shadowing_res": [{"name": result.get_name(),
-                                   "line": result.get_lines()} for result in shadowing],
-                "yara": [{"name": match.get_name(),
-                          "line": match.get_lines()} for match in yara]
-            }"""
             self.__history[commit_hash] = {
                 "author": self.__git_log.get_commit_author(commit_hash),
                 "datetime": self.__git_log.get_commit_datetime(commit_hash),

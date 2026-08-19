@@ -258,14 +258,3 @@ class ScopeGraph(ast.NodeVisitor):
                 graph.edge(scope, f"{scope_prefix}_ref_{ref[0]}")
 
         graph.render(f"scope-graphs/{name}.gv").replace('\\', '/')
-
-
-
-if __name__ == "__main__":
-    graph = ScopeGraph()
-
-    with open("../../yara/main.py", "r", encoding="utf-8") as source_file:
-        tree = ast.parse(source_file.read())
-
-    graph.visit(tree)
-    print(graph.get_graph())

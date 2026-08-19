@@ -1,7 +1,5 @@
 import requests
 
-from functools import lru_cache
-
 from packaging.version import InvalidVersion, Version
 
 PYPI_API: str = "https://pypi.org/pypi/<package-name>/json"
