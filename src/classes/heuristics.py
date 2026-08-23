@@ -5,6 +5,26 @@ from classes.result import Result
 from classes.scope_graphv2 import ScopeGraph
 
 class ASTHeuristics(ast.NodeVisitor):
+    """
+    Analyzes abstract syntax trees (AST) to identify and track specific
+    code patterns and behaviors such as 'with' statements, `eval`,
+    and `exec` calls.
+
+    This class serves the primary purpose of traversing Python source
+    code using the AST module and extracting specific heuristic patterns
+    from provided code. It processes these patterns in context to
+    help identify specific programming constructs and their usage.
+    The analysis supports use cases where scopes, statements, and
+    function invocations need to be inspected and recorded.
+
+    Attributes:
+        code_path: The file path to the Python source code presented
+            for analysis.
+        scope_graph: Represents the variable and function definitions,
+            along with their references, as extracted from the given
+            code base and computed via a `ScopeGraph` object.
+    """
+
     def __init__(self, code_path: str, scope_graph: ScopeGraph) -> None:
         self.__FILTERED_FUNCTIONS: list[str] = ["open", "Lock", "RLock", "TemporaryFile", "NamedTemporaryFile",
                                                 "TemporaryDirectory", "closing", "suppress", "redirect_stdout", "redirect_stderr",

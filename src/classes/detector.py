@@ -59,7 +59,7 @@ class Detector:
         for file in os.listdir(self.__heuristic_dir):
             self.__rules.append(yara.compile(f"{self.__heuristic_dir}/{file}"))
 
-    def get_builder(self) -> ScopeGraph:
+    def get_builder(self) -> ScopeGraph | None:
         return self.__builder
 
     def __is_local_scope(self, scope: str) -> bool:

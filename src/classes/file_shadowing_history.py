@@ -64,6 +64,26 @@ class FileShadowingHistoty:
         )
 
     def __parse_result(self, results: list, commit_hash: str, res_type: str) -> None:
+        """
+        Parses the provided results and updates the internal history data structure with
+        the extracted information.
+
+        This method iterates through a list of result objects and adds their data to the
+        history dictionary under the specified commit hash and result type. If a result
+        name does not exist in the history, it initializes an empty list for that name
+        before extending it with the result's lines.
+
+        Parameters:
+            :param results (list): A list of result objects, each expected to have methods
+                `get_name()` and `get_lines()` for retrieving its name and associated lines.
+            :param commit_hash (str): The unique identifier of the commit for which the results
+                are being parsed and stored.
+            :param res_type (str): The type/category of the results being processed, used to
+                separate different result groups in the history.
+
+        Returns:
+            None
+        """
         for result in results:
             if result.get_name() not in self.__history[commit_hash][res_type].keys():
                 self.__history[commit_hash][res_type][result.get_name()] = []

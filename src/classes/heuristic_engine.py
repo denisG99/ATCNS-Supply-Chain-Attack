@@ -1,15 +1,29 @@
 import yara
 import os
 
-from classes import result, scope_graph
 from classes.heuristics import ASTHeuristics
 from classes.scope_graphv2 import ScopeGraph
 from classes.result import Result
 
 class HeuristicEngine:
     """
-    YARA engine + custom heuristic engine based on AST and scope graph
+    HeuristicEngine is a hybrid analysis engine that combines YARA-based rules and AST-based
+    heuristics for scanning and analyzing code files.
+
+    This class is designed to facilitate custom heuristic-based code scanning by integrating YARA
+    rules with abstract syntax tree (AST) and scope graph analysis. It initializes a heuristic
+    engine from provided YARA rule files and generates results based on matches found either through
+    AST-based analysis or YARA rules.
+
+    Attributes:
+        __rules (list):
+            A private list of compiled YARA rule objects used for code analysis.
+        __code_path (str):
+            A private string representing the file path to the source code to be analyzed.
+        __ast_heuristics (ASTHeuristics):
+            A private instance of the ASTHeuristics class, used for AST and scope-graph-based analysis.
     """
+
     def __yara_engine_init(self, heuristic_path: str="./heuristics") -> None:
         for file in os.listdir(heuristic_path):
             self.__rules.append(yara.compile(f"{heuristic_path}/{file}"))
