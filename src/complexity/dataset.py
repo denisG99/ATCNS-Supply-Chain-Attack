@@ -201,7 +201,7 @@ if __name__ == "__main__":
                      "--no-deps",
                      "--upgrade",
                      "--disable-pip-version-check",
-                     f"{pkg}<={year}"],
+                     f"{pkg}<={version}"],
                     check=False  # don't rise on failure, your existing try/except handles it
                 )
             except (subprocess.CalledProcessError, KeyError, Exception) as e:
