@@ -107,8 +107,8 @@ if __name__ == "__main__":
             finally:
                 remove_package(pkg, TMP_ENV)
 
-                # save dataset
-            pd.DataFrame(data).to_csv(f"{OUTPUT_DIR}/bucket_complexity.csv", index=False)
+        # save dataset
+        pd.DataFrame(data).to_csv(f"{OUTPUT_DIR}/bucket_complexity.csv", index=False)
 
-            # deletion of temporary environment
-            shutil.rmtree(TMP_ENV, ignore_errors=True)
+        # deletion of temporary environment
+        shutil.rmtree(TMP_ENV, ignore_errors=True)
