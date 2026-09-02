@@ -5,19 +5,13 @@ import shutil
 import subprocess
 import sys
 import json
-import ast
 import pandas as pd
 import tokenize # use it to respect PEP 263 encoding declaration and handle non-UTF-8 files robustly
 
 from tqdm import tqdm
 
-from radon.raw import analyze
-from radon.complexity import cc_visit
-from radon.visitors import Function, Class
-
-from classes.scope_graphv2 import ScopeGraph
-
-from utils.utils import get_version
+from src.utils.utils import get_version
+from utils.utils import get_dependencies_infos, get_lloc, get_cyclomatic_complexity, get_max_scope_nesting, remove_package
 
 OUTPUT_DIR: str = "../../data/complexity"
 TMP_ENV: str = "./tmp/" # CHANGE if you want to have different name for environment
@@ -25,87 +19,6 @@ PACKAGES_PATH: str = f"{TMP_ENV}/lib/python3.13/site-packages"
 TOP_PKGS_PATH: str = "../../data/results"
 NUM_PKGS: int = 500 # for having 95% of confidence level with 5% of error (should be at least 365 package to reach such leve of confidence)
 
-# NOTE: we need to download the package twice: when we want to analyze its dependencies and from the other case because there is some case where the package has different name inside the environment and the script doesn't find it
-
-def get_dependencies_infos(pkg_name: str, version: int) -> tuple[int, int]:
-    try:
-        subprocess.run(
-            [sys.executable, "-m", "pip", "install",
-             "-t", f"{PACKAGES_PATH}",
-             "-q",
-             "--no-cache-dir",
-             "--upgrade",
-             "--disable-pip-version-check",
-             f"{pkg}<={version}"],
-            check=False  # don't rise on failure, your existing try/except handles it
-        )
-    except (subprocess.CalledProcessError, KeyError, Exception) as e:
-        print(f"PIP error: {e}")
-
-        return -1, -1
-
-    # dependency tree summary
-    try:
-        deptree_summary = json.loads(subprocess.run(
-            [
-                "pipdeptree",
-                 "--python", f"{TMP_ENV}bin/python3",
-                 "--packages", pkg_name,
-                 "--summary",
-                 "-o", "json"],
-            check=False,
-            capture_output = True,
-            text = True
-        ).stdout)
-
-        return deptree_summary["total_packages"], deptree_summary["max_depth"]
-    except (subprocess.CalledProcessError, json.decoder.JSONDecodeError) as e:
-        print(f"pipdeptree error: {e}")
-
-        return -1, -1
-
-def get_lloc(code: str) -> int:
-    try:
-        return analyze(code).lloc
-    except Exception as e:
-        print(f"LOC error: {e}")
-
-        return 0
-
-def get_cyclomatic_complexity(code: str) -> int:
-    try:
-        cc_results = cc_visit(code)
-        code_cc_complexity = 0 # accumulator for cyclomatic complexity
-
-        if len(cc_results) == 0:
-            return 0
-
-        for res in cc_results:
-            if isinstance(res, Function):
-                code_cc_complexity += res.complexity
-
-            if isinstance(res, Class):
-                code_cc_complexity += res.real_complexity
-
-        return code_cc_complexity
-    except SyntaxError as e:
-        print(f"Cyclomatic complexity error: {e}")
-
-        return 0
-
-def get_max_scope_nesting(code: str) -> int:
-    try:
-        tree = ast.parse(code)
-
-        # building scope graph
-        scope_graph = ScopeGraph()
-        scope_graph.visit(tree)
-
-        return scope_graph.length_longest_scope_chain()
-    except Exception as e:
-        print(f"Error parsing the code: {e}")
-
-        return 0
 
 def default_entry(data: dict, pkg: str, year: int) -> dict:
     data["package"].append(pkg)
@@ -118,45 +31,6 @@ def default_entry(data: dict, pkg: str, year: int) -> dict:
     data["max_dependencies_depth"].append(-1)
 
     return data
-
-def remove_package(pkg_name: str) -> None:
-    # retrive all dependencies of a given package
-    try:
-        dependencies_tree = json.loads(subprocess.run(
-            [
-                "pipdeptree",
-                "--python", f"{TMP_ENV}bin/python3",
-                "--packages", pkg_name,
-                "-o", "json"],
-            check=False,
-            capture_output=True,
-            text=True
-        ).stdout)
-
-        to_remove = [pkg_name]
-
-        for deps in dependencies_tree:
-            if len(deps["dependencies"]) == 0:
-                continue
-
-            for dep in deps["dependencies"]:
-                to_remove.append(dep["package_name"])
-
-        subprocess.run(
-            [
-                f"pip",
-                "--python", f"{TMP_ENV}bin/python3",
-                "uninstall",
-                "-y",
-                "--no-cache-dir",
-                *to_remove
-            ],
-            check=False,
-            capture_output=True
-        )
-    except Exception as e:
-        print(f"Error removing package {pkg_name}: {e}")
-
 
 if __name__ == "__main__":
     # dataset structure
@@ -211,7 +85,7 @@ if __name__ == "__main__":
 
                 continue
             else:
-                deps_num, deptree_depth = get_dependencies_infos(pkg, year)
+                deps_num, deptree_depth = get_dependencies_infos(pkg, version, PACKAGES_PATH, TMP_ENV)
 
                 # handles cases in which the package is not available, so pipdeptree fails to build the dependency tree
                 if deps_num == -1 and deptree_depth == -1:
@@ -231,7 +105,7 @@ if __name__ == "__main__":
 
                 shutil.rmtree(f"{PACKAGES_PATH}/{pkg}", ignore_errors=True)
             finally:
-                remove_package(pkg)
+                remove_package(pkg, TMP_ENV)
 
         # save dataset
         pd.DataFrame(data).to_csv(f"{OUTPUT_DIR}/complexity.csv", index=False)
