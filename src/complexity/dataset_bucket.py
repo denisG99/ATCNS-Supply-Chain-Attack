@@ -51,15 +51,15 @@ if __name__ == "__main__":
         'max_dependencies_depth': []
     }
 
-    # create temporary environment if needed
-    if not os.path.exists(TMP_ENV):
-        try:
-            subprocess.run(["python3", "-m", "venv", TMP_ENV], check=False)
-        except subprocess.CalledProcessError as e:
-            print(e)
-            sys.exit()  # create temporary environment if needed
-
     for bucket_id, bucket in enumerate(get_buckets(packages_data)[: NUM_CONSIDER_BUCKETS]):
+        # create temporary environment if needed
+        if not os.path.exists(TMP_ENV):
+            try:
+                subprocess.run(["python3", "-m", "venv", TMP_ENV], check=False)
+            except subprocess.CalledProcessError as e:
+                print(e)
+                sys.exit()
+
         for pkg in tqdm(bucket, desc=f"Bucket {bucket_id}"):
             version = get_version(2025, pkg) # here we have fixed year because we are interested only in 2025 results
 
