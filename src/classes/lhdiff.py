@@ -3,6 +3,7 @@ import tempfile
 import os
 
 from typing import Any
+from functools import lru_cache
 
 class LHDiff:
     """
@@ -49,6 +50,7 @@ class LHDiff:
 
         return mappings
 
+    @lru_cache
     def diff(self, repo_path: str, commit_left: str, commit_right: str, file_path: str, raw: bool=True) -> None | list[dict[str, int | None]] | str | Any:
         """
         Executes the lhdiff tool on a file across two commits and optionally parses the output.
