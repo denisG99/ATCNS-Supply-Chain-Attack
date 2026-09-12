@@ -162,8 +162,9 @@ class Detector:
             duplication.extend(self.__filter_vars(detector(decls_combinations)))
             duplication.extend(detector(refs_combinations))
 
-            # YARA rule application
-            yara_results = self.__heuristic_engine.rule_apply()
+            if self.__use_yara:
+                # YARA rule application
+                yara_results = self.__heuristic_engine.rule_apply()
         return duplication, yara_results
 
     def __filter_vars(self, lst: list) -> list:
