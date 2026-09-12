@@ -206,7 +206,14 @@ class FileShadowingHistoty:
                 data[res_name] = []
 
             for i in range(len(commits) - 1):
-                diff = tracker.diff("/".join(self.__file_path.split("/")[:-1]), commits[i], commits[i + 1], self.__file_path.split('/')[-1], raw=False)
+                try:
+                    diff = tracker.diff("/".join(self.__file_path.split("/")[:-1]), commits[i], commits[i + 1], self.__file_path.split('/')[-1], raw=False)
+                except Exception as e:
+                    print(
+                        f"Unable to diff {self.__file_path.split('/')[-1]} "
+                        f"between {commits[i]} and {commits[i + 1]}: {exc}"
+                    )
+                    diff = None
 
                 tracker_res.append(diff)
 
@@ -219,6 +226,11 @@ class FileShadowingHistoty:
 
                         if i >= len(tracker_res):
                             continue
+
+                        if tracker_res[i] is None:
+                            tracking_str += "?"
+                            data[res_name].append(tracking_str)
+                            continue
                     except ValueError:
                         print("Commit not found, we begin from the first commit")
                         i = 0
@@ -229,6 +241,10 @@ class FileShadowingHistoty:
                     next_step = line
 
                     while i < len(tracker_res):
+                        if tracker_res[i] is None:
+                            tracking_str += "?"
+                            break
+
                         try:
                             if tracker_res[i][next_step - 1]["right"] is None:
                                 # remove no more interesting element from memory (aka shadowing is not longer there)

@@ -80,20 +80,35 @@ class LHDiff:
         :raises: subprocess.CalledProcessError
             If any subprocess command fails during execution.
         """
-        def git_show(commit: str, path: str) -> str:
-            """Extract file content at a given commit."""
+        def git_show(commit: str, path: str) -> str|None:
+            """
+            Extract file content at a given commit.
+
+            Returns None when the file does not exist at the requested commit.
+            This can happen when tracking a file across commits before it was
+            created, after it was deleted, or before/after it was renamed.
+            """
             result = subprocess.run(
                 ["git", "-C", repo_path, "show", f"{commit}:./{path}"],
                 capture_output=True,
                 text=True,
-                check=True,
+                check=False,
             )
+
+            if result.returncode != 0:
+                return None
 
             return result.stdout
 
         # Get file contents at each commit
         left_content = git_show(commit_left, file_path)
         right_content = git_show(commit_right, file_path)
+
+        if left_content is None:
+            left_content = ""
+
+        if right_content is None:
+            right_content = ""
 
         # Write to temp files and call lhdiff
         with tempfile.NamedTemporaryFile(mode="w+", delete=False) as left_tmp, \
