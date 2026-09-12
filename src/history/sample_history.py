@@ -3,6 +3,7 @@ from classes.package_shadowing_history import PackageShadowingHistory
 import json
 import random
 import os
+import shutil
 
 from tqdm import tqdm
 
@@ -55,3 +56,4 @@ if __name__ == "__main__":
             continue
 
     json.dump(package_history, open(f"{HISTORY_OUTPUT_DIR}/{FILE_NAME}", "w"), indent=4)
+    shutil.rmtree("./tmp", ignore_errors=True)
