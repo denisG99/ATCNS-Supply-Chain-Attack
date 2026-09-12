@@ -65,9 +65,10 @@ class Memory:
         if exists:
             self.__memory[key][idx]["lifetime"] -= 1
 
-    def decrease_lifetime_by_key(self, key: str) -> None:
-        for entry in self.__memory[key]:
-            self.decrease_instance_lifetime(key, entry["line_tracker"])
+    def decrease_lifetime(self) -> None:
+        for key in self.__memory:
+            for entry in self.__memory[key]:
+                self.decrease_instance_lifetime(key, entry["line_tracker"])
 
     def remove_elem(self, key: str, tracker: str) -> dict | None:
         exists, idx = self.is_stored(key, tracker)
@@ -76,14 +77,14 @@ class Memory:
             return self.__memory[key].pop(idx)
         return None
 
-    def clean_memory_by_key(self, key: str) -> list:
-       # for entry in self.__memory[key]:
-        #    print(entry)
+    def clean_memory(self) -> list:
+        to_remove = []
 
-        to_remove = [entry for entry in self.__memory[key] if entry["lifetime"] <= 0]
+        for key in self.__memory.keys():
+            to_remove.extend([(key, entry) for entry in self.__memory[key] if entry["lifetime"] <= 0])
 
-        for elem in to_remove:
-            self.remove_elem(key, elem["line_tracker"])
+            for elem in to_remove:
+                self.remove_elem(key, elem[1]["line_tracker"])
 
         return to_remove
 
@@ -96,9 +97,10 @@ if __name__ == "__main__":
 
     print(memory.get_memory())
 
-    memory.decrease_lifetime_by_key("a")
-    memory.decrease_lifetime_by_key("a")
-    memory.decrease_lifetime_by_key("a")
+    memory.decrease_lifetime()
+    memory.decrease_lifetime()
+    memory.decrease_lifetime()
 
-    memory.clean_memory_by_key("a")
+    print(memory.clean_memory())
+
     print(memory.get_memory())

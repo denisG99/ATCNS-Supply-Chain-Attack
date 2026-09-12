@@ -3,6 +3,7 @@ from subprocess import CompletedProcess
 from classes.gitlog_parser import GitLogParser
 from classes.detectorv2 import Detector
 from classes.lhdiff import LHDiff
+from classes.memory import Memory
 
 import subprocess
 import os
@@ -29,7 +30,7 @@ class FileShadowingHistoty:
         self.__file_path: str = file_path
         self.__heuristic_path: str = heuristic_path
         self.__history: dict = {}
-        self.__memory: list = [] #list that works as memory to save the already seen results and to understand when the result doesn't still anymore within the results
+        self.__memory: Memory = Memory()
 
     def get_history(self) -> dict:
         return self.__history
@@ -235,8 +236,6 @@ class FileShadowingHistoty:
                         print("Commit not found, we begin from the first commit")
                         i = 0
 
-                    # TODO: check if it is None or not
-                    #print(tracker_res[i][line - 1]["left"], end="->")
                     tracking_str += f"{tracker_res[i][line - 1]['left']}->"
                     next_step = line
 
@@ -249,15 +248,13 @@ class FileShadowingHistoty:
                             if tracker_res[i][next_step - 1]["right"] is None:
                                 # remove no more interesting element from memory (aka shadowing is not longer there)
                                 try:
-                                    self.__memory.remove(res_name)
+                                    tracking_str += "_"
+
+                                    self.__memory.add(res_name, tracking_str)
+                                    break
                                 except ValueError:
                                     pass
-                                finally:
-                                    #print("_")
-                                    tracking_str += "_"
-                                    break
                         except TypeError:  # handling the case in which lhdiff gives some error
-                            #print("?")
                             tracking_str += "?"
                             break
 
@@ -265,63 +262,31 @@ class FileShadowingHistoty:
                         tracking_str += f"{next_step}->"
                         i += 1
 
-                        #print(next_step, end="->")
-
                     if i >= len(tracker_res):
-                        tracking_str += f"..."
-                        #print("...")  # we reach the end of commit history and shadowing still there
-                        #print(f"Shadowing on {res_name} still there\n\n")
+                        tracking_str += f"..." # we reach the end of commit history and shadowing still there
 
                     data[res_name].append(tracking_str)
 
                 return data
 
-    def __memory_remove_elems(self, current_res: dict) -> list:
-        """
-        Works as a pop, so it removes elements from memory that are no longer needed based on the current result, remove
-        them form memory and get them as output.
-
-        Parameters:
-            :param current_res: list[dict]
-                list containing the result of the detector
-
-        :return: list[str] list of elements that are no longer needed (already removed from the memory). Such results can be
-        interpreted as removed shadowing
-
-        """
-        #if not bool(intesection := set(self.__memory) & set([result["name"] for result in current_res])): # check if the set is empty
-        if not bool(intesection := set(self.__memory) & set(current_res.keys())): # check if the set is empty
-            return []
-
-        to_remove = list(set(self.__memory) - intesection)
-
-        # remove elem from memory
-        for elem in to_remove:
-            self.__memory.remove(elem)
-
-        return to_remove
-
-    # TODO: fix memory handling -> come risultato in commit successivi dove non ci sono stati combiamenti appaiono stessi risultati della commit precendente
     def __tracking(self, commit: str, target: str, data: dict) -> dict:
-        # update memory removing the results that are no longer needed
-        excluded: list = self.__memory_remove_elems(self.__history[commit][target])
-        # TODO: fix caso in cui in excluded ci sono elementi che non sono mai stati visti, aggiungendo elemento a lista
-        if len(excluded) > 0:
-            for elem in excluded:
-                #print(f"Shadowing on {elem} was removed on {commit} by {self.__history[commit]['author']} at {self.__history[commit]['datetime']}\n\n")
-                data["what_remove"].append(elem)
-
         for key in self.__history[commit][target].keys():
-            if key in self.__memory:
-                continue
-
-            #print(f"Shadowing on {match['name']} was introduced on {commit} by {self.__history[commit]['author']} at {self.__history[commit]['datetime']}")
+            # handle shadowing introduction
             data["what_introduce"].append(key)
-            # add unseen element to memory
-            self.__memory.append(key)
-
-            #print(f"\tTracking {match['name']}: ", end="")
             data["tracking_strings"] = self.__get_lines_history(self.__history[commit][target][key], key, data["tracking_strings"], commit)
+
+            # based on the fact that the tracking is on contiguous commit, once we add an entry at every successive commit, the lifetime associated with all entry of key decrease
+            self.__memory.decrease_lifetime()
+
+            #handle shadowing removal
+            to_remove = self.__memory.clean_memory()
+
+            if len(to_remove) > 0:
+                for var_id, elem in to_remove:
+                    if var_id not in data["what_remove"]:
+                        data["what_remove"][var_id] = []
+
+                    data["what_remove"][var_id].append(elem["line_tracker"])
 
         return data
 
@@ -329,8 +294,6 @@ class FileShadowingHistoty:
         data_aux = {
             'commits' : {}
         }
-
-        #print(f"Tracking history of {self.__file_path} ...")
 
         for i, commit_hash in enumerate(list(reversed(self.__history.keys()))[: -1]):
             if self.__history[commit_hash]["shadowing"] == "true":
@@ -340,7 +303,7 @@ class FileShadowingHistoty:
                     "who" : self.__history[commit_hash]["author"],
                     "when" : self.__history[commit_hash]["datetime"],
                     "what_introduce":[],
-                    "what_remove" : [],
+                    "what_remove" : {},
                     "tracking_strings": {}
                 }
 
@@ -357,7 +320,7 @@ class FileShadowingHistoty:
                 "who": self.__history[last_hash]["author"],
                 "when": self.__history[last_hash]["datetime"],
                 "what_introduce": [],
-                "what_remove": [],
+                "what_remove": {},
                 "tracking_strings": {}
             }
 
