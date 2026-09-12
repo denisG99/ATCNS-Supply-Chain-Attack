@@ -211,7 +211,7 @@ class FileShadowingHistoty:
                 except Exception as e:
                     print(
                         f"Unable to diff {self.__file_path.split('/')[-1]} "
-                        f"between {commits[i]} and {commits[i + 1]}: {exc}"
+                        f"between {commits[i]} and {commits[i + 1]}: {e}"
                     )
                     diff = None
 
