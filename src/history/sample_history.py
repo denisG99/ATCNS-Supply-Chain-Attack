@@ -54,6 +54,11 @@ if __name__ == "__main__":
 
             json.dump(package_history, open(f"{HISTORY_OUTPUT_DIR}/{FILE_NAME}", "w"), indent=4)
             continue
+        except Exception as e:
+            print(f"Failed to analyze package {pkg_name}: {e}")
+
+            json.dump(package_history, open(f"{HISTORY_OUTPUT_DIR}/{FILE_NAME}", "w"), indent=4)
+            continue
 
     json.dump(package_history, open(f"{HISTORY_OUTPUT_DIR}/{FILE_NAME}", "w"), indent=4)
     shutil.rmtree("./tmp", ignore_errors=True)
