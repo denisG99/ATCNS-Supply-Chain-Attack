@@ -57,12 +57,15 @@ class Memory:
             self.__memory[key] = []
 
         if not self.is_stored(key, tracker)[0]:
-            self.__memory[key].append({"line_tracker": tracker, "lifetime": len(tracker.split("->"))})
+            if tracker.endswith("_"):
+                self.__memory[key].append({"line_tracker": tracker, "lifetime": len(tracker.split("->"))})
+            else:
+                self.__memory[key].append({"line_tracker": tracker, "lifetime": -1}) # entry has infinite lifetime
 
     def decrease_instance_lifetime(self, key: str, tracker: str) -> None:
         exists, idx = self.is_stored(key, tracker)
 
-        if exists:
+        if exists and self.__memory[key][idx]["lifetime"] > 0:
             self.__memory[key][idx]["lifetime"] -= 1
 
     def decrease_lifetime(self) -> None:
@@ -73,7 +76,7 @@ class Memory:
     def remove_elem(self, key: str, tracker: str) -> dict | None:
         exists, idx = self.is_stored(key, tracker)
 
-        if exists and self.__memory[key][idx]["lifetime"] <= 0:
+        if exists and self.__memory[key][idx]["lifetime"] == 0:
             return self.__memory[key].pop(idx)
         return None
 
@@ -81,7 +84,7 @@ class Memory:
         to_remove = []
 
         for key in self.__memory.keys():
-            to_remove.extend([(key, entry) for entry in self.__memory[key] if entry["lifetime"] <= 0])
+            to_remove.extend([(key, entry) for entry in self.__memory[key] if entry["lifetime"] == 0])
 
             for elem in to_remove:
                 self.remove_elem(key, elem[1]["line_tracker"])
@@ -91,12 +94,13 @@ class Memory:
 
 if __name__ == "__main__":
     memory = Memory()
-    memory.add("a", "a->b->c")
-    memory.add("a", "1->2->3")
-    memory.add("b", "a->b->c")
+    memory.add("a", "a->b->c->_")
+    memory.add("a", "1->2->3->...")
+    memory.add("b", "a->b->c->?")
 
     print(memory.get_memory())
 
+    memory.decrease_lifetime()
     memory.decrease_lifetime()
     memory.decrease_lifetime()
     memory.decrease_lifetime()

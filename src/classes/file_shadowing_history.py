@@ -11,7 +11,7 @@ import json
 
 TEMP_FILE = "./tmp" # path of a temporary file containing the code to analyze
 
-class FileShadowingHistoty:
+class FileShadowingHistory:
     """
     Class whose goal is to build the history of shadowing over time of a given file
     """
@@ -250,12 +250,14 @@ class FileShadowingHistoty:
                                 try:
                                     tracking_str += "_"
 
-                                    self.__memory.add(res_name, tracking_str)
+                                    #self.__memory.add(res_name, tracking_str)
                                     break
                                 except ValueError:
                                     pass
                         except TypeError:  # handling the case in which lhdiff gives some error
                             tracking_str += "?"
+
+                            #self.__memory.add(res_name, tracking_str)
                             break
 
                         next_step = tracker_res[i][next_step - 1]["right"]
@@ -265,6 +267,7 @@ class FileShadowingHistoty:
                     if i >= len(tracker_res):
                         tracking_str += f"..." # we reach the end of commit history and shadowing still there
 
+                    #self.__memory.add(res_name, tracking_str)
                     data[res_name].append(tracking_str)
 
                 return data
@@ -272,8 +275,19 @@ class FileShadowingHistoty:
     def __tracking(self, commit: str, target: str, data: dict) -> dict:
         for key in self.__history[commit][target].keys():
             # handle shadowing introduction
-            data["what_introduce"].append(key)
-            data["tracking_strings"] = self.__get_lines_history(self.__history[commit][target][key], key, data["tracking_strings"], commit)
+            tracking_str = self.__get_lines_history(self.__history[commit][target][key], key, data["tracking_strings"], commit)
+
+            if tracking_str is not None:
+                for track in tracking_str[key]:
+                    print(self.__memory.is_stored(key, track)[0])
+
+                    if not self.__memory.is_stored(key, track)[0]:
+                        data["what_introduce"].append(key)
+                        self.__memory.add(key, track)
+            else:
+                data["what_introduce"].append(key)
+
+            data["tracking_strings"] = tracking_str
 
             # based on the fact that the tracking is on contiguous commit, once we add an entry at every successive commit, the lifetime associated with all entry of key decrease
             self.__memory.decrease_lifetime()

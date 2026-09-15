@@ -4,7 +4,7 @@ import requests
 import subprocess
 import re
 
-from classes.file_shadowing_history import FileShadowingHistoty
+from classes.file_shadowing_history import FileShadowingHistory
 
 PYPI_API: str = "https://pypi.org/pypi/<package-name>/json"
 TEMP_PATH: str = "./tmp"
@@ -62,7 +62,7 @@ class PackageShadowingHistory:
         return git_log.stdout
 
     def __file_history(self, filename: str, until: str) -> dict:
-        file_history = FileShadowingHistoty(self.__get_gitlog(filename, until), filename, self.__heuristic_path)
+        file_history = FileShadowingHistory(self.__get_gitlog(filename, until), filename, self.__heuristic_path)
         file_history.build()
 
         return file_history.get_file_history()
