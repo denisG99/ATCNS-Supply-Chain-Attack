@@ -1,8 +1,6 @@
 import pandas as pd
 import json
 
-from itertools import compress
-
 OUTPUT_DIR = "../../data/history/dataset"
 
 def normalize_track_suffixes(track) -> tuple|str:
@@ -54,7 +52,6 @@ if __name__ == '__main__':
                     #print(file + " > " + commit + " > " + f"{commit_data['tracking_strings']}")
 
                     for elem in commit_data["what_introduce"]:
-                        # TODO: gestire il caso in cui l'elemento sia anocra presente --> trovare modo già da sistema di memoria
                         if commit_data["tracking_strings"] is None:
                             elem_occurences = 1
                             data['line_tracking'].append(None)
