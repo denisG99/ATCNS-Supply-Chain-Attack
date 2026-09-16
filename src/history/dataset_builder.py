@@ -55,7 +55,6 @@ if __name__ == '__main__':
                         if commit_data["tracking_strings"] is None:
                             elem_occurences = 1
                             data['line_tracking'].append(None)
-
                         else:
                             elem_occurences = len(commit_data["tracking_strings"][elem])
                             data['line_tracking'].extend(commit_data["tracking_strings"][elem])
@@ -89,5 +88,5 @@ if __name__ == '__main__':
                 data = aux_df.to_dict('list')
                 del aux_df
 
-    # save dataset
-    pd.DataFrame(data).to_csv(f"{OUTPUT_DIR}/test.csv", index=False)
+    # save dataset, we need to remove duplicates, because during the rearrangemet of the data into dataframe, scripts introduce some duplicates
+    pd.DataFrame(data).drop_duplicates().to_csv(f"{OUTPUT_DIR}/test.csv", index=False)
