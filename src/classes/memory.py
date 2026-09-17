@@ -90,21 +90,3 @@ class Memory:
                 self.remove_elem(key, elem[1]["line_tracker"])
 
         return to_remove
-
-
-if __name__ == "__main__":
-    memory = Memory()
-    memory.add("a", "a->b->c->_")
-    memory.add("a", "1->2->3->...")
-    memory.add("b", "a->b->c->?")
-
-    print(memory.get_memory())
-
-    memory.decrease_lifetime()
-    memory.decrease_lifetime()
-    memory.decrease_lifetime()
-    memory.decrease_lifetime()
-
-    print(memory.clean_memory())
-
-    print(memory.get_memory())
