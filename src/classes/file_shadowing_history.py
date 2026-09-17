@@ -273,34 +273,33 @@ class FileShadowingHistory:
                 return data
 
     def __tracking(self, commit: str, target: str, data: dict) -> dict:
+        # based on the fact that the tracking is on contiguous commit, once we add an entry at every successive commit, the lifetime associated with all entry of key decrease
+        self.__memory.decrease_lifetime()
+
         for key in self.__history[commit][target].keys():
             # handle shadowing introduction
             tracking_str = self.__get_lines_history(self.__history[commit][target][key], key, data["tracking_strings"], commit)
 
             if tracking_str is not None:
                 for track in tracking_str[key]:
-                    print(self.__memory.is_stored(key, track)[0])
-
                     if not self.__memory.is_stored(key, track)[0]:
                         data["what_introduce"].append(key)
                         self.__memory.add(key, track)
             else:
                 data["what_introduce"].append(key)
 
-            data["tracking_strings"] = tracking_str
+            if not len(data["what_introduce"]) > 0:
+                data["tracking_strings"] = tracking_str
 
-            # based on the fact that the tracking is on contiguous commit, once we add an entry at every successive commit, the lifetime associated with all entry of key decrease
-            self.__memory.decrease_lifetime()
+        #handle shadowing removal
+        to_remove = self.__memory.clean_memory()
 
-            #handle shadowing removal
-            to_remove = self.__memory.clean_memory()
+        if len(to_remove) > 0:
+            for var_id, elem in to_remove:
+                if var_id not in data["what_remove"]:
+                    data["what_remove"][var_id] = []
 
-            if len(to_remove) > 0:
-                for var_id, elem in to_remove:
-                    if var_id not in data["what_remove"]:
-                        data["what_remove"][var_id] = []
-
-                    data["what_remove"][var_id].append(elem["line_tracker"])
+                data["what_remove"][var_id].append(elem["line_tracker"])
 
         return data
 
