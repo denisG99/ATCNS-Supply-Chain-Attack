@@ -92,14 +92,22 @@ if __name__ == "__main__":
 
                     continue
 
-                for py_file in pathlib.Path(f"{PACKAGES_PATH}/{pkg}").glob(
-                        "**/*.py"):  # takes only python files in all possible directories
+                for py_file in pathlib.Path(f"{PACKAGES_PATH}/{pkg}").glob("**/*.py"):  # takes only python files in all possible directories
+                    try:
+                        with tokenize.open(py_file) as f:
+                            code = f.read()
+                    except (SyntaxError, UnicodeDecodeError, LookupError):
+                        # Fallback: attempt to read with UTF-8 and replace undecodable bytes.
+                        # This keeps the pipeline running; files with severe encoding issues may still fail to parse.
+                        with open(py_file, "r", encoding="utf-8", errors="replace") as f:
+                            code = f.read()
+
                     data["package"].append(pkg)
                     data["file"].append(f"./{'/'.join(str(py_file).split('/')[5:])}")
                     data["bucket_id"].append(bucket_id)
-                    data["lloc"].append(get_lloc(tokenize.open(py_file).read()))
-                    data["cyclomatic_complexity"].append(get_cyclomatic_complexity(tokenize.open(py_file).read()))
-                    data["max_scope_nesting_level"].append(get_max_scope_nesting(tokenize.open(py_file).read()))
+                    data["lloc"].append(get_lloc(code))
+                    data["cyclomatic_complexity"].append(get_cyclomatic_complexity(code))
+                    data["max_scope_nesting_level"].append(get_max_scope_nesting(code))
                     data["total_dependencies"].append(deps_num)
                     data["max_dependencies_depth"].append(deptree_depth)
 
