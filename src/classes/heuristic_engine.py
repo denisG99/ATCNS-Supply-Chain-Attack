@@ -1,6 +1,7 @@
 import yara
 import os
 
+from classes import scope_graph
 from classes.heuristics import ASTHeuristics
 from classes.scope_graphv2 import ScopeGraph
 from classes.result import Result
@@ -64,6 +65,32 @@ class HeuristicEngine:
                 lines.append(code[:offset].count('\n') + 1)
         return lines
 
+    @staticmethod
+    def __filter_FP(arr: list[Result]) -> list[Result]:
+        """
+        filtering results removing FP:
+            * patch_decorator_import & patch_decorator_import;
+            * contextmanager_import & contextmanager_usage & with_statement;
+            * only with_statement
+
+        Parameters:
+            :param arr (list):
+                list of results
+
+        Returns:
+            :return (list):
+                a filtered list of results
+        """
+        name_aux = [elem.get_name() for elem in arr]
+
+        if "patch_decorator_import" not in name_aux or "patch_decorator_usage" not in name_aux:
+            arr = [elem for elem in arr if elem.get_name() != "patch_decorator_import" and elem.get_name() != "patch_decorator_usage"]
+
+        if "contextmanager_import" not in name_aux or "contextmanager_usage" not in name_aux:
+            arr = [elem for elem in arr if elem.get_name() != "contextmanager_import" and elem.get_name() != "contextmanager_usage"]
+
+        return arr
+
     def rule_apply(self) -> list[Result]:
         results: list[Result] = self.__ast_heuristics.get_results()
 
@@ -72,4 +99,15 @@ class HeuristicEngine:
             for match in rule.match(self.__code_path):
                 results.append(Result(name=match.rule, lines=self.__get_yara_matching_line(match)))
 
-        return results
+        return self.__filter_FP(results)
+
+if __name__ == "__main__":
+    from classes.scope_graphv2 import ScopeGraph
+    import ast
+
+    tree = ast.parse(open("../../PoC/PoC_with.py").read())
+
+    scope_graph = ScopeGraph()
+    engine = HeuristicEngine("../../PoC/PoC_with.py", scope_graph)
+
+    print(engine.rule_apply())
