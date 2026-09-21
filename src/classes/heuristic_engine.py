@@ -100,14 +100,3 @@ class HeuristicEngine:
                 results.append(Result(name=match.rule, lines=self.__get_yara_matching_line(match)))
 
         return self.__filter_FP(results)
-
-if __name__ == "__main__":
-    from classes.scope_graphv2 import ScopeGraph
-    import ast
-
-    tree = ast.parse(open("../../PoC/PoC_with.py").read())
-
-    scope_graph = ScopeGraph()
-    engine = HeuristicEngine("../../PoC/PoC_with.py", scope_graph)
-
-    print(engine.rule_apply())
