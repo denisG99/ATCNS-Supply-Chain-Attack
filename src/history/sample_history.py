@@ -8,10 +8,10 @@ import shutil
 from tqdm import tqdm
 
 HISTORY_OUTPUT_DIR = "../../data/history"
-NUM_PACKAGES = 1 # for having 95% of confidence level with 5% of error (400 pkgs)
+NUM_PACKAGES = 400 # for having 95% of confidence level with 5% of error (400 pkgs)
 PACKAGE_LIST_PATH = "../../data/top packages/top50000_2025.json"
 FILE_NAME = "samples.json"
-SAVE_FREQUENCY = 10 # how many packages will be analyzed before saving the results
+SAVE_FREQUENCY = 3 # how many packages will be analyzed before saving the results
 UNTIL = "2025-12-31"
 
 def get_checkpoint(json: dict) -> int:
